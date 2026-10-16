@@ -9,7 +9,7 @@ import { computeStats, syncHp, type Stats } from './stats';
 import { drawCards } from './deck';
 import { addSpellRecord } from './spellstore';
 import { dispel, recheck, recheckSquare } from './spells';
-import { canEnterSquare } from './movement';
+import { canEnterSquare, entryBlocked } from './movement';
 import { checkFatal, groupCanEnter } from './terrainfx';
 import { RULES } from './rules';
 import { changeNation, flipGroup, joinGroup, placeRecruit, summonGroup } from './units';
@@ -87,7 +87,7 @@ export interface EventContext extends QueryContext {
   setMovesTwice(groupId: number, value?: boolean): void;
   /** Directions the group could step into right now (square exists, terrain and structure rules allow it). */
   legalDirections(groupId: number): Dir[];
-  /** Whether the group's minions can all enter `pos` (square exists and terrain allows it). */
+  /** Whether the group's minions can all enter `pos` (square exists, terrain allows it, no spell forbids it). */
   canEnter(groupId: number, pos: Pos): boolean;
   /** Relocate a group to an empty square without moving through the squares between. Does nothing if occupied. */
   moveGroup(groupId: number, pos: Pos): void;
@@ -237,7 +237,7 @@ export function makeCtx(e: Engine, spell: ActiveSpell, event?: GameEvent): Event
     legalDirections: (id) => legalDirs(e, id),
     canEnter: (id, pos) => {
       const g = e.state.groups[id];
-      return !!g && e.state.cells.includes(key(pos)) && groupCanEnter(e, g, e.state.terrain[key(pos)]);
+      return !!g && e.state.cells.includes(key(pos)) && groupCanEnter(e, g, e.state.terrain[key(pos)]) && !entryBlocked(e, g, pos);
     },
     moveGroup: (id, pos) => {
       const s = e.state;

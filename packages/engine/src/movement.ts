@@ -1,9 +1,9 @@
 import { distance2, key, parseKey, samePos, step } from './board';
-import { makeBotContext } from './ctx';
+import { makeBotContext, makeQuery } from './ctx';
 import { killMinion } from './death';
 import type { Engine } from './engine';
 import { dispatch } from './events';
-import { groupsAt, hostile, minionsOf, ownerRank, sequence, structureAt } from './query';
+import { groupsAt, hostile, isOffBoard, minionsOf, ownerRank, sequence, structureAt } from './query';
 import { RULES } from './rules';
 import { recheck } from './spells';
 import { groupCanEnter } from './terrainfx';
@@ -34,12 +34,23 @@ function botMove(e: Engine, g: Group): Dir | null {
   return card?.bot ? card.bot(makeBotContext(e, g.owner), g.id) : null;
 }
 
+/** True when an active spell forbids this group from entering `dest`. Spells on off-board hosts are suspended. */
+export function entryBlocked(e: Engine, g: Group, dest: Pos): boolean {
+  const s = e.state;
+  for (const sp of s.spells) {
+    const fn = e.cards[sp.cardId]?.blocksEntry;
+    if (fn && !isOffBoard(s, sp.host) && fn(makeQuery(e, sp.owner), sp, g.id, dest)) return true;
+  }
+  return false;
+}
+
 export function canEnterSquare(e: Engine, g: Group, dest: Pos): boolean {
   const s = e.state;
   if (!s.cells.includes(key(dest))) return false;
   if (!groupCanEnter(e, g, s.terrain[key(dest)])) return false;
   if (!groupCanEnter(e, g, s.terrain[key(g.pos!)])) return false; // exit check
   if (structureAt(s, dest) && (g.kind !== 'recruit' || g.control !== 'player')) return false;
+  if (entryBlocked(e, g, dest)) return false;
   return true;
 }
 

@@ -10,7 +10,7 @@ export { executeCast, recheck, castCheck, targetLegal } from './spells';
 export { createGroup, spawnMinion, recruitSpec, addRecruit } from './units';
 export { computeStats } from './stats';
 export { beginTurn } from './turn';
-export { runMovement } from './movement';
+export { runMovement, canEnterSquare, entryBlocked } from './movement';
 export { runCombats, fight } from './combat';
 export { dispatch } from './events';
 export { addSpellRecord } from './spellstore';

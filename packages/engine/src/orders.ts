@@ -1,6 +1,7 @@
 import { key, step } from './board';
 import type { Engine } from './engine';
 import { houseMana } from './houses';
+import { entryBlocked } from './movement';
 import { groupAt } from './query';
 import { RULES } from './rules';
 import { castCheck } from './spells';
@@ -67,6 +68,7 @@ export function validateOrders(e: Engine, side: Side, o: Orders): string | null 
     const dest = step(g.pos, m.dir);
     if (!s.cells.includes(key(dest))) return 'cannot move off the board';
     if (!groupCanEnter(e, g, s.terrain[key(dest)])) return 'group cannot enter that terrain';
+    if (entryBlocked(e, g, dest)) return 'that square cannot be entered';
   }
   return null;
 }

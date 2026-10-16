@@ -1,7 +1,7 @@
 import type { BotContext, EventContext, QueryContext } from './ctx';
 import type { EventType, GameEvent } from './events';
 import type { StatDelta } from './stats';
-import type { ActiveSpell, Dir, HouseId, ManaPool, PlayerId, Ref } from './types';
+import type { ActiveSpell, Dir, HouseId, ManaPool, PlayerId, Pos, Ref } from './types';
 
 export type SpellType = 'alteration' | 'conjuration' | 'manifestation' | 'summoning' | 'hero';
 export type TargetType =
@@ -45,6 +45,11 @@ export interface CardDef {
   groupAura?: boolean;
   /** While this spell is active, return true to forbid the attempted cast (it squanders, or is rejected while ordering). */
   blocksCast?: (q: QueryContext, spell: ActiveSpell, attempt: CastAttempt) => boolean;
+  /**
+   * While active, return true to stop group `groupId` from entering square `dest` (movement, bot steps, orders,
+   * `ctx.canEnter`). Returning from off the board and relocation are not entering.
+   */
+  blocksEntry?: (q: QueryContext, spell: ActiveSpell, groupId: number, dest: Pos) => boolean;
   /** Runs when a spell of this card expires by duration, just before it is removed (not when dispelled). */
   onExpire?: (c: EventContext) => void;
   /** Runs when the spell executes successfully. */

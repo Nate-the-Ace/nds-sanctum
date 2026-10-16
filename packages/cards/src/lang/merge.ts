@@ -56,6 +56,7 @@ const MERGERS: { [K in keyof Fragment]-?: Merger<K> } = {
   canCast: (fs) => (q, t) => fs.every((f) => f(q, t)),
   persistent: (fs) => (q, h) => fs.every((f) => f(q, h)),
   blocksCast: (fs) => (q, sp, a) => fs.some((f) => f(q, sp, a)),
+  blocksEntry: (fs) => (q, sp, gid, dest) => fs.some((f) => f(q, sp, gid, dest)),
   onCast: (fs) => (c, t) => fs.forEach((f) => f(c, t)),
   onExpire: (fs) => (c) => fs.forEach((f) => f(c)),
   on: (maps) => {
