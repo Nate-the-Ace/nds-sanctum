@@ -6,6 +6,7 @@ import { runMovement } from './movement';
 import { groupAt, otherSide } from './query';
 import { RULES } from './rules';
 import { executeCast, expireSpells } from './spells';
+import { syncHp } from './stats';
 import { applyTerrain } from './terrainfx';
 import { addRecruit } from './units';
 import { emptyOrders, emptyPool, SIDES } from './types';
@@ -105,6 +106,7 @@ function applyTraining(e: Engine, side: Side, o: Orders): void {
 
 /** Deletes the dead, then expires finite-duration spells. */
 function collectGarbage(e: Engine): void {
+  syncHp(e);
   const s = e.state;
   for (const id of s.graveyard) delete s.minions[id];
   s.graveyard = [];

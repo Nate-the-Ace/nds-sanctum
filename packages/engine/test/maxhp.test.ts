@@ -1,9 +1,11 @@
 import { describe, it, expect } from 'vitest';
 import { defineCard } from '../src/cards';
+import { confirmOrders } from '../src/api';
+import { addSpellRecord, removeSpellsOn } from '../src/spellstore';
 import { dispel, executeCast } from '../src/spells';
 import { spellsOn } from '../src/query';
 import { computeStats } from '../src/stats';
-import { blankEngine, put } from './helpers';
+import { blankEngine, gameEngine, put } from './helpers';
 
 const buff = defineCard({
   id: 'buff', name: 'Buff', house: 'war', cost: {}, type: 'alteration', target: 'recruit',
@@ -53,5 +55,30 @@ describe('maxHp stat', () => {
     executeCast(e, 'red', 'crush', { kind: 'minion', id });
     expect(computeStats(e, id).maxHp).toBe(1);
     expect(e.state.minions[id].hp).toBe(1);
+  });
+});
+
+const groupBuff = defineCard({
+  id: 'group-buff', name: 'GroupBuff', house: 'war', cost: {}, type: 'alteration', target: 'recruitGroup', helper: true,
+  stats: () => ({ maxHp: 4 }),
+});
+
+describe('maxHp refresh at end of turn', () => {
+  it('re-syncs cached max hp after a spell was removed without dispel', () => {
+    const e = gameEngine([groupBuff]);
+    const g = put(e, 'red', { x: 4, y: 4 }, ['swordsman']);
+    const id = g.minionIds[0];
+    const ref = { kind: 'group' as const, id: g.id };
+    addSpellRecord(e.state, { cardId: 'group-buff', owner: 'red', host: ref, visible: true, turnsLeft: null, tokens: {} });
+    e.state.minions[id].maxHp = 11;
+    e.state.minions[id].hp = 11;
+    removeSpellsOn(e.state, ref);
+    let r = confirmOrders(e.state, e.cards, 'red');
+    if (!r.ok) throw new Error(r.error);
+    r = confirmOrders(r.state, e.cards, 'blue');
+    if (!r.ok) throw new Error(r.error);
+    const m = r.state.minions[id];
+    expect(m.maxHp).toBe(7);
+    expect(m.hp).toBeLessThanOrEqual(m.maxHp);
   });
 });
