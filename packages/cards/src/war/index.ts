@@ -49,6 +49,11 @@ import cannon from './cannon';
 import flamingArrows from './flamingArrows';
 import bookOfWar from './bookOfWar';
 import challenge from './challenge';
+import general from './general';
+import weaponMaster from './weaponMaster';
+import renegades from './renegades';
+import lavaFlow from './lavaFlow';
+import lavaFlowLava from './lavaFlowLava';
 import { growingStrifeCards } from './growingStrife';
 
 export const warCards: CardDef[] = [
@@ -66,4 +71,5 @@ export const warCards: CardDef[] = [
   ngozi, ngozisBlight, vladHrothgar, riteOfGrowth,
   cannon, flamingArrows,
   bookOfWar, challenge, ...growingStrifeCards,
+  general, weaponMaster, renegades, lavaFlow, lavaFlowLava,
 ];

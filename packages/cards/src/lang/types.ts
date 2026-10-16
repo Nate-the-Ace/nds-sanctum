@@ -33,6 +33,13 @@ export interface TargetSpec {
   terrain?: TerrainId[];
   /** Group or single-minion targets: the target's square must have one of these terrains. */
   in?: TerrainId[];
+  /** Group targets: at least / at most this many minions. */
+  minSize?: number;
+  maxSize?: number;
+  /** Group targets: the group is not standing in a structure. */
+  notInStructure?: boolean;
+  /** Group targets: the group is player-controlled. */
+  playerControlled?: boolean;
 }
 
 export interface CompileCtx {

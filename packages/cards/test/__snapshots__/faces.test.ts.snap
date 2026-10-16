@@ -225,6 +225,10 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Square.",
     "On enter: Heal the entering group fully, then entering group gets Youth (-1 L) once each.",
   ],
+  "general": [
+    "Friendly recruit.",
+    "Friendly swordsmen in the four adjacent squares get +1 M.",
+  ],
   "good-of-the-many": [
     "Friendly recruit.",
     "Kill the target.",
@@ -336,6 +340,17 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Lasts 3 turns.",
     "No group spells.",
   ],
+  "lava-flow": [
+    "Mountain or volcano square.",
+    "Bound to volcano.",
+    "Start of turn: one chance in three to erupt into 1-2 random adjacent squares (not structures, mountains or volcanoes), which become lava for this turn and the next two, then barren.",
+    "Square becomes volcano.",
+  ],
+  "lava-flow-lava": [
+    "Square.",
+    "Lasts 3 turns.",
+    "When it ends, lava here becomes barren.",
+  ],
   "legionnaires": [
     "Recruit group with swordsmen.",
     "Swordsmen +1 H.",
@@ -423,6 +438,10 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "redeemers-sword": [
     "Swordsman.",
     "+2 H.",
+  ],
+  "renegades": [
+    "Player-controlled recruit group of three or less not in a structure.",
+    "It leaves player control and becomes neutral: it moves on its own and attacks every other group.",
   ],
   "ring-of-light": [
     "Town or colony.",
@@ -533,6 +552,10 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Recruit.",
     "Undispellable.",
     "Group aura: swordsmen +1 H; this minion +3 H.",
+  ],
+  "weapon-master": [
+    "Recruit.",
+    "A swordsman gains a missile attack (M:2); an archer gains a sword attack (H:2). Archer and swordsman spells can target it.",
   ],
   "wellspring": [
     "Square.",

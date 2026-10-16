@@ -5,7 +5,7 @@ import { allCards, cardData, cardIndex, pendingCards, playableCards } from '../s
 /** What "Cast on ..." means as an engine target type. */
 function expectedTarget(castOn: string): TargetType | null {
   const s = castOn.toLowerCase();
-  if (/^(friendly )?recruit group/.test(s)) return 'recruitGroup';
+  if (/^(friendly |player-controlled )?recruit group/.test(s)) return 'recruitGroup';
   if (/^(non-friendly )?group\b/.test(s)) return 'group';
   if (/^(friendly )?(swordsman|archer|recruit)\b/.test(s)) return 'recruit';
   if (/^globe\b/.test(s)) return 'globe';
@@ -52,9 +52,9 @@ describe('registry', () => {
     for (const c of allCards) expect(cardIndex[c.id]).toBe(c);
   });
 
-  it('has 92 playable cards (44 War, 48 Life) and 10 pending', () => {
-    expect(playableCards.filter((c) => c.house === 'war')).toHaveLength(44);
+  it('has 96 playable cards (48 War, 48 Life) and 6 pending', () => {
+    expect(playableCards.filter((c) => c.house === 'war')).toHaveLength(48);
     expect(playableCards.filter((c) => c.house === 'life')).toHaveLength(48);
-    expect(pendingCards).toHaveLength(10);
+    expect(pendingCards).toHaveLength(6);
   });
 });

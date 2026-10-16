@@ -142,10 +142,27 @@ describe('printed card text', () => {
     ]);
   });
 
+  it('plan 2d: one-offs', () => {
+    expect(lines('general')).toEqual(['Friendly recruit.', 'Friendly swordsmen in the four adjacent squares get +1 M.']);
+    expect(lines('weapon-master')).toEqual([
+      'Recruit.', 'A swordsman gains a missile attack (M:2); an archer gains a sword attack (H:2). Archer and swordsman spells can target it.',
+    ]);
+    expect(lines('renegades')).toEqual([
+      'Player-controlled recruit group of three or less not in a structure.',
+      'It leaves player control and becomes neutral: it moves on its own and attacks every other group.',
+    ]);
+    expect(lines('lava-flow')).toEqual([
+      'Mountain or volcano square.', 'Bound to volcano.',
+      'Start of turn: one chance in three to erupt into 1-2 random adjacent squares (not structures, mountains or volcanoes), which become lava for this turn and the next two, then barren.',
+      'Square becomes volcano.',
+    ]);
+    expect(lines('lava-flow-lava')).toEqual(['Square.', 'Lasts 3 turns.', 'When it ends, lava here becomes barren.']);
+  });
+
   it('pins the printed text of every card', async () => {
     const { allCards } = await import('../src/index');
     const faces = Object.fromEntries(allCards.map((c) => [c.id, faceOf(c.id)?.lines]));
-    expect(Object.keys(faces)).toHaveLength(121);
+    expect(Object.keys(faces)).toHaveLength(126);
     expect(faces).toMatchSnapshot();
   });
 });

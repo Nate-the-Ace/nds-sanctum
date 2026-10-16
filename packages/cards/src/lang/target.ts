@@ -30,6 +30,25 @@ export class TargetBuilder {
     if (['square', 'globe', 'structure'].includes(this.spec.type)) throw new Error(`Target: .in(terrain) needs a group or minion target, not "${this.spec.type}"`);
     return new TargetBuilder({ ...this.spec, in: terrain });
   }
+  private groupOnly(what: string): void {
+    if (!GROUP_TYPES.includes(this.spec.type)) throw new Error(`Target: .${what} needs a group target, not "${this.spec.type}"`);
+  }
+  get playerControlled(): TargetBuilder {
+    this.groupOnly('playerControlled');
+    return new TargetBuilder({ ...this.spec, playerControlled: true });
+  }
+  get notInStructure(): TargetBuilder {
+    this.groupOnly('notInStructure');
+    return new TargetBuilder({ ...this.spec, notInStructure: true });
+  }
+  atLeast(n: number): TargetBuilder {
+    this.groupOnly('atLeast');
+    return new TargetBuilder({ ...this.spec, minSize: n });
+  }
+  atMost(n: number): TargetBuilder {
+    this.groupOnly('atMost');
+    return new TargetBuilder({ ...this.spec, maxSize: n });
+  }
 }
 
 export const Target = {
@@ -57,7 +76,10 @@ export function targetFragment(t: TargetSpec): Fragment {
   if (t.friendly) checks.push((q, r) => ownerOf(q, r) === q.caster);
   if (t.nonFriendly) checks.push((q, r) => ownerOf(q, r) !== q.caster);
   if (t.cls && (t.type === 'recruit' || t.type === 'minion' || t.type === 'monster')) {
-    checks.push((q, r) => r.kind === 'minion' && q.minion(r.id)?.cls === t.cls);
+    checks.push((q, r) => {
+      const m = r.kind === 'minion' ? q.minion(r.id) : undefined;
+      return !!m && (m.cls === t.cls || (m.kind === 'recruit' && q.stats(m.id).dualClass));
+    });
   }
   if (t.cls && GROUP_TYPES.includes(t.type)) {
     checks.push((q, r) => r.kind === 'group' && q.minionsOf(r.id).some((m) => m.cls === t.cls));
@@ -77,11 +99,18 @@ export function targetFragment(t: TargetSpec): Fragment {
       return !!g?.pos && t.in!.includes(q.terrainAt(g.pos) as TerrainId);
     });
   }
+  const groupOf = (q: QueryContext, r: Ref) => (r.kind === 'group' ? q.group(r.id) : undefined);
+  if (t.minSize !== undefined) checks.push((q, r) => r.kind === 'group' && q.minionsOf(r.id).length >= t.minSize!);
+  if (t.maxSize !== undefined) checks.push((q, r) => r.kind === 'group' && q.minionsOf(r.id).length <= t.maxSize!);
+  if (t.notInStructure) checks.push((q, r) => { const g = groupOf(q, r); return !!g?.pos && !q.structureAt(g.pos); });
+  if (t.playerControlled) checks.push((q, r) => groupOf(q, r)?.control === 'player');
   return checks.length ? { canCast: (q, r) => checks.every((f) => f(q, r)) } : {};
 }
 
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 const lowerFirst = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
+
+const COUNT = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'];
 
 /** "Friendly recruit group." / "Swordsman alone in its group." / "Forest square." ... */
 export function printTarget(t: TargetSpec): string {
@@ -98,8 +127,11 @@ export function printTarget(t: TargetSpec): string {
     default: noun = t.terrain ? `${cap(t.terrain.join(' or '))} square` : 'Square';
   }
   if (t.cls && GROUP_TYPES.includes(t.type)) noun += ` with ${t.cls === 'swordsman' ? 'swordsmen' : 'archers'}`;
+  if (t.minSize !== undefined) noun += ` of ${COUNT[t.minSize] ?? t.minSize} or more`;
+  if (t.maxSize !== undefined) noun += ` of ${COUNT[t.maxSize] ?? t.maxSize} or less`;
   if (t.in) noun += ` in ${t.in.join(' or ')}`;
   if (t.alone) noun += ' alone in its group';
-  const prefix = t.friendly ? 'Friendly ' : t.nonFriendly ? 'Non-friendly ' : '';
+  if (t.notInStructure) noun += ' not in a structure';
+  const prefix = t.playerControlled ? 'Player-controlled ' : t.friendly ? 'Friendly ' : t.nonFriendly ? 'Non-friendly ' : '';
   return `${prefix ? prefix + lowerFirst(noun) : noun}.`;
 }

@@ -1,4 +1,4 @@
-import type { StatDelta, Walk as WalkKind, Minion, ActiveSpell } from '@sanctum/engine';
+import type { StatDelta, TerrainId, Walk as WalkKind, Minion, ActiveSpell } from '@sanctum/engine';
 import { isHostGroup } from '../../helpers';
 import { helperSummary } from '../render';
 import { requireHost } from '../hosts';
@@ -152,7 +152,7 @@ simple<TruceKeyword>('truce', 'Truce', 'core',
     return { on: { 'combat:before': (c) => c.cancel() } };
   });
 
-export interface BoundKeyword extends Keyword { kind: 'bound'; terrain: 'forest' | 'water' | 'mountain' | 'desert' | 'plains' }
+export interface BoundKeyword extends Keyword { kind: 'bound'; terrain: TerrainId }
 export const Bound = (terrain: BoundKeyword['terrain']): BoundKeyword => ({ kind: 'bound', terrain });
 defineKeyword<BoundKeyword>({
   kind: 'bound', term: 'Bound', tier: 'house',
