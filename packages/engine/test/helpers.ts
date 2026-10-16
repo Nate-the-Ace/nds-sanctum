@@ -1,3 +1,4 @@
+import { createGame, type GameConfig } from '../src/api';
 import { makeEngine, type Engine } from '../src/engine';
 import { indexCards, type CardDef } from '../src/cards';
 import { blankState } from '../src/state';
@@ -15,4 +16,15 @@ export function put(
   const g = createGroup(e, owner, pos, 'recruit', control);
   for (const c of classes) spawnMinion(e, g.id, recruitSpec(c));
   return g;
+}
+
+/** A real created game (flat terrain, no towns unless overridden), wrapped in an Engine. */
+export function gameEngine(defs: CardDef[] = [], deckCards: string[] = [], options: GameConfig['options'] = {}): Engine {
+  const cards = indexCards(defs);
+  const deck = { house: 'war' as const, cards: deckCards };
+  const state = createGame(
+    { seed: 1, decks: { red: deck, blue: deck }, options: { towns: 0, flatTerrain: true, skipDeckRules: true, ...options } },
+    cards,
+  );
+  return makeEngine(state, cards);
 }
