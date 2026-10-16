@@ -1,13 +1,20 @@
 import type { EventContext, QueryContext } from './ctx';
 import type { EventType, GameEvent } from './events';
 import type { StatDelta } from './stats';
-import type { ActiveSpell, Dir, HouseId, ManaPool, Ref } from './types';
+import type { ActiveSpell, Dir, HouseId, ManaPool, PlayerId, Ref } from './types';
 
 export type SpellType = 'alteration' | 'conjuration' | 'manifestation' | 'summoning' | 'hero';
 export type TargetType =
   | 'recruit' | 'monster' | 'minion'
   | 'recruitGroup' | 'monsterGroup' | 'group'
   | 'square' | 'structure' | 'globe';
+
+/** A cast being attempted, as seen by `blocksCast`. */
+export interface CastAttempt {
+  caster: PlayerId;
+  card: CardDef;
+  target: Ref;
+}
 
 export interface CardDef {
   id: string;
@@ -32,6 +39,10 @@ export interface CardDef {
   persistent?: (q: QueryContext, host: Ref) => boolean;
   /** Computed stat contribution for a minion this spell reaches (host minion, group, square, structure or globe). */
   stats?: (q: QueryContext, minionId: number, spell: ActiveSpell) => StatDelta;
+  /** While this spell is active, return true to forbid the attempted cast (it squanders, or is rejected while ordering). */
+  blocksCast?: (q: QueryContext, spell: ActiveSpell, attempt: CastAttempt) => boolean;
+  /** Runs when a spell of this card expires by duration, just before it is removed (not when dispelled). */
+  onExpire?: (c: EventContext) => void;
   /** Runs when the spell executes successfully. */
   onCast?: (c: EventContext, target: Ref) => void;
   /** Event handlers, keyed by event type. */

@@ -53,7 +53,13 @@ export function targetLegal(e: Engine, card: CardDef, caster: PlayerId, ref: Ref
 /** Target legality plus the card's own `canCast`. Used while ordering and again at execution. */
 export function castCheck(e: Engine, caster: PlayerId, card: CardDef, ref: Ref): boolean {
   if (!targetLegal(e, card, caster, ref)) return false;
-  return card.canCast ? card.canCast(makeQuery(e, caster), ref) : true;
+  const q = makeQuery(e, caster);
+  if (card.canCast && !card.canCast(q, ref)) return false;
+  for (const sp of e.state.spells) {
+    const blocks = e.cards[sp.cardId]?.blocksCast;
+    if (blocks && blocks(q, sp, { caster, card, target: ref })) return false;
+  }
+  return true;
 }
 
 /** Removes a spell, then lets its host recheck persistent requirements of the spells that remain (spell flux). */
@@ -121,8 +127,11 @@ export function executeCast(e: Engine, caster: PlayerId, cardId: string, ref: Re
 /** End-of-turn expiry. Spells with a finite duration lose one turn and are dispelled at zero. */
 export function expireSpells(e: Engine): void {
   for (const sp of [...e.state.spells]) {
-    if (sp.turnsLeft === null) continue;
+    if (sp.turnsLeft === null || !e.state.spells.some((x) => x.id === sp.id)) continue;
     sp.turnsLeft -= 1;
-    if (sp.turnsLeft <= 0) dispel(e, sp.id);
+    if (sp.turnsLeft <= 0) {
+      e.cards[sp.cardId]?.onExpire?.(makeCtx(e, sp));
+      dispel(e, sp.id);
+    }
   }
 }

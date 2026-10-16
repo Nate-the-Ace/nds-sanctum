@@ -3,7 +3,7 @@ export const ENGINE_VERSION = '0.1.0';
 export { createGame, validateDeck, submitOrders, confirmOrders, chooseMana } from './api';
 export type { GameConfig, DeckConfig, Result } from './api';
 export { defineCard, indexCards } from './cards';
-export type { CardDef, CardIndex, SpellType, TargetType } from './cards';
+export type { CardDef, CardIndex, CastAttempt, SpellType, TargetType } from './cards';
 export type { EventContext, QueryContext } from './ctx';
 export type { EventType, GameEvent } from './events';
 export type { Stats, StatDelta } from './stats';
