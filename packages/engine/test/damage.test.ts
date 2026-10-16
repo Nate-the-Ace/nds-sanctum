@@ -57,6 +57,17 @@ describe('takeDamage', () => {
     expect(m.hp).toBe(5);
   });
 
+  it('a cancel set before armor does not leak into the armor:after check', () => {
+    const early = defineCard({
+      id: 'early', name: 'Early', house: 'war', cost: {}, type: 'alteration', target: 'recruit',
+      on: { 'attack:hit': (c) => c.cancel() },
+    });
+    const { e, m } = fresh([early]);
+    onMinion(e, 'early', m.id);
+    expect(takeDamage(e, m.id, 3, hand, 99)).toBe('damaged');
+    expect(m.hp).toBe(5);
+  });
+
   it('an armor:after handler can cancel the damage', () => {
     const ward = defineCard({
       id: 'ward', name: 'Ward', house: 'war', cost: {}, type: 'alteration', target: 'recruit',

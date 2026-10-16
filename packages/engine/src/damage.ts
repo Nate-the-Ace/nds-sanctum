@@ -32,6 +32,7 @@ export function takeDamage(
     if (q === 0) return 'bounced';
   }
   data.damage = Math.min(q, v.hp);
+  delete data.cancel; // only a cancel set at armor:after counts (rules)
   dispatch(e, 'armor:after', ref, data);
   if (data.cancel) return 'bounced';
   if (v.status === 'dead') return 'killed';
