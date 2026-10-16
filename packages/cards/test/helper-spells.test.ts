@@ -44,6 +44,21 @@ describe('Fountain of Youth', () => {
   });
 });
 
+describe('Fountain of Youth stacking', () => {
+  it('re-entering heals again but adds no further level loss', () => {
+    const e = world();
+    cast(e, 'red', 'fountain-of-youth', sref(5, 5));
+    const g = put(e, 'red', { x: 5, y: 5 }, ['swordsman']);
+    const id = g.minionIds[0];
+    dispatch(e, 'group:enter', gref(g.id), {});
+    e.state.minions[id].hp = 2;
+    dispatch(e, 'group:enter', gref(g.id), {});
+    expect(e.state.minions[id].hp).toBe(e.state.minions[id].maxHp);
+    expect(stats(e, id).level).toBe(0);
+    expect(countOf(e, 'youth')).toBe(1);
+  });
+});
+
 describe('Faerie Glade', () => {
   it('lowers enemy recruit levels on every contiguous forest square', () => {
     const e = world();
