@@ -52,9 +52,9 @@ describe('registry', () => {
     for (const c of allCards) expect(cardIndex[c.id]).toBe(c);
   });
 
-  it('has 90 playable cards (44 War, 46 Life) and 12 pending', () => {
+  it('has 92 playable cards (44 War, 48 Life) and 10 pending', () => {
     expect(playableCards.filter((c) => c.house === 'war')).toHaveLength(44);
-    expect(playableCards.filter((c) => c.house === 'life')).toHaveLength(46);
-    expect(pendingCards).toHaveLength(12);
+    expect(playableCards.filter((c) => c.house === 'life')).toHaveLength(48);
+    expect(pendingCards).toHaveLength(10);
   });
 });

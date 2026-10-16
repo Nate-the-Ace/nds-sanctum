@@ -53,6 +53,8 @@ import dayOfMourning from './dayOfMourning';
 import { greaterClarityCards } from './greaterClarity';
 import seelieChampion from './seelieChampion';
 import spyAtCourt from './spyAtCourt';
+import faeQuadrille from './faeQuadrille';
+import terrainBind from './terrainBind';
 
 export const lifeCards: CardDef[] = [
   caravan, flight, cleansingLight, pyx, healingHands, oasis, wellspring,
@@ -69,4 +71,5 @@ export const lifeCards: CardDef[] = [
   lienna, liennasPresence,
   cadre, faeGift, yeoman,
   dayOfMourning, ...greaterClarityCards, seelieChampion, spyAtCourt,
+  faeQuadrille, terrainBind,
 ];

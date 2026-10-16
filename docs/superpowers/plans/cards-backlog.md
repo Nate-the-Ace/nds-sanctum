@@ -1,6 +1,6 @@
 # War and Life cards not yet implemented
 
-Implemented: 90 (44 War, 46 Life). Source data: `packages/cards/data/cards.json`. Each group is one engine extension;
+Implemented: 92 (44 War, 48 Life). Source data: `packages/cards/data/cards.json`. Each group is one engine extension;
 implementing it unlocks the listed cards. `packages/cards/test/backlog.test.ts` keeps this list equal to `pendingCards`.
 Card lines must stay in the form `- Name (War|Life)`.
 
@@ -21,12 +21,10 @@ Needs: create/destroy/move structures, colonies, hidden structures.
 - Golden Grove (Life)
 - Seelie Court (Life)
 
-## E11. One-off mechanics (6)
-Needs: effects that reach other squares (General, Fae Quadrille), random eruption (Lava Flow), ownership change
-(Renegades), class change (Weapon Master), terrain lock (Terrain Bind).
+## E11. One-off mechanics (4)
+Needs: effects that reach other squares (General), random eruption (Lava Flow), ownership change (Renegades), class
+change (Weapon Master).
 - General (War)
 - Lava Flow (War)
 - Renegades (War)
 - Weapon Master (War)
-- Fae Quadrille (Life)
-- Terrain Bind (Life)

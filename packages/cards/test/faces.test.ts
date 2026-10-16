@@ -133,10 +133,19 @@ describe('printed card text', () => {
     expect(lines('challenge')).toEqual(['Globe.', 'The owner of the highest-level recruit on the board gains Initiative (no change on a tie).']);
   });
 
+  it('plan 2d: entry', () => {
+    expect(lines('fae-quadrille')).toEqual([
+      'Square.', 'Lasts 2 turns.', 'Heal every minion in the four adjacent squares fully when cast. The square cannot be entered.',
+    ]);
+    expect(lines('terrain-bind')).toEqual([
+      'Group.', 'Lasts 3 turns.', 'It cannot enter a terrain different from the one it stands on (structures count as plains).',
+    ]);
+  });
+
   it('pins the printed text of every card', async () => {
     const { allCards } = await import('../src/index');
     const faces = Object.fromEntries(allCards.map((c) => [c.id, faceOf(c.id)?.lines]));
-    expect(Object.keys(faces)).toHaveLength(119);
+    expect(Object.keys(faces)).toHaveLength(121);
     expect(faces).toMatchSnapshot();
   });
 });

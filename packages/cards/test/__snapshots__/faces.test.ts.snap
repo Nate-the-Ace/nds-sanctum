@@ -152,6 +152,11 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Swordsman.",
     "Becomes an Elf. Its attacks heal the victim instead of damaging it (armor soaks first).",
   ],
+  "fae-quadrille": [
+    "Square.",
+    "Lasts 2 turns.",
+    "Heal every minion in the four adjacent squares fully when cast. The square cannot be entered.",
+  ],
   "faerie-fire": [
     "Recruit group with archers.",
     "Fleeting.",
@@ -476,6 +481,11 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Square.",
     "Territorial, Warded.",
     "Summon Sylph (M:3(x2) A:0 HP:15 L:1).",
+  ],
+  "terrain-bind": [
+    "Group.",
+    "Lasts 3 turns.",
+    "It cannot enter a terrain different from the one it stands on (structures count as plains).",
   ],
   "thermite-damage": [
     "Recruit.",
