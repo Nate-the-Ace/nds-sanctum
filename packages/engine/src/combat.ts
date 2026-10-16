@@ -124,11 +124,14 @@ function attack(e: Engine, m: Minion, v: Minion, round: number): void {
   // A2: damage
   let dmg = useMissile ? st.missile - (round === 1 ? 1 : 0) : st.hand;
   dmg += nationBonus(m, useMissile, round);
-  const strike = { victimId: v.id, kind: useMissile ? 'missile' : 'hand', round, damage: dmg };
+  // Strike handlers may change `damage`, and set `magical` (ignores armor) or `heals` (heals instead of damaging).
+  const strike = { victimId: v.id, kind: useMissile ? 'missile' : 'hand', round, damage: dmg, magical: false, heals: false };
   dispatch(e, 'attacker:strikes', { kind: 'minion', id: m.id }, strike);
   dmg = st.noDamage ? 0 : Math.max(0, strike.damage);
   // A3: victim takes damage
-  const res = takeDamage(e, v.id, dmg, { kind: useMissile ? 'missile' : 'hand', ignoresArmor: false, magical: false }, m.id);
+  const res = takeDamage(
+    e, v.id, dmg, { kind: useMissile ? 'missile' : 'hand', ignoresArmor: false, magical: strike.magical, heals: strike.heals }, m.id,
+  );
   const buried = () => m.status === 'dead' || v.status === 'dead';
   if (!buried()) {
     dispatch(e, 'attacker:hits', { kind: 'minion', id: m.id }, { victimId: v.id });

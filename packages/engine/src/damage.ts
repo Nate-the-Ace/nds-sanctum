@@ -7,6 +7,8 @@ export interface DamageSpec {
   kind: 'hand' | 'missile' | 'spell';
   ignoresArmor: boolean;
   magical: boolean;
+  /** A healing attack (Fae Gift): what gets through armor restores hit points instead. Never kills. */
+  heals?: boolean;
 }
 
 /**
@@ -30,6 +32,10 @@ export function takeDamage(
     q -= soak;
     v.combat.armor -= soak;
     if (q === 0) return 'bounced';
+  }
+  if (dmg.heals) {
+    v.hp = Math.min(v.maxHp, v.hp + q);
+    return 'bounced'; // a hit, but no damage: no "damages" event, no death
   }
   data.damage = Math.min(q, v.hp);
   delete data.cancel; // only a cancel set at armor:after counts (rules)

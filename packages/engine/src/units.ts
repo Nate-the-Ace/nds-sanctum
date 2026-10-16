@@ -11,6 +11,22 @@ export function recruitSpec(cls: 'swordsman' | 'archer', nation?: Nation): Minio
   return { kind: 'recruit', cls, name: cls, base: applyNation(base, nation), nation, house: NATIONS[nation].house };
 }
 
+/** A minion changes nation: it serves the new nation's house; a recruit swaps its nation hit points and walks. */
+export function changeNation(e: Engine, minionId: number, nation: Nation): void {
+  const m = e.state.minions[minionId];
+  if (!m || m.status === 'dead') return;
+  if (m.kind === 'recruit') {
+    const walks = [...m.base.walks];
+    for (const w of m.nation ? NATIONS[m.nation].walks : []) {
+      const i = walks.indexOf(w);
+      if (i >= 0) walks.splice(i, 1);
+    }
+    m.base = { ...m.base, hp: NATIONS[nation].hp, walks: [...walks, ...NATIONS[nation].walks] };
+  }
+  m.nation = nation;
+  m.house = NATIONS[nation].house;
+}
+
 export function createGroup(
   e: Engine, owner: PlayerId, pos: Pos | null, kind: 'recruit' | 'monster', control: 'player' | 'computer', botId: string | null = null,
 ): Group {
