@@ -6,7 +6,7 @@ import { validateOrders } from './orders';
 import { shuffle } from './rng';
 import { RULES } from './rules';
 import { blankState } from './state';
-import { beginTurn, finishTurnStart } from './turn';
+import { beginTurn, finishTurnStart, resolveTurn } from './turn';
 import { addRecruit } from './units';
 import { SIDES, emptyOrders } from './types';
 import type { GameState, HouseId, Mana, Orders, Side, TerrainId } from './types';
@@ -102,7 +102,7 @@ export function submitOrders(state: GameState, cards: CardIndex, side: Side, ord
   return { ok: true, state: e.state };
 }
 
-/** Lock a player's orders. Task 12 makes this resolve the turn once both players have confirmed. */
+/** Lock a player's orders. When both players have confirmed, the turn resolves and the next one begins. */
 export function confirmOrders(state: GameState, cards: CardIndex, side: Side): Result {
   const e = makeEngine(state, cards);
   const s = e.state;
@@ -111,5 +111,6 @@ export function confirmOrders(state: GameState, cards: CardIndex, side: Side): R
   if (p.confirmed) return fail('already confirmed');
   if (!p.orders) p.orders = emptyOrders();
   p.confirmed = true;
+  if (SIDES.every((x) => s.players[x].confirmed)) resolveTurn(e);
   return { ok: true, state: e.state };
 }

@@ -1,11 +1,15 @@
+import { runCombats } from './combat';
 import { drawCards } from './deck';
 import type { Engine } from './engine';
 import { dispatch } from './events';
-import { groupAt } from './query';
+import { runMovement } from './movement';
+import { groupAt, otherSide } from './query';
 import { RULES } from './rules';
+import { executeCast, expireSpells } from './spells';
 import { applyTerrain } from './terrainfx';
-import { emptyPool, SIDES } from './types';
-import type { Side } from './types';
+import { addRecruit } from './units';
+import { emptyOrders, emptyPool, SIDES } from './types';
+import type { Orders, Ref, Side } from './types';
 
 /**
  * Start-of-turn phase (rules: Pipelines/turnphases, phase 1), up to the mana choice.
@@ -83,4 +87,67 @@ export function finishTurnStart(e: Engine): void {
     }
   }
   s.phase = 'orders';
+}
+
+function applyTraining(e: Engine, side: Side, o: Orders): void {
+  const s = e.state;
+  for (const t of o.train) {
+    const st = s.structures[t.structureId];
+    if (!st || st.owner !== side || st.novices <= 0) continue;
+    st.novices--;
+    if (t.as === 'swordsman' || t.as === 'archer') addRecruit(e, side, st.pos, t.as);
+  }
+}
+
+/** Deletes the dead, then expires finite-duration spells. */
+function collectGarbage(e: Engine): void {
+  const s = e.state;
+  for (const id of s.graveyard) delete s.minions[id];
+  s.graveyard = [];
+  expireSpells(e);
+}
+
+/**
+ * Phases 3-6 of the turn, then the next start of turn.
+ * Training, hand bookkeeping, spells (initiative first), movement, combat, garbage collection.
+ */
+export function resolveTurn(e: Engine): void {
+  const s = e.state;
+  s.log = [];
+  const order: Side[] = [s.initiative, otherSide(s.initiative)];
+  const orders = { red: s.players.red.orders ?? emptyOrders(), blue: s.players.blue.orders ?? emptyOrders() };
+
+  const casts = {} as Record<Side, Array<{ cardId: string; target: Ref }>>;
+  for (const side of SIDES) {
+    const hand = s.players[side].hand;
+    casts[side] = orders[side].cast.map((c) => ({ cardId: hand[c.handIndex], target: c.target }));
+  }
+
+  for (const side of order) applyTraining(e, side, orders[side]);
+
+  for (const side of SIDES) {
+    const p = s.players[side];
+    const gone = new Set<number>(orders[side].cast.map((c) => c.handIndex));
+    if (orders[side].discard !== null) gone.add(orders[side].discard as number);
+    p.discard.push(...[...gone].sort((a, b) => a - b).map((i) => p.hand[i]));
+    p.hand = p.hand.filter((_, i) => !gone.has(i));
+  }
+
+  for (const side of order) for (const c of casts[side]) executeCast(e, side, c.cardId, c.target);
+
+  for (const g of Object.values(s.groups)) g.moveOrder = null;
+  for (const side of SIDES) {
+    for (const mo of orders[side].move) {
+      const g = s.groups[mo.groupId];
+      if (g && g.pos && g.owner === side && g.control === 'player') g.moveOrder = mo.dir;
+    }
+  }
+  applyTerrain(e, 'beforeMovement');
+  runMovement(e);
+  applyTerrain(e, 'beforeCombat');
+  runCombats(e);
+  collectGarbage(e);
+
+  s.turn++;
+  beginTurn(e, false);
 }
