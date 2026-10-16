@@ -24,7 +24,16 @@ const jump = defineCard({
   id: 'jump', name: 'Jump', house: 'war', cost: {}, type: 'manifestation', target: 'recruitGroup',
   onCast: (c, t) => { if (t.kind === 'group') c.moveGroup(t.id, { x: 8, y: 2 }); },
 });
-const all = [twice, halt, probe, jump];
+const seen: string[] = [];
+const watch = defineCard({
+  id: 'watch', name: 'Watch', house: 'war', cost: {}, type: 'conjuration', target: 'globe',
+  on: {
+    'group:exit': (_c, ev) => { seen.push(`exit ${JSON.stringify(ev.data)}`); },
+    'group:move': (_c, ev) => { seen.push(`move ${JSON.stringify(ev.data)}`); },
+    'group:enter': (_c, ev) => { seen.push(`enter ${JSON.stringify(ev.data)}`); },
+  },
+});
+const all = [twice, halt, probe, jump, watch];
 
 describe('movement control', () => {
   it('moves a "moves twice" group twice along its order, then clears the flag', () => {
@@ -73,5 +82,24 @@ describe('movement control', () => {
     const h = put(e, 'red', { x: 4, y: 4 }, ['swordsman']);
     executeCast(e, 'red', 'jump', { kind: 'group', id: h.id });
     expect(h.pos).toEqual({ x: 4, y: 4 });
+  });
+
+  it('moveGroup dispatches exit, move, enter once, and nothing when refused', () => {
+    const e = blankEngine(all);
+    seen.length = 0;
+    executeCast(e, 'red', 'watch', { kind: 'globe' });
+    const g = put(e, 'red', { x: 3, y: 3 }, ['swordsman']);
+    executeCast(e, 'red', 'jump', { kind: 'group', id: g.id });
+    const from = { x: 3, y: 3 };
+    const to = { x: 8, y: 2 };
+    expect(seen).toEqual([
+      `exit ${JSON.stringify({ from })}`,
+      `move ${JSON.stringify({ from, to })}`,
+      `enter ${JSON.stringify({ to })}`,
+    ]);
+    seen.length = 0;
+    const h = put(e, 'red', { x: 4, y: 4 }, ['swordsman']);
+    executeCast(e, 'red', 'jump', { kind: 'group', id: h.id }); // destination occupied
+    expect(seen).toEqual([]);
   });
 });

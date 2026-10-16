@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { expireSpells, runMovement } from '@sanctum/engine/src/testing';
-import { cast, gref, put, world } from './helpers';
+import { cast, gref, put, sref, world } from './helpers';
 
 describe('Forced March', () => {
   it('moves the group two squares along its order', () => {
@@ -74,6 +74,17 @@ describe("Lienna's Steed", () => {
     expect(red.moveOrder).toBeNull();
     expect(cast(e, 'blue', 'liennas-steed', gref(blue.id))).toBe('cast');
     expect(blue.pos).toEqual({ x: 6, y: 6 }); // its (-1,-1) square (5,5) is now occupied by red
+  });
+  it('relocating onto a Fountain of Youth heals the group', () => {
+    const e = world();
+    expect(cast(e, 'red', 'fountain-of-youth', sref(5, 5))).toBe('cast');
+    put(e, 'blue', { x: 7, y: 7 }, ['swordsman']);
+    const red = put(e, 'red', { x: 4, y: 4 }, ['swordsman']);
+    e.state.minions[red.minionIds[0]].hp = 2;
+    expect(cast(e, 'red', 'liennas-steed', gref(red.id))).toBe('cast');
+    expect(red.pos).toEqual({ x: 5, y: 5 });
+    expect(e.state.minions[red.minionIds[0]].hp).toBe(e.state.minions[red.minionIds[0]].maxHp);
+    expect(e.state.spells.some((sp) => sp.cardId === 'youth')).toBe(true);
   });
   it('cannot target an enemy group', () => {
     const e = world();

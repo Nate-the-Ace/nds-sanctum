@@ -1,8 +1,8 @@
-import { DIR_LIST, isSanctumArea, key, step } from './board';
+import { DIR_LIST, isSanctumArea, key, samePos, step } from './board';
 import { applyDamage } from './damage';
 import { killMinion } from './death';
 import type { Engine } from './engine';
-import type { GameEvent } from './events';
+import { dispatch, type GameEvent } from './events';
 import { groupAt, hostile, minionsOf, structureAt } from './query';
 import { nextRandom } from './rng';
 import { computeStats, syncHp, type Stats } from './stats';
@@ -171,6 +171,12 @@ export function makeCtx(e: Engine, spell: ActiveSpell, event?: GameEvent): Event
       checkFatal(e, g);
       recheckSquare(e, from);
       recheckSquare(e, pos);
+      if (!samePos(from, pos) && s.groups[id]?.pos) {
+        const ref = { kind: 'group' as const, id };
+        dispatch(e, 'group:exit', ref, { from });
+        dispatch(e, 'group:move', ref, { from, to: g.pos });
+        dispatch(e, 'group:enter', ref, { to: g.pos });
+      }
     },
   };
 }
