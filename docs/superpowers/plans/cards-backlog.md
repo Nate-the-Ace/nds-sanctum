@@ -34,10 +34,6 @@ Needs: `StatDelta.maxHp` and "+N maximum and current hit points" on cast.
 
 ## E3. Mana generation (4)
 Needs: `ctx.addMana(side, type, n)` during the mana step of start of turn.
-- Call to Arms (War)
-- Point of Clarity (War)
-- Aura of World (Life)
-- Ring of Light (Life)
 
 ## E4. Movement-order control (4)
 Needs: persistent move-order cancellation, "moves twice" movement, random legal direction, diagonal teleport.

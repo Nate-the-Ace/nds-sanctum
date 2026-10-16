@@ -1,4 +1,6 @@
 import type { CardDef } from '@sanctum/engine';
+import auraOfWorld from './auraOfWorld';
+import ringOfLight from './ringOfLight';
 import caravan from './caravan';
 import cleansingLight from './cleansingLight';
 import elvenPiper from './elvenPiper';
@@ -25,4 +27,5 @@ export const lifeCards: CardDef[] = [
   redeemersSword, filigreedArmor, pacifism, vivant, faerieFire, elvenPiper,
   fountainOfYouth, youth, faerieGlade, faerieGladeSquare,
   faerieKnight, elixirVitae, dropOfElixirVitae,
+  auraOfWorld, ringOfLight,
 ];
