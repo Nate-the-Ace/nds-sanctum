@@ -19,6 +19,16 @@ interface Track {
 }
 type Tracks = Map<number, Track>;
 
+/** Track for a group, created lazily for groups born during movement. */
+function trackOf(tracks: Tracks, g: Group): Track {
+  let t = tracks.get(g.id);
+  if (!t) {
+    t = { start: { ...g.pos! }, moved: false, bounced: false, seq: tracks.size, notified: false };
+    tracks.set(g.id, t);
+  }
+  return t;
+}
+
 function botMove(e: Engine, g: Group): Dir | null {
   const card = g.botId ? e.cards[g.botId] : undefined;
   return card?.bot ? card.bot(makeQuery(e, g.owner), g.id) : null;
@@ -44,15 +54,15 @@ function canJoin(a: Group, b: Group): boolean {
 /** Pass II ranking: stationary first, then initiative/neutral/non-initiative, then larger, then orders sequence. */
 function rank(s: GameState, tracks: Tracks, pos: Pos, a: Group, b: Group): number {
   const stationary = (g: Group) => {
-    const t = tracks.get(g.id);
-    return !!t && !t.moved && samePos(t.start, pos);
+    const t = trackOf(tracks, g);
+    return !t.moved && samePos(t.start, pos);
   };
   if (stationary(a) !== stationary(b)) return stationary(a) ? -1 : 1;
   const ra = ownerRank(s, a.owner);
   const rb = ownerRank(s, b.owner);
   if (ra !== rb) return ra - rb;
   if (a.minionIds.length !== b.minionIds.length) return b.minionIds.length - a.minionIds.length;
-  return (tracks.get(a.id)?.seq ?? 0) - (tracks.get(b.id)?.seq ?? 0);
+  return trackOf(tracks, a).seq - trackOf(tracks, b).seq;
 }
 
 function notify(e: Engine, g: Group, t: Track): void {
@@ -67,7 +77,11 @@ function notify(e: Engine, g: Group, t: Track): void {
 
 function join(e: Engine, tracks: Tracks, winner: Group, g: Group): void {
   const s = e.state;
-  notify(e, g, tracks.get(g.id)!);
+  notify(e, g, trackOf(tracks, g));
+  if (!s.groups[winner.id]) {
+    bounce(e, tracks, g); // the winner vanished during notification; never merge into a deleted group
+    return;
+  }
   for (const mid of g.minionIds) {
     s.minions[mid].groupId = winner.id;
     winner.minionIds.push(mid);
@@ -81,7 +95,7 @@ function join(e: Engine, tracks: Tracks, winner: Group, g: Group): void {
 /** Second bounce: jump to the nearest empty, unoccupied, enterable square; if none exists, leave the game. */
 function moonwalk(e: Engine, tracks: Tracks, g: Group): void {
   const s = e.state;
-  const t = tracks.get(g.id)!;
+  const t = trackOf(tracks, g);
   let best: Pos | null = null;
   let bestD = Infinity;
   for (const k of s.cells) {
@@ -103,7 +117,7 @@ function moonwalk(e: Engine, tracks: Tracks, g: Group): void {
 }
 
 function bounce(e: Engine, tracks: Tracks, g: Group): void {
-  const t = tracks.get(g.id)!;
+  const t = trackOf(tracks, g);
   if (t.bounced) {
     moonwalk(e, tracks, g);
     return;
@@ -167,12 +181,12 @@ export function runMovement(e: Engine): void {
     if (!canEnterSquare(e, g, dest)) continue;
     if (groupsAt(s, dest).some((o) => o.id !== g.id && hostile(g, o))) continue;
     g.pos = dest;
-    tracks.get(g.id)!.moved = true;
+    trackOf(tracks, g).moved = true;
   }
   resolveStacks(e, tracks);
   for (const g of list) {
     const cur = s.groups[g.id];
-    if (cur) notify(e, cur, tracks.get(g.id)!);
+    if (cur) notify(e, cur, trackOf(tracks, cur));
   }
   for (const g of Object.values(s.groups)) {
     g.moveOrder = null;

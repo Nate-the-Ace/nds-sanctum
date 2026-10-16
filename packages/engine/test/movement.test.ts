@@ -56,6 +56,29 @@ describe('movement', () => {
     expect(a.pos).toEqual({ x: 4, y: 4 });
   });
 
+  it('bounces instead of merging when a notify handler deletes the winner', () => {
+    const assassin = defineCard({
+      id: 'assassin', name: 'Assassin', house: 'war', cost: {}, type: 'alteration', target: 'globe',
+      on: {
+        'group:move': (c, ev) => {
+          for (const g of Object.values(c.state.groups)) {
+            if (g.id === (ev.ref as any).id || !g.pos) continue;
+            for (const mid of [...g.minionIds]) c.kill(mid);
+          }
+        },
+      },
+    });
+    const e = blankEngine([assassin]);
+    addSpellRecord(e.state, { cardId: 'assassin', owner: 'red', host: { kind: 'globe' }, visible: true, turnsLeft: null, tokens: {} });
+    const winner = put(e, 'red', { x: 5, y: 4 }, sw(1));
+    const mover = put(e, 'red', { x: 4, y: 4 }, sw(1));
+    mover.moveOrder = 'e';
+    runMovement(e);
+    expect(e.state.groups[winner.id]).toBeUndefined();
+    expect(e.state.groups[mover.id]).toBeDefined();
+    for (const mid of mover.minionIds) expect(e.state.groups[e.state.minions[mid].groupId]).toBeDefined();
+  });
+
   it('joins friendly groups meeting in a square when they fit', () => {
     const e = blankEngine();
     const a = put(e, 'red', { x: 4, y: 4 }, sw(3));
