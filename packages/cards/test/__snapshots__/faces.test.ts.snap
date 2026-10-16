@@ -224,6 +224,15 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Recruit group with swordsmen.",
     "Swordsmen +1 H.",
   ],
+  "lienna": [
+    "Recruit group in forest.",
+    "Hero.",
+    "Create Lienna (M:2 A:0 HP:7 L:2) with Lienna's Presence (While Lienna is in play, her caster's side has Initiative).",
+  ],
+  "liennas-presence": [
+    "Recruit.",
+    "While Lienna is in play, her caster's side has Initiative.",
+  ],
   "liennas-sigil": [
     "Group.",
     "Start of combat (vs monsters): Withdraw.",
@@ -240,6 +249,16 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "marksman": [
     "Archer.",
     "+1 M, +2 HP (heals 2), +1 Attack.",
+  ],
+  "ngozi": [
+    "Recruit group.",
+    "Hero.",
+    "Create Ngozi (H:2 A:1 HP:7 L:2) with Ngozi's Blight (Before movement: Squares next to its group become barren; After it moves: Squares next to its group become barren).",
+  ],
+  "ngozis-blight": [
+    "Recruit.",
+    "Before movement: Squares next to its group become barren.",
+    "After it moves: Squares next to its group become barren.",
   ],
   "ngozis-way": [
     "Recruit group.",
@@ -290,6 +309,10 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "ring-of-light": [
     "Town or colony.",
     "Mana: +2 Clarity to its owner.",
+  ],
+  "rite-of-growth": [
+    "Recruit.",
+    "+1 H, +4 HP.",
   ],
   "salamander": [
     "Square.",
@@ -356,6 +379,12 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Pacified.",
     "Each round: Heal the most hurt ally by 3.",
     "Start of turn: Heal its group fully.",
+  ],
+  "vlad-hrothgar": [
+    "Friendly town or colony.",
+    "Hero.",
+    "Create Vlad Hrothgar (H:2 A:1 HP:7 L:2) with Veteran (+1 H, +1 A, +4 HP (heals 4)).",
+    "Create Oro (H:2 A:1 HP:9 L:2) with Rite of Growth (+1 H, +4 HP).",
   ],
   "volcano": [
     "Square.",

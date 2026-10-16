@@ -44,6 +44,8 @@ import bard from './bard';
 import bardSong from './bardSong';
 import allies from './allies';
 import incarnate from './incarnate';
+import lienna from './lienna';
+import liennasPresence from './liennasPresence';
 
 export const lifeCards: CardDef[] = [
   caravan, flight, cleansingLight, pyx, healingHands, oasis, wellspring,
@@ -57,4 +59,5 @@ export const lifeCards: CardDef[] = [
   clandestine, greymantle, auberolsGrace, graceOfAuberol,
   prismaticSerpent, sylph, undine, arboriads,
   bard, bardSong, allies, incarnate,
+  lienna, liennasPresence,
 ];

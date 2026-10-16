@@ -1,16 +1,13 @@
 # War and Life cards not yet implemented
 
-Implemented: 75 (37 War, 38 Life). Source data: `packages/cards/data/cards.json`. Each group is one engine extension;
+Implemented: 78 (39 War, 39 Life). Source data: `packages/cards/data/cards.json`. Each group is one engine extension;
 implementing it unlocks the listed cards. `packages/cards/test/backlog.test.ts` keeps this list equal to `pendingCards`.
 Card lines must stay in the form `- Name (War|Life)`.
 
-## E1. Monsters, heroes, nations and minion creation (4)
+## E1. Monsters, heroes, nations and minion creation (1)
 Needs: summon with stat lines (`H:4 A:1 HP:16 L:2`), monster behaviours (Territorial, Nomadic, Immobile, Flight, Neutral,
 off-board appearance), nations as a minion property, `ctx.addMinion(group, spec)`, novice creation in a town, a
 once-per-game rule for heroes. This is the next plan (2c).
-- Ngozi (War)
-- Vlad Hrothgar (War)
-- Lienna (Life)
 - Questing Beast (Life)
 
 ## E6. Spells that remove a group for a while (1)
