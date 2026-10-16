@@ -118,10 +118,25 @@ describe('printed card text', () => {
     ]);
   });
 
+  it('plan 2d: card flow', () => {
+    expect(lines('growing-strife')).toEqual(['Swordsman.', 'Recursive 1.', '+1 H.']);
+    expect(lines('growing-strife-3')).toEqual(['Swordsman.', 'Recursive 3.', '+3 H.']);
+    expect(lines('greater-clarity')).toEqual(['Archer.', 'Recursive 1.', '+1 M.']);
+    expect(lines('book-of-war')).toEqual([
+      'Globe.', 'When a recruit kills by combat damage, it gets +1 L at the start of the next turn (once per turn, at most L5).',
+    ]);
+    expect(lines('day-of-mourning')).toEqual([
+      'Globe.', 'Lasts 5 turns.', "Each time a recruit dies, the top card of its owner's deck is removed from the game.",
+    ]);
+    expect(lines('seelie-champion')).toEqual(['Archer.', '+1 M for each alteration cast on it after this one.']);
+    expect(lines('spy-at-court')).toEqual(['Town or colony.', "Start of turn: its caster sees the top card of the town's owner's deck."]);
+    expect(lines('challenge')).toEqual(['Globe.', 'The owner of the highest-level recruit on the board gains Initiative (no change on a tie).']);
+  });
+
   it('pins the printed text of every card', async () => {
     const { allCards } = await import('../src/index');
     const faces = Object.fromEntries(allCards.map((c) => [c.id, faceOf(c.id)?.lines]));
-    expect(Object.keys(faces)).toHaveLength(98);
+    expect(Object.keys(faces)).toHaveLength(119);
     expect(faces).toMatchSnapshot();
   });
 });

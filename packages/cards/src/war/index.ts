@@ -47,6 +47,9 @@ import vladHrothgar from './vladHrothgar';
 import riteOfGrowth from './riteOfGrowth';
 import cannon from './cannon';
 import flamingArrows from './flamingArrows';
+import bookOfWar from './bookOfWar';
+import challenge from './challenge';
+import { growingStrifeCards } from './growingStrife';
 
 export const warCards: CardDef[] = [
   flamingSword, bloodlust, legionnaires, ngozisWay, palisade, warDrums, swashbuckler,
@@ -62,4 +65,5 @@ export const warCards: CardDef[] = [
   warlord, warlordCommand, decoy, decoyRuse, dragonsTeeth,
   ngozi, ngozisBlight, vladHrothgar, riteOfGrowth,
   cannon, flamingArrows,
+  bookOfWar, challenge, ...growingStrifeCards,
 ];

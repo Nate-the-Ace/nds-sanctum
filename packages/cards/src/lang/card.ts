@@ -12,6 +12,8 @@ export interface CardInput {
   cost: Partial<ManaPool>;
   type: SpellType;
   helper?: boolean;
+  /** A recursive hand copy of this card id (see recursive()). */
+  copyOf?: string;
   target: TargetSpec | TargetBuilder;
   /** Where the spell sits when it differs from the target ('minion' for summoned creatures). */
   host?: HostKind;
@@ -35,7 +37,7 @@ export function card(input: CardInput): CardDef {
   if (specs.has(input.id)) throw new Error(`duplicate card id "${input.id}"`);
   const spec: CardSpec = {
     id: input.id, name: input.name, house: input.house, cost: input.cost, type: input.type,
-    helper: input.helper, target: toTargetSpec(input.target), host: input.host, keywords: input.keywords,
+    helper: input.helper, copyOf: input.copyOf, target: toTargetSpec(input.target), host: input.host, keywords: input.keywords,
   };
   const ctxOf = (index: number): CompileCtx => ({
     target: spec.target, type: spec.type, cardId: spec.id, index, house: spec.house, host: spec.host, keywords: spec.keywords,
@@ -56,6 +58,7 @@ export function card(input: CardInput): CardDef {
     ...merged,
   };
   if (spec.helper) def.helper = true;
+  if (spec.copyOf) def.copyOf = spec.copyOf;
   defs.set(spec.id, def);
   // The printed face, joined by newlines. Lazy: it may name helper cards declared after this one.
   Object.defineProperty(def, 'text', { enumerable: true, configurable: true, get: () => renderSpec(spec).lines.join('\n') });

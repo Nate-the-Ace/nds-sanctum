@@ -1,6 +1,6 @@
 # War and Life cards not yet implemented
 
-Implemented: 83 (41 War, 42 Life). Source data: `packages/cards/data/cards.json`. Each group is one engine extension;
+Implemented: 90 (44 War, 46 Life). Source data: `packages/cards/data/cards.json`. Each group is one engine extension;
 implementing it unlocks the listed cards. `packages/cards/test/backlog.test.ts` keeps this list equal to `pendingCards`.
 Card lines must stay in the form `- Name (War|Life)`.
 
@@ -14,22 +14,12 @@ check. (The other 18 creature cards shipped in plan 2c.)
 Needs: groups that disappear from the board and reappear (boardhop-style), with a "cannot re-enter" rule.
 - Faerie Circle (Life)
 
-## E8. Initiative and structures (6)
-Needs: `ctx.setInitiative`, create/destroy/move structures, colonies, hidden structures.
-- Challenge (War)
+## E8. Structures (4)
+Needs: create/destroy/move structures, colonies, hidden structures.
 - Defensive Pact (War)
 - Encampment (War)
 - Golden Grove (Life)
 - Seelie Court (Life)
-- Spy at Court (Life)
-
-## E10. Tokens, copies and experience (5)
-Needs: recursive hand copies with token counts, "subsequent alteration" counting, grant experience level, deck removal.
-- Book of War (War)
-- Growing Strife (War)
-- Day of Mourning (Life)
-- Greater Clarity (Life)
-- Seelie Champion (Life)
 
 ## E11. One-off mechanics (6)
 Needs: effects that reach other squares (General, Fae Quadrille), random eruption (Lava Flow), ownership change

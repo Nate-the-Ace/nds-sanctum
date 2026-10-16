@@ -71,6 +71,8 @@ export interface CardSpec {
   cost: Partial<ManaPool>;
   type: SpellType;
   helper?: boolean;
+  /** A recursive hand copy of this card id. */
+  copyOf?: string;
   target: TargetSpec;
   host?: HostKind;
   keywords: Keyword[];

@@ -3,10 +3,10 @@ import {
   chooseMana, confirmOrders, createGame, emptyOrders, submitOrders, validateDeck,
   type GameState, type Mana, type Orders, type Result, type Side,
 } from '@sanctum/engine';
-import { allCards, cardIndex } from '../src/index';
+import { cardIndex, playableCards } from '../src/index';
 
 const deck = (house: 'war' | 'life') => {
-  const ids = allCards.filter((c) => c.house === house && !c.helper).map((c) => c.id);
+  const ids = playableCards.filter((c) => c.house === house).map((c) => c.id);
   return { house, cards: [...ids, ...ids, ...ids] };
 };
 const MANA: Record<Side, Mana> = { red: 'strife', blue: 'clarity' };

@@ -49,6 +49,10 @@ import liennasPresence from './liennasPresence';
 import cadre from './cadre';
 import faeGift from './faeGift';
 import yeoman from './yeoman';
+import dayOfMourning from './dayOfMourning';
+import { greaterClarityCards } from './greaterClarity';
+import seelieChampion from './seelieChampion';
+import spyAtCourt from './spyAtCourt';
 
 export const lifeCards: CardDef[] = [
   caravan, flight, cleansingLight, pyx, healingHands, oasis, wellspring,
@@ -64,4 +68,5 @@ export const lifeCards: CardDef[] = [
   bard, bardSong, allies, incarnate,
   lienna, liennasPresence,
   cadre, faeGift, yeoman,
+  dayOfMourning, ...greaterClarityCards, seelieChampion, spyAtCourt,
 ];

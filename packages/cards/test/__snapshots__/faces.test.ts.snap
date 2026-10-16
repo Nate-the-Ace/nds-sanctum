@@ -64,6 +64,10 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Swordsman.",
     "+1 Attack.",
   ],
+  "book-of-war": [
+    "Globe.",
+    "When a recruit kills by combat damage, it gets +1 L at the start of the next turn (once per turn, at most L5).",
+  ],
   "brimstone-dragon": [
     "Mountain or volcano square.",
     "Territorial.",
@@ -86,6 +90,10 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Recruit group.",
     "Desertwalk.",
   ],
+  "challenge": [
+    "Globe.",
+    "The owner of the highest-level recruit on the board gains Initiative (no change on a tie).",
+  ],
   "clandestine": [
     "Town or colony.",
     "Lasts 5 turns.",
@@ -105,6 +113,11 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Globe.",
     "Stackable.",
     "Mana: +2 Clarity.",
+  ],
+  "day-of-mourning": [
+    "Globe.",
+    "Lasts 5 turns.",
+    "Each time a recruit dies, the top card of its owner's deck is removed from the game.",
   ],
   "decoy": [
     "Friendly recruit group.",
@@ -215,9 +228,89 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Recruit.",
     "+4 HP.",
   ],
+  "greater-clarity": [
+    "Archer.",
+    "Recursive 1.",
+    "+1 M.",
+  ],
+  "greater-clarity-2": [
+    "Archer.",
+    "Recursive 2.",
+    "+2 M.",
+  ],
+  "greater-clarity-3": [
+    "Archer.",
+    "Recursive 3.",
+    "+3 M.",
+  ],
+  "greater-clarity-4": [
+    "Archer.",
+    "Recursive 4.",
+    "+4 M.",
+  ],
+  "greater-clarity-5": [
+    "Archer.",
+    "Recursive 5.",
+    "+5 M.",
+  ],
+  "greater-clarity-6": [
+    "Archer.",
+    "Recursive 6.",
+    "+6 M.",
+  ],
+  "greater-clarity-7": [
+    "Archer.",
+    "Recursive 7.",
+    "+7 M.",
+  ],
+  "greater-clarity-8": [
+    "Archer.",
+    "Recursive 8.",
+    "+8 M.",
+  ],
   "greymantle": [
     "Recruit.",
     "Concealed.",
+  ],
+  "growing-strife": [
+    "Swordsman.",
+    "Recursive 1.",
+    "+1 H.",
+  ],
+  "growing-strife-2": [
+    "Swordsman.",
+    "Recursive 2.",
+    "+2 H.",
+  ],
+  "growing-strife-3": [
+    "Swordsman.",
+    "Recursive 3.",
+    "+3 H.",
+  ],
+  "growing-strife-4": [
+    "Swordsman.",
+    "Recursive 4.",
+    "+4 H.",
+  ],
+  "growing-strife-5": [
+    "Swordsman.",
+    "Recursive 5.",
+    "+5 H.",
+  ],
+  "growing-strife-6": [
+    "Swordsman.",
+    "Recursive 6.",
+    "+6 H.",
+  ],
+  "growing-strife-7": [
+    "Swordsman.",
+    "Recursive 7.",
+    "+7 H.",
+  ],
+  "growing-strife-8": [
+    "Swordsman.",
+    "Recursive 8.",
+    "+8 H.",
   ],
   "healing-hands": [
     "Recruit.",
@@ -344,6 +437,10 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Forest square.",
     "Contiguous forest becomes barren.",
   ],
+  "seelie-champion": [
+    "Archer.",
+    "+1 M for each alteration cast on it after this one.",
+  ],
   "seelie-favor": [
     "Non-friendly group.",
     "Shroud (group spells).",
@@ -356,6 +453,10 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Group.",
     "Fleeting.",
     "Round 3: Withdraw.",
+  ],
+  "spy-at-court": [
+    "Town or colony.",
+    "Start of turn: its caster sees the top card of the town's owner's deck.",
   ],
   "standoff": [
     "Globe.",
