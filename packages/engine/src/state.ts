@@ -3,7 +3,7 @@ import { emptyPool } from './types';
 import type { GameState, HouseId, PlayerState, Side, TerrainId } from './types';
 
 function player(id: Side, house: HouseId): PlayerState {
-  return { id, house, mana: emptyPool(), deck: [], hand: [], discard: [], orders: null, confirmed: false };
+  return { id, house, mana: emptyPool(), deck: [], hand: [], discard: [], orders: null, confirmed: false, heroesCast: [] };
 }
 
 /** Flat plains board, no structures, no units. Red has initiative. */

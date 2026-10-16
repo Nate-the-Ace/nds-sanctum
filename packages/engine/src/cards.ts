@@ -39,6 +39,8 @@ export interface CardDef {
   persistent?: (q: QueryContext, host: Ref) => boolean;
   /** Computed stat contribution for a minion this spell reaches (host minion, group, square, structure or globe). */
   stats?: (q: QueryContext, minionId: number, spell: ActiveSpell) => StatDelta;
+  /** On a minion-hosted spell: `stats` also applies to every other minion in the host minion's group. */
+  groupAura?: boolean;
   /** While this spell is active, return true to forbid the attempted cast (it squanders, or is rejected while ordering). */
   blocksCast?: (q: QueryContext, spell: ActiveSpell, attempt: CastAttempt) => boolean;
   /** Runs when a spell of this card expires by duration, just before it is removed (not when dispelled). */

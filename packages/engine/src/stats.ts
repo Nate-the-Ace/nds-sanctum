@@ -15,6 +15,7 @@ export interface StatDelta {
   walks?: Walk[];
   noDamage?: boolean;
   concealed?: boolean;
+  taunt?: boolean;
 }
 
 export interface Stats {
@@ -28,6 +29,7 @@ export interface Stats {
   walks: Walk[];
   noDamage: boolean;
   concealed: boolean;
+  taunt: boolean;
 }
 
 /** Base stats plus the `stats` contribution of every active spell that reaches this minion. Never stored. */
@@ -38,7 +40,7 @@ export function computeStats(e: Engine, minionId: number): Stats {
   const b = m.base;
   const out: Stats = {
     hand: b.hand, missile: b.missile, armor: b.armor, maxHp: b.hp, level: b.level,
-    handAttacks: b.handAttacks, missileAttacks: b.missileAttacks, walks: [...b.walks], noDamage: false, concealed: false,
+    handAttacks: b.handAttacks, missileAttacks: b.missileAttacks, walks: [...b.walks], noDamage: false, concealed: false, taunt: false,
   };
   const g = s.groups[m.groupId];
   const refs: Ref[] = [{ kind: 'minion', id: m.id }, { kind: 'group', id: m.groupId }];
@@ -49,20 +51,30 @@ export function computeStats(e: Engine, minionId: number): Stats {
   }
   refs.push({ kind: 'globe' });
   const q = makeQuery(e, m.owner);
+  const add = (d: StatDelta | undefined | null): void => {
+    if (!d) return;
+    out.hand += d.hand ?? 0;
+    out.missile += d.missile ?? 0;
+    out.armor += d.armor ?? 0;
+    out.maxHp += d.maxHp ?? 0;
+    out.level += d.level ?? 0;
+    out.handAttacks += d.handAttacks ?? 0;
+    out.missileAttacks += d.missileAttacks ?? 0;
+    if (d.walks) out.walks.push(...d.walks);
+    if (d.noDamage) out.noDamage = true;
+    if (d.concealed) out.concealed = true;
+    if (d.taunt) out.taunt = true;
+  };
   for (const ref of refs) {
-    for (const sp of spellsOn(s, ref)) {
-      const d = e.cards[sp.cardId]?.stats?.(q, minionId, sp);
-      if (!d) continue;
-      out.hand += d.hand ?? 0;
-      out.missile += d.missile ?? 0;
-      out.armor += d.armor ?? 0;
-      out.maxHp += d.maxHp ?? 0;
-      out.level += d.level ?? 0;
-      out.handAttacks += d.handAttacks ?? 0;
-      out.missileAttacks += d.missileAttacks ?? 0;
-      if (d.walks) out.walks.push(...d.walks);
-      if (d.noDamage) out.noDamage = true;
-      if (d.concealed) out.concealed = true;
+    for (const sp of spellsOn(s, ref)) add(e.cards[sp.cardId]?.stats?.(q, minionId, sp));
+  }
+  if (g) {
+    for (const mid of g.minionIds) {
+      if (mid === m.id) continue;
+      for (const sp of spellsOn(s, { kind: 'minion', id: mid })) {
+        const card = e.cards[sp.cardId];
+        if (card?.groupAura) add(card.stats?.(q, minionId, sp));
+      }
     }
   }
   out.level = Math.max(0, Math.min(RULES.maxLevel, out.level));

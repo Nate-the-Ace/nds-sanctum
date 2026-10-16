@@ -19,6 +19,7 @@ const STAT_MERGERS: { [K in keyof StatDelta]-?: StatMerger<K> } = {
   walks: (a, b) => [...(a ?? []), ...b],
   noDamage: either,
   concealed: either,
+  taunt: either,
 };
 
 export function addStats(a: StatDelta, b: StatDelta): StatDelta {
@@ -82,6 +83,7 @@ const MERGERS: { [K in keyof Fragment]-?: Merger<K> } = {
   visible: (vs) => (vs.includes(false) ? false : true),
   ignoresConcealment: (vs) => (vs.includes(true) ? true : undefined),
   helper: (vs) => (vs.includes(true) ? true : undefined),
+  groupAura: (vs) => (vs.includes(true) ? true : undefined),
 };
 
 /** Combine keyword contributions into one set of `CardDef` hooks. */

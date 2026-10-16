@@ -52,6 +52,7 @@ export function targetLegal(e: Engine, card: CardDef, caster: PlayerId, ref: Ref
 
 /** Target legality plus the card's own `canCast`. Used while ordering and again at execution. */
 export function castCheck(e: Engine, caster: PlayerId, card: CardDef, ref: Ref): boolean {
+  if (card.type === 'hero' && caster !== 'neutral' && e.state.players[caster].heroesCast.includes(card.id)) return false;
   if (!targetLegal(e, card, caster, ref)) return false;
   const q = makeQuery(e, caster);
   if (card.canCast && !card.canCast(q, ref)) return false;
@@ -109,6 +110,7 @@ export function executeCast(e: Engine, caster: PlayerId, cardId: string, ref: Re
   if (persists && (card.exclusive ?? visible) && spellsOn(s, ref).some((sp) => sp.cardId === cardId)) {
     return squander('exclusive');
   }
+  if (card.type === 'hero' && caster !== 'neutral') s.players[caster].heroesCast.push(card.id);
   s.log.push({ type: 'cast', card: cardId, caster, target: ref });
   if (persists) {
     const sp = addSpellRecord(s, {

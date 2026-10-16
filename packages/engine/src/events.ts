@@ -1,6 +1,6 @@
 import { makeCtx } from './ctx';
 import type { Engine } from './engine';
-import { sequence, spellsOn, structureAt } from './query';
+import { isOffBoard, sequence, spellsOn, structureAt } from './query';
 import type { ActiveSpell, GameState, Pos, Ref } from './types';
 
 export type EventType =
@@ -11,7 +11,9 @@ export type EventType =
   // minion
   | 'attack:beforeArmor' | 'attack:hit' | 'armor:after'
   | 'minion:dying' | 'minion:killed' | 'minion:dies' | 'minion:created'
-  | 'attacker:hits' | 'attacker:damages' | 'attacker:kills';
+  | 'attacker:strikes' | 'attacker:hits' | 'attacker:damages' | 'attacker:kills'
+  // untargeted
+  | 'initiative:decide';
 
 export interface GameEvent {
   type: EventType;
@@ -62,6 +64,7 @@ export function dispatch(e: Engine, type: EventType, ref?: Ref, data: Record<str
   const spells = ref ? chain(s, ref) : sequence(s).flatMap((p) => s.spells.filter((sp) => sp.owner === p));
   for (const sp of spells) {
     if (!s.spells.some((x) => x.id === sp.id)) continue; // dispelled by an earlier handler
+    if (isOffBoard(s, sp.host)) continue;
     const fn = e.cards[sp.cardId]?.on?.[type];
     if (fn) fn(makeCtx(e, sp, ev), ev);
   }

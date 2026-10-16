@@ -68,6 +68,7 @@ export function beginTurn(e: Engine, first: boolean): void {
   for (const st of Object.values(s.structures)) st.captured = false;
 
   if (delta.red !== delta.blue) s.initiative = delta.red > delta.blue ? 'red' : 'blue';
+  dispatch(e, 'initiative:decide');
   if (s.pendingMana.length > 0) {
     s.phase = 'choose-mana';
     return;

@@ -133,6 +133,8 @@ export interface PlayerState {
   discard: string[];
   orders: Orders | null;
   confirmed: boolean;
+  /** Hero card ids this player has cast (a hero is cast once per game). */
+  heroesCast: string[];
 }
 
 export interface LogEntry { type: string; [key: string]: unknown }

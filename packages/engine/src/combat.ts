@@ -47,6 +47,8 @@ function chooseWisely(e: Engine, m: Minion, enemyGid: number): Minion | null {
   const s = e.state;
   const foes = shuffle(s, minionsOf(s, enemyGid));
   if (foes.length === 0) return null;
+  const taunter = foes.find((x) => computeStats(e, x.id).taunt);
+  if (taunter) return taunter;
   const potential = groupPotential(e, m.groupId);
   const keyed = foes.map((x) => {
     const st = computeStats(e, x.id);
@@ -122,7 +124,9 @@ function attack(e: Engine, m: Minion, v: Minion, round: number): void {
   // A2: damage
   let dmg = useMissile ? st.missile - (round === 1 ? 1 : 0) : st.hand;
   dmg += nationBonus(m, useMissile, round);
-  dmg = st.noDamage ? 0 : Math.max(0, dmg);
+  const strike = { victimId: v.id, kind: useMissile ? 'missile' : 'hand', round, damage: dmg };
+  dispatch(e, 'attacker:strikes', { kind: 'minion', id: m.id }, strike);
+  dmg = st.noDamage ? 0 : Math.max(0, strike.damage);
   // A3: victim takes damage
   const res = takeDamage(e, v.id, dmg, { kind: useMissile ? 'missile' : 'hand', ignoresArmor: false, magical: false }, m.id);
   const buried = () => m.status === 'dead' || v.status === 'dead';

@@ -42,6 +42,8 @@ export interface EventContext extends QueryContext {
   endCombat(): void;
   token(name: string): number;
   setToken(name: string, value: number): void;
+  /** Sets which side has the initiative. Use from an `initiative:decide` handler. */
+  setInitiative(side: Side): void;
   /** Adds mana to a player's pool for this turn. Use from a `mana:generate` handler. */
   addMana(side: Side, mana: Mana, amount: number): void;
   /** Spell damage. Magical by default (ignores armor); pass `{ magical: false }` for damage that respects armor and fires beforeArmor handlers. Nobody is blamed, so a death is a "dies" death. */
@@ -117,6 +119,9 @@ export function makeCtx(e: Engine, spell: ActiveSpell, event?: GameEvent): Event
     token: (name) => spell.tokens[name] ?? 0,
     setToken: (name, value) => {
       spell.tokens[name] = value;
+    },
+    setInitiative: (side) => {
+      e.state.initiative = side;
     },
     damage: (id, amount, opts) => applyDamage(e, id, amount, opts),
     heal: (id, amount) => {

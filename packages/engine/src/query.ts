@@ -64,3 +64,13 @@ export function isConcealed(s: GameState, m: Minion): boolean {
   const p = minionPos(s, m);
   return p !== null && s.terrain[key(p)] === 'forest';
 }
+
+/** Spells on a group or minion that is off the board are suspended (rules: time stops off the board). */
+export function isOffBoard(s: GameState, ref: Ref): boolean {
+  if (ref.kind === 'group') return !!s.groups[ref.id] && s.groups[ref.id].pos === null;
+  if (ref.kind === 'minion') {
+    const m = s.minions[ref.id];
+    return !!m && s.groups[m.groupId]?.pos === null;
+  }
+  return false;
+}
