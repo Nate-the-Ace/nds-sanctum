@@ -17,8 +17,9 @@ describe('Amok', () => {
   it('moves a player-controlled group two squares in one random legal direction', () => {
     const e = world();
     const g = put(e, 'red', { x: 4, y: 4 }, ['swordsman']);
-    g.moveOrder = 'e';
+    expect(g.moveOrder).toBeNull();
     expect(cast(e, 'red', 'amok', gref(g.id))).toBe('cast');
+    expect(g.moveOrder).not.toBeNull();
     runMovement(e);
     const d = Math.abs(g.pos!.x - 4) + Math.abs(g.pos!.y - 4);
     expect(d).toBe(2);
