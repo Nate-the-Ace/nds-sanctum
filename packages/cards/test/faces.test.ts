@@ -92,4 +92,14 @@ describe('printed card text', () => {
     expect(lines('faerie-knight')).toEqual(['Recruit.', 'Warded.', '+4 HP.']);
     expect(lines('filigreed-armor')).toEqual(['Recruit.', 'Warded 1.', '+1 A.']);
   });
+
+  it('batch D: Rage and scripts', () => {
+    expect(lines('berserker-blade')).toEqual(['Swordsman.', 'Rage: +1 H each time hit, until end of combat.']);
+    expect(lines('berserkers')).toEqual(['Recruit group.', 'Rage: +1 H per casualty (max +3), until end of combat.']);
+    expect(lines('swashbuckler')).toEqual(['Swordsman.', 'Undispellable.', 'Gain L equal to A, then A becomes 0.']);
+    expect(lines('shattering-blow')).toEqual(['Swordsman.', 'On hit: kill the victim, then -1 H.']);
+    expect(lines('liennas-steed')).toEqual([
+      'Friendly recruit group.', 'Move 1 square diagonally toward the enemy and cancel its move order.',
+    ]);
+  });
 });

@@ -12,3 +12,4 @@ export * from './triggers';
 export { resolveScope, type Scope } from './scopes';
 export * from './keywords/trigger';
 export * from './keywords/restrict';
+export * from './keywords/special';
