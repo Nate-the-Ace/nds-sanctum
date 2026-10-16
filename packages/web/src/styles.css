@@ -22,3 +22,11 @@ button { font: inherit; color: inherit; cursor: pointer; }
 button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 h1, h2, h3 { font-family: var(--font-display); letter-spacing: .02em; margin: 0; }
 .shell { max-width: 960px; margin: 0 auto; padding: 24px 16px; }
+.board { width: 100%; height: auto; max-height: 100%; display: block; }
+.board .tile { stroke: #0b0f14; stroke-width: 1; cursor: pointer; }
+.board .tile:hover { stroke: var(--accent); stroke-width: 2; }
+.board .tile.hl { stroke: #f2d675; stroke-width: 3; }
+.board .tile.selected { stroke: #fff; stroke-width: 3; }
+.board .glyph { font: 700 10px var(--font-mono); fill: var(--fg); }
+.board .count { font: 700 14px var(--font-display); fill: #0b0f14; }
+.board .arrow { opacity: .85; }
