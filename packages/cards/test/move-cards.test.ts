@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { runMovement } from '@sanctum/engine/src/testing';
+import { expireSpells, runMovement } from '@sanctum/engine/src/testing';
 import { cast, gref, put, world } from './helpers';
 
 describe('Forced March', () => {
@@ -37,6 +37,29 @@ describe('Standoff', () => {
     runMovement(e);
     expect(a.pos).toEqual({ x: 3, y: 3 });
     expect(b.pos).toEqual({ x: 6, y: 6 });
+  });
+});
+
+describe('Standoff duration', () => {
+  it('holds for the casting turn and the next, then expires', () => {
+    const e = world();
+    const a = put(e, 'red', { x: 3, y: 3 }, ['swordsman']);
+    a.moveOrder = 'e';
+    a.movesTwice = true;
+    expect(cast(e, 'red', 'standoff', { kind: 'globe' })).toBe('cast');
+    runMovement(e);
+    expect(a.pos).toEqual({ x: 3, y: 3 });
+    expect(a.movesTwice).toBe(false);
+    expireSpells(e);
+    expect(e.state.spells.some((sp) => sp.cardId === 'standoff')).toBe(true);
+    a.moveOrder = 'e';
+    runMovement(e);
+    expect(a.pos).toEqual({ x: 3, y: 3 });
+    expireSpells(e);
+    expect(e.state.spells.some((sp) => sp.cardId === 'standoff')).toBe(false);
+    a.moveOrder = 'e';
+    runMovement(e);
+    expect(a.pos).toEqual({ x: 4, y: 3 });
   });
 });
 
