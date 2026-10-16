@@ -16,3 +16,4 @@ export * from './keywords/special';
 export * from './keywords/creature';
 export * from './keywords/behavior';
 export * from './keywords/versus';
+export { hostGroupId } from './scopes';

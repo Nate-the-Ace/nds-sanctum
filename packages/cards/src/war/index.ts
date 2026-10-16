@@ -30,6 +30,11 @@ import armistice from './armistice';
 import skirmish from './skirmish';
 import fogOfWar from './fogOfWar';
 import loneWolf from './loneWolf';
+import salamander from './salamander';
+import brimstoneDragon from './brimstoneDragon';
+import wyrmling from './wyrmling';
+import wyrmlingHide from './wyrmlingHide';
+import hellion from './hellion';
 
 export const warCards: CardDef[] = [
   flamingSword, bloodlust, legionnaires, ngozisWay, palisade, warDrums, swashbuckler,
@@ -41,4 +46,5 @@ export const warCards: CardDef[] = [
   forcedMarch, amok,
   armistice, skirmish,
   fogOfWar, loneWolf,
+  salamander, brimstoneDragon, wyrmling, wyrmlingHide, hellion,
 ];

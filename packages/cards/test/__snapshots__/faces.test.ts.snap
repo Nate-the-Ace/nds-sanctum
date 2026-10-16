@@ -45,6 +45,12 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Swordsman.",
     "+1 Attack.",
   ],
+  "brimstone-dragon": [
+    "Mountain or volcano square.",
+    "Territorial.",
+    "Start of combat: Deal 5 damage to the opposing group.",
+    "Summon Brimstone Dragon (H:4 A:1 HP:16 L:2, Flight).",
+  ],
   "call-to-arms": [
     "Town or colony.",
     "Mana: +2 Strife to its owner.",
@@ -163,6 +169,12 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Recruit.",
     "Start of turn: Heal its group by 1.",
   ],
+  "hellion": [
+    "Square.",
+    "Nomadic.",
+    "After all combat, if she fought only non-Justice minions this turn, she changes sides.",
+    "Summon Hellion (H:4 A:1 HP:16 L:3).",
+  ],
   "individualism": [
     "Globe.",
     "Lasts 3 turns.",
@@ -215,6 +227,13 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Stackable.",
     "Mana: +1 Clarity.",
   ],
+  "prismatic-serpent": [
+    "Square.",
+    "Nomadic.",
+    "+4 H against Death or Despair monsters.",
+    "Cannot be targeted by Death or Despair individual spells.",
+    "Summon Prismatic Serpent (H:4 A:2 HP:12 L:2).",
+  ],
   "pyx": [
     "Group.",
     "Heal each member fully.",
@@ -231,6 +250,12 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "ring-of-light": [
     "Town or colony.",
     "Mana: +2 Clarity to its owner.",
+  ],
+  "salamander": [
+    "Square.",
+    "Territorial.",
+    "Summon Salamander (H:4 A:0 HP:12 L:1, Firewalk).",
+    "Square becomes lava.",
   ],
   "scorched-earth": [
     "Forest square.",
@@ -263,6 +288,11 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Undispellable.",
     "Gain L equal to A, then A becomes 0.",
   ],
+  "sylph": [
+    "Square.",
+    "Territorial, Warded.",
+    "Summon Sylph (M:3(x2) A:0 HP:15 L:1).",
+  ],
   "thermite-damage": [
     "Recruit.",
     "-1 A.",
@@ -270,6 +300,12 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "thermites": [
     "Recruit.",
     "On hit: Victim gets Thermite Damage (-1 A).",
+  ],
+  "undine": [
+    "Water square.",
+    "Immobile.",
+    "Plains, forest and desert next to Undine attract enemy groups: a group next to one must move onto it. Undine dies if not in water.",
+    "Summon Undine (H:2 A:0 HP:15 L:3, Waterwalk).",
   ],
   "veteran": [
     "Recruit.",
@@ -292,6 +328,16 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "wellspring": [
     "Square.",
     "On enter (recruit group): Heal every minion fully, then expend.",
+  ],
+  "wyrmling": [
+    "Volcano square.",
+    "Nomadic.",
+    "If killed by a recruit group, that group gets Wyrmling Hide (all members +2 A).",
+    "Summon neutral Wyrmling (H:2 A:2 HP:6 L:0, Flight).",
+  ],
+  "wyrmling-hide": [
+    "Group.",
+    "+2 A.",
   ],
   "youth": [
     "Recruit.",

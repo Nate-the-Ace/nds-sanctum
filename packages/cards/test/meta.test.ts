@@ -9,10 +9,13 @@ function expectedTarget(castOn: string): TargetType | null {
   if (/^(non-friendly )?group\b/.test(s)) return 'group';
   if (/^(friendly )?(swordsman|archer|recruit)\b/.test(s)) return 'recruit';
   if (/^globe\b/.test(s)) return 'globe';
-  if (/^(square|forest|plains|mountain|volcano)\b/.test(s)) return 'square';
-  if (/^town or colony\b/.test(s)) return 'structure';
+  if (/^(square|forest|plains|mountain|volcano|water)\b/.test(s)) return 'square';
+  if (/^(friendly )?town or colony\b/.test(s)) return 'structure';
   return null;
 }
+
+/** Monster cards with no "Cast on" clause: they are summoned on a square. */
+const SQUARE_MONSTERS = new Set(['hellion', 'prismatic-serpent', 'sylph', 'salamander']);
 
 describe('scraped data', () => {
   it('has 102 unique cards with the right mana per house', () => {
@@ -33,8 +36,12 @@ describe.skipIf(playableCards.length === 0)('implemented cards match their scrap
       expect(card.name).toBe(rec!.name);
       expect(card.house).toBe(rec!.house);
       expect(card.cost).toEqual(rec!.cost);
-      expect(rec!.castOn, 'record has no "Cast on" clause').not.toBeNull();
-      expect(card.target).toBe(expectedTarget(rec!.castOn!));
+      if (rec!.castOn === null) {
+        expect(SQUARE_MONSTERS.has(card.id), `"${card.name}" has no "Cast on" clause`).toBe(true);
+        expect(card.target).toBe('square');
+      } else {
+        expect(card.target).toBe(expectedTarget(rec!.castOn));
+      }
     });
   }
 });
@@ -45,9 +52,9 @@ describe('registry', () => {
     for (const c of allCards) expect(cardIndex[c.id]).toBe(c);
   });
 
-  it('has 60 playable cards (29 War, 31 Life) and 42 pending', () => {
-    expect(playableCards.filter((c) => c.house === 'war')).toHaveLength(29);
-    expect(playableCards.filter((c) => c.house === 'life')).toHaveLength(31);
-    expect(pendingCards).toHaveLength(42);
+  it('has 67 playable cards (33 War, 34 Life) and 35 pending', () => {
+    expect(playableCards.filter((c) => c.house === 'war')).toHaveLength(33);
+    expect(playableCards.filter((c) => c.house === 'life')).toHaveLength(34);
+    expect(pendingCards).toHaveLength(35);
   });
 });
