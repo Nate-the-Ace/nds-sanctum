@@ -2,3 +2,4 @@ node_modules/
 dist/
 research/art/
 research/cards-raw/
+.vitest/
