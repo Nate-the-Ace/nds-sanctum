@@ -6,3 +6,4 @@ export { card, specOf } from './card';
 export type { CardInput } from './card';
 export { renderSpec, faceOf, helperSummary, glossary } from './render';
 export type { Face, GlossaryEntry } from './render';
+export * from './keywords/statics';

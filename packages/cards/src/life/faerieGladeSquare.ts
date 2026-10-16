@@ -1,12 +1,4 @@
-import { defineCard } from '@sanctum/engine';
+import { Bound, card, Grant, Target } from '../lang';
 
-// Helper spell: one per forest square of a Faerie Glade. Enemy recruits standing here get -1 level.
-export default defineCard({
-  id: 'faerie-glade-square', name: 'Faerie Glade', house: 'life', cost: {},
-  type: 'alteration', target: 'square', helper: true,
-  persistent: (q, host) => host.kind === 'square' && q.terrainAt(host.pos) === 'forest',
-  stats: (q, id, spell) => {
-    const m = q.minion(id);
-    return m && m.kind === 'recruit' && m.owner !== spell.owner ? { level: -1 } : {};
-  },
-});
+export default card({ id: 'faerie-glade-square', name: 'Faerie Glade', house: 'life', cost: {}, type: 'alteration', helper: true,
+  target: Target.square, keywords: [Bound('forest'), Grant({ level: -1 }, { to: 'enemies' })] });

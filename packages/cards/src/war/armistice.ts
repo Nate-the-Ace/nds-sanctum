@@ -1,9 +1,4 @@
-import { defineCard } from '@sanctum/engine';
+import { card, Lasts, Target, Truce } from '../lang';
 
-export default defineCard({
-  id: 'armistice', name: 'Armistice', house: 'war', cost: { strife: 4, clarity: 4 },
-  type: 'conjuration', target: 'globe', duration: { turns: 3 },
-  on: {
-    'combat:before': (c) => c.cancel(),
-  },
-});
+export default card({ id: 'armistice', name: 'Armistice', house: 'war', cost: { strife: 4, clarity: 4 }, type: 'conjuration',
+  target: Target.globe, keywords: [Truce(), Lasts(3)] });

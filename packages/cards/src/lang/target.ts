@@ -81,7 +81,7 @@ export function printTarget(t: TargetSpec): string {
     case 'structure': noun = 'Town or colony'; break;
     default: noun = t.terrain ? `${cap(t.terrain.join(' or '))} square` : 'Square';
   }
-  if (t.cls && GROUP_TYPES.includes(t.type)) noun += ` with ${t.cls}s`;
+  if (t.cls && GROUP_TYPES.includes(t.type)) noun += ` with ${t.cls === 'swordsman' ? 'swordsmen' : 'archers'}`;
   if (t.alone) noun += ' alone in its group';
   const prefix = t.friendly ? 'Friendly ' : t.nonFriendly ? 'Non-friendly ' : '';
   return `${prefix ? prefix + lowerFirst(noun) : noun}.`;

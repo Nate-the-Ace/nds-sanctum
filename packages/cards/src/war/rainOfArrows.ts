@@ -1,14 +1,4 @@
-import { defineCard } from '@sanctum/engine';
-import { groupHas, isHostGroup } from '../helpers';
+import { card, Fleeting, Grant, Target } from '../lang';
 
-export default defineCard({
-  id: 'rain-of-arrows', name: 'Rain of Arrows', house: 'war', cost: { strife: 2, clarity: 1 },
-  type: 'alteration', target: 'recruitGroup',
-  canCast: groupHas('archer'),
-  stats: (q, id) => (q.minion(id)?.cls === 'archer' ? { missileAttacks: 1 } : {}),
-  on: {
-    'combat:after': (c, ev) => {
-      if (isHostGroup(c, ev)) c.dispel();
-    },
-  },
-});
+export default card({ id: 'rain-of-arrows', name: 'Rain of Arrows', house: 'war', cost: { strife: 2, clarity: 1 }, type: 'alteration',
+  target: Target.recruitGroup.with('archers'), keywords: [Fleeting(), Grant({ attacks: 1 }, { to: 'archers' })] });
