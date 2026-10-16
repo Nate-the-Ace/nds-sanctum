@@ -1,5 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { dispatch } from '@sanctum/engine/src/testing';
+import { defineCard } from '@sanctum/engine';
+import { blankState, dispatch, indexCards, makeEngine } from '@sanctum/engine/src/testing';
+import { allCards } from '../src/index';
 import { advance, cast, gref, mref, put, sref, stats, world } from './helpers';
 
 describe('Caravan', () => {
@@ -41,6 +43,19 @@ describe('Cleansing Light', () => {
     expect(e.state.spells).toHaveLength(2);
     expect(cast(e, 'blue', 'cleansing-light', gref(g.id))).toBe('cast');
     expect(e.state.spells).toHaveLength(0);
+  });
+  it('does not remove non-visible spells', () => {
+    const hidden = defineCard({
+      id: 'test-hidden', name: 'Hidden', house: 'war', cost: { strife: 1 },
+      type: 'alteration', target: 'recruitGroup', visible: false,
+    });
+    const e = makeEngine(blankState(1), indexCards([...allCards, hidden]));
+    const g = put(e, 'red', { x: 4, y: 4 }, ['swordsman']);
+    expect(cast(e, 'red', 'test-hidden', gref(g.id))).toBe('cast');
+    expect(cast(e, 'red', 'ngozis-way', gref(g.id))).toBe('cast');
+    expect(e.state.spells).toHaveLength(2);
+    expect(cast(e, 'blue', 'cleansing-light', gref(g.id))).toBe('cast');
+    expect(e.state.spells.map((sp) => sp.cardId)).toEqual(['test-hidden']);
   });
   it('leaves spells on other groups alone', () => {
     const e = world();
