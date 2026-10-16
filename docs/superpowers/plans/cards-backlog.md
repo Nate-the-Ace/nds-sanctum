@@ -40,10 +40,6 @@ Needs: persistent move-order cancellation, "moves twice" movement, random legal 
 
 ## E5. Withdraw and combat cancellation (4)
 Needs: a way to end a combat at a given round or before it starts.
-- Armistice (War)
-- Skirmish (War)
-- Lienna's Sigil (Life)
-- Strategic Withdrawals (Life)
 
 ## E6. Helper spells created on other hosts (6)
 Needs: `ctx.createSpell(card, owner, host)` for engine-cast spells (Thermite Damage, Youth, Faerie Blessing, Grace of Auberol).

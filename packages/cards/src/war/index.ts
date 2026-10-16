@@ -26,6 +26,8 @@ import pointOfClarity from './pointOfClarity';
 import callToArms from './callToArms';
 import forcedMarch from './forcedMarch';
 import amok from './amok';
+import armistice from './armistice';
+import skirmish from './skirmish';
 
 export const warCards: CardDef[] = [
   flamingSword, bloodlust, legionnaires, ngozisWay, palisade, warDrums, swashbuckler,
@@ -35,4 +37,5 @@ export const warCards: CardDef[] = [
   veteran, marksman, fieldSurgery, fieldSurgeryScar,
   pointOfClarity, callToArms,
   forcedMarch, amok,
+  armistice, skirmish,
 ];

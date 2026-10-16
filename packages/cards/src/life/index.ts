@@ -23,6 +23,8 @@ import elixirVitae from './elixirVitae';
 import dropOfElixirVitae from './dropOfElixirVitae';
 import standoff from './standoff';
 import liennasSteed from './liennasSteed';
+import liennasSigil from './liennasSigil';
+import strategicWithdrawals from './strategicWithdrawals';
 
 export const lifeCards: CardDef[] = [
   caravan, flight, cleansingLight, pyx, healingHands, oasis, wellspring,
@@ -31,4 +33,5 @@ export const lifeCards: CardDef[] = [
   faerieKnight, elixirVitae, dropOfElixirVitae,
   auraOfWorld, ringOfLight,
   standoff, liennasSteed,
+  liennasSigil, strategicWithdrawals,
 ];
