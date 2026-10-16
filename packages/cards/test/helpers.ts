@@ -1,6 +1,6 @@
 import type { Group, MinionSpec, PlayerId, Pos, Ref } from '@sanctum/engine';
 import {
-  blankState, computeStats, createGroup, executeCast, indexCards, makeEngine, recruitSpec, spawnMinion, type Engine,
+  beginTurn, blankState, computeStats, createGroup, executeCast, indexCards, makeEngine, recruitSpec, spawnMinion, type Engine,
 } from '@sanctum/engine/src/testing';
 import { allCards } from '../src/index';
 
@@ -31,3 +31,9 @@ export const mref = (id: number): Ref => ({ kind: 'minion', id });
 export const gref = (id: number): Ref => ({ kind: 'group', id });
 export const sref = (x: number, y: number): Ref => ({ kind: 'square', pos: { x, y } });
 export const stats = (e: Engine, id: number) => computeStats(e, id);
+
+/** Run the next start-of-turn phase (events, terrain effects, captures, draws). */
+export function advance(e: Engine): void {
+  e.state.turn += 1;
+  beginTurn(e, false);
+}
