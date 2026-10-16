@@ -105,14 +105,43 @@ describe('Berserkers', () => {
     const g = put(e, 'red', { x: 4, y: 4 }, ['swordsman', 'swordsman', 'swordsman']);
     const [dying, other] = g.minionIds;
     expect(cast(e, 'red', 'berserkers', gref(g.id))).toBe('cast');
+    dispatch(e, 'combat:start', gref(g.id), {});
     dispatch(e, 'minion:dies', mref(dying), { blame: 99 });
     expect(stats(e, other).hand).toBe(3);
     dispatch(e, 'minion:dies', mref(dying), { blame: null });
-    expect(stats(e, other).hand).toBe(3);
+    expect(stats(e, other).hand).toBe(4);
     for (let i = 0; i < 4; i++) dispatch(e, 'minion:dies', mref(dying), { blame: 99 });
     expect(stats(e, other).hand).toBe(5);
     dispatch(e, 'combat:end', gref(g.id), {});
     expect(stats(e, other).hand).toBe(2);
+  });
+  it('ignores deaths outside combat', () => {
+    const e = world();
+    const g = put(e, 'red', { x: 4, y: 4 }, ['swordsman', 'swordsman']);
+    const [dying, other] = g.minionIds;
+    cast(e, 'red', 'berserkers', gref(g.id));
+    dispatch(e, 'minion:dies', mref(dying), { blame: null });
+    expect(stats(e, other).hand).toBe(2);
+  });
+  it('counts a casualty caused by an instant kill (Shattering Blow) during a real fight', () => {
+    // Blue (initiative, so it is the `hi` group) hits first with Shattering Blow, which kills a Berserkers
+    // member via ctx.kill (blame null). The survivor then hits for 3 instead of 2. The spell is reset at
+    // combat:end, so the effect is measured through the damage dealt: blue loses more hp than in a control
+    // fight with identical dice where Berserkers was never cast.
+    const run = (withBerserkers: boolean): number => {
+      const e = world();
+      e.state.initiative = 'blue';
+      const red = put(e, 'red', { x: 4, y: 4 }, ['swordsman', 'swordsman']);
+      const blue = put(e, 'blue', { x: 5, y: 4 }, ['swordsman']);
+      const bid = blue.minionIds[0];
+      e.state.minions[bid].hp = 14;
+      if (withBerserkers) cast(e, 'red', 'berserkers', gref(red.id));
+      cast(e, 'blue', 'shattering-blow', mref(bid));
+      fight(e, blue.id, red.id);
+      expect(red.minionIds).toHaveLength(1);
+      return e.state.minions[bid].hp;
+    };
+    expect(run(true)).toBeLessThan(run(false));
   });
 });
 
