@@ -96,7 +96,10 @@ function applyTraining(e: Engine, side: Side, o: Orders): void {
     const st = s.structures[t.structureId];
     if (!st || st.owner !== side || st.novices <= 0) continue;
     st.novices--;
-    if (t.as === 'swordsman' || t.as === 'archer') addRecruit(e, side, st.pos, t.as);
+    if (t.as === 'swordsman' || t.as === 'archer') {
+      const m = addRecruit(e, side, st.pos, t.as);
+      dispatch(e, 'minion:created', { kind: 'structure', id: st.id }, { minionId: m.id });
+    }
   }
 }
 

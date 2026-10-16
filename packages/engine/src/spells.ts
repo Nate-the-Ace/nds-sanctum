@@ -4,7 +4,7 @@ import { makeCtx, makeQuery } from './ctx';
 import type { Engine } from './engine';
 import { groupAt, isConcealed, spellsOn, structureAt } from './query';
 import { addSpellRecord, removeSpellRecord } from './spellstore';
-import { syncHp } from './stats';
+import { computeStats, syncHp } from './stats';
 import type { ActiveSpell, PlayerId, Pos, Ref } from './types';
 
 /** Is `ref` a legal target for `card` cast by `caster` right now? Checks type, concealment and occupancy only. */
@@ -21,7 +21,7 @@ export function targetLegal(e: Engine, card: CardDef, caster: PlayerId, ref: Ref
       if (!g || !g.pos) return false;
       if (card.target === 'recruit' && m.kind !== 'recruit') return false;
       if (card.target === 'monster' && m.kind !== 'monster') return false;
-      if (!card.ignoresConcealment && m.owner !== caster && isConcealed(s, m)) return false;
+      if (!card.ignoresConcealment && m.owner !== caster && (isConcealed(s, m) || computeStats(e, m.id).concealed)) return false;
       return true;
     }
     case 'recruitGroup':

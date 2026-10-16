@@ -10,7 +10,7 @@ export type EventType =
   | 'group:exit' | 'group:move' | 'group:enter' | 'combat:start' | 'round:start' | 'combat:end' | 'combat:after'
   // minion
   | 'attack:beforeArmor' | 'attack:hit' | 'armor:after'
-  | 'minion:dying' | 'minion:killed' | 'minion:dies'
+  | 'minion:dying' | 'minion:killed' | 'minion:dies' | 'minion:created'
   | 'attacker:hits' | 'attacker:damages' | 'attacker:kills';
 
 export interface GameEvent {

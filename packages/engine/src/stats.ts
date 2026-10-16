@@ -14,6 +14,7 @@ export interface StatDelta {
   missileAttacks?: number;
   walks?: Walk[];
   noDamage?: boolean;
+  concealed?: boolean;
 }
 
 export interface Stats {
@@ -26,6 +27,7 @@ export interface Stats {
   missileAttacks: number;
   walks: Walk[];
   noDamage: boolean;
+  concealed: boolean;
 }
 
 /** Base stats plus the `stats` contribution of every active spell that reaches this minion. Never stored. */
@@ -36,7 +38,7 @@ export function computeStats(e: Engine, minionId: number): Stats {
   const b = m.base;
   const out: Stats = {
     hand: b.hand, missile: b.missile, armor: b.armor, maxHp: b.hp, level: b.level,
-    handAttacks: b.handAttacks, missileAttacks: b.missileAttacks, walks: [...b.walks], noDamage: false,
+    handAttacks: b.handAttacks, missileAttacks: b.missileAttacks, walks: [...b.walks], noDamage: false, concealed: false,
   };
   const g = s.groups[m.groupId];
   const refs: Ref[] = [{ kind: 'minion', id: m.id }, { kind: 'group', id: m.groupId }];
@@ -60,6 +62,7 @@ export function computeStats(e: Engine, minionId: number): Stats {
       out.missileAttacks += d.missileAttacks ?? 0;
       if (d.walks) out.walks.push(...d.walks);
       if (d.noDamage) out.noDamage = true;
+      if (d.concealed) out.concealed = true;
     }
   }
   out.level = Math.max(0, Math.min(RULES.maxLevel, out.level));
