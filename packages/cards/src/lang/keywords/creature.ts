@@ -120,7 +120,8 @@ defineKeyword<CreateKeyword>({
     const many = k.count > 1 ? `${k.count} ` : '';
     const stats = lineOf(k.def) + (k.randomNation ? ', random nations' : '');
     const helpers = k.withSpells.length ? ` with ${k.withSpells.map(helperSummary).join(' and ')}` : '';
-    return { layout: 'line', section: 'effect', text: `Create ${many}${k.def.name}${k.count > 1 ? 's' : ''} (${stats})${helpers}.` };
+    const name = k.count === 1 ? k.def.name : k.def.name.endsWith('man') ? `${k.def.name.slice(0, -3)}men` : `${k.def.name}s`;
+    return { layout: 'line', section: 'effect', text: `Create ${many}${name} (${stats})${helpers}.` };
   },
   compile: (k, ctx) => ({
     canCast: (q, t) => {

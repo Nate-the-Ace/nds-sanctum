@@ -36,6 +36,11 @@ import wyrmling from './wyrmling';
 import wyrmlingHide from './wyrmlingHide';
 import hellion from './hellion';
 import firewyrm from './firewyrm';
+import warlord from './warlord';
+import warlordCommand from './warlordCommand';
+import decoy from './decoy';
+import decoyRuse from './decoyRuse';
+import dragonsTeeth from './dragonsTeeth';
 
 export const warCards: CardDef[] = [
   flamingSword, bloodlust, legionnaires, ngozisWay, palisade, warDrums, swashbuckler,
@@ -48,4 +53,5 @@ export const warCards: CardDef[] = [
   armistice, skirmish,
   fogOfWar, loneWolf,
   salamander, brimstoneDragon, wyrmling, wyrmlingHide, hellion, firewyrm,
+  warlord, warlordCommand, decoy, decoyRuse, dragonsTeeth,
 ];

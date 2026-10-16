@@ -16,6 +16,10 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Lasts 8 turns.",
     "No structure spells.",
   ],
+  "allies": [
+    "Friendly town or colony.",
+    "Create 2 Elf novices in the town.",
+  ],
   "amok": [
     "Recruit group.",
     "Moves twice in a random direction.",
@@ -38,6 +42,14 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Globe.",
     "Stackable.",
     "Mana: +1 World.",
+  ],
+  "bard": [
+    "Recruit group.",
+    "Create Bard (H:0 A:3 HP:7 L:1) with Bard Song (Group aura: swordsmen +1 H).",
+  ],
+  "bard-song": [
+    "Recruit.",
+    "Group aura: swordsmen +1 H.",
   ],
   "berserker-blade": [
     "Swordsman.",
@@ -85,9 +97,22 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Stackable.",
     "Mana: +2 Clarity.",
   ],
+  "decoy": [
+    "Friendly recruit group.",
+    "Create Decoy (H:2 A:1 HP:7 L:1) with Decoy Ruse (Pacified, Taunt; +2 A).",
+  ],
+  "decoy-ruse": [
+    "Recruit.",
+    "Pacified, Taunt.",
+    "+2 A.",
+  ],
   "dragon-slayer": [
     "Archer.",
     "On damage (monster): Kill the victim.",
+  ],
+  "dragons-teeth": [
+    "Friendly town or colony.",
+    "Create 2 swordsmen (H:2 A:1 HP:7 L:1, random nations).",
   ],
   "drop-of-elixir-vitae": [
     "Recruit.",
@@ -185,6 +210,10 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Nomadic.",
     "After all combat, if she fought only non-Justice minions this turn, she changes sides.",
     "Summon Hellion (H:4 A:1 HP:16 L:3).",
+  ],
+  "incarnate": [
+    "Recruit.",
+    "When the recruit dies, a recruit of the same nation and class is created in its owner's Sanctum (lost if it cannot be created this turn).",
   ],
   "individualism": [
     "Globe.",
@@ -335,6 +364,14 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "war-drums": [
     "Recruit group.",
     "Plays triumphant music after a win.",
+  ],
+  "warlord": [
+    "Friendly town or colony.",
+    "Create Warlord (H:2 A:1 HP:7 L:2) with Warlord Command (Group aura: swordsmen +1 H; this minion +3 H).",
+  ],
+  "warlord-command": [
+    "Recruit.",
+    "Group aura: swordsmen +1 H; this minion +3 H.",
   ],
   "wellspring": [
     "Square.",

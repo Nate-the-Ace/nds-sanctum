@@ -40,6 +40,10 @@ import prismaticSerpent from './prismaticSerpent';
 import sylph from './sylph';
 import undine from './undine';
 import arboriads from './arboriads';
+import bard from './bard';
+import bardSong from './bardSong';
+import allies from './allies';
+import incarnate from './incarnate';
 
 export const lifeCards: CardDef[] = [
   caravan, flight, cleansingLight, pyx, healingHands, oasis, wellspring,
@@ -52,4 +56,5 @@ export const lifeCards: CardDef[] = [
   adrielsGlamour, adrielsPromise, adrielsMantle, individualism, seelieFavor, courtPolitics, courtPoliticsII,
   clandestine, greymantle, auberolsGrace, graceOfAuberol,
   prismaticSerpent, sylph, undine, arboriads,
+  bard, bardSong, allies, incarnate,
 ];
