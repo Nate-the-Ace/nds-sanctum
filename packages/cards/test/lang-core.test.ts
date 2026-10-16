@@ -7,7 +7,7 @@ import {
 import { castMini, mini, put } from './lang-helpers';
 
 const q = {} as QueryContext;
-const c = {} as EventContext;
+const c = { spell: { id: 1 }, state: { spells: [{ id: 1 }] } } as unknown as EventContext;
 const ev = {} as GameEvent;
 
 describe('mergeFragments', () => {
@@ -42,9 +42,9 @@ describe('mergeFragments', () => {
     expect(mergeFragments([{ blocksCast: no }, { blocksCast: no }]).blocksCast!(q, {} as never, att)).toBe(false);
   });
 
-  it('takes the last duration; exclusive:false and visible:false win; helper and bot pass through', () => {
+  it('keeps an agreed duration; exclusive:false and visible:false win; helper and bot pass through', () => {
     const m = mergeFragments([
-      { duration: { turns: 2 }, exclusive: false },
+      { duration: { turns: 5 }, exclusive: false },
       { duration: { turns: 5 }, visible: false, helper: true },
       {},
     ]);

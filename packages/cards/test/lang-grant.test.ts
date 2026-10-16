@@ -134,8 +134,8 @@ describe('simple keywords', () => {
   it('print simple keywords', () => {
     card({ id: 'x1', name: 'X1', house: 'war', cost: {}, type: 'conjuration', target: Target.globe, keywords: [Truce(), Lasts(3)] });
     expect(faceOf('x1')!.lines).toEqual(['Globe.', 'Truce, Lasts 3 turns.']);
-    card({ id: 'x2', name: 'X2', house: 'war', cost: {}, type: 'alteration', target: Target.recruit, keywords: [Pacified(), Concealed(), Walk('water'), Fleeting(), Stackable(), Undispellable(), Bound('forest')] });
-    expect(faceOf('x2')!.lines).toEqual(['Recruit.', 'Pacified, Concealed, Waterwalk, Fleeting, Stackable, Undispellable, Bound to forest.']);
+    card({ id: 'x2', name: 'X2', house: 'war', cost: {}, type: 'alteration', target: Target.recruitGroup, keywords: [Pacified(), Concealed(), Walk('water'), Fleeting(), Stackable(), Undispellable(), Bound('forest')] });
+    expect(faceOf('x2')!.lines).toEqual(['Recruit group.', 'Pacified, Concealed, Waterwalk, Fleeting, Stackable, Undispellable, Bound to forest.']);
     card({ id: 'x3', name: 'X3', house: 'war', cost: {}, type: 'alteration', target: Target.recruitGroup, keywords: [Fanfare('triumphant music after a win')] });
     expect(faceOf('x3')!.lines).toEqual(['Recruit group.', 'Plays triumphant music after a win.']);
   });

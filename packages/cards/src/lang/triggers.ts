@@ -74,6 +74,24 @@ export function triggerApplies(c: EventContext, ev: GameEvent, t: Trigger): bool
     }
     case 'onHit': return isHostMinion(c, ev);
     case 'onDamage': return isHostMinion(c, ev) && (!t.victim || c.minion(ev.data.victimId)?.kind === 'monster');
-    default: return true;
+    case 'startOfTurn':
+    case 'afterAllCombat':
+    case 'beforeMovement':
+    case 'manaPhase':
+    case 'created':
+      return true;
+    default:
+      return assertNever(t);
   }
 }
+
+function assertNever(x: never): never {
+  throw new Error(`unhandled trigger ${JSON.stringify(x)}`);
+}
+
+/** Every trigger in its default form, from the `When` table (for the glossary). */
+export const allTriggers = (): Trigger[] =>
+  Object.values(When).map((w) => (typeof w === 'function' ? w() : w));
+
+/** Triggers that react to events on the host minion, so the spell must sit on a minion. */
+export const needsMinionHost = (t: Trigger): boolean => t.when === 'onHit' || t.when === 'onDamage';

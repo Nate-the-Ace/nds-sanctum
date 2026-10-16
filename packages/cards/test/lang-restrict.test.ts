@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
+import { beforeEach, describe, it, expect } from 'vitest';
 import { takeDamage } from '@sanctum/engine/src/testing';
-import { card, Concealment, faceOf, Forbid, Grant, Lasts, Shroud, Target, Warded } from '../src/lang';
+import { card, resetCards, Concealment, faceOf, Forbid, Grant, Lasts, Shroud, Target, Warded } from '../src/lang';
 import { castMini, mini, put } from './lang-helpers';
 
 const spellOn = (id: string, target: Parameters<typeof card>[0]['target'], type: 'manifestation' | 'alteration' = 'manifestation') =>
@@ -8,6 +8,9 @@ const spellOn = (id: string, target: Parameters<typeof card>[0]['target'], type:
 const lock = (id: string, ...k: Parameters<typeof card>[0]['keywords']) =>
   card({ id, name: id, house: 'war', cost: {}, type: 'conjuration', target: Target.globe, keywords: [Lasts(5), ...k] });
 const glob = { kind: 'globe' as const };
+
+// Several tests declare the same helper ids ('a-group', 'ward', ...); card() rejects duplicates.
+beforeEach(() => resetCards());
 const hand = { kind: 'hand' as const, ignoresArmor: false, magical: false };
 
 describe('Forbid', () => {

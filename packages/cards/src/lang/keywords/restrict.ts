@@ -1,5 +1,6 @@
 import type { EventContext, QueryContext, TargetType } from '@sanctum/engine';
 import { GROUP_TARGETS, hasEnchantments, INDIVIDUAL_TARGETS } from '../../helpers';
+import { requireHost } from '../hosts';
 import { defineKeyword } from '../registry';
 import type { Keyword } from '../types';
 
@@ -29,11 +30,9 @@ defineKeyword<ForbidKeyword>({
   kind: 'forbid', term: 'Forbid', tier: 'house',
   gloss: 'While this lasts, spells of the named classes cannot be cast; they squander. Globe, structure, group and individual spells are the classes.',
   print: (k) => {
-    const base = `${k.spells.join(' or ')} spells`;
-    const text = k.by === 'caster'
-      ? `Caster: no ${base}${k.friendly ? ' on friends' : ''}.`
-      : `No ${base}.`;
-    return { layout: 'line', text };
+    const who = k.by === 'caster' ? 'Caster: no' : 'No';
+    const on = k.friendly ? ' on friends' : '';
+    return { layout: 'line', text: `${who} ${k.spells.join(' or ')} spells${on}.` };
   },
   compile: (k) => ({
     blocksCast: (q, sp, a) => {
@@ -111,7 +110,8 @@ defineKeyword<WardedKeyword>({
   kind: 'warded', term: 'Warded', tier: 'house',
   gloss: 'Takes no combat damage from recruits without enchantments (after armor). "Warded N": damage from them is reduced by N before armor.',
   print: (k) => ({ layout: 'inline', text: k.reduce === undefined ? 'Warded' : `Warded ${k.reduce}` }),
-  compile: (k) => {
+  compile: (k, ctx) => {
+    requireHost(ctx, 'minion', 'Warded');
     const attackerOf = (c: EventContext, id: unknown) =>
       id == null ? undefined : c.minion(id as number);
     if (k.reduce === undefined) {

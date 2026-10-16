@@ -8,10 +8,14 @@ export interface Keyword {
   readonly kind: string;
 }
 
-/** `inline` keywords are comma-joined on one line after the target; `line` keywords get their own line. */
+/**
+ * `inline` keywords are comma-joined on one line after the target; `line` keywords get their own line.
+ * `section` places a line on the face: statics, then triggers, then cast effects (default `static`).
+ */
 export interface PrintedPart {
   layout: 'inline' | 'line';
   text: string;
+  section?: 'static' | 'trigger' | 'effect';
 }
 
 export interface TargetSpec {
@@ -30,6 +34,8 @@ export interface CompileCtx {
   target: TargetSpec;
   type: SpellType;
   cardId: string;
+  /** This keyword's position in the card's keyword list; prefix spell token names with it to avoid collisions. */
+  index: number;
 }
 
 export interface KeywordDef<K extends Keyword = Keyword> {
@@ -42,8 +48,10 @@ export interface KeywordDef<K extends Keyword = Keyword> {
   gloss: string;
   /** Printed form, or null to print nothing. */
   print(k: K): PrintedPart | null;
-  /** What this keyword adds to the compiled card. */
+  /** What this keyword adds to the compiled card. Throw here to reject a keyword the target cannot host. */
   compile(k: K, ctx: CompileCtx): Fragment;
+  /** Checks against the whole merged card (e.g. "needs a duration"). Throw to reject the card. */
+  validate?(k: K, merged: Fragment, ctx: CompileCtx): void;
 }
 
 export interface CardSpec {

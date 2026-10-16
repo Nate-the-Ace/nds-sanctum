@@ -1,4 +1,5 @@
 import type { PlayerId, QueryContext, Ref, TargetType, TerrainId } from '@sanctum/engine';
+import { INDIVIDUAL_TARGETS } from '../helpers';
 import type { Fragment, TargetSpec } from './types';
 
 const GROUP_TYPES: TargetType[] = ['recruitGroup', 'monsterGroup', 'group'];
@@ -11,13 +12,17 @@ export class TargetBuilder {
   get nonFriendly(): TargetBuilder {
     return new TargetBuilder({ ...this.spec, nonFriendly: true });
   }
+  /** Single-minion targets only (recruit, swordsman, archer). */
   get alone(): TargetBuilder {
+    if (!INDIVIDUAL_TARGETS.includes(this.spec.type)) throw new Error(`Target: .alone needs a single-minion target, not "${this.spec.type}"`);
     return new TargetBuilder({ ...this.spec, alone: true });
   }
   with(cls: 'swordsmen' | 'archers'): TargetBuilder {
     return new TargetBuilder({ ...this.spec, cls: cls === 'swordsmen' ? 'swordsman' : 'archer' });
   }
+  /** Square targets only. */
   on(...terrain: TerrainId[]): TargetBuilder {
+    if (this.spec.type !== 'square') throw new Error(`Target: .on(terrain) needs a square target, not "${this.spec.type}"`);
     return new TargetBuilder({ ...this.spec, terrain });
   }
 }

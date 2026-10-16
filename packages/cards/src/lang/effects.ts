@@ -1,7 +1,7 @@
 import type { EventContext, GameEvent, Mana as ManaType, Ref, TerrainId } from '@sanctum/engine';
 import { ADJACENT, contiguous } from '../helpers';
 import { helperSummary } from './render';
-import { resolveScope, SCOPE_PHRASE, type Scope } from './scopes';
+import { resolveScope, scopeObject, scopeSubject, type Scope } from './scopes';
 
 export type Effect =
   | { kind: 'heal'; amount: number | 'full'; scope: Scope }
@@ -118,28 +118,71 @@ export function runEffect(c: EventContext, ev: GameEvent | undefined, e: Effect,
         c.setMovesTwice(g.id, false);
       }
       return;
+    default:
+      assertNever(e);
   }
+}
+
+function assertNever(x: never): never {
+  throw new Error(`unhandled effect ${JSON.stringify(x)}`);
 }
 
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
+const lowerFirst = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
+
+/** One effect as it starts a sentence: verb first, or "<Scope> gets <Helper (text)>". */
 export function printEffect(e: Effect): string {
   switch (e.kind) {
-    case 'heal': return `Heal ${e.amount === 'full' ? 'full' : e.amount}${SCOPE_PHRASE[e.scope]}`;
-    case 'damage': return `${e.amount} damage${SCOPE_PHRASE[e.scope]}`;
-    case 'kill': return `Kill${SCOPE_PHRASE[e.scope]}`;
+    case 'heal':
+      if (e.amount === 'full') return `Heal${scopeObject(e.scope)} fully`;
+      return e.scope === 'host' ? `Heal ${e.amount}` : `Heal${scopeObject(e.scope)} by ${e.amount}`;
+    case 'damage': return `Deal ${e.amount} damage${e.scope === 'host' ? '' : ` to${scopeObject(e.scope)}`}`;
+    case 'kill': return `Kill${scopeObject(e.scope)}`;
     case 'terraform':
       return e.area === 'adjacent' ? `Adjacent squares become ${e.terrain}`
         : e.area === 'contiguous' ? `Contiguous ${e.from} becomes ${e.terrain}`
         : `Square becomes ${e.terrain}`;
     case 'expend': return 'Expend';
-    case 'dispelAll': return 'Dispel all (target group)';
-    case 'mana': return `+${e.amount} ${cap(e.mana)}${e.to === 'structureOwner' ? ' (owner)' : ''}`;
-    case 'give': return `Give ${helperSummary(e.card)}${SCOPE_PHRASE[e.scope]}`;
-    case 'giveSquares': return `Give ${helperSummary(e.card)} to contiguous ${e.terrain}`;
+    case 'dispelAll': return 'Dispel every enchantment on the group';
+    case 'mana': return `+${e.amount} ${cap(e.mana)}${e.to === 'structureOwner' ? ' to its owner' : ''}`;
+    case 'give': return `${scopeSubject(e.scope)} gets ${helperSummary(e.card)}${e.once ? ' once each' : ''}`;
+    case 'giveSquares': return `Each contiguous ${e.terrain} square gets ${helperSummary(e.card)}`;
     case 'withdraw': return 'Withdraw';
-    case 'moveTwice': return 'Move twice';
-    case 'randomMove': return 'Random direction';
-    case 'cancelMoves': return 'Cancel all moves';
+    case 'moveTwice': return 'Moves twice';
+    case 'randomMove': return 'Moves in a random direction';
+    case 'cancelMoves': return 'Cancel all recruit move orders';
+    default: return assertNever(e);
   }
 }
+
+/** A list of effects as one sentence body: "A, then b, then c". Move twice + random direction read as one effect. */
+export function printEffects(effects: Effect[]): string {
+  const parts: string[] = [];
+  for (let i = 0; i < effects.length; i++) {
+    if (effects[i].kind === 'moveTwice' && effects[i + 1]?.kind === 'randomMove') {
+      parts.push('Moves twice in a random direction');
+      i++;
+    } else {
+      parts.push(printEffect(effects[i]));
+    }
+  }
+  return parts.map((p, i) => (i === 0 ? p : lowerFirst(p))).join(', then ');
+}
+
+/** Glossary reminder text for each effect verb (one per `Effect` kind, so a new verb needs one). */
+export const VERBS: Record<Effect['kind'], { term: string; gloss: string }> = {
+  heal: { term: 'Heal', gloss: 'Restores hit points, never above maximum. "Heal fully" restores all of them.' },
+  damage: { term: 'Deal damage', gloss: 'Magical damage: it ignores armor. Each minion named takes the full amount.' },
+  kill: { term: 'Kill', gloss: 'The minion dies at once, whatever its hit points.' },
+  terraform: { term: 'Terraform', gloss: 'Squares change terrain. Structures and Sanctum squares never change; a group on deadly terrain suffers at once.' },
+  expend: { term: 'Expend', gloss: 'This spell is dispelled: it has done its work.' },
+  dispelAll: { term: 'Dispel all', gloss: 'Dispels every enchantment on the target group and on its members. Undispellable spells stay.' },
+  mana: { term: 'Mana', gloss: '"+N <Mana>": that player gains N mana of that type this turn (the caster unless "to its owner").' },
+  give: { term: 'Gets', gloss: '"<Who> gets <Spell (text)>": that spell is cast on each minion named, ignoring casting rules. "Once each" skips minions that already have it.' },
+  giveSquares: { term: 'Square gets', gloss: 'Like "gets", for squares: each square named that lacks the spell receives it.' },
+  withdraw: { term: 'Withdraw', gloss: 'The current combat ends at once; no more rounds are fought.' },
+  moveTwice: { term: 'Moves twice', gloss: 'The group repeats its move order in a second movement pass.' },
+  randomMove: { term: 'Random direction', gloss: 'A player group\'s move order is replaced with a random legal direction.' },
+  cancelMoves: { term: 'Cancel move orders', gloss: 'Every recruit group\'s move order (and any second move) is cancelled this turn.' },
+};

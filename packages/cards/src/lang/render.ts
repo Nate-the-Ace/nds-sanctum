@@ -1,4 +1,5 @@
 import { specOf } from './card';
+import { VERBS } from './effects';
 import { allKeywordDefs, keywordDef } from './registry';
 import { printTarget } from './target';
 import type { CardSpec } from './types';
@@ -9,18 +10,24 @@ export interface Face {
   lines: string[];
 }
 
-/** Target line, then inline keywords comma-joined, then line keywords in declaration order. */
+const SECTIONS = ['static', 'trigger', 'effect'] as const;
+
+/**
+ * The design template: target line; statics (inline keywords comma-joined, then static lines); triggers; cast
+ * effects. Within a section, lines keep declaration order.
+ */
 export function renderSpec(spec: CardSpec): Face {
   const inline: string[] = [];
-  const lines: string[] = [];
+  const lines: Record<(typeof SECTIONS)[number], string[]> = { static: [], trigger: [], effect: [] };
   for (const k of spec.keywords) {
     const part = keywordDef(k.kind).print(k);
     if (!part) continue;
-    (part.layout === 'inline' ? inline : lines).push(part.text);
+    if (part.layout === 'inline') inline.push(part.text);
+    else lines[part.section ?? 'static'].push(part.text);
   }
   const out = [printTarget(spec.target)];
   if (inline.length) out.push(`${inline.join(', ')}.`);
-  out.push(...lines);
+  for (const s of SECTIONS) out.push(...lines[s]);
   return { id: spec.id, name: spec.name, lines: out };
 }
 
@@ -46,8 +53,13 @@ export interface GlossaryEntry {
 
 const TIER_ORDER = { core: 0, house: 1, oneoff: 2 } as const;
 
+const isVerb = (e: GlossaryEntry) => (e.kind.startsWith('verb:') ? 1 : 0);
+
+/** Keywords and effect verbs (kind `verb:<name>`, tier core). Ordered by tier, keywords before verbs, then term. */
 export function glossary(): GlossaryEntry[] {
-  return allKeywordDefs()
-    .map((d) => ({ kind: d.kind, term: d.term, tier: d.tier, gloss: d.gloss }))
-    .sort((a, b) => TIER_ORDER[a.tier] - TIER_ORDER[b.tier] || a.term.localeCompare(b.term));
+  const keywords = allKeywordDefs().map((d) => ({ kind: d.kind, term: d.term, tier: d.tier, gloss: d.gloss }));
+  const verbs = Object.entries(VERBS).map(([kind, v]) => ({ kind: `verb:${kind}`, term: v.term, tier: 'core' as const, gloss: v.gloss }));
+  return [...keywords, ...verbs].sort(
+    (a, b) => TIER_ORDER[a.tier] - TIER_ORDER[b.tier] || isVerb(a) - isVerb(b) || a.term.localeCompare(b.term),
+  );
 }

@@ -187,7 +187,7 @@ describe('triggers', () => {
 });
 
 describe('effect text', () => {
-  it('prints every effect verb', () => {
+  it('prints every effect verb, statics then triggers then cast effects', () => {
     card({ id: 't-all', name: 'T', house: 'war', cost: {}, type: 'alteration', target: Target.structure, keywords: [
       OnCast(Terraform('desert', 'adjacent'), Terraform('plains'), Terraform('barren', 'contiguous', 'forest'), Damage(5, 'targetEach'), Kill('target'), DispelAll()),
       On(When.startOfTurn, Heal(1, 'hostOccupants'), Heal('full', 'hostGroupHurtOther')),
@@ -195,25 +195,32 @@ describe('effect text', () => {
       On(When.eachRound(), Withdraw()),
       On(When.afterAllCombat, Expend()),
       On(When.beforeMovement, CancelMoves()),
-      On(When.manaPhase, AddMana('strife', 2, 'structureOwner')),
-      On(When.enter('recruit'), Heal('full', 'allBoard')),
-      On(When.created, Heal(4, 'created')),
-      On(When.onHit, Kill('victim')),
-      On(When.onDamage('monster'), Kill('victim')),
+      On(When.manaPhase, AddMana('strife', 2, 'structureOwner'), AddMana('clarity', 1)),
+      On(When.enter('recruit'), Heal('full', 'allBoard'), Give('mark', 'enterer', true)),
+      On(When.created, Heal(4, 'created'), Give('mark', 'created')),
+      OnCast(GiveSquares('mark', 'forest'), MoveTwice(), RandomMove(), MoveTwice(), Damage(1), Heal(2)),
     ] });
     expect(faceOf('t-all')!.lines).toEqual([
       'Town or colony.',
-      'Adjacent squares become desert, Square becomes plains, Contiguous forest becomes barren, 5 damage (each), Kill, Dispel all (target group).',
-      'Start of turn: Heal 1 (recruits here), Heal full (most hurt ally).',
+      'Start of turn: Heal each recruit here by 1, then heal the most hurt ally fully.',
       'Start of combat (vs monsters): Withdraw.',
       'Each round: Withdraw.',
       'After all combat: Expend.',
-      'Before movement: Cancel all moves.',
-      'Mana: +2 Strife (owner).',
-      'On enter (recruit group): Heal full (all minions).',
-      'Recruit created: Heal 4 (new recruit).',
-      'On hit: Kill (victim).',
-      'On damage (monster): Kill (victim).',
+      'Before movement: Cancel all recruit move orders.',
+      'Mana: +2 Strife to its owner, then +1 Clarity.',
+      'On enter (recruit group): Heal every minion fully, then entering group gets Mark (+1 A) once each.',
+      'Recruit created: Heal each new recruit by 4, then each new recruit gets Mark (+1 A).',
+      'Adjacent squares become desert, then square becomes plains, then contiguous forest becomes barren, then deal 5 damage to each member, then kill the target, then dispel every enchantment on the group.',
+      'Each contiguous forest square gets Mark (+1 A), then moves twice in a random direction, then moves twice, then deal 1 damage, then heal 2.',
+    ]);
+    card({ id: 't-min', name: 'T', house: 'war', cost: {}, type: 'alteration', target: Target.recruit, keywords: [
+      On(When.onHit, Give('mark', 'victim')),
+      On(When.onDamage('monster'), Kill('victim')),
+    ] });
+    expect(faceOf('t-min')!.lines).toEqual([
+      'Recruit.',
+      'On hit: Victim gets Mark (+1 A).',
+      'On damage (monster): Kill the victim.',
     ]);
   });
 });

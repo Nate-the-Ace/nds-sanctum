@@ -15,8 +15,8 @@ describe('printed card text', () => {
     expect(lines('caravan')).toEqual(['Recruit group.', 'Desertwalk.']);
     expect(lines('flight')).toEqual(['Recruit group.', 'Flight.']);
     expect(lines('pacifism')).toEqual(['Recruit.', 'Pacified.']);
-    expect(lines('veteran')).toEqual(['Recruit.', '+1 H, +1 A, +4 HP.']);
-    expect(lines('marksman')).toEqual(['Archer.', '+1 M, +2 HP, +1 Attack.']);
+    expect(lines('veteran')).toEqual(['Recruit.', '+1 H, +1 A, +4 HP (heals 4).']);
+    expect(lines('marksman')).toEqual(['Archer.', '+1 M, +2 HP (heals 2), +1 Attack.']);
     expect(lines('rain-of-arrows')).toEqual(['Recruit group with archers.', 'Fleeting.', 'Archers +1 Attack.']);
     expect(lines('faerie-fire')).toEqual(['Recruit group with archers.', 'Fleeting.', 'Archers +2 M.']);
     expect(lines('war-drums')).toEqual(['Recruit group.', 'Plays triumphant music after a win.']);
@@ -33,47 +33,47 @@ describe('printed card text', () => {
   it('batch B: triggers and effects', () => {
     expect(lines('point-of-clarity')).toEqual(['Globe.', 'Stackable.', 'Mana: +1 Clarity.']);
     expect(lines('aura-of-world')).toEqual(['Globe.', 'Stackable.', 'Mana: +1 World.']);
-    expect(lines('call-to-arms')).toEqual(['Town or colony.', 'Mana: +2 Strife (owner).']);
-    expect(lines('ring-of-light')).toEqual(['Town or colony.', 'Mana: +2 Clarity (owner).']);
+    expect(lines('call-to-arms')).toEqual(['Town or colony.', 'Mana: +2 Strife to its owner.']);
+    expect(lines('ring-of-light')).toEqual(['Town or colony.', 'Mana: +2 Clarity to its owner.']);
     expect(lines('court-politics-ii')).toEqual(['Globe.', 'Stackable.', 'Mana: +2 Clarity.']);
-    expect(lines('fireball')).toEqual(['Group.', '5 damage (each).']);
-    expect(lines('pyx')).toEqual(['Group.', 'Heal full (each).']);
-    expect(lines('good-of-the-many')).toEqual(['Friendly recruit.', 'Kill.']);
+    expect(lines('fireball')).toEqual(['Group.', 'Deal 5 damage to each member.']);
+    expect(lines('pyx')).toEqual(['Group.', 'Heal each member fully.']);
+    expect(lines('good-of-the-many')).toEqual(['Friendly recruit.', 'Kill the target.']);
     expect(lines('plains')).toEqual(['Square.', 'Square becomes plains.']);
     expect(lines('volcano')).toEqual(['Square.', 'Square becomes volcano.']);
     expect(lines('scorched-earth')).toEqual(['Forest square.', 'Contiguous forest becomes barren.']);
-    expect(lines('cleansing-light')).toEqual(['Group.', 'Dispel all (target group).']);
-    expect(lines('elixir-vitae')).toEqual(['Globe.', 'Give Drop of Elixir Vitae (+6 HP) (all recruits).']);
+    expect(lines('cleansing-light')).toEqual(['Group.', 'Dispel every enchantment on the group.']);
+    expect(lines('elixir-vitae')).toEqual(['Globe.', 'Every recruit gets Drop of Elixir Vitae (+6 HP).']);
     expect(lines('field-surgery')).toEqual([
-      'Friendly recruit group.', 'Give Field Surgery (Undispellable; -1 HP) (each damaged), Heal full (each).',
+      'Friendly recruit group.', 'Each damaged member gets Field Surgery Scar (Undispellable; -1 HP), then heal each member fully.',
     ]);
     expect(lines('faerie-glade')).toEqual([
-      'Forest square.', 'Give Faerie Glade (Bound to forest; Enemy recruits -1 L) to contiguous forest.',
+      'Forest square.', 'Each contiguous forest square gets Faerie Glade (Bound to forest; Enemy recruits -1 L).',
     ]);
-    expect(lines('forced-march')).toEqual(['Recruit group.', 'Move twice.']);
-    expect(lines('amok')).toEqual(['Recruit group.', 'Move twice, Random direction.']);
-    expect(lines('healing-hands')).toEqual(['Recruit.', 'Start of turn: Heal 1 (group).']);
+    expect(lines('forced-march')).toEqual(['Recruit group.', 'Moves twice.']);
+    expect(lines('amok')).toEqual(['Recruit group.', 'Moves twice in a random direction.']);
+    expect(lines('healing-hands')).toEqual(['Recruit.', 'Start of turn: Heal its group by 1.']);
     expect(lines('oasis')).toEqual([
-      'Town or colony.', 'Adjacent squares become desert.', 'Start of turn: Heal 1 (recruits here).',
+      'Town or colony.', 'Start of turn: Heal each recruit here by 1.', 'Adjacent squares become desert.',
     ]);
-    expect(lines('wellspring')).toEqual(['Square.', 'On enter (recruit group): Heal full (all minions), Expend.']);
+    expect(lines('wellspring')).toEqual(['Square.', 'On enter (recruit group): Heal every minion fully, then expend.']);
     expect(lines('fountain-of-youth')).toEqual([
-      'Square.', 'On enter: Heal full (entering group), Give Youth (-1 L) (entering group).',
+      'Square.', 'On enter: Heal the entering group fully, then entering group gets Youth (-1 L) once each.',
     ]);
-    expect(lines('thermites')).toEqual(['Recruit.', 'On hit: Give Thermite Damage (-1 A) (victim).']);
-    expect(lines('dragon-slayer')).toEqual(['Archer.', 'On damage (monster): Kill (victim).']);
+    expect(lines('thermites')).toEqual(['Recruit.', 'On hit: Victim gets Thermite Damage (-1 A).']);
+    expect(lines('dragon-slayer')).toEqual(['Archer.', 'On damage (monster): Kill the victim.']);
     expect(lines('clandestine')).toEqual([
-      'Town or colony.', 'Lasts 5 turns.', 'Recruit created: Give Greymantle (Concealed) (new recruit).',
+      'Town or colony.', 'Lasts 5 turns.', 'Recruit created: Each new recruit gets Greymantle (Concealed).',
     ]);
     expect(lines('auberols-grace')).toEqual([
-      'Town or colony.', 'Recruit created: Give Grace of Auberol (+4 HP) (new recruit), Heal 4 (new recruit).',
+      'Town or colony.', 'Recruit created: Each new recruit gets Grace of Auberol (+4 HP), then heal each new recruit by 4.',
     ]);
     expect(lines('skirmish')).toEqual(['Group.', 'Fleeting.', 'Round 3: Withdraw.']);
     expect(lines('strategic-withdrawals')).toEqual(['Globe.', 'Round 7: Withdraw.']);
     expect(lines('liennas-sigil')).toEqual(['Group.', 'Start of combat (vs monsters): Withdraw.']);
-    expect(lines('standoff')).toEqual(['Globe.', 'Lasts 2 turns.', 'Before movement: Cancel all moves.']);
+    expect(lines('standoff')).toEqual(['Globe.', 'Lasts 2 turns.', 'Before movement: Cancel all recruit move orders.']);
     expect(lines('vivant')).toEqual([
-      'Recruit.', 'Pacified.', 'Each round: Heal 3 (most hurt ally).', 'Start of turn: Heal full (group).',
+      'Recruit.', 'Pacified.', 'Each round: Heal the most hurt ally by 3.', 'Start of turn: Heal its group fully.',
     ]);
   });
 
@@ -85,11 +85,12 @@ describe('printed card text', () => {
     expect(lines('adriels-mantle')).toEqual(['Group.', 'Lasts 2 turns, Shroud.']);
     expect(lines('seelie-favor')).toEqual(['Non-friendly group.', 'Shroud (group spells).']);
     expect(lines('court-politics')).toEqual([
-      'Globe.', 'Lasts 3 turns, Stackable.', 'Caster: no group or individual spells on friends.',
-      'Afterwards: Court Politics II (Stackable; Mana: +2 Clarity).',
+      'Globe.', 'Lasts 3 turns, Stackable.', 'Caster: no group or individual spells on friends.', 'Afterwards: Court Politics II (Stackable; Mana: +2 Clarity).',
     ]);
-    expect(lines('lone-wolf')).toEqual(['Swordsman alone in its group.', 'Shroud (friendly spells).', '+3 H, +1 A, +6 HP.']);
-    expect(lines('faerie-knight')).toEqual(['Recruit.', 'Warded.', '+4 HP.']);
+    expect(lines('lone-wolf')).toEqual([
+      'Swordsman alone in its group.', 'Shroud (friendly spells).', '+3 H, +1 A, +6 HP (heals 6).',
+    ]);
+    expect(lines('faerie-knight')).toEqual(['Recruit.', 'Warded.', '+4 HP (heals 4).']);
     expect(lines('filigreed-armor')).toEqual(['Recruit.', 'Warded 1.', '+1 A.']);
   });
 
@@ -97,7 +98,7 @@ describe('printed card text', () => {
     expect(lines('berserker-blade')).toEqual(['Swordsman.', 'Rage: +1 H each time hit, until end of combat.']);
     expect(lines('berserkers')).toEqual(['Recruit group.', 'Rage: +1 H per casualty (max +3), until end of combat.']);
     expect(lines('swashbuckler')).toEqual(['Swordsman.', 'Undispellable.', 'Gain L equal to A, then A becomes 0.']);
-    expect(lines('shattering-blow')).toEqual(['Swordsman.', 'On hit: kill the victim, then -1 H.']);
+    expect(lines('shattering-blow')).toEqual(['Swordsman.', 'On hit: Kill the victim, then -1 H.']);
     expect(lines('liennas-steed')).toEqual([
       'Friendly recruit group.', 'Move 1 square diagonally toward the enemy and cancel its move order.',
     ]);

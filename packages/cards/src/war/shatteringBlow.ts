@@ -6,7 +6,7 @@ export default card({
   id: 'shattering-blow', name: 'Shattering Blow', house: 'war', cost: { strife: 2, clarity: 1 }, type: 'alteration',
   target: Target.swordsman,
   keywords: [
-    Script('On hit: kill the victim, then -1 H.', {
+    Script('On hit: Kill the victim, then -1 H.', {
       stats: (_q, _id, spell) => ({ hand: spell.tokens.shattered ? -1 : 0 }),
       on: {
         'attacker:hits': (c, ev) => {

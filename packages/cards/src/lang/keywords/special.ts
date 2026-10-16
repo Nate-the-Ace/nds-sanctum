@@ -1,4 +1,5 @@
 import { isHostMinion } from '../../helpers';
+import { requireHost } from '../hosts';
 import { defineKeyword } from '../registry';
 import type { Fragment, Keyword } from '../types';
 
@@ -22,39 +23,45 @@ defineKeyword<RampKeyword>({
   gloss: 'Ability word for a damage bonus that grows during a combat and resets when it ends.',
   print: (k) => ({
     layout: 'line',
-    text: k.per === 'hit'
-      ? 'Rage: +1 H each time hit, until end of combat.'
-      : `Rage: +1 H per casualty${k.cap === undefined ? '' : ` (max +${k.cap})`}, until end of combat.`,
+    text: `Rage: +1 H ${k.per === 'hit' ? 'each time hit' : 'per casualty'}${k.cap === undefined ? '' : ` (max +${k.cap})`}, until end of combat.`,
   }),
-  compile: (k) =>
-    k.per === 'hit'
-      ? {
-          stats: (_q, _id, spell) => ({ hand: spell.tokens.rage ?? 0 }),
-          on: {
-            'attack:hit': (c, ev) => {
-              if (isHostMinion(c, ev)) c.setToken('rage', capped(c.token('rage') + 1, k.cap));
-            },
-            'combat:end': (c) => {
-              c.setToken('rage', 0);
-            },
+  compile: (k, ctx) => {
+    // Token names carry the keyword's index so two Ramps on one card keep separate counters.
+    const t = (name: string) => `r${ctx.index}:${name}`;
+    const rage = t('rage');
+    const casualties = t('casualties');
+    const fighting = t('fighting');
+    if (k.per === 'hit') {
+      requireHost(ctx, 'minion', 'Rage (each time hit)');
+      return {
+        stats: (_q, _id, spell) => ({ hand: spell.tokens[rage] ?? 0 }),
+        on: {
+          'attack:hit': (c, ev) => {
+            if (isHostMinion(c, ev)) c.setToken(rage, capped(c.token(rage) + 1, k.cap));
           },
-        }
-      : {
-          stats: (_q, _id, spell) => ({ hand: spell.tokens.casualties ?? 0 }),
-          on: {
-            'combat:start': (c) => {
-              c.setToken('fighting', 1);
-            },
-            // Any death during combat counts, including instant kills (ctx.kill, blame null).
-            'minion:dies': (c) => {
-              if (c.token('fighting') === 1) c.setToken('casualties', capped(c.token('casualties') + 1, k.cap));
-            },
-            'combat:end': (c) => {
-              c.setToken('casualties', 0);
-              c.setToken('fighting', 0);
-            },
+          'combat:end': (c) => {
+            c.setToken(rage, 0);
           },
         },
+      };
+    }
+    return {
+      stats: (_q, _id, spell) => ({ hand: spell.tokens[casualties] ?? 0 }),
+      on: {
+        'combat:start': (c) => {
+          c.setToken(fighting, 1);
+        },
+        // Any death during combat counts, including instant kills (ctx.kill, blame null).
+        'minion:dies': (c) => {
+          if (c.token(fighting) === 1) c.setToken(casualties, capped(c.token(casualties) + 1, k.cap));
+        },
+        'combat:end': (c) => {
+          c.setToken(casualties, 0);
+          c.setToken(fighting, 0);
+        },
+      },
+    };
+  },
 });
 
 /* ---------- Script (escape hatch) ---------- */

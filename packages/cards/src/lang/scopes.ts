@@ -7,12 +7,25 @@ export type Scope =
   | 'allBoard' | 'allRecruits'
   | 'target' | 'targetEach' | 'targetDamaged';
 
-export const SCOPE_PHRASE: Record<Scope, string> = {
-  host: '', hostGroup: ' (group)', hostGroupHurtOther: ' (most hurt ally)', hostOccupants: ' (recruits here)',
-  victim: ' (victim)', enterer: ' (entering group)', created: ' (new recruit)', opponent: ' (opposing group)',
-  allBoard: ' (all minions)', allRecruits: ' (all recruits)',
-  target: '', targetEach: ' (each)', targetDamaged: ' (each damaged)',
+/**
+ * The one scope style: the object noun phrase an effect verb takes ("Heal its group by 1", "Kill the victim").
+ * `host` is implicit (empty). Plural-sounding scopes are worded with "each"/"every" so verbs stay singular.
+ */
+export const SCOPE_OBJECT: Record<Scope, string> = {
+  host: '', hostGroup: 'its group', hostGroupHurtOther: 'the most hurt ally', hostOccupants: 'each recruit here',
+  victim: 'the victim', enterer: 'the entering group', created: 'each new recruit', opponent: 'the opposing group',
+  allBoard: 'every minion', allRecruits: 'every recruit',
+  target: 'the target', targetEach: 'each member', targetDamaged: 'each damaged member',
 };
+
+/** The same phrase as a sentence subject: leading "the" dropped, capitalised ("Victim gets ..."); host is "It". */
+export function scopeSubject(scope: Scope): string {
+  const o = SCOPE_OBJECT[scope].replace(/^the /, '');
+  return o ? o.charAt(0).toUpperCase() + o.slice(1) : 'It';
+}
+
+/** " <object>" or "" for the host. */
+export const scopeObject = (scope: Scope): string => (SCOPE_OBJECT[scope] ? ` ${SCOPE_OBJECT[scope]}` : '');
 
 export function hostGroupId(c: EventContext): number | undefined {
   const h = c.host;

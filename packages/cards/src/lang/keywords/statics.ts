@@ -1,8 +1,9 @@
 import type { StatDelta, Walk as WalkKind, Minion, ActiveSpell } from '@sanctum/engine';
 import { isHostGroup } from '../../helpers';
 import { helperSummary } from '../render';
+import { requireHost } from '../hosts';
 import { defineKeyword } from '../registry';
-import type { Fragment, Keyword } from '../types';
+import type { CompileCtx, Fragment, Keyword } from '../types';
 
 /* ---------- Grant ---------- */
 
@@ -57,10 +58,14 @@ function toDelta(s: GrantStats, m: Minion): StatDelta {
 
 defineKeyword<GrantKeyword>({
   kind: 'grant', term: 'Grant', tier: 'core',
-  gloss: 'Adds stats (H hand damage, M missile damage, A armor, L level, HP maximum hit points, Attack extra attacks per round). "+N HP" also heals that much when cast on one minion.',
+  gloss: 'Adds stats: H hand damage, M missile damage, A armor, L level, Attack extra attacks per round. +N HP raises maximum hit points; "+N HP (heals N)" also restores N hit points when cast.',
   print: (k) => ({
     layout: 'line',
-    text: `${SUBJECT[k.to]}${ORDER.filter((s) => k.stats[s] !== undefined).map((s) => `${k.stats[s]! >= 0 ? '+' : '-'}${Math.abs(k.stats[s]!)} ${LABEL[s]}`).join(', ')}.`,
+    text: `${SUBJECT[k.to]}${ORDER.filter((s) => k.stats[s] !== undefined).map((s) => {
+      const v = k.stats[s]!;
+      const heals = s === 'maxHp' && k.heal && v > 0 ? ` (heals ${v})` : '';
+      return `${v >= 0 ? '+' : '-'}${Math.abs(v)} ${LABEL[s]}${heals}`;
+    }).join(', ')}.`,
   }),
   compile: (k) => ({
     stats: (q, id, spell) => {
@@ -93,7 +98,8 @@ defineKeyword<WalkKeyword>({
 /* ---------- Simple statics ---------- */
 
 const simple = <K extends Keyword>(
-  kind: K['kind'], term: string, tier: 'core' | 'house' | 'oneoff', gloss: string, text: string, compile: (k: K) => Fragment,
+  kind: K['kind'], term: string, tier: 'core' | 'house' | 'oneoff', gloss: string, text: string,
+  compile: (k: K, ctx: CompileCtx) => Fragment,
 ) => defineKeyword<K>({ kind, term, tier, gloss, print: () => ({ layout: 'inline', text }), compile });
 
 export interface ConcealedKeyword extends Keyword { kind: 'concealed' }
@@ -113,7 +119,7 @@ export const Lasts = (turns: number): LastsKeyword => ({ kind: 'lasts', turns })
 defineKeyword<LastsKeyword>({
   kind: 'lasts', term: 'Lasts N', tier: 'core',
   gloss: 'The spell ends after N turns, counting the turn it was cast.',
-  print: (k) => ({ layout: 'inline', text: `Lasts ${k.turns} turns` }),
+  print: (k) => ({ layout: 'inline', text: `Lasts ${k.turns} turn${k.turns === 1 ? '' : 's'}` }),
   compile: (k) => ({ duration: { turns: k.turns } }),
 });
 
@@ -126,7 +132,10 @@ export interface FleetingKeyword extends Keyword { kind: 'fleeting' }
 export const Fleeting = (): FleetingKeyword => ({ kind: 'fleeting' });
 simple<FleetingKeyword>('fleeting', 'Fleeting', 'core',
   'Dispelled after the group\'s next combat.', 'Fleeting',
-  () => ({ on: { 'combat:after': (c, ev) => { if (isHostGroup(c, ev)) c.dispel(); } } }));
+  (_k, ctx) => {
+    requireHost(ctx, 'group', 'Fleeting');
+    return { on: { 'combat:after': (c, ev) => { if (isHostGroup(c, ev)) c.dispel(); } } };
+  });
 
 export interface UndispellableKeyword extends Keyword { kind: 'undispellable' }
 export const Undispellable = (): UndispellableKeyword => ({ kind: 'undispellable' });
@@ -136,8 +145,12 @@ simple<UndispellableKeyword>('undispellable', 'Undispellable', 'core',
 export interface TruceKeyword extends Keyword { kind: 'truce' }
 export const Truce = (): TruceKeyword => ({ kind: 'truce' });
 simple<TruceKeyword>('truce', 'Truce', 'core',
-  'No group enters combat while this lasts (start-of-combat effects are prevented too).', 'Truce',
-  () => ({ on: { 'combat:before': (c) => c.cancel() } }));
+  'No group enters combat while this lasts (start-of-combat effects are prevented too). Globe spells only.', 'Truce',
+  (_k, ctx) => {
+    // combat:before is a global event: only a globe spell may cancel every combat.
+    requireHost(ctx, 'globe', 'Truce');
+    return { on: { 'combat:before': (c) => c.cancel() } };
+  });
 
 export interface BoundKeyword extends Keyword { kind: 'bound'; terrain: 'forest' | 'water' | 'mountain' | 'desert' | 'plains' }
 export const Bound = (terrain: BoundKeyword['terrain']): BoundKeyword => ({ kind: 'bound', terrain });
@@ -164,6 +177,10 @@ export const Afterward = (card: string): AfterwardKeyword => ({ kind: 'afterward
 defineKeyword<AfterwardKeyword>({
   kind: 'afterward', term: 'Afterwards', tier: 'oneoff',
   gloss: 'When this spell expires, another spell takes its place on the globe.',
-  print: (k) => ({ layout: 'line', text: `Afterwards: ${helperSummary(k.card)}.` }),
+  print: (k) => ({ layout: 'line', section: 'trigger', text: `Afterwards: ${helperSummary(k.card)}.` }),
   compile: (k) => ({ onExpire: (c) => { c.createSpell(k.card, { kind: 'globe' }); } }),
+  validate: (_k, merged, ctx) => {
+    // onExpire only runs when a duration runs out.
+    if (!merged.duration) throw new Error(`card "${ctx.cardId}": Afterward needs a duration (add Lasts N)`);
+  },
 });

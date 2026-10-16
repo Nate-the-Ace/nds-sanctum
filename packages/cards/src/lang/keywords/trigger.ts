@@ -1,7 +1,8 @@
 import type { Fragment, Keyword } from '../types';
 import { defineKeyword } from '../registry';
-import { printEffect, runEffect, type Effect } from '../effects';
-import { triggerApplies, triggerEvent, triggerLabel, type Trigger } from '../triggers';
+import { printEffects, runEffect, type Effect } from '../effects';
+import { requireHost } from '../hosts';
+import { allTriggers, needsMinionHost, triggerApplies, triggerEvent, triggerLabel, type Trigger } from '../triggers';
 
 export interface OnKeyword extends Keyword {
   kind: 'on';
@@ -13,9 +14,10 @@ export const On = (trigger: Trigger, ...effects: Effect[]): OnKeyword => ({ kind
 
 defineKeyword<OnKeyword>({
   kind: 'on', term: 'Triggers', tier: 'core',
-  gloss: 'A trigger runs its effects every time its event happens for the spell\'s host: start of turn, start of combat, each round, after all combat, before movement, the mana phase, a group entering, a recruit being created, a hit or damage dealt.',
-  print: (k) => ({ layout: 'line', text: `${triggerLabel(k.trigger)}: ${k.effects.map(printEffect).join(', ')}.` }),
-  compile: (k) => {
+  gloss: `"<Trigger>: effects." runs the effects every time that event happens for the spell's host. Triggers: ${allTriggers().map(triggerLabel).join(', ')}.`,
+  print: (k) => ({ layout: 'line', section: 'trigger', text: `${triggerLabel(k.trigger)}: ${printEffects(k.effects)}.` }),
+  compile: (k, ctx) => {
+    if (needsMinionHost(k.trigger)) requireHost(ctx, 'minion', `"${triggerLabel(k.trigger)}"`);
     const on: NonNullable<Fragment['on']> = {};
     on[triggerEvent(k.trigger)] = (c, ev) => {
       if (!triggerApplies(c, ev, k.trigger)) return;
@@ -35,6 +37,6 @@ export const OnCast = (...effects: Effect[]): OnCastKeyword => ({ kind: 'onCast'
 defineKeyword<OnCastKeyword>({
   kind: 'onCast', term: 'On cast', tier: 'core',
   gloss: 'Effects that happen once when the spell is cast.',
-  print: (k) => ({ layout: 'line', text: `${k.effects.map(printEffect).join(', ')}.` }),
+  print: (k) => ({ layout: 'line', section: 'effect', text: `${printEffects(k.effects)}.` }),
   compile: (k) => ({ onCast: (c, t) => { for (const e of k.effects) runEffect(c, undefined, e, t); } }),
 });

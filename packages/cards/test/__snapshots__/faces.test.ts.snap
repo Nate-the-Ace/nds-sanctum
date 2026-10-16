@@ -18,7 +18,7 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   ],
   "amok": [
     "Recruit group.",
-    "Move twice, Random direction.",
+    "Moves twice in a random direction.",
   ],
   "armistice": [
     "Globe.",
@@ -26,7 +26,7 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   ],
   "auberols-grace": [
     "Town or colony.",
-    "Recruit created: Give Grace of Auberol (+4 HP) (new recruit), Heal 4 (new recruit).",
+    "Recruit created: Each new recruit gets Grace of Auberol (+4 HP), then heal each new recruit by 4.",
   ],
   "aura-of-world": [
     "Globe.",
@@ -47,7 +47,7 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   ],
   "call-to-arms": [
     "Town or colony.",
-    "Mana: +2 Strife (owner).",
+    "Mana: +2 Strife to its owner.",
   ],
   "caravan": [
     "Recruit group.",
@@ -56,11 +56,11 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "clandestine": [
     "Town or colony.",
     "Lasts 5 turns.",
-    "Recruit created: Give Greymantle (Concealed) (new recruit).",
+    "Recruit created: Each new recruit gets Greymantle (Concealed).",
   ],
   "cleansing-light": [
     "Group.",
-    "Dispel all (target group).",
+    "Dispel every enchantment on the group.",
   ],
   "court-politics": [
     "Globe.",
@@ -75,7 +75,7 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   ],
   "dragon-slayer": [
     "Archer.",
-    "On damage (monster): Kill (victim).",
+    "On damage (monster): Kill the victim.",
   ],
   "drop-of-elixir-vitae": [
     "Recruit.",
@@ -83,7 +83,7 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   ],
   "elixir-vitae": [
     "Globe.",
-    "Give Drop of Elixir Vitae (+6 HP) (all recruits).",
+    "Every recruit gets Drop of Elixir Vitae (+6 HP).",
   ],
   "elven-piper": [
     "Recruit group.",
@@ -96,7 +96,7 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   ],
   "faerie-glade": [
     "Forest square.",
-    "Give Faerie Glade (Bound to forest; Enemy recruits -1 L) to contiguous forest.",
+    "Each contiguous forest square gets Faerie Glade (Bound to forest; Enemy recruits -1 L).",
   ],
   "faerie-glade-square": [
     "Square.",
@@ -106,11 +106,11 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "faerie-knight": [
     "Recruit.",
     "Warded.",
-    "+4 HP.",
+    "+4 HP (heals 4).",
   ],
   "field-surgery": [
     "Friendly recruit group.",
-    "Give Field Surgery (Undispellable; -1 HP) (each damaged), Heal full (each).",
+    "Each damaged member gets Field Surgery Scar (Undispellable; -1 HP), then heal each member fully.",
   ],
   "field-surgery-scar": [
     "Recruit.",
@@ -124,7 +124,7 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   ],
   "fireball": [
     "Group.",
-    "5 damage (each).",
+    "Deal 5 damage to each member.",
   ],
   "flaming-sword": [
     "Swordsman.",
@@ -141,15 +141,15 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   ],
   "forced-march": [
     "Recruit group.",
-    "Move twice.",
+    "Moves twice.",
   ],
   "fountain-of-youth": [
     "Square.",
-    "On enter: Heal full (entering group), Give Youth (-1 L) (entering group).",
+    "On enter: Heal the entering group fully, then entering group gets Youth (-1 L) once each.",
   ],
   "good-of-the-many": [
     "Friendly recruit.",
-    "Kill.",
+    "Kill the target.",
   ],
   "grace-of-auberol": [
     "Recruit.",
@@ -161,7 +161,7 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   ],
   "healing-hands": [
     "Recruit.",
-    "Start of turn: Heal 1 (group).",
+    "Start of turn: Heal its group by 1.",
   ],
   "individualism": [
     "Globe.",
@@ -183,11 +183,11 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "lone-wolf": [
     "Swordsman alone in its group.",
     "Shroud (friendly spells).",
-    "+3 H, +1 A, +6 HP.",
+    "+3 H, +1 A, +6 HP (heals 6).",
   ],
   "marksman": [
     "Archer.",
-    "+1 M, +2 HP, +1 Attack.",
+    "+1 M, +2 HP (heals 2), +1 Attack.",
   ],
   "ngozis-way": [
     "Recruit group.",
@@ -195,8 +195,8 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   ],
   "oasis": [
     "Town or colony.",
+    "Start of turn: Heal each recruit here by 1.",
     "Adjacent squares become desert.",
-    "Start of turn: Heal 1 (recruits here).",
   ],
   "pacifism": [
     "Recruit.",
@@ -217,7 +217,7 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   ],
   "pyx": [
     "Group.",
-    "Heal full (each).",
+    "Heal each member fully.",
   ],
   "rain-of-arrows": [
     "Recruit group with archers.",
@@ -230,7 +230,7 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   ],
   "ring-of-light": [
     "Town or colony.",
-    "Mana: +2 Clarity (owner).",
+    "Mana: +2 Clarity to its owner.",
   ],
   "scorched-earth": [
     "Forest square.",
@@ -242,7 +242,7 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   ],
   "shattering-blow": [
     "Swordsman.",
-    "On hit: kill the victim, then -1 H.",
+    "On hit: Kill the victim, then -1 H.",
   ],
   "skirmish": [
     "Group.",
@@ -252,7 +252,7 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "standoff": [
     "Globe.",
     "Lasts 2 turns.",
-    "Before movement: Cancel all moves.",
+    "Before movement: Cancel all recruit move orders.",
   ],
   "strategic-withdrawals": [
     "Globe.",
@@ -269,17 +269,17 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   ],
   "thermites": [
     "Recruit.",
-    "On hit: Give Thermite Damage (-1 A) (victim).",
+    "On hit: Victim gets Thermite Damage (-1 A).",
   ],
   "veteran": [
     "Recruit.",
-    "+1 H, +1 A, +4 HP.",
+    "+1 H, +1 A, +4 HP (heals 4).",
   ],
   "vivant": [
     "Recruit.",
     "Pacified.",
-    "Each round: Heal 3 (most hurt ally).",
-    "Start of turn: Heal full (group).",
+    "Each round: Heal the most hurt ally by 3.",
+    "Start of turn: Heal its group fully.",
   ],
   "volcano": [
     "Square.",
@@ -291,7 +291,7 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   ],
   "wellspring": [
     "Square.",
-    "On enter (recruit group): Heal full (all minions), Expend.",
+    "On enter (recruit group): Heal every minion fully, then expend.",
   ],
   "youth": [
     "Recruit.",
