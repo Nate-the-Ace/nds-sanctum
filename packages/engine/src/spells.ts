@@ -3,7 +3,7 @@ import type { CardDef } from './cards';
 import { makeCtx, makeQuery } from './ctx';
 import type { Engine } from './engine';
 import { dispatch } from './events';
-import { groupAt, isConcealed, spellsOn, structureAt } from './query';
+import { groupAt, isConcealed, isOffBoard, spellsOn, structureAt } from './query';
 import { addSpellRecord, removeSpellRecord } from './spellstore';
 import { computeStats, syncHp } from './stats';
 import type { ActiveSpell, PlayerId, Pos, Ref } from './types';
@@ -64,8 +64,23 @@ export function castCheck(e: Engine, caster: PlayerId, card: CardDef, ref: Ref):
   return true;
 }
 
-/** Removes a spell, then lets its host recheck persistent requirements of the spells that remain (spell flux). */
+/** Spells whose onDispel hook is running: a hook that dispels its own spell must not run it again. */
+const ending = new Set<number>();
+
+/** Removes a spell (after its onDispel hook), then lets its host recheck the spells that remain (spell flux). */
 export function dispel(e: Engine, spellId: number): void {
+  if (ending.has(spellId)) return;
+  const found = e.state.spells.find((x) => x.id === spellId);
+  if (!found) return;
+  const hook = e.cards[found.cardId]?.onDispel;
+  if (hook) {
+    ending.add(spellId);
+    try {
+      hook(makeCtx(e, found));
+    } finally {
+      ending.delete(spellId);
+    }
+  }
   const sp = removeSpellRecord(e.state, spellId);
   if (!sp) return;
   e.state.log.push({ type: 'dispel', card: sp.cardId });
@@ -135,7 +150,8 @@ export function executeCast(e: Engine, caster: PlayerId, cardId: string, ref: Re
 /** End-of-turn expiry. Spells with a finite duration lose one turn and are dispelled at zero. */
 export function expireSpells(e: Engine): void {
   for (const sp of [...e.state.spells]) {
-    if (sp.turnsLeft === null || !e.state.spells.some((x) => x.id === sp.id)) continue;
+    // Time stops off the board (rules: Concepts_boardhop): spells on an off-board group or minion keep their duration.
+    if (sp.turnsLeft === null || !e.state.spells.some((x) => x.id === sp.id) || isOffBoard(e.state, sp.host)) continue;
     sp.turnsLeft -= 1;
     if (sp.turnsLeft <= 0) {
       e.cards[sp.cardId]?.onExpire?.(makeCtx(e, sp));

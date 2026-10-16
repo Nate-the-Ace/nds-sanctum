@@ -12,7 +12,7 @@ import { dispel, recheck, recheckSquare } from './spells';
 import { canEnterSquare, entryBlocked } from './movement';
 import { checkFatal, groupCanEnter } from './terrainfx';
 import { RULES } from './rules';
-import { changeNation, flipGroup, joinGroup, placeRecruit, setGroupOwner, summonGroup } from './units';
+import { changeNation, flipGroup, joinGroup, placeRecruit, removeGroup, setGroupOwner, summonGroup } from './units';
 import type { ActiveSpell, Dir, GameState, Group, Mana, Minion, MinionSpec, Nation, PlayerId, Pos, Ref, Side, Structure, SummonDef, TerrainId } from './types';
 
 /** Read-only view handed to canCast / persistent / stats callbacks. */
@@ -99,6 +99,8 @@ export interface EventContext extends QueryContext {
   hide(groupId: number): void;
   /** An off-board group appears on an empty square, not by moving: no movement events. Returns whether it did. */
   appear(groupId: number, pos: Pos): boolean;
+  /** Removes a group from the game, on or off the board: its minions are removed without death events. */
+  removeGroup(groupId: number): void;
   /** Sets a monster group's home square. */
   setHome(groupId: number, pos: Pos): void;
 }
@@ -286,6 +288,12 @@ export function makeCtx(e: Engine, spell: ActiveSpell, event?: GameEvent): Event
       checkFatal(e, g);
       recheckSquare(e, pos);
       return true;
+    },
+    removeGroup: (id) => {
+      const g = e.state.groups[id];
+      if (!g) return;
+      for (const mid of [...g.minionIds]) killMinion(e, mid, null, 'removed');
+      if (e.state.groups[id]) removeGroup(e, id); // an empty group
     },
     setHome: (id, pos) => {
       const g = e.state.groups[id];

@@ -60,6 +60,7 @@ const MERGERS: { [K in keyof Fragment]-?: Merger<K> } = {
   blocksEntry: (fs) => (q, sp, gid, dest) => fs.some((f) => f(q, sp, gid, dest)),
   onCast: (fs) => (c, t) => fs.forEach((f) => f(c, t)),
   onExpire: (fs) => (c) => fs.forEach((f) => f(c)),
+  onDispel: (fs) => (c) => fs.forEach((f) => f(c)),
   on: (maps) => {
     const handlers = new Map<string, OnHandler[]>();
     for (const m of maps) {

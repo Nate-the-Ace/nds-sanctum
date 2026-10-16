@@ -54,6 +54,11 @@ export interface CardDef {
   blocksEntry?: (q: QueryContext, spell: ActiveSpell, groupId: number, dest: Pos) => boolean;
   /** Runs when a spell of this card expires by duration, just before it is removed (not when dispelled). */
   onExpire?: (c: EventContext) => void;
+  /**
+   * Runs whenever the spell is dispelled (dispel effects, failed persistent checks, expiry after `onExpire`), just before
+   * it is removed. Not when its host dies or leaves the game.
+   */
+  onDispel?: (c: EventContext) => void;
   /** Runs when the spell executes successfully. */
   onCast?: (c: EventContext, target: Ref) => void;
   /** Event handlers, keyed by event type. */
