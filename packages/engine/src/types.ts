@@ -104,6 +104,11 @@ export interface Structure {
   captured: boolean;
   /** Nations queued for the next novices trained as recruits (oldest first). */
   noviceNations?: Nation[];
+  /**
+   * Sanctum only: novices trained as each mana type. The Sanctum generates this much mana at the
+   * start of every turn after training (rules: Axioms_manatypes "Generating Mana").
+   */
+  manaTrained?: Partial<Record<Mana, number>>;
 }
 
 export interface ActiveSpell {

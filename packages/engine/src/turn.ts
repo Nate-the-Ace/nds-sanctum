@@ -11,7 +11,7 @@ import { syncHp } from './stats';
 import { applyTerrain } from './terrainfx';
 import { addRecruit } from './units';
 import { emptyOrders, emptyPool, SIDES } from './types';
-import type { Orders, Ref, Side } from './types';
+import type { Mana, Orders, Ref, Side } from './types';
 
 /**
  * Start-of-turn phase (rules: Pipelines/turnphases, phase 1), up to the mana choice.
@@ -86,8 +86,13 @@ export function finishTurnStart(e: Engine): void {
     p.confirmed = false;
   }
   for (const st of Object.values(s.structures)) {
-    if (st.kind !== 'sanctum' && st.owner !== 'neutral' && st.manaType) {
-      s.players[st.owner as Side].mana[st.manaType]++;
+    if (st.owner === 'neutral') continue;
+    const pool = s.players[st.owner as Side].mana;
+    if (st.kind === 'sanctum') {
+      // Mana novices are permanent generators; the turn they are trained is covered by the credit in validateOrders.
+      for (const [mana, n] of Object.entries(st.manaTrained ?? {}) as Array<[Mana, number]>) pool[mana] += n;
+    } else if (st.manaType) {
+      pool[st.manaType]++;
     }
   }
   dispatch(e, 'mana:generate');
@@ -105,6 +110,8 @@ function applyTraining(e: Engine, side: Side, o: Orders): void {
     if (t.as === 'swordsman' || t.as === 'archer') {
       const m = addRecruit(e, side, st.pos, t.as, queued ?? nationOfHouse(s.players[side].house));
       dispatch(e, 'minion:created', { kind: 'structure', id: st.id }, { minionId: m.id });
+    } else {
+      st.manaTrained = { ...st.manaTrained, [t.as]: (st.manaTrained?.[t.as] ?? 0) + 1 };
     }
   }
 }
