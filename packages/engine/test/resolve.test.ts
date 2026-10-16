@@ -80,6 +80,22 @@ describe('resolveTurn', () => {
     expect(s.groups[redGroup.id].pos).toEqual({ x: 3, y: 2 });
   });
 
+  it('lets a spell overwrite a movement order (spells resolve after orders are set)', () => {
+    const halt = defineCard({
+      id: 'halt', name: 'Halt', house: 'war', cost: { strife: 1 }, type: 'manifestation', target: 'recruitGroup',
+      onCast: (c, t) => { if (t.kind === 'group') (c.state.groups[t.id] as any).moveOrder = null; },
+    });
+    const { e, redSanctum, redGroup } = setup([bolt, halt], Array(10).fill('halt'));
+    let s = must(submitOrders(e.state, e.cards, 'red', orders({
+      train: [{ structureId: redSanctum.id, as: 'strife' }],
+      cast: [{ handIndex: 0, target: { kind: 'group', id: redGroup.id } }],
+      move: [{ groupId: redGroup.id, dir: 'e' }],
+    })));
+    s = must(confirmOrders(s, e.cards, 'red'));
+    s = must(confirmOrders(s, e.cards, 'blue'));
+    expect(s.groups[redGroup.id].pos).toEqual({ x: 2, y: 2 });
+  });
+
   it('expires a two-turn conjuration at the second end of turn', () => {
     const { e, redSanctum, redGroup } = setup([bolt, shield], Array(10).fill('shield'));
     let s = must(submitOrders(e.state, e.cards, 'red', orders({

@@ -133,8 +133,7 @@ export function resolveTurn(e: Engine): void {
     p.hand = p.hand.filter((_, i) => !gone.has(i));
   }
 
-  for (const side of order) for (const c of casts[side]) executeCast(e, side, c.cardId, c.target);
-
+  // Movement orders are set before spells run so targeted spells can overwrite them immediately.
   for (const g of Object.values(s.groups)) g.moveOrder = null;
   for (const side of SIDES) {
     for (const mo of orders[side].move) {
@@ -142,6 +141,9 @@ export function resolveTurn(e: Engine): void {
       if (g && g.pos && g.owner === side && g.control === 'player') g.moveOrder = mo.dir;
     }
   }
+
+  for (const side of order) for (const c of casts[side]) executeCast(e, side, c.cardId, c.target);
+
   applyTerrain(e, 'beforeMovement');
   runMovement(e);
   applyTerrain(e, 'beforeCombat');
