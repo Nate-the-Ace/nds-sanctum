@@ -1,4 +1,4 @@
-import { key } from './board';
+import { isSanctumArea, key } from './board';
 import { applyDamage } from './damage';
 import { killMinion } from './death';
 import type { Engine } from './engine';
@@ -7,7 +7,8 @@ import { groupAt, hostile, minionsOf, structureAt } from './query';
 import { nextRandom } from './rng';
 import { computeStats, type Stats } from './stats';
 import { drawCards } from './deck';
-import { dispel } from './spells';
+import { dispel, recheckSquare } from './spells';
+import { checkFatal } from './terrainfx';
 import { summonGroup } from './units';
 import type { ActiveSpell, GameState, Group, Minion, PlayerId, Pos, Ref, Side, Structure, SummonDef, TerrainId } from './types';
 
@@ -46,6 +47,8 @@ export interface EventContext extends QueryContext {
   /** Creates a group at a square; returns its id. Owner defaults to this spell's owner; the group's bot is this card's `bot`. */
   summon(def: Omit<SummonDef, 'owner'> & { owner?: PlayerId }): number;
   draw(side: Side, count: number): void;
+  /** Changes a square's terrain. Structures and Sanctum squares are immune. Fatal terrain applies at once. */
+  setTerrain(pos: Pos, terrain: TerrainId): void;
 }
 
 export function makeQuery(e: Engine, caster: PlayerId): QueryContext {
@@ -91,5 +94,13 @@ export function makeCtx(e: Engine, spell: ActiveSpell, event?: GameEvent): Event
     summon: (def) =>
       summonGroup(e, { ...def, owner: def.owner ?? spell.owner, botId: def.botId ?? spell.cardId }).id,
     draw: (side, count) => drawCards(e, side, count),
+    setTerrain: (pos, terrain) => {
+      const s = e.state;
+      if (!s.cells.includes(key(pos)) || isSanctumArea(pos) || structureAt(s, pos)) return;
+      s.terrain[key(pos)] = terrain;
+      const g = groupAt(s, pos);
+      if (g) checkFatal(e, g);
+      recheckSquare(e, pos);
+    },
   };
 }

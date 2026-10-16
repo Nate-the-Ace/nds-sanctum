@@ -5,9 +5,10 @@ import { placeTowns, rollTerrain } from './mapgen';
 import { shuffle } from './rng';
 import { RULES } from './rules';
 import { blankState } from './state';
+import { beginTurn, finishTurnStart } from './turn';
 import { addRecruit } from './units';
 import { SIDES } from './types';
-import type { GameState, HouseId, Side, TerrainId } from './types';
+import type { GameState, HouseId, Mana, Side, TerrainId } from './types';
 
 export interface DeckConfig {
   house: HouseId;
@@ -70,5 +71,23 @@ export function createGame(config: GameConfig, cards: CardIndex): GameState {
   for (const side of SIDES) {
     for (const cls of RULES.startGroup) addRecruit(e, side, SANCTUM_POS[side], cls);
   }
+  beginTurn(e, true);
   return e.state;
+}
+
+export type Result = { ok: true; state: GameState } | { ok: false; error: string };
+const fail = (error: string): Result => ({ ok: false, error });
+
+/** The owner of a freshly captured town picks the mana type it produces (any of the 6, fixed until lost). */
+export function chooseMana(state: GameState, cards: CardIndex, side: Side, structureId: number, mana: Mana): Result {
+  const e = makeEngine(state, cards);
+  const s = e.state;
+  if (s.phase !== 'choose-mana') return fail('not choosing mana');
+  const st = s.structures[structureId];
+  if (!st || !s.pendingMana.includes(structureId)) return fail('that structure is not awaiting a mana choice');
+  if (st.owner !== side) return fail('not your structure');
+  st.manaType = mana;
+  s.pendingMana = s.pendingMana.filter((id) => id !== structureId);
+  if (s.pendingMana.length === 0) finishTurnStart(e);
+  return { ok: true, state: e.state };
 }
