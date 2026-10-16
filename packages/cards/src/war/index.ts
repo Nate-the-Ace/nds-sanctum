@@ -17,6 +17,10 @@ import swashbuckler from './swashbuckler';
 import thermiteDamage from './thermiteDamage';
 import thermites from './thermites';
 import volcano from './volcano';
+import veteran from './veteran';
+import marksman from './marksman';
+import fieldSurgery from './fieldSurgery';
+import fieldSurgeryScar from './fieldSurgeryScar';
 import warDrums from './warDrums';
 
 export const warCards: CardDef[] = [
@@ -24,4 +28,5 @@ export const warCards: CardDef[] = [
   fireball, goodOfTheMany, plains, volcano, scorchedEarth, dragonSlayer,
   berserkerBlade, berserkers, rainOfArrows, shatteringBlow,
   thermites, thermiteDamage,
+  veteran, marksman, fieldSurgery, fieldSurgeryScar,
 ];

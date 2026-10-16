@@ -107,8 +107,8 @@ describe('Berserker Blade across fights', () => {
     const id = red.minionIds[0];
     const b1 = put(e, 'blue', { x: 5, y: 4 }, ['swordsman']);
     const b2 = put(e, 'blue', { x: 3, y: 4 }, ['swordsman']);
-    for (const b of [b1, b2]) e.state.minions[b.minionIds[0]].hp = 1000; // nobody dies, so only the spell matters
-    e.state.minions[id].hp = 1000;
+    for (const b of [b1, b2]) e.state.minions[b.minionIds[0]].base.hp = e.state.minions[b.minionIds[0]].hp = 1000; // nobody dies, so only the spell matters
+    e.state.minions[id].base.hp = e.state.minions[id].hp = 1000;
     expect(cast(e, 'red', 'berserker-blade', mref(id))).toBe('cast');
     const loss = (b: typeof b1): number => 1000 - e.state.minions[b.minionIds[0]].hp;
     fight(e, red.id, b1.id);
@@ -160,7 +160,7 @@ describe('Berserkers', () => {
       const red = put(e, 'red', { x: 4, y: 4 }, ['swordsman', 'swordsman']);
       const blue = put(e, 'blue', { x: 5, y: 4 }, ['swordsman']);
       const bid = blue.minionIds[0];
-      e.state.minions[bid].hp = 14;
+      e.state.minions[bid].base.hp = e.state.minions[bid].hp = 14;
       if (withBerserkers) cast(e, 'red', 'berserkers', gref(red.id));
       cast(e, 'blue', 'shattering-blow', mref(bid));
       fight(e, blue.id, red.id);

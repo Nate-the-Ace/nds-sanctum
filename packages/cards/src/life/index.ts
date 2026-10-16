@@ -16,9 +16,13 @@ import pyx from './pyx';
 import redeemersSword from './redeemersSword';
 import vivant from './vivant';
 import wellspring from './wellspring';
+import faerieKnight from './faerieKnight';
+import elixirVitae from './elixirVitae';
+import dropOfElixirVitae from './dropOfElixirVitae';
 
 export const lifeCards: CardDef[] = [
   caravan, flight, cleansingLight, pyx, healingHands, oasis, wellspring,
   redeemersSword, filigreedArmor, pacifism, vivant, faerieFire, elvenPiper,
   fountainOfYouth, youth, faerieGlade, faerieGladeSquare,
+  faerieKnight, elixirVitae, dropOfElixirVitae,
 ];

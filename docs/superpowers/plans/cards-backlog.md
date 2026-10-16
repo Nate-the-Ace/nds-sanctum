@@ -30,12 +30,7 @@ once-per-game rule for heroes.
 
 ## E2. Maximum hit points as a stat (6)
 Needs: `StatDelta.maxHp` and "+N maximum and current hit points" on cast.
-- Field Surgery (War)
 - Lone Wolf (War)
-- Marksman (War)
-- Veteran (War)
-- Elixir Vitae (Life)
-- Faerie Knight (Life)
 
 ## E3. Mana generation (4)
 Needs: `ctx.addMana(side, type, n)` during the mana step of start of turn.

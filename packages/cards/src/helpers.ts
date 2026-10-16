@@ -13,6 +13,9 @@ export const isCls =
 /** canCast: the target minion is owned by the caster. */
 export const isFriendlyMinion = (q: QueryContext, t: Ref): boolean => minionAt(q, t)?.owner === q.caster;
 
+/** canCast: the target group is owned by the caster. */
+export const isFriendlyGroup = (q: QueryContext, t: Ref): boolean => t.kind === 'group' && q.group(t.id)?.owner === q.caster;
+
 /** canCast: the target group contains at least one minion of this class. */
 export const groupHas =
   (cls: 'swordsman' | 'archer') =>
