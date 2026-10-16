@@ -11,7 +11,7 @@ import { addSpellRecord } from './spellstore';
 import { dispel, recheck, recheckSquare } from './spells';
 import { checkFatal } from './terrainfx';
 import { summonGroup } from './units';
-import type { ActiveSpell, GameState, Group, Minion, PlayerId, Pos, Ref, Side, Structure, SummonDef, TerrainId } from './types';
+import type { ActiveSpell, GameState, Group, Mana, Minion, PlayerId, Pos, Ref, Side, Structure, SummonDef, TerrainId } from './types';
 
 /** Read-only view handed to canCast / persistent / stats callbacks. */
 export interface QueryContext {
@@ -38,6 +38,8 @@ export interface EventContext extends QueryContext {
   cancel(): void;
   token(name: string): number;
   setToken(name: string, value: number): void;
+  /** Adds mana to a player's pool for this turn. Use from a `mana:generate` handler. */
+  addMana(side: Side, mana: Mana, amount: number): void;
   /** Spell damage. Magical by default (ignores armor); pass `{ magical: false }` for damage that respects armor and fires beforeArmor handlers. Nobody is blamed, so a death is a "dies" death. */
   damage(minionId: number, amount: number, opts?: { magical?: boolean }): void;
   heal(minionId: number, amount: number): void;
@@ -83,6 +85,9 @@ export function makeCtx(e: Engine, spell: ActiveSpell, event?: GameEvent): Event
     random: () => nextRandom(e.state),
     cancel: () => {
       if (event) event.data.cancel = true;
+    },
+    addMana: (side, mana, amount) => {
+      e.state.players[side].mana[mana] += amount;
     },
     token: (name) => spell.tokens[name] ?? 0,
     setToken: (name, value) => {

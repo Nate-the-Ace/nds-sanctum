@@ -5,7 +5,7 @@ import type { ActiveSpell, GameState, Pos, Ref } from './types';
 
 export type EventType =
   // untargeted (all players)
-  | 'turn:start' | 'turn:startAfter' | 'movement:before' | 'movement:after' | 'combat:before' | 'turn:afterCombat'
+  | 'turn:start' | 'turn:startAfter' | 'movement:before' | 'movement:after' | 'combat:before' | 'mana:generate' | 'turn:afterCombat'
   // group
   | 'group:exit' | 'group:move' | 'group:enter' | 'combat:start' | 'round:start' | 'combat:end' | 'combat:after'
   // minion

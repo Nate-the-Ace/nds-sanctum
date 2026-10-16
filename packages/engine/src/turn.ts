@@ -86,6 +86,7 @@ export function finishTurnStart(e: Engine): void {
       s.players[st.owner as Side].mana[st.manaType]++;
     }
   }
+  dispatch(e, 'mana:generate');
   s.phase = 'orders';
 }
 
