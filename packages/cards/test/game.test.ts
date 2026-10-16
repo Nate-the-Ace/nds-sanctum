@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
-  chooseMana, confirmOrders, createGame, emptyOrders, submitOrders,
+  chooseMana, confirmOrders, createGame, emptyOrders, submitOrders, validateDeck,
   type GameState, type Mana, type Orders, type Result, type Side,
 } from '@sanctum/engine';
 import { allCards, cardIndex } from '../src/index';
@@ -70,5 +70,7 @@ describe('a real game with the implemented cards', () => {
   it('accepts legal 39-card decks of every implemented card', () => {
     expect(deck('war').cards).toHaveLength(51);
     expect(deck('life').cards).toHaveLength(39);
+    expect(validateDeck(deck('war'), cardIndex)).toBeNull();
+    expect(validateDeck(deck('life'), cardIndex)).toBeNull();
   });
 });

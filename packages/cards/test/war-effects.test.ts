@@ -99,6 +99,32 @@ describe('Berserker Blade', () => {
   });
 });
 
+describe('Berserker Blade across fights', () => {
+  it('resets the rage bonus between two fights in one turn', () => {
+    const e = world();
+    e.state.initiative = 'red';
+    const red = put(e, 'red', { x: 4, y: 4 }, ['swordsman']);
+    const id = red.minionIds[0];
+    const b1 = put(e, 'blue', { x: 5, y: 4 }, ['swordsman']);
+    const b2 = put(e, 'blue', { x: 3, y: 4 }, ['swordsman']);
+    for (const b of [b1, b2]) e.state.minions[b.minionIds[0]].hp = 1000; // nobody dies, so only the spell matters
+    e.state.minions[id].hp = 1000;
+    expect(cast(e, 'red', 'berserker-blade', mref(id))).toBe('cast');
+    const loss = (b: typeof b1): number => 1000 - e.state.minions[b.minionIds[0]].hp;
+    fight(e, red.id, b1.id);
+    expect(e.state.minions[id].status).toBe('alive');
+    expect(e.state.spells).toHaveLength(1);
+    expect(stats(e, id).hand).toBe(2);
+    const first = loss(b1);
+    expect(first).toBeGreaterThan(0);
+    e.state.minions[id].hp = 1000; // same starting condition for the second fight
+    fight(e, red.id, b2.id);
+    expect(stats(e, id).hand).toBe(2);
+    // identical fights deal identical damage only if the rage from fight one did not carry over
+    expect(loss(b2)).toBe(first);
+  });
+});
+
 describe('Berserkers', () => {
   it('adds +1 hand per combat casualty, max +3, reset at end of combat', () => {
     const e = world();
@@ -154,6 +180,23 @@ describe('Rain of Arrows', () => {
     expect(stats(e, ar).missileAttacks).toBe(2);
     expect(stats(e, sw).missileAttacks).toBe(0);
     dispatch(e, 'combat:after', gref(g.id), {});
+    expect(e.state.spells).toHaveLength(0);
+    expect(stats(e, ar).missileAttacks).toBe(1);
+  });
+  it('is dispelled after the first real combat, so a second fight has no bonus', () => {
+    const e = world();
+    e.state.initiative = 'red';
+    const g = put(e, 'red', { x: 4, y: 4 }, ['archer']);
+    const ar = g.minionIds[0];
+    const b1 = put(e, 'blue', { x: 5, y: 4 }, ['swordsman']);
+    const b2 = put(e, 'blue', { x: 3, y: 4 }, ['swordsman']);
+    for (const b of [b1, b2]) e.state.minions[b.minionIds[0]].hp = 1000;
+    expect(cast(e, 'red', 'rain-of-arrows', gref(g.id))).toBe('cast');
+    expect(stats(e, ar).missileAttacks).toBe(2);
+    fight(e, g.id, b1.id);
+    expect(e.state.spells).toHaveLength(0);
+    expect(stats(e, ar).missileAttacks).toBe(1);
+    fight(e, g.id, b2.id);
     expect(e.state.spells).toHaveLength(0);
     expect(stats(e, ar).missileAttacks).toBe(1);
   });
