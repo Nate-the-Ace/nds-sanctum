@@ -2,13 +2,14 @@ import { SANCTUM_POS } from './board';
 import type { CardIndex } from './cards';
 import { makeEngine } from './engine';
 import { placeTowns, rollTerrain } from './mapgen';
+import { validateOrders } from './orders';
 import { shuffle } from './rng';
 import { RULES } from './rules';
 import { blankState } from './state';
 import { beginTurn, finishTurnStart } from './turn';
 import { addRecruit } from './units';
-import { SIDES } from './types';
-import type { GameState, HouseId, Mana, Side, TerrainId } from './types';
+import { SIDES, emptyOrders } from './types';
+import type { GameState, HouseId, Mana, Orders, Side, TerrainId } from './types';
 
 export interface DeckConfig {
   house: HouseId;
@@ -89,5 +90,26 @@ export function chooseMana(state: GameState, cards: CardIndex, side: Side, struc
   st.manaType = mana;
   s.pendingMana = s.pendingMana.filter((id) => id !== structureId);
   if (s.pendingMana.length === 0) finishTurnStart(e);
+  return { ok: true, state: e.state };
+}
+
+/** Validate and store a player's orders for this turn, replacing any earlier submission. */
+export function submitOrders(state: GameState, cards: CardIndex, side: Side, orders: Orders): Result {
+  const e = makeEngine(state, cards);
+  const err = validateOrders(e, side, orders);
+  if (err) return fail(err);
+  e.state.players[side].orders = structuredClone(orders);
+  return { ok: true, state: e.state };
+}
+
+/** Lock a player's orders. Task 12 makes this resolve the turn once both players have confirmed. */
+export function confirmOrders(state: GameState, cards: CardIndex, side: Side): Result {
+  const e = makeEngine(state, cards);
+  const s = e.state;
+  if (s.phase !== 'orders') return fail('not in the orders phase');
+  const p = s.players[side];
+  if (p.confirmed) return fail('already confirmed');
+  if (!p.orders) p.orders = emptyOrders();
+  p.confirmed = true;
   return { ok: true, state: e.state };
 }
