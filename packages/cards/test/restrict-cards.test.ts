@@ -109,6 +109,15 @@ describe('Lone Wolf', () => {
     expect(cast(e, 'red', 'ngozis-way', gref(g.id))).toBe('squandered');
     expect(cast(e, 'blue', 'flaming-sword', mref(id))).toBe('cast');
   });
+  it('protects the swordsman from spells cast by its OWNER, whoever cast the wolf', () => {
+    const e = world();
+    const g = put(e, 'blue', { x: 4, y: 4 }, ['swordsman']);
+    const id = g.minionIds[0];
+    expect(cast(e, 'red', 'lone-wolf', mref(id))).toBe('cast');
+    expect(cast(e, 'blue', 'flaming-sword', mref(id))).toBe('squandered');
+    expect(cast(e, 'blue', 'ngozis-way', gref(g.id))).toBe('squandered');
+    expect(cast(e, 'red', 'flaming-sword', mref(id))).toBe('cast');
+  });
   it('needs a swordsman alone in its group', () => {
     const e = world();
     const pair = put(e, 'red', { x: 4, y: 4 }, ['swordsman', 'swordsman']);

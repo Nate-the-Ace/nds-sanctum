@@ -14,9 +14,9 @@ export default defineCard({
     if (t.kind === 'minion') c.heal(t.id, 6);
   },
   blocksCast: (q, sp, a) => {
-    if (a.caster !== sp.owner || sp.host.kind !== 'minion') return false;
+    if (sp.host.kind !== 'minion') return false;
     const wolf = q.minion(sp.host.id);
-    if (!wolf) return false;
+    if (!wolf || a.caster !== wolf.owner) return false;
     if (INDIVIDUAL_TARGETS.includes(a.card.target)) return a.target.kind === 'minion' && a.target.id === wolf.id;
     if (GROUP_TARGETS.includes(a.card.target)) return a.target.kind === 'group' && a.target.id === wolf.groupId;
     return false;
