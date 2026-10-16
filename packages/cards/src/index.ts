@@ -27,3 +27,4 @@ export const playableCards = allCards.filter((c) => !c.helper);
 export const pendingCards = cardData.filter((c) => !cardIndex[c.slug]);
 export { faceOf as cardFace, glossary as keywordGlossary, helperSummary } from './lang';
 export type { Face, GlossaryEntry } from './lang';
+export { starterDeck } from './decks';
