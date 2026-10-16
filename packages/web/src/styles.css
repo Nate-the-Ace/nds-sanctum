@@ -63,3 +63,22 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: .02em; margin: 0;
 .hand-card header { display: grid; gap: 4px; } .hand-card h3 { font-size: 18px; }
 .hand-card.armed { border-color: #f2d675; } .hand-card.queued { border-color: var(--good); } .hand-card.discarded { opacity: .5; }
 .hand-card footer { display: flex; gap: 6px; }
+.setup-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin: 18px 0; }
+.setup-grid label { display: grid; gap: 6px; color: var(--muted); }
+select, input[type="number"], input[type="search"] { background: var(--panel); color: var(--fg); border: 1px solid var(--line); border-radius: 6px; padding: 7px 10px; font: inherit; }
+.handoff { text-align: center; display: grid; gap: 14px; justify-items: center; padding-top: 12vh; }
+.handoff.side-red h1 { color: var(--red); } .handoff.side-blue h1 { color: var(--blue); }
+.report { display: grid; grid-template-rows: auto minmax(0, 1fr); gap: 10px; height: 100%; padding: 10px 14px; }
+@media (max-width: 900px) { .report .stage { align-content: start; } }
+ul.plain { margin: 0; padding-left: 18px; display: grid; gap: 3px; }
+.tabs { display: flex; gap: 4px; padding: 8px 14px 0; border-bottom: 1px solid var(--line); }
+.tabs button { background: transparent; border: 0; border-bottom: 3px solid transparent; padding: 8px 14px; color: var(--muted); font-weight: 600; }
+.tabs button[aria-current="page"] { color: var(--fg); border-bottom-color: var(--accent); }
+.frame { display: grid; grid-template-rows: auto minmax(0, 1fr); grid-template-columns: minmax(0, 1fr); height: 100%; }
+.view { min-width: 0; min-height: 0; overflow: auto; }
+.browser { padding: 14px; overflow: auto; display: grid; gap: 14px; max-width: 1200px; margin: 0 auto; width: 100%; }
+.browser-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 12px; }
+.browser-card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 12px; display: grid; gap: 8px; align-content: start; }
+.browser-card header { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.btnrow button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+.browser-card details summary { cursor: pointer; color: var(--accent); font-size: 13px; }
