@@ -55,6 +55,8 @@ export function OrdersScreen({ session, side, onLock }: OrdersScreenProps) {
   const [armed, setArmed] = useState<number | null>(null);
   const [choices, setChoices] = useState<Ref[]>([]);
   const [message, setMessage] = useState<string | null>(null);
+  // After a move onto your own group or structure: the draft before it, and what could be selected instead.
+  const [instead, setInstead] = useState<{ prev: Orders; after: Orders; ref: Ref } | null>(null);
 
   const targets = useMemo(() => (armed === null ? [] : legalTargets(state, cards, side, me.hand[armed])), [armed, state]);
   const preview = poolPreview(me.mana, me.hand, cards, draft);
@@ -68,6 +70,17 @@ export function OrdersScreen({ session, side, onLock }: OrdersScreenProps) {
     ? Object.values(state.structures).find((x) => x.owner === side && x.pos.x === selPos.x && x.pos.y === selPos.y) ?? null
     : null;
 
+  // Moves are checked with the casts left out (as training is), so one unaffordable spell does not block every move.
+  const moveError = (o: Orders) => checkOrders(state, cards, side, { ...o, cast: [] });
+
+  /** Your group (or else your structure) on a square: what a click there would select. */
+  const ownThingAt = (pos: Pos): Ref | null => {
+    const g = Object.values(state.groups).find((x) => x.owner === side && x.pos && x.pos.x === pos.x && x.pos.y === pos.y);
+    if (g) return { kind: 'group', id: g.id };
+    const st = Object.values(state.structures).find((x) => x.owner === side && x.pos.x === pos.x && x.pos.y === pos.y);
+    return st ? { kind: 'structure', id: st.id } : null;
+  };
+
   const highlights = new Set<string>();
   if (armed !== null) {
     for (const t of targets) {
@@ -77,7 +90,7 @@ export function OrdersScreen({ session, side, onLock }: OrdersScreenProps) {
   } else if (ownGroup?.pos) {
     for (const d of DIR_LIST) {
       const p = step(ownGroup.pos, d);
-      if (state.cells.includes(key(p)) && checkOrders(state, cards, side, setMove(draft, ownGroup.id, d)) === null) highlights.add(key(p));
+      if (state.cells.includes(key(p)) && moveError(setMove(draft, ownGroup.id, d)) === null) highlights.add(key(p));
     }
   }
 
@@ -96,6 +109,7 @@ export function OrdersScreen({ session, side, onLock }: OrdersScreenProps) {
 
   const onCell = (pos: Pos) => {
     setMessage(null);
+    setInstead(null);
     if (armed !== null) {
       const here = targets.filter((t) => {
         const c = cellOf(state, t);
@@ -110,9 +124,16 @@ export function OrdersScreen({ session, side, onLock }: OrdersScreenProps) {
       if (dir) {
         const current = draft.move.find((m) => m.groupId === ownGroup.id);
         const next = setMove(draft, ownGroup.id, current?.dir === dir ? null : dir);
-        const err = checkOrders(state, cards, side, next);
-        if (err) setMessage(err);
-        else setDraft(next);
+        const err = moveError(next);
+        if (err) {
+          setMessage(err);
+          return;
+        }
+        setDraft(next);
+        // Moving onto your own group is a legal merge order (and onto your structure a legal move), so the click
+        // keeps meaning "move". Picking that group or structure instead is one button away, which undoes this move.
+        const mine = next.move.some((m) => m.groupId === ownGroup.id) ? ownThingAt(pos) : null;
+        if (mine) setInstead({ prev: draft, after: next, ref: mine });
         return;
       }
     }
@@ -145,6 +166,9 @@ export function OrdersScreen({ session, side, onLock }: OrdersScreenProps) {
     : [];
 
   const lock = () => setMessage(onLock(draft));
+  // Where a phone-width board first scrolls to: your first group on the board, else your Sanctum.
+  const home = Object.values(state.groups).find((g) => g.owner === side && g.control === 'player' && g.pos)?.pos
+    ?? Object.values(state.structures).find((x) => x.owner === side && x.kind === 'sanctum')?.pos ?? null;
   const initiative = state.initiative === side ? 'You have initiative' : `${cap(state.initiative)} has initiative`;
 
   return (
@@ -158,7 +182,7 @@ export function OrdersScreen({ session, side, onLock }: OrdersScreenProps) {
       {message ? <p class="banner bad" role="alert">{message}</p> : null}
       {preview.over ? <p class="banner bad" role="alert">{overError ?? 'Not enough mana for these spells.'}</p> : null}
       <div class="stage">
-        <Board state={state} selected={sel} highlights={highlights} arrows={arrows} onCell={onCell} />
+        <Board state={state} selected={sel} highlights={highlights} arrows={arrows} onCell={onCell} centre={home} />
         <Sidebar state={state} cards={cards} selected={sel}>
           {ownStructure ? (
             <section>
@@ -173,10 +197,18 @@ export function OrdersScreen({ session, side, onLock }: OrdersScreenProps) {
               </div>
             </section>
           ) : null}
+          {/* Only while the draft is still the one that move made; any later change retires the offer. */}
+          {instead && instead.after === draft ? (
+            <section>
+              <button type="button" onClick={() => { setDraft(instead.prev); setSel(instead.ref); setInstead(null); }}>
+                Select {refLabel(instead.ref, state)} instead
+              </button>
+            </section>
+          ) : null}
           {armed !== null ? (
             <section>
               <h3>Cast {cards[me.hand[armed]].name}</h3>
-              {cards[me.hand[armed]].target === 'globe' ? (
+              {cards[me.hand[armed]].target === 'globe' && targets.length > 0 ? (
                 <button type="button" class="primary" onClick={() => commitCast({ kind: 'globe' })}>Cast on the globe</button>
               ) : <p class="muted">{targets.length ? 'Click a highlighted square.' : 'No legal target right now.'}</p>}
               {choices.length > 0 ? (

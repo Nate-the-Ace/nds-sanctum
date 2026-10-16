@@ -1,17 +1,19 @@
-import { viewStats, type CardIndex, type GameState, type Minion, type Ref, type Structure } from '@sanctum/engine';
-import { Face, cap, cardName } from './format';
+import { cardFace, cardIndex } from '@sanctum/cards';
+import { viewStats, type CardIndex, type GameState, type Mana, type Minion, type Ref, type Structure } from '@sanctum/engine';
+import { Face, cap, manaLabel } from './format';
 
 const at = (p: { x: number; y: number }) => `(${p.x + 1},${p.y + 1})`;
 
 function SpellList({ state, host }: { state: GameState; host: Ref }) {
-  const spells = state.spells.filter((sp) => JSON.stringify(sp.host) === JSON.stringify(host));
+  // Non-visible spells are engine helpers: show one only when it has printed effect text, and never by its id.
+  const hasEffect = (id: string) => (cardFace(id)?.lines.length ?? 0) > 1;
+  const spells = state.spells.filter((sp) => JSON.stringify(sp.host) === JSON.stringify(host) && (sp.visible || hasEffect(sp.cardId)));
   if (spells.length === 0) return null;
   return (
     <ul class="spells">
       {spells.map((sp) => (
         <li key={sp.id}>
-          <strong>{cardName(sp.cardId)}</strong>
-          {sp.visible ? null : <span class="tag">effect</span>}
+          {sp.visible ? <strong>{cardIndex[sp.cardId]?.name ?? 'Spell'}</strong> : <span class="tag">effect</span>}
           {sp.turnsLeft !== null ? <span class="tag">{sp.turnsLeft} turn{sp.turnsLeft === 1 ? '' : 's'} left</span> : null}
           <Face id={sp.cardId} skipTarget />
         </li>
@@ -43,11 +45,20 @@ function MinionTile({ state, cards, m }: { state: GameState; cards: CardIndex; m
   );
 }
 
+/** "2 Strife and 1 Clarity": a Sanctum's permanent production from novices trained as mana. */
+function production(st: Structure): string | null {
+  const parts = (Object.entries(st.manaTrained ?? {}) as Array<[Mana, number]>).filter(([, n]) => n > 0).map(([m, n]) => `${n} ${manaLabel(m)}`);
+  if (st.manaType) parts.push(`1 ${manaLabel(st.manaType)}`);
+  return parts.length ? parts.join(' and ') : null;
+}
+
 function StructureView({ st }: { st: Structure }) {
+  const makes = production(st);
   return (
     <section>
       <h3>{cap(st.kind)} {at(st.pos)}</h3>
-      <p class="muted">Owner: {cap(st.owner)}{st.manaType ? ` · makes ${cap(st.manaType)}` : ''}</p>
+      <p class="muted">Owner: {cap(st.owner)}</p>
+      {makes ? <p>Makes {makes} each turn</p> : null}
       <p>{st.novices} novice{st.novices === 1 ? '' : 's'} waiting{st.noviceNations?.length ? ` (${st.noviceNations.map(cap).join(', ')})` : ''}</p>
     </section>
   );

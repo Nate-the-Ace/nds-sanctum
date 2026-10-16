@@ -8,7 +8,7 @@ import { cap, manaLabel } from './format';
 const HOUSES: Array<'war' | 'life'> = ['war', 'life'];
 const MANA: Mana[] = ['clarity', 'mystery', 'order', 'strife', 'will', 'world'];
 
-export function Setup({ onStart }: { onStart: (seed: number, houses: Record<Side, HouseId>) => void }) {
+export function Setup({ onStart, onResume }: { onStart: (seed: number, houses: Record<Side, HouseId>) => void; onResume?: () => void }) {
   const [red, setRed] = useState<'war' | 'life'>('war');
   const [blue, setBlue] = useState<'war' | 'life'>('life');
   const [seed, setSeed] = useState(() => Math.floor(Math.random() * 1_000_000));
@@ -31,7 +31,10 @@ export function Setup({ onStart }: { onStart: (seed: number, houses: Record<Side
           <input type="number" value={seed} onInput={(e) => setSeed(Number((e.target as HTMLInputElement).value))} />
         </label>
       </div>
-      <button type="button" class="primary" onClick={() => onStart(seed, { red, blue })}>Start game</button>
+      <div class="btnrow">
+        <button type="button" class="primary" onClick={() => onStart(seed, { red, blue })}>Start game</button>
+        {onResume ? <button type="button" onClick={onResume}>Resume game</button> : null}
+      </div>
     </main>
   );
 }

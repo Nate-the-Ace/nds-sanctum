@@ -17,19 +17,24 @@ export function HandTray({ hand, cards, draft, armed, onArm, onDiscard }: HandTr
         const card = cards[id];
         const queued = draft.cast.some((c) => c.handIndex === i);
         const discarded = draft.discard === i;
+        const isArmed = armed === i;
+        // State is spelled out in a badge, not only by the border colour.
+        const badge = isArmed ? 'Choosing target' : queued ? 'Queued' : discarded ? 'Discarding' : null;
         return (
-          <article key={`${id}-${i}`} class={`hand-card${armed === i ? ' armed' : ''}${queued ? ' queued' : ''}${discarded ? ' discarded' : ''}`}>
+          <article key={`${id}-${i}`} class={`hand-card${isArmed ? ' armed' : ''}${queued ? ' queued' : ''}${discarded ? ' discarded' : ''}`}>
             <header>
               <h3>{card.name}</h3>
+              {badge ? <span class="badge">{badge}</span> : null}
               <ManaChips cost={card.cost} />
             </header>
             <Face id={id} />
             <footer>
-              <button type="button" aria-label={`Play ${card.name}`} onClick={() => onArm(armed === i ? null : i)} disabled={discarded}>
-                {armed === i ? 'Cancel' : queued ? 'Retarget' : 'Play'}
+              {/* The accessible name is the visible verb plus the card name ("Retarget Warlord"). */}
+              <button type="button" onClick={() => onArm(isArmed ? null : i)} disabled={discarded}>
+                {isArmed ? 'Cancel' : queued ? 'Retarget' : 'Play'}<span class="sr-only"> {card.name}</span>
               </button>
-              <button type="button" aria-label={`Discard ${card.name}`} onClick={() => onDiscard(discarded ? null : i)} disabled={queued}>
-                {discarded ? 'Keep' : 'Discard'}
+              <button type="button" onClick={() => onDiscard(discarded ? null : i)} disabled={queued}>
+                {discarded ? 'Keep' : 'Discard'}<span class="sr-only"> {card.name}</span>
               </button>
             </footer>
           </article>

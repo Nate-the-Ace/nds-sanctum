@@ -24,9 +24,13 @@ npm test                        # every package's tests (engine, cards, scrape, 
    highlighted target (several targets on one square give a list). The mana chips show the pool for this turn after
    your training and spells; unspent mana is lost. Any order the engine refuses shows the engine's own message.
 4. **Lock**: Red locks, the device goes to Blue, Blue locks, and the turn resolves.
-5. **Report**: movement arrows on the board plus sections for training, spells, movement, combat (who lost what,
-   and which groups were wiped out), health, casualties, new units, terrain and captures.
+5. **Report**: movement arrows on the board plus sections for training, spells (including spells that wore off),
+   movement (merges, blocked and displaced moves), combat (who lost what, and which groups were wiped out), health,
+   casualties, new units, terrain, captures, initiative and groups changing sides.
 6. **Mana choice**: whoever captured a town picks the mana it makes. The game ends when a Sanctum falls.
+
+The game autosaves to this browser at the hand-off to Red and on the report screen (never while one player's
+orders are locked and waiting), and Setup offers **Resume game** after a refresh.
 
 ## Where the logic lives
 
