@@ -27,8 +27,8 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "arboriads": [
     "Globe.",
     "Stackable.",
-    "+4 H against Death minions.",
     "Summon 2 Arboriads (H:3 A:1 HP:7 L:1) off the board. Before combat they appear in forest next to a non-friendly recruit group. After all combat they disappear. Dispelled when all are killed.",
+    "+4 H against Death minions.",
   ],
   "armistice": [
     "Globe.",
@@ -45,10 +45,11 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   ],
   "bard": [
     "Recruit group.",
-    "Create Bard (H:0 A:3 HP:7 L:1) with Bard Song (Group aura: swordsmen +1 H).",
+    "Create Bard (H:0 A:3 HP:7 L:1) with Bard Song (Undispellable; Group aura: swordsmen +1 H).",
   ],
   "bard-song": [
     "Recruit.",
+    "Undispellable.",
     "Group aura: swordsmen +1 H.",
   ],
   "berserker-blade": [
@@ -66,8 +67,8 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "brimstone-dragon": [
     "Mountain or volcano square.",
     "Territorial.",
-    "Start of combat: Deal 5 damage to the opposing group.",
     "Summon Brimstone Dragon (H:4 A:1 HP:16 L:2, Flight).",
+    "Start of combat: Deal 5 damage to the opposing group.",
   ],
   "call-to-arms": [
     "Town or colony.",
@@ -99,11 +100,11 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   ],
   "decoy": [
     "Friendly recruit group.",
-    "Create Decoy (H:2 A:1 HP:7 L:1) with Decoy Ruse (Pacified, Taunt; +2 A).",
+    "Create Decoy (H:0 A:3 HP:7 L:1) with Decoy Ruse (Undispellable, Pacified, Taunt; +2 A).",
   ],
   "decoy-ruse": [
     "Recruit.",
-    "Pacified, Taunt.",
+    "Undispellable, Pacified, Taunt.",
     "+2 A.",
   ],
   "dragon-slayer": [
@@ -112,7 +113,7 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   ],
   "dragons-teeth": [
     "Friendly town or colony.",
-    "Create 2 swordsmen (H:2 A:1 HP:7 L:1, random nations).",
+    "Create 2 swordsmen (H:2 A:1 HP:* L:1, random nations).",
   ],
   "drop-of-elixir-vitae": [
     "Recruit.",
@@ -208,8 +209,8 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "hellion": [
     "Square.",
     "Nomadic.",
-    "After all combat, if she fought only non-Justice minions this turn, she changes sides.",
     "Summon Hellion (H:4 A:1 HP:16 L:3).",
+    "After all combat, if she fought only non-Justice minions this turn, she changes sides.",
   ],
   "incarnate": [
     "Recruit.",
@@ -227,10 +228,11 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "lienna": [
     "Recruit group in forest.",
     "Hero.",
-    "Create Lienna (M:2 A:0 HP:7 L:2) with Lienna's Presence (While Lienna is in play, her caster's side has Initiative).",
+    "Create Lienna (M:2 A:0 HP:7 L:2) with Lienna's Presence (Undispellable; While Lienna is in play, her caster's side has Initiative).",
   ],
   "liennas-presence": [
     "Recruit.",
+    "Undispellable.",
     "While Lienna is in play, her caster's side has Initiative.",
   ],
   "liennas-sigil": [
@@ -253,10 +255,11 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "ngozi": [
     "Recruit group.",
     "Hero.",
-    "Create Ngozi (H:2 A:1 HP:7 L:2) with Ngozi's Blight (Before movement: Squares next to its group become barren; After it moves: Squares next to its group become barren).",
+    "Create Ngozi (H:2 A:1 HP:7 L:2) with Ngozi's Blight (Undispellable; Before movement: Squares next to its group become barren; After it moves: Squares next to its group become barren).",
   ],
   "ngozis-blight": [
     "Recruit.",
+    "Undispellable.",
     "Before movement: Squares next to its group become barren.",
     "After it moves: Squares next to its group become barren.",
   ],
@@ -289,9 +292,9 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "prismatic-serpent": [
     "Square.",
     "Nomadic.",
+    "Summon Prismatic Serpent (H:4 A:2 HP:12 L:2).",
     "+4 H against Death or Despair monsters.",
     "Cannot be targeted by Death or Despair individual spells.",
-    "Summon Prismatic Serpent (H:4 A:2 HP:12 L:2).",
   ],
   "pyx": [
     "Group.",
@@ -367,8 +370,8 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "undine": [
     "Water square.",
     "Immobile.",
-    "Plains, forest and desert next to Undine attract enemy groups: a group next to one must move onto it. Undine dies if not in water.",
     "Summon Undine (H:2 A:0 HP:15 L:3, Waterwalk).",
+    "Plains, forest and desert next to Undine attract enemy groups: a group next to one must move onto it. Undine dies if not in water.",
   ],
   "veteran": [
     "Recruit.",
@@ -383,8 +386,8 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "vlad-hrothgar": [
     "Friendly town or colony.",
     "Hero.",
-    "Create Vlad Hrothgar (H:2 A:1 HP:7 L:2) with Veteran (+1 H, +1 A, +4 HP, heals 4).",
-    "Create Oro (H:2 A:1 HP:9 L:2) with Rite of Growth (+1 H, +4 HP).",
+    "Create Vlad Hrothgar (H:3 A:2 HP:11 L:2) with Veteran (+1 H, +1 A, +4 HP, heals 4).",
+    "Create Oro (H:3 A:1 HP:13 L:2) with Rite of Growth (+1 H, +4 HP).",
   ],
   "volcano": [
     "Square.",
@@ -396,10 +399,11 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   ],
   "warlord": [
     "Friendly town or colony.",
-    "Create Warlord (H:2 A:1 HP:7 L:2) with Warlord Command (Group aura: swordsmen +1 H; this minion +3 H).",
+    "Create Warlord (H:5 A:1 HP:7 L:2) with Warlord Command (Undispellable; Group aura: swordsmen +1 H; this minion +3 H).",
   ],
   "warlord-command": [
     "Recruit.",
+    "Undispellable.",
     "Group aura: swordsmen +1 H; this minion +3 H.",
   ],
   "wellspring": [
@@ -409,8 +413,8 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "wyrmling": [
     "Volcano square.",
     "Nomadic.",
-    "If killed by a recruit group, that group gets Wyrmling Hide (all members +2 A).",
     "Summon neutral Wyrmling (H:2 A:2 HP:6 L:0, Flight).",
+    "If killed by a recruit group, that group gets Wyrmling Hide (all members +2 A).",
   ],
   "wyrmling-hide": [
     "Group.",

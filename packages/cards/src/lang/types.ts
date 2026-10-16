@@ -12,12 +12,13 @@ export interface Keyword {
 
 /**
  * `inline` keywords are comma-joined on one line after the target; `line` keywords get their own line.
- * `section` places a line on the face: statics, then triggers, then cast effects (default `static`).
+ * `section` places a line on the face: created creatures, then statics, then triggers, then cast effects (default
+ * `static`).
  */
 export interface PrintedPart {
   layout: 'inline' | 'line';
   text: string;
-  section?: 'static' | 'trigger' | 'effect';
+  section?: 'creature' | 'static' | 'trigger' | 'effect';
 }
 
 export interface TargetSpec {
@@ -43,6 +44,8 @@ export interface CompileCtx {
   house: HouseId;
   /** Where the spell sits when it differs from the target: summoned creatures carry it on their minions. */
   host?: HostKind;
+  /** Every keyword on the card (this one is `keywords[index]`). */
+  keywords: readonly Keyword[];
 }
 
 export interface KeywordDef<K extends Keyword = Keyword> {

@@ -14,6 +14,14 @@ export function terrainBlocks(t: TerrainId, walks: Walk[]): boolean {
   }
 }
 
+/**
+ * True if a minion with `walks` cannot be placed on this terrain: it could never leave it (it blocks) or it would be
+ * removed at once (void). Water already blocks a minion that would drown in it.
+ */
+export function terrainForbids(t: TerrainId, walks: Walk[]): boolean {
+  return terrainBlocks(t, walks) || (t === 'void' && !walks.includes('flight'));
+}
+
 /** Terrains that block movement or are deadly (the "max 1 per town" map rule). */
 export const HARSH: TerrainId[] = ['mountain', 'volcano', 'swamp', 'water', 'void'];
 

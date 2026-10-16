@@ -48,10 +48,13 @@ export function addRecruit(e: Engine, owner: Side, pos: Pos, cls: 'swordsman' | 
   return spawnMinion(e, g.id, recruitSpec(cls, nation));
 }
 
-/** Adds a minion to an existing group; null when the group is gone or full. */
+/**
+ * Adds a minion to an existing group; null when the group is gone or full. Only living members take room: during a
+ * death event the dying minion is still listed but its place is already free.
+ */
 export function joinGroup(e: Engine, groupId: number, spec: MinionSpec): Minion | null {
   const g = e.state.groups[groupId];
-  if (!g || g.minionIds.length >= RULES.maxGroup) return null;
+  if (!g || g.minionIds.filter((id) => e.state.minions[id]?.status !== 'dead').length >= RULES.maxGroup) return null;
   return spawnMinion(e, groupId, spec);
 }
 

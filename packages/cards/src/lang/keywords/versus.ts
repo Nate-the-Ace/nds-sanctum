@@ -1,7 +1,7 @@
 import type { HouseId } from '@sanctum/engine';
 import { INDIVIDUAL_TARGETS, isHostMinion } from '../../helpers';
 import { requireHost } from '../hosts';
-import { defineKeyword } from '../registry';
+import { defineKeyword, keywordDef } from '../registry';
 import type { Keyword } from '../types';
 import { appliesTo, toDelta, type GrantStats, type GrantTo } from './statics';
 
@@ -105,6 +105,14 @@ defineKeyword<AuraKeyword>({
   }),
   compile: (k, ctx) => {
     requireHost(ctx, 'minion', 'Aura');
+    // groupAura is card-wide: the engine hands the card's whole stats to every group member, so no other keyword on
+    // the card may contribute stats (they would silently become part of the aura).
+    ctx.keywords.forEach((o, i) => {
+      if (i === ctx.index) return;
+      if (o.kind === 'aura' || keywordDef(o.kind).compile(o, { ...ctx, index: i }).stats) {
+        throw new Error(`card "${ctx.cardId}": Aura cannot share a card with "${o.kind}", which also gives stats (put it on its own helper card)`);
+      }
+    });
     return {
       groupAura: true,
       stats: (q, id, spell) => {

@@ -33,6 +33,8 @@ function dieOutOfWater(c: EventContext): void {
   if (me && c.terrainAt(me) !== 'water' && c.host.kind === 'minion') c.kill(c.host.id);
 }
 
+// RULING: Undine attracts only player-controlled recruit groups; computer-controlled groups (monsters, and recruits
+// under a computer's control) follow their own bots.
 // RULING: "dies if not in water" is checked at the start of the turn and before combat. Undine walks water
 // (otherwise the engine would drown her where she is summoned).
 export default card({ id: 'undine', name: 'Undine', house: 'life', cost: { clarity: 2, world: 2 }, type: 'summoning', host: 'minion',

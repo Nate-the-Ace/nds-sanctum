@@ -10,15 +10,15 @@ export interface Face {
   lines: string[];
 }
 
-const SECTIONS = ['static', 'trigger', 'effect'] as const;
+const SECTIONS = ['creature', 'static', 'trigger', 'effect'] as const;
 
 /**
- * The design template: target line; statics (inline keywords comma-joined, then static lines); triggers; cast
+ * The design template: target line; inline keywords comma-joined; created creatures; static lines; triggers; cast
  * effects. Within a section, lines keep declaration order.
  */
 export function renderSpec(spec: CardSpec): Face {
   const inline: string[] = [];
-  const lines: Record<(typeof SECTIONS)[number], string[]> = { static: [], trigger: [], effect: [] };
+  const lines: Record<(typeof SECTIONS)[number], string[]> = { creature: [], static: [], trigger: [], effect: [] };
   for (const k of spec.keywords) {
     const part = keywordDef(k.kind).print(k);
     if (!part) continue;

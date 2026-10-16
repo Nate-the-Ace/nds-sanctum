@@ -165,7 +165,10 @@ function attackPhase(e: Engine, myId: number, enemyId: number, round: number): v
     while (attacksLeft(m) > 0 && m.status === 'alive' && s.groups[enemyId]) {
       const foes = minionsOf(s, enemyId);
       if (foes.length === 0) break;
-      const t = foes[Math.floor(nextRandom(s) * foes.length)]; // extra attacks pick random victims
+      // extra attacks pick random victims, among the taunting foes when there are any
+      const taunters = foes.filter((x) => computeStats(e, x.id).taunt);
+      const pool = taunters.length ? taunters : foes;
+      const t = pool[Math.floor(nextRandom(s) * pool.length)];
       m.combat.victim = t.id;
       attack(e, m, t, round);
     }

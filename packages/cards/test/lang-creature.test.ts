@@ -79,7 +79,7 @@ describe('Create and Hero', () => {
     expect(m).toMatchObject({ name: 'Chief', nation: 'human', house: 'war', hp: 11, maxHp: 11, owner: 'red' });
     expect(m.base.level).toBe(2);
     expect(e.state.spells).toHaveLength(1);
-    expect(faceOf('chief')!.lines[1]).toBe('Create Chief (H:2 A:1 HP:7 L:2) with Vet (+4 HP).');
+    expect(faceOf('chief')!.lines[1]).toBe('Create Chief (H:2 A:1 HP:11 L:2) with Vet (+4 HP).');
   });
 
   it('joins a group, once per group, and can make several recruits of random nations', () => {

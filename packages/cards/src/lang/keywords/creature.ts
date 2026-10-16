@@ -1,6 +1,10 @@
-import { DIR_LIST, isSanctumArea, key, NATION_LIST, RULES, recruitSpec, step } from '@sanctum/engine';
-import type { HouseId, MinionSpec, Nation, Pos, TerrainId, Walk } from '@sanctum/engine';
+import { DIR_LIST, isSanctumArea, key, NATION_LIST, RULES, recruitSpec, step, terrainForbids } from '@sanctum/engine';
+import type {
+  ActiveSpell, HouseId, Minion, MinionSpec, Nation, Pos, QueryContext, StatDelta, TerrainId, Walk,
+} from '@sanctum/engine';
+import { defOf } from '../card';
 import { requireHost } from '../hosts';
+import { addStats } from '../merge';
 import { defineKeyword } from '../registry';
 import { helperSummary } from '../render';
 import type { Keyword } from '../types';
@@ -49,18 +53,65 @@ export function creatureSpec(def: CreatureDef, house: HouseId, nation: Nation | 
 
 const WALK_NAME: Record<Walk, string> = { flight: 'Flight', fire: 'Firewalk', water: 'Waterwalk', mountain: 'Mountainwalk', desert: 'Desertwalk' };
 
-/** "H:4 A:1 HP:16 L:2, Flight": the printed stat line (xN = N attacks per round). */
-export function statLine(spec: MinionSpec): string {
+/** "H:4 A:1 HP:16 L:2, Flight": the printed stat line (xN = N attacks per round). `hpVaries` prints HP:*. */
+export function statLine(spec: MinionSpec, hpVaries = false): string {
   const b = spec.base;
   const atk = (label: string, dmg: number, n: number) => `${label}:${dmg}${n > 1 ? `(x${n})` : ''}`;
   const parts: string[] = [];
   if (b.missile > 0 || b.missileAttacks > 0) parts.push(atk('M', b.missile, b.missileAttacks));
   if (b.hand > 0 || b.handAttacks > 0 || parts.length === 0) parts.push(atk('H', b.hand, b.handAttacks));
-  parts.push(`A:${b.armor}`, `HP:${b.hp}`, `L:${b.level}`);
+  parts.push(`A:${b.armor}`, `HP:${hpVaries ? '*' : b.hp}`, `L:${b.level}`);
   return [parts.join(' '), ...b.walks.map((w) => WALK_NAME[w])].join(', ');
 }
 
-const lineOf = (def: CreatureDef) => statLine(creatureSpec(def, 'war'));
+/**
+ * What the helper spells contribute to a new minion of this spec, read from the helpers' own compiled `stats` hooks
+ * against a stand-in minion that hosts them (so an Aura's `self` part applies, its group part does not).
+ */
+function helperDelta(spec: MinionSpec, helpers: string[]): StatDelta {
+  const me = { id: 0, kind: spec.kind, cls: spec.cls, name: spec.name, owner: 'red', groupId: 0, base: spec.base, status: 'alive' } as Minion;
+  const q = { caster: 'red', minion: (id: number) => (id === 0 ? me : undefined), minionsOf: () => [me] } as unknown as QueryContext;
+  let out: StatDelta = {};
+  for (const h of helpers) {
+    const sp: ActiveSpell = { id: -1, cardId: h, owner: 'red', host: { kind: 'minion', id: 0 }, visible: false, turnsLeft: null, tokens: {} };
+    try {
+      out = addStats(out, defOf(h)?.stats?.(q, 0, sp) ?? {});
+    } catch {
+      // a stats hook that needs a real board contributes nothing to the printed line
+    }
+  }
+  return out;
+}
+
+/** The spec with the helpers' stat deltas folded in: the minion as it stands once created (what the card prints). */
+export function finalSpec(spec: MinionSpec, helpers: string[]): MinionSpec {
+  const d = helperDelta(spec, helpers);
+  const b = { ...spec.base, walks: [...spec.base.walks, ...(d.walks ?? [])] };
+  b.hand = Math.max(0, b.hand + (d.hand ?? 0));
+  b.missile = Math.max(0, b.missile + (d.missile ?? 0));
+  b.armor = Math.max(0, b.armor + (d.armor ?? 0));
+  b.hp = Math.max(1, b.hp + (d.maxHp ?? 0));
+  b.level = Math.max(0, Math.min(RULES.maxLevel, b.level + (d.level ?? 0)));
+  b.handAttacks = Math.max(0, b.handAttacks + (d.handAttacks ?? 0));
+  b.missileAttacks = Math.max(0, b.missileAttacks + (d.missileAttacks ?? 0));
+  if (d.noDamage) {
+    b.hand = 0;
+    b.missile = 0;
+  }
+  return { ...spec, base: b };
+}
+
+const lineOf = (def: CreatureDef, helpers: string[] = [], hpVaries = false) =>
+  statLine(finalSpec(creatureSpec(def, 'war'), helpers), hpVaries);
+
+/** Walks a minion joining group `gid` gets from the spells on that group (e.g. Flight), read off a current member. */
+function groupSpellWalks(q: QueryContext, gid: number): Walk[] {
+  const member = q.minionsOf(gid)[0];
+  if (!member) return [];
+  return q.state.spells
+    .filter((sp) => sp.host.kind === 'group' && sp.host.id === gid)
+    .flatMap((sp) => defOf(sp.cardId)?.stats?.(q, member.id, sp).walks ?? []);
+}
 
 /* ---------- Monster ---------- */
 
@@ -75,11 +126,14 @@ export const Monster = (def: CreatureDef, opts: { neutral?: boolean } = {}): Mon
 defineKeyword<MonsterKeyword>({
   kind: 'monster', term: 'Monster', tier: 'core',
   gloss: 'Summons a computer-controlled monster on the target square. Stat line: H hand damage, M missile damage (xN = N attacks), A armor, HP hit points, L level. Monsters never join groups or enter structures, and take the same terrain effects as recruits unless they walk it.',
-  print: (k) => ({ layout: 'line', section: 'effect', text: `Summon ${k.neutral ? 'neutral ' : ''}${k.def.name} (${lineOf(k.def)}).` }),
+  print: (k) => ({ layout: 'line', section: 'creature', text: `Summon ${k.neutral ? 'neutral ' : ''}${k.def.name} (${lineOf(k.def)}).` }),
   compile: (k, ctx) => {
     if (ctx.target.type !== 'square') throw new Error(`card "${ctx.cardId}": Monster needs a square target`);
+    const walks = creatureSpec(k.def, ctx.house).base.walks;
     return {
       visible: false,
+      // Not where it could never leave or would die at once (a Hellion on water, mountain or volcano).
+      canCast: (q, t) => t.kind === 'square' && !terrainForbids(q.terrainAt(t.pos) ?? 'plains', walks),
       onCast: (c, t) => {
         if (t.kind !== 'square') return;
         const owner = k.neutral ? 'neutral' : c.spell.owner;
@@ -118,37 +172,46 @@ defineKeyword<CreateKeyword>({
   gloss: 'Creates recruits where the spell is cast: a structure makes a new recruit there, a group gains a member. They start at full health with the named helper spells. If there is no room, the spell squanders.',
   print: (k) => {
     const many = k.count > 1 ? `${k.count} ` : '';
-    const stats = lineOf(k.def) + (k.randomNation ? ', random nations' : '');
+    const stats = lineOf(k.def, k.withSpells, k.randomNation) + (k.randomNation ? ', random nations' : '');
     const helpers = k.withSpells.length ? ` with ${k.withSpells.map(helperSummary).join(' and ')}` : '';
     const name = k.count === 1 ? k.def.name : k.def.name.endsWith('man') ? `${k.def.name.slice(0, -3)}men` : `${k.def.name}s`;
-    return { layout: 'line', section: 'effect', text: `Create ${many}${name} (${stats})${helpers}.` };
+    return { layout: 'line', section: 'creature', text: `Create ${many}${name} (${stats})${helpers}.` };
   },
-  compile: (k, ctx) => ({
-    canCast: (q, t) => {
-      if (t.kind === 'structure') {
-        const st = q.structure(t.id);
-        if (!st) return false;
-        const g = q.groupAt(st.pos);
-        return !g || (g.owner === st.owner && g.kind === 'recruit' && g.control === 'player' && g.minionIds.length + k.count <= RULES.maxGroup);
-      }
-      if (t.kind === 'group') {
-        const g = q.group(t.id);
-        if (!g || g.minionIds.length + k.count > RULES.maxGroup) return false;
-        return !k.onePerGroup || !q.minionsOf(t.id).some((m) => m.name === k.def.name);
-      }
-      return false;
-    },
-    onCast: (c, t) => {
-      for (let i = 0; i < k.count; i++) {
-        const nation = k.randomNation ? NATION_LIST[Math.floor(c.random() * NATION_LIST.length)] : k.def.nation;
-        const spec = creatureSpec(k.def, ctx.house, nation);
-        const id = t.kind === 'structure' ? c.createRecruit(t.id, spec) : t.kind === 'group' ? c.addMinion(t.id, spec) : null;
-        if (id === null) continue;
-        for (const h of k.withSpells) c.createSpell(h, { kind: 'minion', id });
-        c.heal(id, 999);
-      }
-    },
-  }),
+  compile: (k, ctx) => {
+    // RULING: the new minion must be able to stand where it is created, counting its own walks, its helpers' walks and
+    // the walks its group's spells give (a Flight group over water may take a Bard). Random nations count only the
+    // walks every nation shares.
+    const own = finalSpec(creatureSpec(k.def, ctx.house, k.randomNation ? undefined : k.def.nation), k.withSpells).base.walks;
+    const fits = (q: QueryContext, pos: Pos | null, gid: number | undefined) =>
+      !pos || !terrainForbids(q.terrainAt(pos) ?? 'plains', [...own, ...(gid === undefined ? [] : groupSpellWalks(q, gid))]);
+    return {
+      canCast: (q, t) => {
+        if (t.kind === 'structure') {
+          const st = q.structure(t.id);
+          if (!st) return false;
+          const g = q.groupAt(st.pos);
+          if (!fits(q, st.pos, g?.id)) return false;
+          return !g || (g.owner === st.owner && g.kind === 'recruit' && g.control === 'player' && g.minionIds.length + k.count <= RULES.maxGroup);
+        }
+        if (t.kind === 'group') {
+          const g = q.group(t.id);
+          if (!g || g.minionIds.length + k.count > RULES.maxGroup || !fits(q, g.pos, g.id)) return false;
+          return !k.onePerGroup || !q.minionsOf(t.id).some((m) => m.name === k.def.name);
+        }
+        return false;
+      },
+      onCast: (c, t) => {
+        for (let i = 0; i < k.count; i++) {
+          const nation = k.randomNation ? NATION_LIST[Math.floor(c.random() * NATION_LIST.length)] : k.def.nation;
+          const spec = creatureSpec(k.def, ctx.house, nation);
+          const id = t.kind === 'structure' ? c.createRecruit(t.id, spec) : t.kind === 'group' ? c.addMinion(t.id, spec) : null;
+          if (id === null) continue;
+          for (const h of k.withSpells) c.createSpell(h, { kind: 'minion', id });
+          c.heal(id, 999);
+        }
+      },
+    };
+  },
   validate: (_k, _m, ctx) => {
     if (!['structure', 'recruitGroup', 'group'].includes(ctx.target.type)) {
       throw new Error(`card "${ctx.cardId}": Create needs a structure or group target, not "${ctx.target.type}"`);
@@ -162,6 +225,8 @@ export interface HeroKeyword extends Keyword {
   kind: 'hero';
 }
 /** Marks a hero card: each Hero may be cast only once per game (enforced by the engine for spell type `hero`). */
+// RULING: two copies of the same Hero ordered in the same turn: the first one that resolves casts the hero and the
+// second squanders (the hero counts as cast from that moment).
 export const Hero = (): HeroKeyword => ({ kind: 'hero' });
 
 defineKeyword<HeroKeyword>({
@@ -202,12 +267,16 @@ defineKeyword<AmbushKeyword>({
       ? ['they', 'appear', 'their', 'disappear', 'all are killed']
       : ['it', 'appears', 'its', 'disappears', 'killed'];
     return {
-      layout: 'line', section: 'effect',
+      layout: 'line', section: 'creature',
       text: `Summon ${many ? `${k.count} ` : ''}${k.def.name} (${lineOf(k.def)}) off the board. Before combat ${they} ${appear} in ${k.terrain.join(' or ')} next to a non-friendly ${k.next === 'recruit' ? 'recruit group' : 'group'}${k.becomes ? `, and ${its} square becomes ${k.becomes}` : ''}. After all combat ${they} ${disappear}. Dispelled when ${killed}.`,
     };
   },
   compile: (k, ctx) => {
     if (ctx.target.type !== 'globe') throw new Error(`card "${ctx.cardId}": Ambush needs the globe as its target`);
+    // It may only appear where it can stand (and still stand once its square changes).
+    const walks = creatureSpec(k.def, ctx.house).base.walks;
+    const bad = [...k.terrain, ...(k.becomes ? [k.becomes] : [])].find((t) => terrainForbids(t, walks));
+    if (bad) throw new Error(`card "${ctx.cardId}": the Ambush creature cannot stand on ${bad}`);
     return {
       visible: false,
       onCast: (c) => {
