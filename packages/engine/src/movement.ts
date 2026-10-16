@@ -152,7 +152,10 @@ export function runMovement(e: Engine): void {
   const list: Group[] = [];
   for (const p of sequence(s)) {
     const mine = s.groupSeq[p].map((id) => s.groups[id]).filter((g): g is Group => !!g && g.pos !== null);
-    list.push(...mine.filter((g) => g.control === 'player'), ...mine.filter((g) => g.control === 'computer'));
+    const players = mine.filter((g) => g.control === 'player');
+    const issued = players.filter((g) => g.moveSeq !== null).sort((a, b) => a.moveSeq! - b.moveSeq!);
+    const rest = players.filter((g) => g.moveSeq === null);
+    list.push(...issued, ...rest, ...mine.filter((g) => g.control === 'computer'));
   }
   const tracks: Tracks = new Map();
   list.forEach((g, i) => tracks.set(g.id, { start: { ...g.pos! }, moved: false, bounced: false, seq: i, notified: false }));
@@ -171,6 +174,9 @@ export function runMovement(e: Engine): void {
     const cur = s.groups[g.id];
     if (cur) notify(e, cur, tracks.get(g.id)!);
   }
-  for (const g of Object.values(s.groups)) g.moveOrder = null;
+  for (const g of Object.values(s.groups)) {
+    g.moveOrder = null;
+    g.moveSeq = null;
+  }
   dispatch(e, 'movement:after');
 }

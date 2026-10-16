@@ -43,6 +43,19 @@ describe('movement', () => {
     }
   });
 
+  it('breaks a voting tie by the order movement was issued, not creation order', () => {
+    const e = blankEngine();
+    const a = put(e, 'red', { x: 4, y: 4 }, sw(5));
+    const b = put(e, 'red', { x: 6, y: 4 }, sw(5));
+    a.moveOrder = 'e';
+    b.moveOrder = 'w';
+    a.moveSeq = 1;
+    b.moveSeq = 0;
+    runMovement(e);
+    expect(b.pos).toEqual({ x: 5, y: 4 });
+    expect(a.pos).toEqual({ x: 4, y: 4 });
+  });
+
   it('joins friendly groups meeting in a square when they fit', () => {
     const e = blankEngine();
     const a = put(e, 'red', { x: 4, y: 4 }, sw(3));

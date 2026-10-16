@@ -77,6 +77,8 @@ export interface Group {
   control: 'player' | 'computer';
   botId: string | null;
   moveOrder: Dir | null;
+  /** Index of this group's order within the player's issued move orders; null when none (voting tiebreak and pass-I order). */
+  moveSeq: number | null;
 }
 
 export interface Structure {

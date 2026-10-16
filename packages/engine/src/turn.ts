@@ -134,12 +134,18 @@ export function resolveTurn(e: Engine): void {
   }
 
   // Movement orders are set before spells run so targeted spells can overwrite them immediately.
-  for (const g of Object.values(s.groups)) g.moveOrder = null;
+  for (const g of Object.values(s.groups)) {
+    g.moveOrder = null;
+    g.moveSeq = null;
+  }
   for (const side of SIDES) {
-    for (const mo of orders[side].move) {
+    orders[side].move.forEach((mo, i) => {
       const g = s.groups[mo.groupId];
-      if (g && g.pos && g.owner === side && g.control === 'player') g.moveOrder = mo.dir;
-    }
+      if (g && g.pos && g.owner === side && g.control === 'player') {
+        g.moveOrder = mo.dir;
+        g.moveSeq = i;
+      }
+    });
   }
 
   for (const side of order) for (const c of casts[side]) executeCast(e, side, c.cardId, c.target);

@@ -12,7 +12,7 @@ export function createGroup(
   e: Engine, owner: PlayerId, pos: Pos, kind: 'recruit' | 'monster', control: 'player' | 'computer', botId: string | null = null,
 ): Group {
   const s = e.state;
-  const g: Group = { id: s.nextId++, kind, owner, minionIds: [], pos: { ...pos }, control, botId, moveOrder: null };
+  const g: Group = { id: s.nextId++, kind, owner, minionIds: [], pos: { ...pos }, control, botId, moveOrder: null, moveSeq: null };
   s.groups[g.id] = g;
   s.groupSeq[owner].push(g.id);
   return g;
