@@ -94,12 +94,19 @@ describe('runCombats', () => {
   });
 
   it('fights each adjacent hostile pair once', () => {
-    const e = blankEngine();
+    let starts = 0;
+    const count = defineCard({
+      id: 'count', name: 'Count', house: 'war', cost: {}, type: 'alteration', target: 'globe',
+      on: { 'combat:start': () => { starts++; } },
+    });
+    const e = blankEngine([count]);
+    addSpellRecord(e.state, { cardId: 'count', owner: 'red', host: { kind: 'globe' }, visible: true, turnsLeft: null, tokens: {} });
     e.state.initiative = 'red';
     const mid = put(e, 'red', { x: 4, y: 4 }, ['archer', 'archer', 'archer', 'archer']);
     const left = put(e, 'blue', { x: 3, y: 4 }, ['archer']);
     const right = put(e, 'blue', { x: 5, y: 4 }, ['archer']);
     runCombats(e);
+    expect(starts).toBe(4); // two combats x two groups
     expect(e.state.groups[left.id]).toBeUndefined();
     expect(e.state.groups[right.id]).toBeUndefined();
     expect(e.state.groups[mid.id]).toBeDefined();
