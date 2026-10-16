@@ -6,7 +6,10 @@ import type { GameEvent } from './events';
 import { groupAt, hostile, minionsOf, structureAt } from './query';
 import { nextRandom } from './rng';
 import { computeStats, type Stats } from './stats';
-import type { ActiveSpell, GameState, Group, Minion, PlayerId, Pos, Ref, Structure, TerrainId } from './types';
+import { drawCards } from './deck';
+import { dispel } from './spells';
+import { summonGroup } from './units';
+import type { ActiveSpell, GameState, Group, Minion, PlayerId, Pos, Ref, Side, Structure, SummonDef, TerrainId } from './types';
 
 /** Read-only view handed to canCast / persistent / stats callbacks. */
 export interface QueryContext {
@@ -38,6 +41,11 @@ export interface EventContext extends QueryContext {
   heal(minionId: number, amount: number): void;
   /** Instant death ("dies" category). */
   kill(minionId: number): void;
+  /** Dispels the given active spell (default: this spell). */
+  dispel(spellId?: number): void;
+  /** Creates a group at a square; returns its id. Owner defaults to this spell's owner; the group's bot is this card's `bot`. */
+  summon(def: Omit<SummonDef, 'owner'> & { owner?: PlayerId }): number;
+  draw(side: Side, count: number): void;
 }
 
 export function makeQuery(e: Engine, caster: PlayerId): QueryContext {
@@ -79,5 +87,9 @@ export function makeCtx(e: Engine, spell: ActiveSpell, event?: GameEvent): Event
     kill: (id) => {
       killMinion(e, id, null, 'dies');
     },
+    dispel: (id) => dispel(e, id ?? spell.id),
+    summon: (def) =>
+      summonGroup(e, { ...def, owner: def.owner ?? spell.owner, botId: def.botId ?? spell.cardId }).id,
+    draw: (side, count) => drawCards(e, side, count),
   };
 }
