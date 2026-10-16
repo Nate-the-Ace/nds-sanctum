@@ -22,6 +22,8 @@ export interface CardDef {
   exclusive?: boolean;
   /** Individual spells normally cannot target enemy minions concealed in forest. */
   ignoresConcealment?: boolean;
+  /** Engine-cast helper spell: created by other cards through `ctx.createSpell`, never played from a deck. */
+  helper?: boolean;
   /** Conjuration lifetime. Counts the casting turn: `{ turns: 1 }` expires at the end of the turn it is cast. */
   duration?: { turns: number };
   /** Casting-time requirement. Checked while ordering and again just before execution. */

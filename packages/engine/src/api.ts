@@ -29,6 +29,7 @@ export function validateDeck(deck: DeckConfig, cards: CardIndex, limits: { minDe
   const counts: Record<string, number> = {};
   for (const id of deck.cards) {
     if (!cards[id]) return `unknown card "${id}"`;
+    if (cards[id].helper) return `"${id}" is a helper spell, not a playable card`;
     counts[id] = (counts[id] ?? 0) + 1;
     if (counts[id] > RULES.maxCopies) return `more than ${RULES.maxCopies} copies of "${id}"`;
   }

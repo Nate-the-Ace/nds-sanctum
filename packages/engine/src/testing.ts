@@ -16,3 +16,4 @@ export { dispatch } from './events';
 export { addSpellRecord } from './spellstore';
 export { takeDamage, applyDamage } from './damage';
 export { killMinion } from './death';
+export { expireSpells, dispel } from './spells';

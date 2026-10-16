@@ -7,7 +7,8 @@ import { groupAt, hostile, minionsOf, structureAt } from './query';
 import { nextRandom } from './rng';
 import { computeStats, type Stats } from './stats';
 import { drawCards } from './deck';
-import { dispel, recheckSquare } from './spells';
+import { addSpellRecord } from './spellstore';
+import { dispel, recheck, recheckSquare } from './spells';
 import { checkFatal } from './terrainfx';
 import { summonGroup } from './units';
 import type { ActiveSpell, GameState, Group, Minion, PlayerId, Pos, Ref, Side, Structure, SummonDef, TerrainId } from './types';
@@ -47,6 +48,11 @@ export interface EventContext extends QueryContext {
   /** Creates a group at a square; returns its id. Owner defaults to this spell's owner; the group's bot is this card's `bot`. */
   summon(def: Omit<SummonDef, 'owner'> & { owner?: PlayerId }): number;
   draw(side: Side, count: number): void;
+  /**
+   * Cast an engine-owned helper spell onto a host, ignoring targeting rules and exclusivity. Owner defaults to this
+   * spell's owner; `turns` overrides the helper card's duration. Returns the new spell's id.
+   */
+  createSpell(cardId: string, host: Ref, opts?: { owner?: PlayerId; turns?: number | null }): number;
   /** Changes a square's terrain. Structures and Sanctum squares are immune. Fatal terrain applies at once. */
   setTerrain(pos: Pos, terrain: TerrainId): void;
 }
@@ -94,6 +100,16 @@ export function makeCtx(e: Engine, spell: ActiveSpell, event?: GameEvent): Event
     summon: (def) =>
       summonGroup(e, { ...def, owner: def.owner ?? spell.owner, botId: def.botId ?? spell.cardId }).id,
     draw: (side, count) => drawCards(e, side, count),
+    createSpell: (cardId, host, opts) => {
+      const card = e.cards[cardId];
+      if (!card) throw new Error(`createSpell: unknown card "${cardId}"`);
+      const made = addSpellRecord(e.state, {
+        cardId, owner: opts?.owner ?? spell.owner, host, visible: card.visible !== false,
+        turnsLeft: opts?.turns !== undefined ? opts.turns : (card.duration?.turns ?? null), tokens: {},
+      });
+      recheck(e, host);
+      return made.id;
+    },
     setTerrain: (pos, terrain) => {
       const s = e.state;
       if (!s.cells.includes(key(pos)) || isSanctumArea(pos) || structureAt(s, pos)) return;
