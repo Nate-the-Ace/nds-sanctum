@@ -40,7 +40,8 @@ export function faceOf(id: string): Face | undefined {
 export function helperSummary(id: string): string {
   const spec = specOf(id);
   if (!spec) return id;
-  const body = renderSpec(spec).lines.slice(1).map((l) => l.replace(/\.$/, '')).join('; ');
+  // An inner " (...)" aside becomes ", ..." so a summary never nests parentheses.
+  const body = renderSpec(spec).lines.slice(1).map((l) => l.replace(/\.$/, '').replace(/ \(([^()]*)\)/g, ', $1')).join('; ');
   return body ? `${spec.name} (${body})` : spec.name;
 }
 

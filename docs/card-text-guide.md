@@ -59,12 +59,14 @@ The original rules define these phrases as game events; the engine uses the same
 | `At start of each combat round` (3) | `round:start` | per group, `data.round`; `ctx.endCombat()` withdraws |
 | `At end of combat` / `After combat` | `combat:end` / `combat:after` | per surviving group |
 | `After all combat` (4) | `turn:afterCombat` | untargeted |
+| `+N H against <House> minions` | `attacker:strikes` | on the attacker, before damage; `data.victimId`, `data.kind`, `data.round`, editable `data.damage` |
 | `When X hits` / `damages` / `kills` | `attacker:hits` / `attacker:damages` / `attacker:kills` | on the attacker |
 | `When X is hit` / `before / after checking armor` | `attack:hit` / `attack:beforeArmor` / `armor:after` | on the victim; `data.damage` is editable |
 | `When X dies` / `is killed` / `is dying` | `minion:dies` / `minion:killed` / `minion:dying` | `ctx.cancel()` on dying revives |
 | `When group enters square` | `group:enter` (also `:exit`, `:move`) | spell hosted on the square |
 | `Every recruit created in town ...` | `minion:created` | spell hosted on the structure |
 | `Caster gets +1 Clarity each turn` | `mana:generate` | after mana pools reset; `ctx.addMana` |
+| `... has Initiative` | `initiative:decide` | untargeted, after the normal initiative rule; `ctx.setInitiative` |
 
 Events bubble minion -> group -> square -> structure -> globe, so a spell hosted on any of those sees events about
 things inside it.
@@ -95,13 +97,35 @@ Rule of thumb: if a sentence is "X gets +N <stat>" and nothing else, the card is
 | `Dispelled after next combat` (3) | `on: { 'combat:after': (c, ev) => c.dispel() }` for the host group |
 | `Dispelled when killed` | handler on `minion:dies` calling `c.dispel()` |
 | `Only one on a group` | default exclusivity |
-| `Each Hero may be cast only once per game` (3) | `type: 'hero'` (plan 2c adds the once-per-game rule) |
+| `Each Hero may be cast only once per game` (3) | `type: 'hero'` and the `Hero` keyword (engine once-per-game rule) |
 | `Recursive (Starts with 1 token ...)` | tokens and hand copies (backlog E10) |
 
 ## 7. Creature keywords
 
-`Territorial` (3), `Nomadic` (4), `Immobile` (2): movement behaviour; `Flight`, `Firewalk` (terrain walks); `Neutral`
-(owned by the neutral player); `Two attacks`. Handled in plan 2c.
+Creature cards are keyword declarations like every other card (`packages/cards/src/lang/keywords/creature.ts`,
+`behavior.ts`, `versus.ts`).
+
+- **Summoning.** `Monster(def)` summons a computer-controlled monster group on the target square (`neutral` for the
+  neutral player); `Create(def, {count, with, randomNation})` adds recruits to a structure or group; `Ambush(def,
+  {terrain, becomes, count})` is a combat-hopper: the group starts off the board (`pos === null`), appears before combat
+  next to a non-friendly group and hides after all combat, driven by a globe-hosted controller spell holding the group id
+  in a token. Off-board groups receive no events ("time stops off the board").
+- **A summoned minion carries a non-visible spell of its own card.** `Monster`, `Create` and `Ambush` cast it with
+  `ctx.createSpell`, which is how a `summoning` or `hero` card's `on`/`stats` hooks run. Such cards declare
+  `host: 'minion'` so keyword validation knows where the spell sits.
+- **Nations and houses on minions.** Every minion records its `nation` (12 nations, `packages/engine/src/nations.ts`:
+  9 HP, round-2 hand bonus, round-1 missile bonus, Mountainwalk or Waterwalk) and the `house` it serves (a recruit's
+  nation's house, a monster's summoning card's house). Game-made recruits take their owner's house nation; test recruits
+  from `recruitSpec(cls)` stay nationless.
+- **Stat lines are final stats.** A printed `H:5 A:1 HP:7 L:2` already includes the card's own bonuses: the creature
+  definition holds the base and a helper spell (`with: [...]`) holds the bonus.
+- **Behaviour.** `Territorial` (hunts within 2 squares of its home, never leaves its 3x3 territory), `Nomadic` (hunts the
+  nearest hostile recruit group anywhere, wanders otherwise), `Immobile`. Each sets the card's `bot`; monsters keep a
+  `home` square (`ctx.setHome`).
+- **Combat words.** `Against` (bonus damage by victim house, on `attacker:strikes`), `Immune` (no individual spells of
+  the named houses), `Taunt` (choosing attackers must pick this minion), `Aura` (the engine's `groupAura` flag: stats
+  for the host minion's whole group).
+- **Heroes.** `Hero` marks a `type: 'hero'` card; heroes are level 2 recruits and each may be cast once per game.
 
 ## 8. Effect sentences -> `ctx` actions
 
@@ -113,11 +137,15 @@ Rule of thumb: if a sentence is "X gets +N <stat>" and nothing else, the card is
 | `Square becomes lava/plains/...` | `ctx.setTerrain(pos, terrain)` |
 | `gets <Named Effect> (...)` e.g. Faerie Blessing | `ctx.createSpell('helper-card', host)` |
 | `Dispels all spells ...` | `ctx.dispel(id)` over `c.state.spells` |
-| `Creates a ...` | `ctx.summon`, `ctx.createRecruit`, `ctx.addMinion` (plan 2c) |
+| `Creates a ...` | `ctx.summon` (new group), `ctx.createRecruit(structure, spec)`, `ctx.addMinion(group, spec)` |
+| `Creates N novices` | `ctx.addNovices(structure, n, nation?)` |
+| `changes sides` | `ctx.changeSides(group)` |
+| `disappears` / `appears` (off-board groups) | `ctx.hide(group)` / `ctx.appear(group, pos)` |
+| monster's home square | `ctx.setHome(group, pos)` |
 | `moves twice`, `movement orders are cancelled` | `ctx.setMovesTwice`, `ctx.setMoveOrder` |
 | `withdraws`, `No group enters combat` | `ctx.endCombat()`, `ctx.cancel()` on `combat:before` |
 | `Neither player may cast ...`, `cannot be targeted` | `blocksCast` on the card |
-| `Initiative` | `ctx.setInitiative` (plan 2c) |
+| `Initiative` | `ctx.setInitiative(side)` on `initiative:decide` |
 | `Caster gets +N <mana>` | `ctx.addMana` on `mana:generate` |
 
 ## 9. Adding a card (checklist)

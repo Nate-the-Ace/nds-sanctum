@@ -28,7 +28,7 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Globe.",
     "Stackable.",
     "+4 H against Death minions.",
-    "Summon 2 Arboriads (H:3 A:1 HP:7 L:1) off the board. Before combat it appears in forest next to a non-friendly recruit group. After all combat it disappears. Dispelled when killed.",
+    "Summon 2 Arboriads (H:3 A:1 HP:7 L:1) off the board. Before combat they appear in forest next to a non-friendly recruit group. After all combat they disappear. Dispelled when all are killed.",
   ],
   "armistice": [
     "Globe.",
@@ -383,7 +383,7 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "vlad-hrothgar": [
     "Friendly town or colony.",
     "Hero.",
-    "Create Vlad Hrothgar (H:2 A:1 HP:7 L:2) with Veteran (+1 H, +1 A, +4 HP (heals 4)).",
+    "Create Vlad Hrothgar (H:2 A:1 HP:7 L:2) with Veteran (+1 H, +1 A, +4 HP, heals 4).",
     "Create Oro (H:2 A:1 HP:9 L:2) with Rite of Growth (+1 H, +4 HP).",
   ],
   "volcano": [

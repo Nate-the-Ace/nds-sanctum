@@ -4,10 +4,10 @@ Implemented: 78 (39 War, 39 Life). Source data: `packages/cards/data/cards.json`
 implementing it unlocks the listed cards. `packages/cards/test/backlog.test.ts` keeps this list equal to `pendingCards`.
 Card lines must stay in the form `- Name (War|Life)`.
 
-## E1. Monsters, heroes, nations and minion creation (1)
-Needs: summon with stat lines (`H:4 A:1 HP:16 L:2`), monster behaviours (Territorial, Nomadic, Immobile, Flight, Neutral,
-off-board appearance), nations as a minion property, `ctx.addMinion(group, spec)`, novice creation in a town, a
-once-per-game rule for heroes. This is the next plan (2c).
+## E1. Hunted-group monsters (1)
+Needs: summoning in a random square, a recruit group that leaves player control and hunts a monster until it leaves
+play, "cannot join groups / create recruits / enter structures" restrictions, and a start-of-combat "dies unless free"
+check. (The other 18 creature cards shipped in plan 2c.)
 - Questing Beast (Life)
 
 ## E6. Spells that remove a group for a while (1)

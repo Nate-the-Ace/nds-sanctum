@@ -122,8 +122,12 @@ The vocabulary above is implemented in `packages/cards/src/lang`. Constructors b
 - **Restrictions:** `Forbid`, `Shroud`, `Warded`, `Concealment`.
 - **Special:** `Ramp` (the `Rage` ability word), `Script` (escape hatch with hand-written text).
 
-Not built yet: `Unique`, `Ambush` and `Flurry N` from section 3. No War or Life card needs them; plan 2c (monsters and
-heroes) adds them.
+- **Creatures** (plan 2c): `Monster`, `Create`, `Hero`, `Ambush` (the words from section 3); behaviours `Territorial`,
+  `Nomadic`, `Immobile`; combat `Against` ("+N H against <House> minions"), `Immune`, `Taunt`, `Aura` (printed "Group
+  aura"); effect `Novices`; trigger `When.moves`; target `.in(terrain)`.
+
+`Flurry N` was never needed: a stat line's `(xN)` (`H:2(x2)`) sets the attack count. `Unique` became `Hero` plus the
+engine's once-per-game rule (`PlayerState.heroesCast`; a hero card already cast squanders).
 
 The printed text of every card comes from `cardFace(id)` and the reminder text from `keywordGlossary()`, both exported
 from `@sanctum/cards`; `packages/cards/test/faces.test.ts` pins every face.

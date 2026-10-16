@@ -196,10 +196,16 @@ export const Ambush = (
 defineKeyword<AmbushKeyword>({
   kind: 'ambush', term: 'Ambush', tier: 'house',
   gloss: 'A combat-hopper: it waits off the board, appears before combat in an eligible square next to a non-friendly group, and disappears again after all combat. It is dispelled when killed.',
-  print: (k) => ({
-    layout: 'line', section: 'effect',
-    text: `Summon ${k.count > 1 ? `${k.count} ` : ''}${k.def.name} (${lineOf(k.def)}) off the board. Before combat it appears in ${k.terrain.join(' or ')} next to a non-friendly ${k.next === 'recruit' ? 'recruit group' : 'group'}${k.becomes ? `, and its square becomes ${k.becomes}` : ''}. After all combat it disappears. Dispelled when killed.`,
-  }),
+  print: (k) => {
+    const many = k.count > 1;
+    const [they, appear, its, disappear, killed] = many
+      ? ['they', 'appear', 'their', 'disappear', 'all are killed']
+      : ['it', 'appears', 'its', 'disappears', 'killed'];
+    return {
+      layout: 'line', section: 'effect',
+      text: `Summon ${many ? `${k.count} ` : ''}${k.def.name} (${lineOf(k.def)}) off the board. Before combat ${they} ${appear} in ${k.terrain.join(' or ')} next to a non-friendly ${k.next === 'recruit' ? 'recruit group' : 'group'}${k.becomes ? `, and ${its} square becomes ${k.becomes}` : ''}. After all combat ${they} ${disappear}. Dispelled when ${killed}.`,
+    };
+  },
   compile: (k, ctx) => {
     if (ctx.target.type !== 'globe') throw new Error(`card "${ctx.cardId}": Ambush needs the globe as its target`);
     return {
