@@ -175,6 +175,7 @@ export function OrdersScreen({ session, side, onLock }: OrdersScreenProps) {
     <div class={`orders side-${side}`}>
       <header class="topbar">
         <h2>{cap(side)}'s orders · Turn {state.turn}</h2>
+        {session.mode === 'vsNpc' ? <span class="muted">You are Blue · vs computer (Red)</span> : null}
         <span class="muted">{initiative}</span>
         <span class="pool" aria-label="Mana pool after your orders"><span class="muted" title="Unspent mana is lost at the end of the turn">Mana this turn</span> <ManaChips cost={preview.pool} empty="no mana" /></span>
         <button type="button" class="primary" onClick={lock} disabled={preview.over}>Lock orders</button>

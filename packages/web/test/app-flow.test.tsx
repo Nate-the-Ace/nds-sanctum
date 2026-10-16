@@ -9,6 +9,7 @@ describe('app flow', () => {
 
   it('plays three empty turns through the hand-offs', () => {
     render(<App />);
+    fireEvent.change(screen.getByLabelText(/Mode/), { target: { value: 'hotseat' } });
     click(/Start game/);
     for (let turn = 1; turn <= 3; turn++) {
       expect(screen.getByText(/Pass the device to Red/)).toBeTruthy();

@@ -1,7 +1,8 @@
 # @sanctum/web
 
-A private, same-screen (hotseat) client for the Sanctum remake: two players share one device, take turns
-writing hidden orders, and read a turn report after each resolution. It also has a card browser that renders
+A private client for the Sanctum remake. By default one person plays Blue against a basic computer-controlled Red
+(for solo testing); the hotseat mode lets two players share one device, take turns writing hidden orders, and read a
+turn report after each resolution. It also has a card browser that renders
 every card from its keyword text.
 
 ## Run it
@@ -32,14 +33,25 @@ npm test                        # every package's tests (engine, cards, scrape, 
 The game autosaves to this browser at the hand-off to Red and on the report screen (never while one player's
 orders are locked and waiting), and Setup offers **Resume game** after a refresh.
 
+## Playing against the computer
+
+Setup's **Mode** is *Play Blue vs computer* by default. There are no hand-off screens: at the start of each turn the
+computer's Red orders are written by `src/model/npc.ts` and locked through the same engine checks, and you go straight
+to Blue's orders. The turn report shows everything Red did (training, spells, moves, captures); Red picks the mana
+for its own captures. The NPC is deliberately simple and deterministic (seeded from the game seed and turn): it trains
+every novice (one primary-mana novice at the Sanctum in turns 1-4, otherwise swordsmen and archers in turn), walks
+each group one step toward the nearest town it does not own (else the enemy Sanctum), keeps a small group home on its
+Sanctum, casts up to two affordable cards (helpful types on its own things, others on the enemy's) and never discards.
+The autosave keeps the mode and saves at the start of Blue's orders and on the report.
+
 ## Where the logic lives
 
 The UI reads `GameState` and submits `Orders`. Rules live in `packages/engine` (including the read-only helpers
 `viewStats`, `legalTargets` and `checkOrders` the UI uses for highlights and messages); cards live in
 `packages/cards`. In this package:
 
-- `src/model/` is DOM-free and tested headless: `session.ts` (the hotseat flow: screens, locking, report, mana
-  choice), `drafts.ts` (order-draft helpers and the mana preview), `report.ts` (the turn report, from the engine
+- `src/model/` is DOM-free and tested headless: `session.ts` (the game flow in both modes: screens, locking,
+  report, mana choice), `npc.ts` (the computer player's orders and mana choice), `drafts.ts` (order-draft helpers and the mana preview), `report.ts` (the turn report, from the engine
   log plus a diff of the states before and after), `geometry.ts` (the diamond board projection).
 - `src/ui/` holds the Preact components (board, sidebar, hand tray, orders screen, hand-off/report/mana/end screens,
   card browser). No rule is decided here.

@@ -20,7 +20,7 @@ export function App() {
   const play = () => {
     if (!session) {
       const saved = loadSession();
-      return <Setup onStart={(seed, houses) => setSession(newSession(seed, houses))} onResume={saved ? () => setSession(saved) : undefined} />;
+      return <Setup onStart={(seed, houses, mode) => setSession(newSession(seed, houses, undefined, mode))} onResume={saved ? () => setSession(saved) : undefined} />;
     }
     const sc = session.screen;
     switch (sc.kind) {

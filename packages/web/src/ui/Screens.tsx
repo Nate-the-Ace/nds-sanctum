@@ -1,28 +1,35 @@
 import { useState } from 'preact/hooks';
 import { houseMana, type HouseId, type Mana, type Side } from '@sanctum/engine';
 import type { Report } from '../model/report';
-import type { Session } from '../model/session';
+import type { Mode, Session } from '../model/session';
 import { Board } from './Board';
 import { cap, manaLabel } from './format';
 
 const HOUSES: Array<'war' | 'life'> = ['war', 'life'];
 const MANA: Mana[] = ['clarity', 'mystery', 'order', 'strife', 'will', 'world'];
 
-export function Setup({ onStart, onResume }: { onStart: (seed: number, houses: Record<Side, HouseId>) => void; onResume?: () => void }) {
+export function Setup({ onStart, onResume }: { onStart: (seed: number, houses: Record<Side, HouseId>, mode: Mode) => void; onResume?: () => void }) {
+  const [mode, setMode] = useState<Mode>('vsNpc');
   const [red, setRed] = useState<'war' | 'life'>('war');
   const [blue, setBlue] = useState<'war' | 'life'>('life');
   const [seed, setSeed] = useState(() => Math.floor(Math.random() * 1_000_000));
   return (
     <main class="shell setup">
       <h1>Sanctum</h1>
-      <p class="muted">Two players, one screen. Pick a house for each side.</p>
+      <p class="muted">{mode === 'vsNpc' ? 'You play Blue; the computer plays Red.' : 'Two players, one screen.'} Pick a house for each side.</p>
       <div class="setup-grid">
-        <label>Red house
+        <label>Mode
+          <select value={mode} onChange={(e) => setMode((e.target as HTMLSelectElement).value as Mode)}>
+            <option value="vsNpc">Play Blue vs computer</option>
+            <option value="hotseat">Two players, hotseat</option>
+          </select>
+        </label>
+        <label>{mode === 'vsNpc' ? 'Red house (computer)' : 'Red house'}
           <select value={red} onChange={(e) => setRed((e.target as HTMLSelectElement).value as 'war' | 'life')}>
             {HOUSES.map((h) => <option key={h} value={h}>{cap(h)}</option>)}
           </select>
         </label>
-        <label>Blue house
+        <label>{mode === 'vsNpc' ? 'Blue house (you)' : 'Blue house'}
           <select value={blue} onChange={(e) => setBlue((e.target as HTMLSelectElement).value as 'war' | 'life')}>
             {HOUSES.map((h) => <option key={h} value={h}>{cap(h)}</option>)}
           </select>
@@ -32,7 +39,7 @@ export function Setup({ onStart, onResume }: { onStart: (seed: number, houses: R
         </label>
       </div>
       <div class="btnrow">
-        <button type="button" class="primary" onClick={() => onStart(seed, { red, blue })}>Start game</button>
+        <button type="button" class="primary" onClick={() => onStart(seed, { red, blue }, mode)}>Start game</button>
         {onResume ? <button type="button" onClick={onResume}>Resume game</button> : null}
       </div>
     </main>

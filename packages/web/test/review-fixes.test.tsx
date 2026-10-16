@@ -21,6 +21,7 @@ describe('review fixes: app', () => {
 
   it('keeps a draft when switching to the Cards tab and back', () => {
     render(<App />);
+    fireEvent.change(screen.getByLabelText(/Mode/), { target: { value: 'hotseat' } });
     click(/Start game/);
     click(/I'm ready/);
     const discard = screen.getAllByRole('button', { name: /^Discard / })[0];
@@ -35,6 +36,7 @@ describe('review fixes: app', () => {
 
   it('offers to resume a game saved at the last safe point', () => {
     render(<App />);
+    fireEvent.change(screen.getByLabelText(/Mode/), { target: { value: 'hotseat' } });
     click(/Start game/);
     expect(screen.getByText(/Pass the device to Red/)).toBeTruthy();
     cleanup();
@@ -45,6 +47,7 @@ describe('review fixes: app', () => {
 
   it('does not save between red locking and blue locking', () => {
     render(<App />);
+    fireEvent.change(screen.getByLabelText(/Mode/), { target: { value: 'hotseat' } });
     click(/Start game/);
     const saved = localStorage.getItem('sanctum.save');
     click(/I'm ready/);
