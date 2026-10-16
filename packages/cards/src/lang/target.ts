@@ -25,6 +25,11 @@ export class TargetBuilder {
     if (this.spec.type !== 'square') throw new Error(`Target: .on(terrain) needs a square target, not "${this.spec.type}"`);
     return new TargetBuilder({ ...this.spec, terrain });
   }
+  /** Group or single-minion targets: the target must stand on one of these terrains. */
+  in(...terrain: TerrainId[]): TargetBuilder {
+    if (['square', 'globe', 'structure'].includes(this.spec.type)) throw new Error(`Target: .in(terrain) needs a group or minion target, not "${this.spec.type}"`);
+    return new TargetBuilder({ ...this.spec, in: terrain });
+  }
 }
 
 export const Target = {
@@ -66,6 +71,12 @@ export function targetFragment(t: TargetSpec): Fragment {
   if (t.terrain) {
     checks.push((q, r) => r.kind === 'square' && t.terrain!.includes(q.terrainAt(r.pos) as TerrainId));
   }
+  if (t.in) {
+    checks.push((q, r) => {
+      const g = r.kind === 'group' ? q.group(r.id) : r.kind === 'minion' ? q.group(q.minion(r.id)?.groupId ?? -1) : undefined;
+      return !!g?.pos && t.in!.includes(q.terrainAt(g.pos) as TerrainId);
+    });
+  }
   return checks.length ? { canCast: (q, r) => checks.every((f) => f(q, r)) } : {};
 }
 
@@ -87,6 +98,7 @@ export function printTarget(t: TargetSpec): string {
     default: noun = t.terrain ? `${cap(t.terrain.join(' or '))} square` : 'Square';
   }
   if (t.cls && GROUP_TYPES.includes(t.type)) noun += ` with ${t.cls === 'swordsman' ? 'swordsmen' : 'archers'}`;
+  if (t.in) noun += ` in ${t.in.join(' or ')}`;
   if (t.alone) noun += ' alone in its group';
   const prefix = t.friendly ? 'Friendly ' : t.nonFriendly ? 'Non-friendly ' : '';
   return `${prefix ? prefix + lowerFirst(noun) : noun}.`;

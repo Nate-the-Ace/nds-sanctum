@@ -3,6 +3,8 @@ import type { CardDef, HouseId, ManaPool, SpellType, TargetType, TerrainId } fro
 /** What a keyword contributes to a card: any `CardDef` hook except the identity fields. */
 export type Fragment = Partial<Omit<CardDef, 'id' | 'name' | 'house' | 'cost' | 'type' | 'target' | 'text'>>;
 
+export type HostKind = 'group' | 'minion' | 'globe';
+
 /** Keywords are plain data: `{ kind: 'grant', ... }`. Constructors in `keywords/*` build them. */
 export interface Keyword {
   readonly kind: string;
@@ -28,6 +30,8 @@ export interface TargetSpec {
   alone?: boolean;
   /** Square terrain required (square targets). */
   terrain?: TerrainId[];
+  /** Group or single-minion targets: the target's square must have one of these terrains. */
+  in?: TerrainId[];
 }
 
 export interface CompileCtx {
@@ -36,6 +40,9 @@ export interface CompileCtx {
   cardId: string;
   /** This keyword's position in the card's keyword list; prefix spell token names with it to avoid collisions. */
   index: number;
+  house: HouseId;
+  /** Where the spell sits when it differs from the target: summoned creatures carry it on their minions. */
+  host?: HostKind;
 }
 
 export interface KeywordDef<K extends Keyword = Keyword> {
@@ -62,5 +69,6 @@ export interface CardSpec {
   type: SpellType;
   helper?: boolean;
   target: TargetSpec;
+  host?: HostKind;
   keywords: Keyword[];
 }

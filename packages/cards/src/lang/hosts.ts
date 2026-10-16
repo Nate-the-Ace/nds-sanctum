@@ -1,8 +1,8 @@
 import type { TargetType } from '@sanctum/engine';
 import { GROUP_TARGETS, INDIVIDUAL_TARGETS } from '../helpers';
-import type { CompileCtx } from './types';
+import type { CompileCtx, HostKind } from './types';
 
-export type HostKind = 'group' | 'minion' | 'globe';
+export type { HostKind };
 
 const ACCEPTS: Record<HostKind, (t: TargetType) => boolean> = {
   group: (t) => GROUP_TARGETS.includes(t),
@@ -18,7 +18,6 @@ const NOUN: Record<HostKind, string> = {
 
 /** Throws a clear compile-time error when a keyword's spell host cannot be what it expects. */
 export function requireHost(ctx: CompileCtx, host: HostKind, what: string): void {
-  if (!ACCEPTS[host](ctx.target.type)) {
-    throw new Error(`card "${ctx.cardId}": ${what} needs ${NOUN[host]}, not "${ctx.target.type}"`);
-  }
+  const ok = ctx.host ? ctx.host === host : ACCEPTS[host](ctx.target.type);
+  if (!ok) throw new Error(`card "${ctx.cardId}": ${what} needs ${NOUN[host]}, not "${ctx.host ?? ctx.target.type}"`);
 }

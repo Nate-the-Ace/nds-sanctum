@@ -3,7 +3,7 @@ import { keywordDef } from './registry';
 import { mergeFragments } from './merge';
 import { renderSpec } from './render';
 import { TargetBuilder, targetFragment, toTargetSpec } from './target';
-import type { CardSpec, CompileCtx, Fragment, Keyword, TargetSpec } from './types';
+import type { CardSpec, CompileCtx, Fragment, HostKind, Keyword, TargetSpec } from './types';
 
 export interface CardInput {
   id: string;
@@ -13,6 +13,8 @@ export interface CardInput {
   type: SpellType;
   helper?: boolean;
   target: TargetSpec | TargetBuilder;
+  /** Where the spell sits when it differs from the target ('minion' for summoned creatures). */
+  host?: HostKind;
   keywords: Keyword[];
 }
 
@@ -29,9 +31,11 @@ export function card(input: CardInput): CardDef {
   if (specs.has(input.id)) throw new Error(`duplicate card id "${input.id}"`);
   const spec: CardSpec = {
     id: input.id, name: input.name, house: input.house, cost: input.cost, type: input.type,
-    helper: input.helper, target: toTargetSpec(input.target), keywords: input.keywords,
+    helper: input.helper, target: toTargetSpec(input.target), host: input.host, keywords: input.keywords,
   };
-  const ctxOf = (index: number): CompileCtx => ({ target: spec.target, type: spec.type, cardId: spec.id, index });
+  const ctxOf = (index: number): CompileCtx => ({
+    target: spec.target, type: spec.type, cardId: spec.id, index, house: spec.house, host: spec.host,
+  });
   const frags: Fragment[] = [targetFragment(spec.target)];
   spec.keywords.forEach((k, i) => frags.push(keywordDef(k.kind).compile(k, ctxOf(i))));
   const merged = mergeFragments(frags);

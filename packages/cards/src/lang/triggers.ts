@@ -12,7 +12,8 @@ export type Trigger =
   | { when: 'enter'; group?: 'recruit' }
   | { when: 'created' }
   | { when: 'onHit' }
-  | { when: 'onDamage'; victim?: 'monster' };
+  | { when: 'onDamage'; victim?: 'monster' }
+  | { when: 'moves' };
 
 export const When = {
   startOfTurn: { when: 'startOfTurn' } as Trigger,
@@ -25,6 +26,7 @@ export const When = {
   created: { when: 'created' } as Trigger,
   onHit: { when: 'onHit' } as Trigger,
   onDamage: (victim?: 'monster'): Trigger => ({ when: 'onDamage', victim }),
+  moves: { when: 'moves' } as Trigger,
 };
 
 export function triggerEvent(t: Trigger): EventType {
@@ -39,6 +41,7 @@ export function triggerEvent(t: Trigger): EventType {
     case 'created': return 'minion:created';
     case 'onHit': return 'attacker:hits';
     case 'onDamage': return 'attacker:damages';
+    case 'moves': return 'group:move';
   }
 }
 
@@ -54,6 +57,7 @@ export function triggerLabel(t: Trigger): string {
     case 'created': return 'Recruit created';
     case 'onHit': return 'On hit';
     case 'onDamage': return `On damage${t.victim ? ' (monster)' : ''}`;
+    case 'moves': return 'After it moves';
   }
 }
 
@@ -74,6 +78,7 @@ export function triggerApplies(c: EventContext, ev: GameEvent, t: Trigger): bool
     }
     case 'onHit': return isHostMinion(c, ev);
     case 'onDamage': return isHostMinion(c, ev) && (!t.victim || c.minion(ev.data.victimId)?.kind === 'monster');
+    case 'moves': return groupMatches(c, ev);
     case 'startOfTurn':
     case 'afterAllCombat':
     case 'beforeMovement':

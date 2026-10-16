@@ -33,7 +33,7 @@ const ORDER = ['hand', 'missile', 'armor', 'level', 'maxHp', 'attacks'] as const
 const LABEL = { hand: 'H', missile: 'M', armor: 'A', level: 'L', maxHp: 'HP', attacks: 'Attack' } as const;
 const SUBJECT: Record<GrantTo, string> = { all: '', swordsmen: 'Swordsmen ', archers: 'Archers ', enemies: 'Enemy recruits ' };
 
-function appliesTo(to: GrantTo, m: Minion, spell: ActiveSpell): boolean {
+export function appliesTo(to: GrantTo, m: Minion, spell: ActiveSpell): boolean {
   switch (to) {
     case 'swordsmen': return m.cls === 'swordsman';
     case 'archers': return m.cls === 'archer';
@@ -42,7 +42,7 @@ function appliesTo(to: GrantTo, m: Minion, spell: ActiveSpell): boolean {
   }
 }
 
-function toDelta(s: GrantStats, m: Minion): StatDelta {
+export function toDelta(s: GrantStats, m: Minion): StatDelta {
   const d: StatDelta = {};
   if (s.hand !== undefined) d.hand = s.hand;
   if (s.missile !== undefined) d.missile = s.missile;

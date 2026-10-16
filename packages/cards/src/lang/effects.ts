@@ -1,13 +1,13 @@
-import type { EventContext, GameEvent, Mana as ManaType, Ref, TerrainId } from '@sanctum/engine';
+import type { EventContext, GameEvent, Mana as ManaType, Nation, Ref, TerrainId } from '@sanctum/engine';
 import { ADJACENT, contiguous } from '../helpers';
 import { helperSummary } from './render';
-import { resolveScope, scopeObject, scopeSubject, type Scope } from './scopes';
+import { hostGroupId, resolveScope, scopeObject, scopeSubject, type Scope } from './scopes';
 
 export type Effect =
   | { kind: 'heal'; amount: number | 'full'; scope: Scope }
   | { kind: 'damage'; amount: number; scope: Scope }
   | { kind: 'kill'; scope: Scope }
-  | { kind: 'terraform'; terrain: TerrainId; area: 'target' | 'adjacent' | 'contiguous'; from?: TerrainId }
+  | { kind: 'terraform'; terrain: TerrainId; area: TerraformArea; from?: TerrainId }
   | { kind: 'expend' }
   | { kind: 'dispelAll' }
   | { kind: 'mana'; mana: ManaType; amount: number; to: 'caster' | 'structureOwner' }
@@ -16,12 +16,16 @@ export type Effect =
   | { kind: 'withdraw' }
   | { kind: 'moveTwice' }
   | { kind: 'randomMove' }
-  | { kind: 'cancelMoves' };
+  | { kind: 'cancelMoves' }
+  | { kind: 'novices'; count: number; nation?: Nation };
+
+/** target: the target square; adjacent: around the target structure; contiguous: same-terrain area; aroundGroup: around the host's group. */
+export type TerraformArea = 'target' | 'adjacent' | 'contiguous' | 'aroundGroup';
 
 export const Heal = (amount: number | 'full', scope: Scope = 'host'): Effect => ({ kind: 'heal', amount, scope });
 export const Damage = (amount: number, scope: Scope = 'host'): Effect => ({ kind: 'damage', amount, scope });
 export const Kill = (scope: Scope = 'host'): Effect => ({ kind: 'kill', scope });
-export const Terraform = (terrain: TerrainId, area: 'target' | 'adjacent' | 'contiguous' = 'target', from?: TerrainId): Effect => ({ kind: 'terraform', terrain, area, from });
+export const Terraform = (terrain: TerrainId, area: TerraformArea = 'target', from?: TerrainId): Effect => ({ kind: 'terraform', terrain, area, from });
 /** "Expend": dispel this spell. */
 export const Expend = (): Effect => ({ kind: 'expend' });
 export const DispelAll = (): Effect => ({ kind: 'dispelAll' });
@@ -33,6 +37,8 @@ export const Withdraw = (): Effect => ({ kind: 'withdraw' });
 export const MoveTwice = (): Effect => ({ kind: 'moveTwice' });
 export const RandomMove = (): Effect => ({ kind: 'randomMove' });
 export const CancelMoves = (): Effect => ({ kind: 'cancelMoves' });
+/** Adds novices to the target structure; `nation` makes them train as that nation. */
+export const Novices = (count: number, nation?: Nation): Effect => ({ kind: 'novices', count, nation });
 
 const hasSpellOnMinion = (c: EventContext, card: string, id: number) =>
   c.state.spells.some((sp) => sp.cardId === card && sp.host.kind === 'minion' && sp.host.id === id);
@@ -54,6 +60,10 @@ export function runEffect(c: EventContext, ev: GameEvent | undefined, e: Effect,
       } else if (e.area === 'adjacent') {
         const st = target?.kind === 'structure' ? c.structure(target.id) : undefined;
         if (st) for (const d of ADJACENT) c.setTerrain({ x: st.pos.x + d.x, y: st.pos.y + d.y }, e.terrain);
+      } else if (e.area === 'aroundGroup') {
+        const gid = hostGroupId(c);
+        const g = gid === undefined ? undefined : c.group(gid);
+        if (g?.pos) for (const d of ADJACENT) c.setTerrain({ x: g.pos.x + d.x, y: g.pos.y + d.y }, e.terrain);
       } else if (target?.kind === 'square' && e.from) {
         for (const p of contiguous(c, target.pos, e.from)) c.setTerrain(p, e.terrain);
       }
@@ -118,6 +128,9 @@ export function runEffect(c: EventContext, ev: GameEvent | undefined, e: Effect,
         c.setMovesTwice(g.id, false);
       }
       return;
+    case 'novices':
+      if (target?.kind === 'structure') c.addNovices(target.id, e.count, e.nation);
+      return;
     default:
       assertNever(e);
   }
@@ -142,6 +155,7 @@ export function printEffect(e: Effect): string {
     case 'terraform':
       return e.area === 'adjacent' ? `Adjacent squares become ${e.terrain}`
         : e.area === 'contiguous' ? `Contiguous ${e.from} becomes ${e.terrain}`
+        : e.area === 'aroundGroup' ? `Squares next to its group become ${e.terrain}`
         : `Square becomes ${e.terrain}`;
     case 'expend': return 'Expend';
     case 'dispelAll': return 'Dispel every enchantment on the group';
@@ -152,6 +166,7 @@ export function printEffect(e: Effect): string {
     case 'moveTwice': return 'Moves twice';
     case 'randomMove': return 'Moves in a random direction';
     case 'cancelMoves': return 'Cancel all recruit move orders';
+    case 'novices': return `Create ${e.count} ${e.nation ? cap(e.nation) + ' ' : ''}novices in the town`;
     default: return assertNever(e);
   }
 }
@@ -185,4 +200,5 @@ export const VERBS: Record<Effect['kind'], { term: string; gloss: string }> = {
   moveTwice: { term: 'Moves twice', gloss: 'The group repeats its move order in a second movement pass.' },
   randomMove: { term: 'Random direction', gloss: 'A player group\'s move order is replaced with a random legal direction.' },
   cancelMoves: { term: 'Cancel move orders', gloss: 'Every recruit group\'s move order (and any second move) is cancelled this turn.' },
+  novices: { term: 'Create novices', gloss: 'Novices are added to the structure (at most 8 there). Trained as recruits, queued novices are of the named nation.' },
 };

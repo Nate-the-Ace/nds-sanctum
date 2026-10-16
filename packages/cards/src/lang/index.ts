@@ -13,3 +13,6 @@ export { resolveScope, type Scope } from './scopes';
 export * from './keywords/trigger';
 export * from './keywords/restrict';
 export * from './keywords/special';
+export * from './keywords/creature';
+export * from './keywords/behavior';
+export * from './keywords/versus';
