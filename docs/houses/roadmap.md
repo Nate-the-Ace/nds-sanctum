@@ -458,3 +458,14 @@ Other risks (no decision needed): `Aura` keyword cannot share a card with stat k
 after E-CRT; `faces.test.ts` snapshots grow with X3/G8 printing; 17 Unmaking cards and many others roll dice, so every
 random choice must use `ctx.random()`; global state additions (`bannedCards`, `discardedThisTurn`, `fromHand`,
 `flamedOut`, swamp entry directions, novice lists, card instances) must be serialisable and covered by `view.ts`.
+
+## 8. Owner decisions recorded (2026-10-17)
+
+| Id | Decision |
+|---|---|
+| O1 | Defaults accepted for the unlisted decisions (O1, O3-O7, O10, O12, O14, O15 as proposed above). |
+| O2 | Ability kills use the rules' "kills" category (blame the host). Retrofit Shattering Blow when the feature lands. |
+| O8 | **Bursts stack**: Burst cards are stackable (several may be active at once). Not the literal exclusive reading. |
+| O9 | The swamp movement rule is turned on, even though it changes games on maps that already have swamps. |
+| O11 | Nihil's Curse (and so Nihil) is on hold until its card text is supplied. |
+| O13 | The owner will accept the NIOGA usage agreement personally (in the browser pane); only then may the rules pages be re-fetched through that browser. |
