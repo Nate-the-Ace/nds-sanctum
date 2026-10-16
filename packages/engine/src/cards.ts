@@ -31,6 +31,8 @@ export interface CardDef {
   ignoresConcealment?: boolean;
   /** Engine-cast helper spell: created by other cards through `ctx.createSpell`, never played from a deck. */
   helper?: boolean;
+  /** A recursive hand copy of that card (more tokens): never in a deck, and exclusive together with the original. */
+  copyOf?: string;
   /** Conjuration lifetime. Counts the casting turn: `{ turns: 1 }` expires at the end of the turn it is cast. */
   duration?: { turns: number };
   /** Casting-time requirement. Checked while ordering and again just before execution. */

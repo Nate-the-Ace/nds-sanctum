@@ -56,6 +56,14 @@ export interface EventContext extends QueryContext {
   /** Creates a group at a square; returns its id. Owner defaults to this spell's owner; the group's bot is this card's `bot`. */
   summon(def: Omit<SummonDef, 'owner'> & { owner?: PlayerId }): number;
   draw(side: Side, count: number): void;
+  /** Raises a minion's base level by `n` (permanent; level stays within 0..5). */
+  addLevel(minionId: number, n: number): void;
+  /** Removes the top card of a player's deck from the game. Returns it, or undefined when the deck is empty. */
+  removeTopCard(side: Side): string | undefined;
+  /** Tells player `to` the top card of `side`'s deck (in `players[to].intel` until the next start of turn). */
+  reveal(to: Side, side: Side): void;
+  /** Adds a card (a recursive copy) to a player's hand. Throws on an unknown card id. */
+  addToHand(side: Side, cardId: string): void;
   /**
    * Cast an engine-owned helper spell onto a host, ignoring targeting rules and exclusivity. Owner defaults to this
    * spell's owner; `turns` overrides the helper card's duration. Returns the new spell's id.
@@ -162,6 +170,22 @@ export function makeCtx(e: Engine, spell: ActiveSpell, event?: GameEvent): Event
     summon: (def) =>
       summonGroup(e, { ...def, owner: def.owner ?? spell.owner, botId: def.botId ?? spell.cardId }).id,
     draw: (side, count) => drawCards(e, side, count),
+    addLevel: (id, n) => {
+      const m = e.state.minions[id];
+      if (!m || m.status === 'dead') return;
+      m.base.level = Math.max(0, Math.min(RULES.maxLevel, m.base.level + n));
+    },
+    removeTopCard: (side) => e.state.players[side].deck.shift(),
+    reveal: (to, side) => {
+      const top = e.state.players[side].deck[0];
+      if (top === undefined) return;
+      const p = e.state.players[to];
+      p.intel = [...(p.intel ?? []), { source: spell.cardId, side, cardId: top }];
+    },
+    addToHand: (side, cardId) => {
+      if (!e.cards[cardId]) throw new Error(`addToHand: unknown card "${cardId}"`);
+      e.state.players[side].hand.push(cardId);
+    },
     createSpell: (cardId, host, opts) => {
       const card = e.cards[cardId];
       if (!card) throw new Error(`createSpell: unknown card "${cardId}"`);

@@ -132,6 +132,14 @@ export interface Orders {
 }
 export const emptyOrders = (): Orders => ({ train: [], cast: [], move: [], discard: null });
 
+/** Something a spell told a player this turn: the top card of `side`'s deck. */
+export interface Intel {
+  /** Card id of the spell that told it. */
+  source: string;
+  side: Side;
+  cardId: string;
+}
+
 export interface PlayerState {
   id: Side;
   house: HouseId;
@@ -143,6 +151,8 @@ export interface PlayerState {
   confirmed: boolean;
   /** Hero card ids this player has cast (a hero is cast once per game). */
   heroesCast: string[];
+  /** What spells told this player this turn (Spy at Court). Cleared at every start of turn; absent when empty. */
+  intel?: Intel[];
 }
 
 export interface LogEntry { type: string; [key: string]: unknown }

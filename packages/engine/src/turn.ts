@@ -20,6 +20,7 @@ import type { Mana, Orders, Ref, Side } from './types';
 export function beginTurn(e: Engine, first: boolean): void {
   const s = e.state;
   s.log.push({ type: 'turn', turn: s.turn });
+  for (const side of SIDES) delete s.players[side].intel; // intel lasts one turn
   for (const m of Object.values(s.minions)) {
     if (m.status === 'alive' && m.expQualified && !m.hasExp) {
       m.hasExp = true;

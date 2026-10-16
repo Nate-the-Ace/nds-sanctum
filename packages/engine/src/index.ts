@@ -17,7 +17,7 @@ export { createCells, SANCTUM_POS, sanctumSquares, entrances, step, DIR_LIST, ke
 export { terrainBlocks, terrainForbids } from './terrain';
 export { emptyOrders, emptyPool, MANA_TYPES, SIDES } from './types';
 export type {
-  ActiveSpell, BaseStats, Dir, GameState, Group, HouseId, LogEntry, Mana, ManaPool, Minion, MinionSpec, Nation,
+  ActiveSpell, BaseStats, Dir, GameState, Group, HouseId, Intel, LogEntry, Mana, ManaPool, Minion, MinionSpec, Nation,
   Orders, PlayerId, PlayerState, Pos, Ref, Side, Structure, SummonDef, TerrainId, Walk,
   TrainOrder, CastOrder, MoveOrder,
 } from './types';

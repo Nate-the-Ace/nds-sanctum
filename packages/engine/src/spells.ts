@@ -2,6 +2,7 @@ import { isSanctumArea, key } from './board';
 import type { CardDef } from './cards';
 import { makeCtx, makeQuery } from './ctx';
 import type { Engine } from './engine';
+import { dispatch } from './events';
 import { groupAt, isConcealed, spellsOn, structureAt } from './query';
 import { addSpellRecord, removeSpellRecord } from './spellstore';
 import { computeStats, syncHp } from './stats';
@@ -107,21 +108,26 @@ export function executeCast(e: Engine, caster: PlayerId, cardId: string, ref: Re
   if (!castCheck(e, caster, card, ref)) return squander('requirements failed');
   const persists = card.type === 'alteration' || card.type === 'conjuration';
   const visible = persists && card.visible !== false;
-  if (persists && (card.exclusive ?? visible) && spellsOn(s, ref).some((sp) => sp.cardId === cardId)) {
+  // A recursive copy and its original count as the same spell for exclusivity.
+  const family = (id: string) => e.cards[id]?.copyOf ?? id;
+  if (persists && (card.exclusive ?? visible) && spellsOn(s, ref).some((sp) => family(sp.cardId) === family(cardId))) {
     return squander('exclusive');
   }
   if (card.type === 'hero' && caster !== 'neutral') s.players[caster].heroesCast.push(card.id);
   s.log.push({ type: 'cast', card: cardId, caster, target: ref });
+  let spellId = -1;
   if (persists) {
     const sp = addSpellRecord(s, {
       cardId, owner: caster, host: ref, visible, turnsLeft: card.duration?.turns ?? null, tokens: {},
     });
+    spellId = sp.id;
     card.onCast?.(makeCtx(e, sp), ref);
     recheck(e, ref);
   } else {
     const transient: ActiveSpell = { id: -1, cardId, owner: caster, host: ref, visible: false, turnsLeft: null, tokens: {} };
     card.onCast?.(makeCtx(e, transient), ref);
   }
+  dispatch(e, 'spell:cast', ref, { cardId, type: card.type, caster, spellId });
   syncHp(e);
   return 'cast';
 }

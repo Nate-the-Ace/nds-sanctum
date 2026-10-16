@@ -1,7 +1,7 @@
 import type { CardDef, HouseId, ManaPool, SpellType, TargetType, TerrainId } from '@sanctum/engine';
 
 /** What a keyword contributes to a card: any `CardDef` hook except the identity fields. */
-export type Fragment = Partial<Omit<CardDef, 'id' | 'name' | 'house' | 'cost' | 'type' | 'target' | 'text'>>;
+export type Fragment = Partial<Omit<CardDef, 'id' | 'name' | 'house' | 'cost' | 'type' | 'target' | 'text' | 'copyOf'>>;
 
 export type HostKind = 'group' | 'minion' | 'globe';
 

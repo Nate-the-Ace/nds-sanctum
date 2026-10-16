@@ -12,6 +12,8 @@ export type EventType =
   | 'attack:beforeArmor' | 'attack:hit' | 'armor:after'
   | 'minion:dying' | 'minion:killed' | 'minion:dies' | 'minion:created'
   | 'attacker:strikes' | 'attacker:hits' | 'attacker:damages' | 'attacker:kills'
+  // the target of a cast (any ref): { cardId, type, caster, spellId } (spellId -1 for instant spells)
+  | 'spell:cast'
   // untargeted
   | 'initiative:decide';
 
