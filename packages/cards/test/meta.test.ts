@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import type { TargetType } from '@sanctum/engine';
-import { allCards, cardData, cardIndex, pendingCards } from '../src/index';
+import { allCards, cardData, cardIndex, pendingCards, playableCards } from '../src/index';
 
 /** What "Cast on ..." means as an engine target type. */
 function expectedTarget(castOn: string): TargetType | null {
@@ -25,8 +25,8 @@ describe('scraped data', () => {
   });
 });
 
-describe.skipIf(allCards.length === 0)('implemented cards match their scraped record', () => {
-  for (const card of allCards) {
+describe.skipIf(playableCards.length === 0)('implemented cards match their scraped record', () => {
+  for (const card of playableCards) {
     it(card.name, () => {
       const rec = cardData.find((c) => c.slug === card.id);
       expect(rec, `no scraped record for id "${card.id}"`).toBeDefined();
@@ -41,7 +41,7 @@ describe.skipIf(allCards.length === 0)('implemented cards match their scraped re
 
 describe('registry', () => {
   it('implemented and pending partition the data', () => {
-    expect(allCards.length + pendingCards.length).toBe(cardData.length);
+    expect(playableCards.length + pendingCards.length).toBe(cardData.length);
     for (const c of allCards) expect(cardIndex[c.id]).toBe(c);
   });
 });

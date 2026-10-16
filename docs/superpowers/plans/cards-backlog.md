@@ -60,12 +60,9 @@ Needs: a way to end a combat at a given round or before it starts.
 
 ## E6. Helper spells created on other hosts (6)
 Needs: `ctx.createSpell(card, owner, host)` for engine-cast spells (Thermite Damage, Youth, Faerie Blessing, Grace of Auberol).
-- Thermites (War)
 - Auberol's Grace (Life)
 - Clandestine (Life)
 - Faerie Circle (Life)
-- Faerie Glade (Life)
-- Fountain of Youth (Life)
 
 ## E7. Casting and targeting restrictions (7)
 Needs: spells that squander other spells (globe/group/structure bans), untargetable groups, global concealment.

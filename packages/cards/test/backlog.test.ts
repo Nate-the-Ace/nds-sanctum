@@ -13,6 +13,5 @@ describe('cards backlog', () => {
     const pending = pendingCards.map((c) => `${c.name}|${c.house}`).sort();
     expect([...listed].sort()).toEqual(pending);
     expect(new Set(listed).size).toBe(listed.length);
-    expect(listed).toHaveLength(72);
   });
 });

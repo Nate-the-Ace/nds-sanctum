@@ -14,6 +14,8 @@ import rainOfArrows from './rainOfArrows';
 import scorchedEarth from './scorchedEarth';
 import shatteringBlow from './shatteringBlow';
 import swashbuckler from './swashbuckler';
+import thermiteDamage from './thermiteDamage';
+import thermites from './thermites';
 import volcano from './volcano';
 import warDrums from './warDrums';
 
@@ -21,4 +23,5 @@ export const warCards: CardDef[] = [
   flamingSword, bloodlust, legionnaires, ngozisWay, palisade, warDrums, swashbuckler,
   fireball, goodOfTheMany, plains, volcano, scorchedEarth, dragonSlayer,
   berserkerBlade, berserkers, rainOfArrows, shatteringBlow,
+  thermites, thermiteDamage,
 ];
