@@ -12,6 +12,7 @@ export { RULES } from './rules';
 export { NATIONS, NATION_LIST, nationOfHouse } from './nations';
 export { recruitSpec } from './units';
 export { validateOrders } from './orders';
+export { viewStats, legalTargets, checkOrders } from './view';
 export { createCells, SANCTUM_POS, sanctumSquares, entrances, step, DIR_LIST, key, isSanctumArea } from './board';
 export { terrainBlocks, terrainForbids } from './terrain';
 export { emptyOrders, emptyPool, MANA_TYPES, SIDES } from './types';
