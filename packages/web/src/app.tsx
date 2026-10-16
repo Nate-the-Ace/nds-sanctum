@@ -30,7 +30,7 @@ export function App() {
       case 'report':
         return <ReportScreen session={session} report={session.report!} onNext={() => setSession(afterReport(session))} />;
       case 'over':
-        return <Over winner={session.state.winner} onNew={() => setSession(null)} />;
+        return <Over winner={session.state.winner} turn={session.report?.turn ?? session.state.turn} onNew={() => setSession(null)} />;
     }
   };
 

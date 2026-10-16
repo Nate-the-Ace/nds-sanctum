@@ -54,6 +54,10 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: .02em; margin: 0;
 .primary:disabled { opacity: .45; cursor: not-allowed; }
 .btnrow { display: flex; flex-wrap: wrap; gap: 6px; } .btnrow button, .choices button, .hand-card button { background: var(--panel-2); border: 1px solid var(--line); border-radius: 6px; padding: 5px 10px; }
 .btnrow button:disabled, .hand-card button:disabled { opacity: .4; }
+.btnrow button.primary { background: var(--accent); color: #07151a; border-color: var(--accent); }
+.mana-choice, .over { display: grid; gap: 12px; justify-items: start; }
+.over.side-red h1 { color: var(--red); } .over.side-blue h1 { color: var(--blue); }
+.mana-choice.side-red h1 { color: var(--red); } .mana-choice.side-blue h1 { color: var(--blue); }
 .banner { margin: 0; padding: 8px 12px; border-radius: 6px; } .banner.bad { background: #3a1d19; color: var(--bad); }
 .orders-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; } .orders-list li { display: flex; gap: 8px; align-items: center; }
 .orders-list button { background: transparent; border: 0; color: var(--muted); }
@@ -69,7 +73,7 @@ select, input[type="number"], input[type="search"] { background: var(--panel); c
 .handoff { text-align: center; display: grid; gap: 14px; justify-items: center; padding-top: 12vh; }
 .handoff.side-red h1 { color: var(--red); } .handoff.side-blue h1 { color: var(--blue); }
 .report { display: grid; grid-template-rows: auto minmax(0, 1fr); gap: 10px; height: 100%; padding: 10px 14px; }
-@media (max-width: 900px) { .report .stage { align-content: start; } }
+@media (max-width: 900px) { .stage { align-content: start; } }
 ul.plain { margin: 0; padding-left: 18px; display: grid; gap: 3px; }
 .tabs { display: flex; gap: 4px; padding: 8px 14px 0; border-bottom: 1px solid var(--line); }
 .tabs button { background: transparent; border: 0; border-bottom: 3px solid transparent; padding: 8px 14px; color: var(--muted); font-weight: 600; }

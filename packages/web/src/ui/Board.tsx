@@ -52,9 +52,10 @@ export function Board({ state, selected, highlights, arrows, onCell }: BoardProp
         const c = project(st.pos);
         const glyph = st.kind === 'sanctum' ? 'S' : st.kind === 'town' ? 'T' : 'C';
         return (
-          <g key={`st${st.id}`} class="structure" pointer-events="none" transform={`translate(${c.x - 20} ${c.y + 2})`}>
-            <rect width="14" height="14" rx="2" fill="#10151b" stroke={OWNER_COLOR[st.owner]} stroke-width="2" />
-            <text x="7" y="11" text-anchor="middle" class="glyph">{glyph}</text>
+          // In the left corner of its own square, clear of the group token in the middle.
+          <g key={`st${st.id}`} class="structure" pointer-events="none" transform={`translate(${c.x - 27} ${c.y - 6})`}>
+            <rect width="12" height="12" rx="2" fill="#10151b" stroke={OWNER_COLOR[st.owner]} stroke-width="2" />
+            <text x="6" y="9.5" text-anchor="middle" class="glyph">{glyph}</text>
           </g>
         );
       })}

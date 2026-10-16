@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'preact/hooks';
 import {
   checkOrders, emptyOrders, houseMana, key, legalTargets, step, DIR_LIST,
-  type GameState, type Orders, type Pos, type Ref, type Side, type TrainOrder,
+  type Dir, type GameState, type Orders, type Pos, type Ref, type Side, type TrainOrder,
 } from '@sanctum/engine';
 import { addCast, addTrain, poolPreview, removeCast, removeTrain, setDiscard, setMove } from '../model/drafts';
 import { dirBetween } from '../model/geometry';
@@ -30,6 +30,14 @@ export function choiceLabels(refs: Ref[], s: GameState): string[] {
     const same = labels.filter((x) => x === l).length;
     return same > 1 ? `${l} ${labels.slice(0, i + 1).filter((x) => x === l).length}` : l;
   });
+}
+
+const at = (p: Pos) => `(${p.x + 1},${p.y + 1})`;
+
+/** "Move group (3,3) to (4,3)": compass letters mean little on a diamond board. */
+export function moveLabel(s: GameState, groupId: number, dir: Dir): string {
+  const g = s.groups[groupId];
+  return g?.pos ? `Move group ${at(g.pos)} to ${at(step(g.pos, dir))}` : `Move group ${dir.toUpperCase()}`;
 }
 
 export interface OrdersScreenProps {
@@ -108,14 +116,29 @@ export function OrdersScreen({ session, side, onLock }: OrdersScreenProps) {
         return;
       }
     }
+    // A second click on the selected group lets go of it, so a neighbouring square can be picked instead of moved to.
+    if (ownGroup?.pos && ownGroup.pos.x === pos.x && ownGroup.pos.y === pos.y) {
+      setSel(null);
+      return;
+    }
     const g = Object.values(state.groups).find((x) => x.pos && x.pos.x === pos.x && x.pos.y === pos.y);
     const st = Object.values(state.structures).find((x) => x.pos.x === pos.x && x.pos.y === pos.y);
     setSel(g ? { kind: 'group', id: g.id } : st ? { kind: 'structure', id: st.id } : { kind: 'square', pos });
   };
 
   const trainedAt = (id: number) => draft.train.filter((t) => t.structureId === id).length;
+  // Training is checked like a move: the engine says whether this extra novice is allowed.
   const train = (as: TrainOrder['as']) => {
-    if (ownStructure) setDraft(addTrain(draft, ownStructure.id, as));
+    if (!ownStructure) return;
+    const next = addTrain(draft, ownStructure.id, as);
+    // Casts are left out so an unaffordable spell already queued does not mask (or cause) the answer.
+    const err = checkOrders(state, cards, side, { ...next, cast: [] });
+    if (err) {
+      setMessage(err);
+      return;
+    }
+    setMessage(null);
+    setDraft(next);
   };
   const trainOptions: Array<TrainOrder['as']> = ownStructure
     ? ['swordsman', 'archer', ...(ownStructure.kind === 'sanctum' ? houseMana(me.house) : [])]
@@ -129,7 +152,7 @@ export function OrdersScreen({ session, side, onLock }: OrdersScreenProps) {
       <header class="topbar">
         <h2>{cap(side)}'s orders · Turn {state.turn}</h2>
         <span class="muted">{initiative}</span>
-        <span class="pool" aria-label="Mana pool after your orders"><ManaChips cost={preview.pool} empty="no mana" /></span>
+        <span class="pool" aria-label="Mana pool after your orders"><span class="muted" title="Unspent mana is lost at the end of the turn">Mana this turn</span> <ManaChips cost={preview.pool} empty="no mana" /></span>
         <button type="button" class="primary" onClick={lock} disabled={preview.over}>Lock orders</button>
       </header>
       {message ? <p class="banner bad" role="alert">{message}</p> : null}
@@ -170,7 +193,7 @@ export function OrdersScreen({ session, side, onLock }: OrdersScreenProps) {
                 <li key={`t${i}`}>Train {t.as === 'swordsman' || t.as === 'archer' ? t.as : `as ${manaLabel(t.as)} mana`} <button type="button" aria-label="Remove training" onClick={() => setDraft(removeTrain(draft, i))}>×</button></li>
               ))}
               {draft.move.map((m) => (
-                <li key={`m${m.groupId}`}>Move group {m.dir.toUpperCase()} <button type="button" aria-label="Remove move" onClick={() => setDraft(setMove(draft, m.groupId, null))}>×</button></li>
+                <li key={`m${m.groupId}`}>{moveLabel(state, m.groupId, m.dir)} <button type="button" aria-label="Remove move" onClick={() => setDraft(setMove(draft, m.groupId, null))}>×</button></li>
               ))}
               {draft.cast.map((c) => (
                 <li key={`c${c.handIndex}`}>Cast {cards[me.hand[c.handIndex]].name} on {refLabel(c.target, state)} <button type="button" aria-label="Remove cast" onClick={() => setDraft(removeCast(draft, c.handIndex))}>×</button></li>

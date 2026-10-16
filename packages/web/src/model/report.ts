@@ -1,4 +1,4 @@
-import { key, type CardIndex, type GameState, type Minion, type PlayerId, type Pos, type Ref } from '@sanctum/engine';
+import { key, MANA_TYPES, SIDES, type CardIndex, type GameState, type Minion, type PlayerId, type Pos, type Ref } from '@sanctum/engine';
 
 export interface Report {
   turn: number;
@@ -32,23 +32,61 @@ export function refLabel(r: Ref, s: GameState): string {
   }
 }
 
+/** Identical lines become one line with a count: "Red Human archer died (×2)." */
+function tally(lines: string[]): string[] {
+  const counts = new Map<string, number>();
+  for (const l of lines) counts.set(l, (counts.get(l) ?? 0) + 1);
+  return [...counts].map(([l, n]) => (n === 1 ? l : `${l.replace(/\.$/, '')} (×${n}).`));
+}
+
+/** Minion ids that died after log entry `from`, up to the next combat. */
+function deathsAfter(log: GameState['log'], from: number): number[] {
+  const ids: number[] = [];
+  for (let i = from + 1; i < log.length && log[i].type !== 'combat'; i++) {
+    if (log[i].type === 'death') ids.push(log[i].minion as number);
+  }
+  return ids;
+}
+
+/** "Red group fought Blue group near (5,6): Red lost 2, Blue lost 0. Red group was wiped out." */
+function combatLine(before: GameState, after: GameState, hiId: number, loId: number, dead: number[]): string | null {
+  const hi = before.groups[hiId] ?? after.groups[hiId];
+  const lo = before.groups[loId] ?? after.groups[loId];
+  if (!hi || !lo) return null;
+  const owners = [hi.owner, lo.owner];
+  const lost = (o: PlayerId) => dead.filter((id) => (before.minions[id] ?? after.minions[id])?.owner === o).length;
+  const where = after.groups[hiId]?.pos ?? after.groups[loId]?.pos ?? hi.pos;
+  const parts = [`${side(hi.owner)} group fought ${side(lo.owner)} group${where ? ` near ${at(where)}` : ''}: ${owners.map((o) => `${side(o)} lost ${lost(o)}`).join(', ')}.`];
+  for (const id of [hiId, loId]) {
+    const g = before.groups[id] ?? after.groups[id];
+    if (!after.groups[id]?.pos) parts.push(`${side(g.owner)} group was wiped out.`);
+  }
+  return parts.join(' ');
+}
+
 /** What happened between two states: the engine log for spells and fights, a state diff for everything else. */
 export function turnReport(before: GameState, after: GameState, cards: CardIndex): Report {
   const spells: string[] = [];
   const combats: string[] = [];
   const captures: string[] = [];
-  for (const e of after.log as Array<Record<string, any>>) {
+  for (const [i, e] of (after.log as Array<Record<string, any>>).entries()) {
     if (e.type === 'cast') spells.push(`${side(e.caster)} cast ${cards[e.card]?.name ?? e.card} on ${refLabel(e.target, before)}.`);
     else if (e.type === 'squander') spells.push(`${side(e.caster)}'s ${cards[e.card]?.name ?? e.card} fizzled (${e.why}).`);
     else if (e.type === 'dispel') spells.push(`${cards[e.card]?.name ?? e.card} was dispelled.`);
     else if (e.type === 'combat') {
-      const hi = before.groups[e.hi] ?? after.groups[e.hi];
-      const lo = before.groups[e.lo] ?? after.groups[e.lo];
-      if (hi && lo) combats.push(`${side(hi.owner)} group fought ${side(lo.owner)} group at ${hi.pos ? at(hi.pos) : '?'}.`);
+      const line = combatLine(before, after, e.hi, e.lo, deathsAfter(after.log, i));
+      if (line) combats.push(line);
     } else if (e.type === 'capture') {
       const st = after.structures[e.structure];
       captures.push(`${side(e.by)} captured the ${st?.kind ?? 'structure'}${st ? ` at ${at(st.pos)}` : ''}.`);
     } else if (e.type === 'win') captures.push(`${side(e.winner)} captured the enemy Sanctum and wins!`);
+  }
+
+  const training: string[] = [];
+  for (const sd of SIDES) {
+    for (const t of before.players[sd].orders?.train ?? []) {
+      if ((MANA_TYPES as string[]).includes(t.as)) training.push(`${side(sd)} trained a novice as ${cap(t.as)} mana.`);
+    }
   }
 
   const moves: Report['moves'] = [];
@@ -88,6 +126,7 @@ export function turnReport(before: GameState, after: GameState, cards: CardIndex
   }
 
   const sections = [
+    { title: 'Training', lines: training },
     { title: 'Spells', lines: spells },
     { title: 'Movement', lines: movement },
     { title: 'Combat', lines: combats },
@@ -96,6 +135,6 @@ export function turnReport(before: GameState, after: GameState, cards: CardIndex
     { title: 'New units', lines: created },
     { title: 'Terrain', lines: terrain },
     { title: 'Structures', lines: captures },
-  ].filter((s) => s.lines.length > 0);
+  ].map((sec) => ({ ...sec, lines: tally(sec.lines) })).filter((sec) => sec.lines.length > 0);
   return { turn: before.turn, sections, moves };
 }
