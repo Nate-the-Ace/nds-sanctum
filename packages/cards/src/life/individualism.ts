@@ -1,8 +1,4 @@
-import { defineCard } from '@sanctum/engine';
-import { GROUP_TARGETS } from '../helpers';
+import { card, Forbid, Lasts, Target } from '../lang';
 
-export default defineCard({
-  id: 'individualism', name: 'Individualism', house: 'life', cost: { clarity: 3, world: 2 },
-  type: 'conjuration', target: 'globe', duration: { turns: 3 },
-  blocksCast: (_q, _sp, a) => GROUP_TARGETS.includes(a.card.target),
-});
+export default card({ id: 'individualism', name: 'Individualism', house: 'life', cost: { clarity: 3, world: 2 }, type: 'conjuration',
+  target: Target.globe, keywords: [Lasts(3), Forbid(['group'])] });

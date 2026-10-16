@@ -1,7 +1,4 @@
-import { defineCard } from '@sanctum/engine';
+import { card, Forbid, Lasts, Target } from '../lang';
 
-export default defineCard({
-  id: 'adriels-glamour', name: "Adriel's Glamour", house: 'life', cost: { clarity: 2, world: 1 },
-  type: 'conjuration', target: 'globe', duration: { turns: 5 },
-  blocksCast: (_q, _sp, a) => a.card.target === 'globe',
-});
+export default card({ id: 'adriels-glamour', name: "Adriel's Glamour", house: 'life', cost: { clarity: 2, world: 1 }, type: 'conjuration',
+  target: Target.globe, keywords: [Lasts(5), Forbid(['globe'])] });

@@ -76,4 +76,20 @@ describe('printed card text', () => {
       'Recruit.', 'Pacified.', 'Each round: Heal 3 (most hurt ally).', 'Start of turn: Heal full (group).',
     ]);
   });
+
+  it('batch C: restrictions', () => {
+    expect(lines('adriels-glamour')).toEqual(['Globe.', 'Lasts 5 turns.', 'No globe spells.']);
+    expect(lines('adriels-promise')).toEqual(['Globe.', 'Lasts 8 turns.', 'No structure spells.']);
+    expect(lines('individualism')).toEqual(['Globe.', 'Lasts 3 turns.', 'No group spells.']);
+    expect(lines('fog-of-war')).toEqual(['Globe.', 'Lasts 3 turns.', 'All minions are Concealed.']);
+    expect(lines('adriels-mantle')).toEqual(['Group.', 'Lasts 2 turns, Shroud.']);
+    expect(lines('seelie-favor')).toEqual(['Non-friendly group.', 'Shroud (group spells).']);
+    expect(lines('court-politics')).toEqual([
+      'Globe.', 'Lasts 3 turns, Stackable.', 'Caster: no group or individual spells on friends.',
+      'Afterwards: Court Politics II (Stackable; Mana: +2 Clarity).',
+    ]);
+    expect(lines('lone-wolf')).toEqual(['Swordsman alone in its group.', 'Shroud (friendly spells).', '+3 H, +1 A, +6 HP.']);
+    expect(lines('faerie-knight')).toEqual(['Recruit.', 'Warded.', '+4 HP.']);
+    expect(lines('filigreed-armor')).toEqual(['Recruit.', 'Warded 1.', '+1 A.']);
+  });
 });
