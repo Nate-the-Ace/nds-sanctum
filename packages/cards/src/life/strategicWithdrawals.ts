@@ -1,11 +1,4 @@
-import { defineCard } from '@sanctum/engine';
+import { card, On, Target, When, Withdraw } from '../lang';
 
-export default defineCard({
-  id: 'strategic-withdrawals', name: 'Strategic Withdrawals', house: 'life', cost: { clarity: 4, world: 1 },
-  type: 'alteration', target: 'globe',
-  on: {
-    'round:start': (c, ev) => {
-      if (ev.data.round === 7) c.endCombat();
-    },
-  },
-});
+export default card({ id: 'strategic-withdrawals', name: 'Strategic Withdrawals', house: 'life', cost: { clarity: 4, world: 1 }, type: 'alteration',
+  target: Target.globe, keywords: [On(When.eachRound(7), Withdraw())] });

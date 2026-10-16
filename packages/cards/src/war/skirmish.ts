@@ -1,15 +1,4 @@
-import { defineCard } from '@sanctum/engine';
-import { isHostGroup } from '../helpers';
+import { card, Fleeting, On, Target, When, Withdraw } from '../lang';
 
-export default defineCard({
-  id: 'skirmish', name: 'Skirmish', house: 'war', cost: { strife: 1 },
-  type: 'alteration', target: 'group',
-  on: {
-    'round:start': (c, ev) => {
-      if (ev.data.round === 3 && isHostGroup(c, ev)) c.endCombat();
-    },
-    'combat:after': (c, ev) => {
-      if (isHostGroup(c, ev)) c.dispel();
-    },
-  },
-});
+export default card({ id: 'skirmish', name: 'Skirmish', house: 'war', cost: { strife: 1 }, type: 'alteration',
+  target: Target.group, keywords: [Fleeting(), On(When.eachRound(3), Withdraw())] });

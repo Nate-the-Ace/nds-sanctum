@@ -1,18 +1,5 @@
-import { defineCard } from '@sanctum/engine';
+import { card, Give, Heal, On, Target, When } from '../lang';
 
 // RULING: repeated entries heal fully again but do not add more levels; each minion carries at most one Youth.
-export default defineCard({
-  id: 'fountain-of-youth', name: 'Fountain of Youth', house: 'life', cost: { clarity: 3, world: 1 },
-  type: 'alteration', target: 'square',
-  on: {
-    'group:enter': (c, ev) => {
-      const g = ev.ref?.kind === 'group' ? c.group(ev.ref.id) : undefined;
-      if (!g) return;
-      for (const m of c.minionsOf(g.id)) {
-        c.heal(m.id, m.maxHp);
-        const has = c.state.spells.some((sp) => sp.cardId === 'youth' && sp.host.kind === 'minion' && sp.host.id === m.id);
-        if (!has) c.createSpell('youth', { kind: 'minion', id: m.id });
-      }
-    },
-  },
-});
+export default card({ id: 'fountain-of-youth', name: 'Fountain of Youth', house: 'life', cost: { clarity: 3, world: 1 }, type: 'alteration',
+  target: Target.square, keywords: [On(When.enter(), Heal('full', 'enterer'), Give('youth', 'enterer', true))] });

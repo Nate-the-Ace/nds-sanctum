@@ -7,3 +7,7 @@ export type { CardInput } from './card';
 export { renderSpec, faceOf, helperSummary, glossary } from './render';
 export type { Face, GlossaryEntry } from './render';
 export * from './keywords/statics';
+export * from './effects';
+export * from './triggers';
+export { resolveScope, type Scope } from './scopes';
+export * from './keywords/trigger';

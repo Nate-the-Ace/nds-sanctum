@@ -1,11 +1,4 @@
-import { defineCard } from '@sanctum/engine';
-import { isFriendlyMinion } from '../helpers';
+import { card, Kill, OnCast, Target } from '../lang';
 
-export default defineCard({
-  id: 'good-of-the-many', name: 'Good of the Many', house: 'war', cost: { strife: 1 },
-  type: 'manifestation', target: 'recruit',
-  canCast: isFriendlyMinion,
-  onCast: (c, t) => {
-    if (t.kind === 'minion') c.kill(t.id);
-  },
-});
+export default card({ id: 'good-of-the-many', name: 'Good of the Many', house: 'war', cost: { strife: 1 }, type: 'manifestation',
+  target: Target.recruit.friendly, keywords: [OnCast(Kill('target'))] });

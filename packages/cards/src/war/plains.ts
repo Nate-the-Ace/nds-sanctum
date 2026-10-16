@@ -1,9 +1,4 @@
-import { defineCard } from '@sanctum/engine';
+import { card, OnCast, Target, Terraform } from '../lang';
 
-export default defineCard({
-  id: 'plains', name: 'Plains', house: 'war', cost: { strife: 3 },
-  type: 'manifestation', target: 'square',
-  onCast: (c, t) => {
-    if (t.kind === 'square') c.setTerrain(t.pos, 'plains');
-  },
-});
+export default card({ id: 'plains', name: 'Plains', house: 'war', cost: { strife: 3 }, type: 'manifestation',
+  target: Target.square, keywords: [OnCast(Terraform('plains'))] });

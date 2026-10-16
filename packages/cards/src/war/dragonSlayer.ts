@@ -1,15 +1,4 @@
-import { defineCard } from '@sanctum/engine';
-import { isCls, isHostMinion } from '../helpers';
+import { card, Kill, On, Target, When } from '../lang';
 
-export default defineCard({
-  id: 'dragon-slayer', name: 'Dragon Slayer', house: 'war', cost: { strife: 3, clarity: 1 },
-  type: 'alteration', target: 'recruit',
-  canCast: isCls('archer'),
-  on: {
-    'attacker:damages': (c, ev) => {
-      if (!isHostMinion(c, ev)) return;
-      const victim = c.minion(ev.data.victimId);
-      if (victim && victim.kind === 'monster') c.kill(victim.id);
-    },
-  },
-});
+export default card({ id: 'dragon-slayer', name: 'Dragon Slayer', house: 'war', cost: { strife: 3, clarity: 1 }, type: 'alteration',
+  target: Target.archer, keywords: [On(When.onDamage('monster'), Kill('victim'))] });

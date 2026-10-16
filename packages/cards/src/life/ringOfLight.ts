@@ -1,12 +1,4 @@
-import { defineCard } from '@sanctum/engine';
+import { AddMana, card, On, Target, When } from '../lang';
 
-export default defineCard({
-  id: 'ring-of-light', name: 'Ring of Light', house: 'life', cost: { world: 5 },
-  type: 'alteration', target: 'structure',
-  on: {
-    'mana:generate': (c) => {
-      const st = c.host.kind === 'structure' ? c.structure(c.host.id) : undefined;
-      if (st && st.owner !== 'neutral') c.addMana(st.owner, 'clarity', 2);
-    },
-  },
-});
+export default card({ id: 'ring-of-light', name: 'Ring of Light', house: 'life', cost: { world: 5 }, type: 'alteration',
+  target: Target.structure, keywords: [On(When.manaPhase, AddMana('clarity', 2, 'structureOwner'))] });
