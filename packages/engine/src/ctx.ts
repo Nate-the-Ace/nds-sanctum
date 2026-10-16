@@ -1,4 +1,4 @@
-import { isSanctumArea, key } from './board';
+import { DIR_LIST, isSanctumArea, key, step } from './board';
 import { applyDamage } from './damage';
 import { killMinion } from './death';
 import type { Engine } from './engine';
@@ -9,9 +9,10 @@ import { computeStats, syncHp, type Stats } from './stats';
 import { drawCards } from './deck';
 import { addSpellRecord } from './spellstore';
 import { dispel, recheck, recheckSquare } from './spells';
-import { checkFatal } from './terrainfx';
+import { canEnterSquare } from './movement';
+import { checkFatal, groupCanEnter } from './terrainfx';
 import { summonGroup } from './units';
-import type { ActiveSpell, GameState, Group, Mana, Minion, PlayerId, Pos, Ref, Side, Structure, SummonDef, TerrainId } from './types';
+import type { ActiveSpell, Dir, GameState, Group, Mana, Minion, PlayerId, Pos, Ref, Side, Structure, SummonDef, TerrainId } from './types';
 
 /** Read-only view handed to canCast / persistent / stats callbacks. */
 export interface QueryContext {
@@ -57,6 +58,16 @@ export interface EventContext extends QueryContext {
   createSpell(cardId: string, host: Ref, opts?: { owner?: PlayerId; turns?: number | null }): number;
   /** Changes a square's terrain. Structures and Sanctum squares are immune. Fatal terrain applies at once. */
   setTerrain(pos: Pos, terrain: TerrainId): void;
+  /** Overwrite a group's movement order for this turn (null cancels it). */
+  setMoveOrder(groupId: number, dir: Dir | null): void;
+  /** "Moves twice": repeat the order in a second movement pass. */
+  setMovesTwice(groupId: number, value?: boolean): void;
+  /** Directions the group could step into right now (square exists, terrain and structure rules allow it). */
+  legalDirections(groupId: number): Dir[];
+  /** Whether the group's minions can all enter `pos` (square exists and terrain allows it). */
+  canEnter(groupId: number, pos: Pos): boolean;
+  /** Relocate a group to an empty square without moving through the squares between. Does nothing if occupied. */
+  moveGroup(groupId: number, pos: Pos): void;
 }
 
 export function makeQuery(e: Engine, caster: PlayerId): QueryContext {
@@ -124,6 +135,36 @@ export function makeCtx(e: Engine, spell: ActiveSpell, event?: GameEvent): Event
       s.terrain[key(pos)] = terrain;
       const g = groupAt(s, pos);
       if (g) checkFatal(e, g);
+      recheckSquare(e, pos);
+    },
+    setMoveOrder: (id, dir) => {
+      const g = e.state.groups[id];
+      if (g) g.moveOrder = dir;
+    },
+    setMovesTwice: (id, value = true) => {
+      const g = e.state.groups[id];
+      if (g) g.movesTwice = value;
+    },
+    legalDirections: (id) => {
+      const g = e.state.groups[id];
+      if (!g || !g.pos) return [];
+      const from = g.pos;
+      return DIR_LIST.filter((d) => canEnterSquare(e, g, step(from, d)));
+    },
+    canEnter: (id, pos) => {
+      const g = e.state.groups[id];
+      return !!g && e.state.cells.includes(key(pos)) && groupCanEnter(e, g, e.state.terrain[key(pos)]);
+    },
+    moveGroup: (id, pos) => {
+      const s = e.state;
+      const g = s.groups[id];
+      if (!g || !g.pos || !s.cells.includes(key(pos))) return;
+      const other = groupAt(s, pos);
+      if (other && other.id !== id) return;
+      const from = g.pos;
+      g.pos = { ...pos };
+      checkFatal(e, g);
+      recheckSquare(e, from);
       recheckSquare(e, pos);
     },
   };

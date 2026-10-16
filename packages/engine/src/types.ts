@@ -79,6 +79,7 @@ export interface Group {
   moveOrder: Dir | null;
   /** Index of this group's order within the player's issued move orders; null when none (voting tiebreak and pass-I order). */
   moveSeq: number | null;
+  movesTwice: boolean;
 }
 
 export interface Structure {

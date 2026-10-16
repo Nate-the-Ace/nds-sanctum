@@ -34,7 +34,7 @@ function botMove(e: Engine, g: Group): Dir | null {
   return card?.bot ? card.bot(makeQuery(e, g.owner), g.id) : null;
 }
 
-function canEnterSquare(e: Engine, g: Group, dest: Pos): boolean {
+export function canEnterSquare(e: Engine, g: Group, dest: Pos): boolean {
   const s = e.state;
   if (!s.cells.includes(key(dest))) return false;
   if (!groupCanEnter(e, g, s.terrain[key(dest)])) return false;
@@ -154,15 +154,9 @@ function resolveStacks(e: Engine, tracks: Tracks): void {
   }
 }
 
-/**
- * The movement phase (rules: Pipelines/movement). Reads `moveOrder` from every group, then clears it.
- * Pass I moves everyone ignoring the stacking limit; pass II resolves each overstacked square.
- */
-export function runMovement(e: Engine): void {
+/** One movement pass: pass I (every group, or only those in `only`), pass II stacking, then notifications. */
+function movePass(e: Engine, only?: Set<number>): void {
   const s = e.state;
-  dispatch(e, 'movement:before');
-  for (const g of Object.values(s.groups)) if (g.control === 'computer') g.moveOrder = botMove(e, g);
-
   const list: Group[] = [];
   for (const p of sequence(s)) {
     const mine = s.groupSeq[p].map((id) => s.groups[id]).filter((g): g is Group => !!g && g.pos !== null);
@@ -176,6 +170,7 @@ export function runMovement(e: Engine): void {
 
   for (const g of list) {
     if (!g.moveOrder || !g.pos) continue;
+    if (only && !only.has(g.id)) continue;
     if (g.owner === 'neutral' && g.control === 'player') continue;
     const dest = step(g.pos, g.moveOrder);
     if (!canEnterSquare(e, g, dest)) continue;
@@ -188,9 +183,25 @@ export function runMovement(e: Engine): void {
     const cur = s.groups[g.id];
     if (cur) notify(e, cur, trackOf(tracks, cur));
   }
+}
+
+/**
+ * The movement phase (rules: Pipelines/movement). Reads `moveOrder` from every group, then clears it.
+ * Groups with `movesTwice` repeat their order in a second pass after "after movement" effects.
+ */
+export function runMovement(e: Engine): void {
+  const s = e.state;
+  dispatch(e, 'movement:before');
+  for (const g of Object.values(s.groups)) if (g.control === 'computer') g.moveOrder = botMove(e, g);
+  movePass(e);
+  dispatch(e, 'movement:after');
+  const again = new Set(
+    Object.values(s.groups).filter((g) => g.movesTwice && g.moveOrder !== null).map((g) => g.id),
+  );
+  if (again.size > 0) movePass(e, again);
   for (const g of Object.values(s.groups)) {
     g.moveOrder = null;
     g.moveSeq = null;
+    g.movesTwice = false;
   }
-  dispatch(e, 'movement:after');
 }

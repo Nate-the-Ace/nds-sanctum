@@ -138,6 +138,7 @@ export function resolveTurn(e: Engine): void {
   for (const g of Object.values(s.groups)) {
     g.moveOrder = null;
     g.moveSeq = null;
+    g.movesTwice = false;
   }
   for (const side of SIDES) {
     orders[side].move.forEach((mo, i) => {
