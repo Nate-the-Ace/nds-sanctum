@@ -37,6 +37,8 @@ export interface EventContext extends QueryContext {
   random(): number;
   /** Marks the current event cancelled (`event.data.cancel = true`). */
   cancel(): void;
+  /** Ends the current combat (the group "withdraws"). Valid in `combat:start` and `round:start` handlers. */
+  endCombat(): void;
   token(name: string): number;
   setToken(name: string, value: number): void;
   /** Adds mana to a player's pool for this turn. Use from a `mana:generate` handler. */
@@ -96,6 +98,9 @@ export function makeCtx(e: Engine, spell: ActiveSpell, event?: GameEvent): Event
     random: () => nextRandom(e.state),
     cancel: () => {
       if (event) event.data.cancel = true;
+    },
+    endCombat: () => {
+      if (event) event.data.endCombat = true;
     },
     addMana: (side, mana, amount) => {
       e.state.players[side].mana[mana] += amount;

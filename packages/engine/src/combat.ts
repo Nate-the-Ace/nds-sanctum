@@ -59,7 +59,7 @@ function chooseWisely(e: Engine, m: Minion, enemyGid: number): Minion | null {
   return keyed[0].x;
 }
 
-function startRound(e: Engine, hiId: number, loId: number, round: number): void {
+function startRound(e: Engine, hiId: number, loId: number, round: number): boolean {
   const s = e.state;
   for (const gid of [hiId, loId]) {
     for (const m of minionsOf(s, gid)) {
@@ -71,7 +71,13 @@ function startRound(e: Engine, hiId: number, loId: number, round: number): void 
       if (round === 1) m.combat.misses = FIRST_HIT;
     }
   }
-  for (const gid of [hiId, loId]) if (s.groups[gid]) dispatch(e, 'round:start', { kind: 'group', id: gid }, { round });
+  let ended = false;
+  for (const gid of [hiId, loId]) {
+    if (!s.groups[gid]) continue;
+    const ev = dispatch(e, 'round:start', { kind: 'group', id: gid }, { round });
+    if (ev.data.endCombat) ended = true;
+  }
+  return ended;
 }
 
 function chooseVictims(e: Engine, hiId: number, loId: number, round: number): void {
@@ -161,13 +167,17 @@ export function fight(e: Engine, hiId: number, loId: number): void {
   const alive = (id: number) => !!s.groups[id] && s.groups[id].pos !== null;
   const stillHostile = () => alive(hiId) && alive(loId) && hostile(s.groups[hiId], s.groups[loId]);
   s.log.push({ type: 'combat', hi: hiId, lo: loId });
-  for (const id of [hiId, loId]) dispatch(e, 'combat:start', { kind: 'group', id }, { opponent: id === hiId ? loId : hiId });
+  let ended = false;
+  for (const id of [hiId, loId]) {
+    const ev = dispatch(e, 'combat:start', { kind: 'group', id }, { opponent: id === hiId ? loId : hiId });
+    if (ev.data.endCombat) ended = true;
+  }
   for (const gid of [hiId, loId]) {
     for (const m of minionsOf(s, gid)) m.combat = { armor: 0, handLeft: 0, missileLeft: 0, misses: FIRST_HIT, victim: null };
   }
   for (let round = 1; round <= RULES.combatRounds; round++) {
-    if (!stillHostile()) break;
-    startRound(e, hiId, loId, round);
+    if (ended || !stillHostile()) break;
+    if (startRound(e, hiId, loId, round)) break;
     if (!stillHostile()) break;
     chooseVictims(e, hiId, loId, round);
     attackPhase(e, hiId, loId, round);
@@ -180,7 +190,11 @@ export function fight(e: Engine, hiId: number, loId: number): void {
 /** Combat phase: every orthogonally adjacent hostile pair fights once; the group with precedence picks the fight. */
 export function runCombats(e: Engine): void {
   const s = e.state;
-  dispatch(e, 'combat:before');
+  const before = dispatch(e, 'combat:before');
+  if (before.data.cancel) {
+    dispatch(e, 'turn:afterCombat');
+    return;
+  }
   for (const p of sequence(s)) {
     for (const gid of [...s.groupSeq[p]]) {
       for (const dir of FIGHT_ORDER) {
