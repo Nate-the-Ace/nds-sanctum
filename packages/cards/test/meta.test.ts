@@ -6,7 +6,7 @@ import { allCards, cardData, cardIndex, pendingCards, playableCards } from '../s
 function expectedTarget(castOn: string): TargetType | null {
   const s = castOn.toLowerCase();
   if (/^(friendly )?recruit group/.test(s)) return 'recruitGroup';
-  if (/^group\b/.test(s)) return 'group';
+  if (/^(non-friendly )?group\b/.test(s)) return 'group';
   if (/^(friendly )?(swordsman|archer|recruit)\b/.test(s)) return 'recruit';
   if (/^globe\b/.test(s)) return 'globe';
   if (/^(square|forest|plains|mountain|volcano)\b/.test(s)) return 'square';

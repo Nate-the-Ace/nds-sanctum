@@ -28,6 +28,8 @@ import forcedMarch from './forcedMarch';
 import amok from './amok';
 import armistice from './armistice';
 import skirmish from './skirmish';
+import fogOfWar from './fogOfWar';
+import loneWolf from './loneWolf';
 
 export const warCards: CardDef[] = [
   flamingSword, bloodlust, legionnaires, ngozisWay, palisade, warDrums, swashbuckler,
@@ -38,4 +40,5 @@ export const warCards: CardDef[] = [
   pointOfClarity, callToArms,
   forcedMarch, amok,
   armistice, skirmish,
+  fogOfWar, loneWolf,
 ];

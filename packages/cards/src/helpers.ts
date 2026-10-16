@@ -1,4 +1,7 @@
-import type { EventContext, GameEvent, Minion, Pos, QueryContext, Ref, TerrainId } from '@sanctum/engine';
+import type { EventContext, GameEvent, Minion, Pos, QueryContext, Ref, TargetType, TerrainId } from '@sanctum/engine';
+
+export const GROUP_TARGETS: TargetType[] = ['recruitGroup', 'monsterGroup', 'group'];
+export const INDIVIDUAL_TARGETS: TargetType[] = ['recruit', 'monster', 'minion'];
 
 export const ADJACENT: Pos[] = [{ x: 1, y: 0 }, { x: -1, y: 0 }, { x: 0, y: 1 }, { x: 0, y: -1 }];
 

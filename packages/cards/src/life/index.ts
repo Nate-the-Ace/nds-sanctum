@@ -25,6 +25,13 @@ import standoff from './standoff';
 import liennasSteed from './liennasSteed';
 import liennasSigil from './liennasSigil';
 import strategicWithdrawals from './strategicWithdrawals';
+import adrielsGlamour from './adrielsGlamour';
+import adrielsPromise from './adrielsPromise';
+import adrielsMantle from './adrielsMantle';
+import individualism from './individualism';
+import seelieFavor from './seelieFavor';
+import courtPolitics from './courtPolitics';
+import courtPoliticsII from './courtPoliticsII';
 
 export const lifeCards: CardDef[] = [
   caravan, flight, cleansingLight, pyx, healingHands, oasis, wellspring,
@@ -34,4 +41,5 @@ export const lifeCards: CardDef[] = [
   auraOfWorld, ringOfLight,
   standoff, liennasSteed,
   liennasSigil, strategicWithdrawals,
+  adrielsGlamour, adrielsPromise, adrielsMantle, individualism, seelieFavor, courtPolitics, courtPoliticsII,
 ];

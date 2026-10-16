@@ -30,7 +30,6 @@ once-per-game rule for heroes.
 
 ## E2. Maximum hit points as a stat (6)
 Needs: `StatDelta.maxHp` and "+N maximum and current hit points" on cast.
-- Lone Wolf (War)
 
 ## E3. Mana generation (4)
 Needs: `ctx.addMana(side, type, n)` during the mana step of start of turn.
@@ -49,13 +48,6 @@ Needs: `ctx.createSpell(card, owner, host)` for engine-cast spells (Thermite Dam
 
 ## E7. Casting and targeting restrictions (7)
 Needs: spells that squander other spells (globe/group/structure bans), untargetable groups, global concealment.
-- Fog of War (War)
-- Adriel's Glamour (Life)
-- Adriel's Mantle (Life)
-- Adriel's Promise (Life)
-- Court Politics (Life)
-- Individualism (Life)
-- Seelie Favor (Life)
 
 ## E8. Initiative and structures (6)
 Needs: `ctx.setInitiative`, create/destroy/move structures, colonies, hidden structures.
