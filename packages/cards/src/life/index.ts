@@ -32,6 +32,10 @@ import individualism from './individualism';
 import seelieFavor from './seelieFavor';
 import courtPolitics from './courtPolitics';
 import courtPoliticsII from './courtPoliticsII';
+import clandestine from './clandestine';
+import greymantle from './greymantle';
+import auberolsGrace from './auberolsGrace';
+import graceOfAuberol from './graceOfAuberol';
 
 export const lifeCards: CardDef[] = [
   caravan, flight, cleansingLight, pyx, healingHands, oasis, wellspring,
@@ -42,4 +46,5 @@ export const lifeCards: CardDef[] = [
   standoff, liennasSteed,
   liennasSigil, strategicWithdrawals,
   adrielsGlamour, adrielsPromise, adrielsMantle, individualism, seelieFavor, courtPolitics, courtPoliticsII,
+  clandestine, greymantle, auberolsGrace, graceOfAuberol,
 ];
