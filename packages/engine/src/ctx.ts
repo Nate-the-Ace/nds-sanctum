@@ -1,4 +1,6 @@
 import { key } from './board';
+import { applyDamage } from './damage';
+import { killMinion } from './death';
 import type { Engine } from './engine';
 import type { GameEvent } from './events';
 import { groupAt, hostile, minionsOf, structureAt } from './query';
@@ -31,6 +33,11 @@ export interface EventContext extends QueryContext {
   cancel(): void;
   token(name: string): number;
   setToken(name: string, value: number): void;
+  /** Magical spell damage (ignores armor by default). Nobody is blamed, so a death is a "dies" death. */
+  damage(minionId: number, amount: number, opts?: { ignoresArmor?: boolean }): void;
+  heal(minionId: number, amount: number): void;
+  /** Instant death ("dies" category). */
+  kill(minionId: number): void;
 }
 
 export function makeQuery(e: Engine, caster: PlayerId): QueryContext {
@@ -63,6 +70,14 @@ export function makeCtx(e: Engine, spell: ActiveSpell, event?: GameEvent): Event
     token: (name) => spell.tokens[name] ?? 0,
     setToken: (name, value) => {
       spell.tokens[name] = value;
+    },
+    damage: (id, amount, opts) => applyDamage(e, id, amount, opts),
+    heal: (id, amount) => {
+      const m = e.state.minions[id];
+      if (m && m.status !== 'dead') m.hp = Math.min(m.maxHp, m.hp + Math.max(0, amount));
+    },
+    kill: (id) => {
+      killMinion(e, id, null, 'dies');
     },
   };
 }
