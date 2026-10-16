@@ -4,7 +4,10 @@ import { dirname, join } from 'node:path';
 import { parseCard, parseHouseList } from './parse.mjs';
 
 const BASE = 'http://playsanctum.net/cards';
-const HOUSE_IDS = { war: 11, life: 2 };
+const HOUSE_IDS = {
+  making: 1, life: 2, hope: 3, nature: 4, justice: 5, body: 6, unmaking: 7, death: 8, despair: 9, abomination: 10, war: 11, mind: 12,
+};
+const PER_HOUSE = process.argv.includes('--per-house');
 const DELAY_MS = 250;
 const OUT = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'packages', 'cards', 'data', 'cards.json');
 
@@ -16,8 +19,8 @@ async function get(url) {
   return new TextDecoder('latin1').decode(await res.arrayBuffer());
 }
 
-const wanted = process.argv.slice(2);
-const houses = wanted.length ? wanted : Object.keys(HOUSE_IDS);
+const wanted = process.argv.slice(2).filter((a) => !a.startsWith('--'));
+const houses = wanted.length ? wanted : ['war', 'life'];
 const cards = [];
 for (const house of houses) {
   if (!HOUSE_IDS[house]) throw new Error(`unknown house "${house}" (known: ${Object.keys(HOUSE_IDS).join(', ')})`);
@@ -31,6 +34,17 @@ for (const house of houses) {
   }
 }
 cards.sort((a, b) => a.house.localeCompare(b.house) || a.name.localeCompare(b.name));
-await mkdir(dirname(OUT), { recursive: true });
-await writeFile(OUT, JSON.stringify(cards, null, 2) + '\n', 'utf8');
-console.log(`wrote ${cards.length} cards to ${OUT}`);
+if (PER_HOUSE) {
+  // One file per house under data/houses/, so houses can be scraped independently (cards.json stays War + Life).
+  const dir = join(dirname(OUT), 'houses');
+  await mkdir(dir, { recursive: true });
+  for (const house of houses) {
+    const mine = cards.filter((c) => c.house === house);
+    await writeFile(join(dir, `${house}.json`), JSON.stringify(mine, null, 2) + '\n', 'utf8');
+    console.log(`wrote ${mine.length} ${house} cards to ${join(dir, `${house}.json`)}`);
+  }
+} else {
+  await mkdir(dirname(OUT), { recursive: true });
+  await writeFile(OUT, JSON.stringify(cards, null, 2) + '\n', 'utf8');
+  console.log(`wrote ${cards.length} cards to ${OUT}`);
+}

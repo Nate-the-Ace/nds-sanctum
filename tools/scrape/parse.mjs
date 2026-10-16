@@ -1,5 +1,7 @@
 /** Mana images seen on playsanctum.net card pages. Unknown numbers throw so a new house cannot be mis-scraped. */
-export const MANA_BY_IMAGE = { '02': 'strife', '03': 'clarity', '06': 'world' };
+export const MANA_BY_IMAGE = {
+  '01': 'order', '02': 'strife', '03': 'clarity', '04': 'mystery', '05': 'will', '06': 'world',
+};
 
 const HOUSES = new Set([
   'abomination', 'body', 'death', 'despair', 'hope', 'justice', 'life', 'making', 'mind', 'nature', 'unmaking', 'war',
