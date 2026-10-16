@@ -39,12 +39,12 @@ export function takeDamage(
   return v.hp > 0 ? 'damaged' : 'killed';
 }
 
-/** Spell/terrain damage: magical by default, nobody to blame, death is a "dies" death. */
-export function applyDamage(e: Engine, victimId: number, qty: number, opts: { ignoresArmor?: boolean } = {}): void {
+/** Spell/terrain damage: magical by default (ignores armor); `{ magical: false }` respects armor and fires beforeArmor handlers, nobody to blame, death is a "dies" death. */
+export function applyDamage(e: Engine, victimId: number, qty: number, opts: { magical?: boolean } = {}): void {
   const s = e.state;
   const v = s.minions[victimId];
   if (!v || v.status === 'dead') return;
   if (s.groups[v.groupId]?.pos == null) return;
-  const res = takeDamage(e, victimId, qty, { kind: 'spell', ignoresArmor: opts.ignoresArmor ?? true, magical: true }, null);
+  const res = takeDamage(e, victimId, qty, { kind: 'spell', magical: opts.magical ?? true, ignoresArmor: opts.magical ?? true }, null);
   if (res === 'killed') killMinion(e, victimId, null, 'dies');
 }

@@ -70,6 +70,15 @@ describe('takeDamage', () => {
 });
 
 describe('applyDamage and death', () => {
+  it('applyDamage({ magical:false }) respects armor; the default ignores it', () => {
+    const a = fresh();
+    applyDamage(a.e, a.m.id, 2, { magical: false });
+    expect(a.m.hp).toBe(6);
+    const b = fresh();
+    applyDamage(b.e, b.m.id, 2);
+    expect(b.m.hp).toBe(5);
+  });
+
   it('spell damage kills, buries and empties the group', () => {
     const { e, g, m } = fresh();
     applyDamage(e, m.id, 20);

@@ -37,8 +37,8 @@ export interface EventContext extends QueryContext {
   cancel(): void;
   token(name: string): number;
   setToken(name: string, value: number): void;
-  /** Magical spell damage (ignores armor by default). Nobody is blamed, so a death is a "dies" death. */
-  damage(minionId: number, amount: number, opts?: { ignoresArmor?: boolean }): void;
+  /** Spell damage. Magical by default (ignores armor); pass `{ magical: false }` for damage that respects armor and fires beforeArmor handlers. Nobody is blamed, so a death is a "dies" death. */
+  damage(minionId: number, amount: number, opts?: { magical?: boolean }): void;
   heal(minionId: number, amount: number): void;
   /** Instant death ("dies" category). */
   kill(minionId: number): void;
