@@ -57,4 +57,22 @@ describe('Faerie Glade', () => {
     expect(stats(e, friend).level).toBe(1);
     expect(stats(e, far).level).toBe(1);
   });
+  it('does not stack when cast twice', () => {
+    const e = world();
+    for (const k of ['4,4', '5,4']) e.state.terrain[k] = 'forest';
+    expect(cast(e, 'red', 'faerie-glade', sref(4, 4))).toBe('cast');
+    expect(cast(e, 'red', 'faerie-glade', sref(4, 4))).toBe('cast');
+    expect(countOf(e, 'faerie-glade-square')).toBe(2);
+    const enemy = put(e, 'blue', { x: 5, y: 4 }, ['swordsman']).minionIds[0];
+    expect(stats(e, enemy).level).toBe(0);
+  });
+  it('a square stops lowering levels once it is no longer forest', () => {
+    const e = world();
+    for (const k of ['4,4', '5,4']) e.state.terrain[k] = 'forest';
+    cast(e, 'red', 'faerie-glade', sref(4, 4));
+    cast(e, 'red', 'plains', sref(5, 4));
+    expect(countOf(e, 'faerie-glade-square')).toBe(1);
+    const enemy = put(e, 'blue', { x: 5, y: 4 }, ['swordsman']).minionIds[0];
+    expect(stats(e, enemy).level).toBe(1);
+  });
 });
