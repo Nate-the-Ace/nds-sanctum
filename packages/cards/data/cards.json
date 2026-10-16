@@ -1,0 +1,1509 @@
+[
+  {
+    "sid": 548,
+    "name": "Adriel's Glamour",
+    "slug": "adriels-glamour",
+    "house": "life",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 2,
+      "world": 1
+    },
+    "flavor": "\"We were sore afraid at this intelligence, and raged. We cried: 'How could even foul Khobai plan to slay an entire land!' But our Lady smiled sweetly, and said: 'What he cannot Find, he cannot Slay.'\" -- Theriel of Caenedor",
+    "text": "Cast on globe. Neither player may cast any globe spells. (This squanders all subsequent globe spells cast this turn.) Duration: Turn of casting +4.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 862,
+    "name": "Adriel's Mantle",
+    "slug": "adriels-mantle",
+    "house": "life",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 2,
+      "world": 1
+    },
+    "flavor": "Adriel ventured into the world with her followers, but was not rash enough to be a target.",
+    "text": "Cast on group. Group and its members cannot be targeted by any group spells or individual spells. Duration: Turn of casting +1.",
+    "castOn": "group"
+  },
+  {
+    "sid": 1048,
+    "name": "Adriel's Promise",
+    "slug": "adriels-promise",
+    "house": "life",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 3,
+      "world": 2
+    },
+    "flavor": null,
+    "text": "Cast on globe. Neither player may cast any structure spells. (This squanders all subsequent structure spells cast this turn.) Duration: Turn of casting +7.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 681,
+    "name": "Allies",
+    "slug": "allies",
+    "house": "life",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 4,
+      "world": 3
+    },
+    "flavor": "\"The pounding of the battering rams stopped, and then we heard the trills of trumpets. And we knew that our friends had arrived.\" -- Joden Flightweaver on the Siege at Trokain",
+    "text": "Cast on friendly town or colony. Creates two Elf novices in town.",
+    "castOn": "friendly town or colony"
+  },
+  {
+    "sid": 543,
+    "name": "Arboriads",
+    "slug": "arboriads",
+    "house": "life",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 3,
+      "world": 2
+    },
+    "flavor": "\"Oh, they're excellent sentries and skirmish fighters, but it's all a game to them. They're always laughing that same silvery laugh, whether they're entertaining Lord Auberol or picking off Khobai's patrols ...\" -- Seelie court gossip",
+    "text": "H:3 A:1 HP:7(x2) L:1 Cast on globe. Creates two Arboriads off the board. Before combat, they appear in forest adjacent to a non-friendly recruit group. After all combat, they disappear again. They get +4 hand damage against Death minions. Dispelled when killed. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 863,
+    "name": "Auberol's Grace",
+    "slug": "auberols-grace",
+    "house": "life",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 6,
+      "world": 1
+    },
+    "flavor": "After defeating Bes-Kandar, Auberol made a rare sojurn from the Court to the small colonies that had supported the war, and granted them full autonomy from the affairs of the court.",
+    "text": "Cast on town or colony. Colony becomes town. Every recruit created in town gets Grace of Auberol (+4 maximum and current hit points).",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 286,
+    "name": "Aura of World",
+    "slug": "aura-of-world",
+    "house": "life",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 4
+    },
+    "flavor": "Through clarity of purpose, and openness of heart, the Elven mage embraces the fullness of the world, as the warm night embraces the firelit dance in a midsummer's grove.",
+    "text": "Cast on globe. Caster gets +1 World each turn. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 411,
+    "name": "Bard",
+    "slug": "bard",
+    "house": "life",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 4,
+      "world": 2
+    },
+    "flavor": "An Elven bard can stir great valor from the troops. Is it the music or the thought of being immortalized in song that drives them so?",
+    "text": "H:0 A:3 HP:7 L:1 Cast on recruit group. Creates an Elven swordsman. Bard does not deal hand or missile damage. Other swordsmen in Bard's group get +1 hand damage.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 864,
+    "name": "Cadre",
+    "slug": "cadre",
+    "house": "life",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 2,
+      "world": 1
+    },
+    "flavor": "\"Everyone fire at Will!\"",
+    "text": "Cast on recruit group with archers. Archers in group get +1 missile damage against swordsmen.",
+    "castOn": "recruit group with archers"
+  },
+  {
+    "sid": 199,
+    "name": "Caravan",
+    "slug": "caravan",
+    "house": "life",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 1
+    },
+    "flavor": "\"The driver knew the secrets of desert. The scarred man led the line of animals and men through the night, avoiding even the most devious of pitfalls.\" -- Journal of Lienna: Volume XI",
+    "text": "Cast on recruit group. Group gains Desertwalk. (Group takes no damage from desert.)",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 865,
+    "name": "Clandestine",
+    "slug": "clandestine",
+    "house": "life",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 3,
+      "world": 2
+    },
+    "flavor": "\"When conducting secret affairs, one needs to be unseen.\" -- Theriel of Casnedor's suspicious comments to Auberol",
+    "text": "Cast on town or colony. Every recruit created in town gets Greymantle (recruit is concealed). Duration: Turn of casting +4.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 148,
+    "name": "Cleansing Light",
+    "slug": "cleansing-light",
+    "house": "life",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 4
+    },
+    "flavor": "\"I felt the power seep from my bones as we looked to the sky to see the source of the light. Only afterwards did we realize that both our gifts were gone.\" -- Elven captain",
+    "text": "Cast on group. Dispels all group and individual spells on group.",
+    "castOn": "group"
+  },
+  {
+    "sid": 1049,
+    "name": "Court Politics",
+    "slug": "court-politics",
+    "house": "life",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 3,
+      "world": 3
+    },
+    "flavor": null,
+    "text": "Cast on globe. Caster cannot cast any group spells on friendly groups, or individual spells on friendly minions. Duration: Turn of casting +2. On expiration, Court Politics II (caster gets +2 Clarity each turn) is cast on the globe. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 1050,
+    "name": "Day of Mourning",
+    "slug": "day-of-mourning",
+    "house": "life",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 4,
+      "world": 1
+    },
+    "flavor": null,
+    "text": "Cast on globe. Each time a recruit dies, the top card of its owner's deck is removed from the game. Duration: Turn of casting +4.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 866,
+    "name": "Elixir Vitae",
+    "slug": "elixir-vitae",
+    "house": "life",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 2,
+      "world": 2
+    },
+    "flavor": "This elixir is said to be distilled from Life itself. Its power is so great that a single drop is all that is needed.",
+    "text": "Cast on globe. Every recruit on the board gets Drop of Elixir Vitae (+6 maximum hit points). (Recruits that are off the board are not affected.)",
+    "castOn": "globe"
+  },
+  {
+    "sid": 672,
+    "name": "Elven Piper",
+    "slug": "elven-piper",
+    "house": "life",
+    "expansion": "Classic",
+    "rarity": "Very Rare",
+    "cost": {
+      "clarity": 1
+    },
+    "flavor": "\"Adriel's honor guard are beautifully attired, but that sound they make can be heard in distant Volgaria ...\" -- Ogi, Kingmaker",
+    "text": "Cast on recruit group. At start of combat, group plays bagpipe music.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 867,
+    "name": "Fae Gift",
+    "slug": "fae-gift",
+    "house": "life",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 3,
+      "world": 1
+    },
+    "flavor": "When the Fae leave the court they remain true to their beliefs and inflict healing on others.",
+    "text": "Cast on swordsman. Swordsman changes into an Elf. Swordsman's attacks now deal points of healing instead of points of damage (after checking armor normally).",
+    "castOn": "swordsman"
+  },
+  {
+    "sid": 868,
+    "name": "Fae Quadrille",
+    "slug": "fae-quadrille",
+    "house": "life",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 3,
+      "world": 2
+    },
+    "flavor": "\"The dance gives to the joy of life, but the grounds we dance upon are hallowed for that day.\" - MiKayla Serena, daughter of Auberol.",
+    "text": "Cast on square. On turn of casting only, all minions in the four adjacent squares are fully healed. Square cannot be entered. Duration: Turn of casting +1.",
+    "castOn": "square"
+  },
+  {
+    "sid": 220,
+    "name": "Faerie Circle",
+    "slug": "faerie-circle",
+    "house": "life",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 4,
+      "world": 2
+    },
+    "flavor": "\"Be aware of strange groupings of toadstools and mushrooms. The Fae use these subtle groupings as a gateway to their lands.\" -- Uyden's Handbook",
+    "text": "Cast on forest. At start of turn, group in square disappears for current turn +1-5. Every member of group is fully healed and gets Faerie Blessing (+1 level, and group cannot re-enter Faerie Circle). (Group reappears at start of turn if its square is unoccupied, or on the earliest turn thereafter.)",
+    "castOn": "forest"
+  },
+  {
+    "sid": 30,
+    "name": "Faerie Fire",
+    "slug": "faerie-fire",
+    "house": "life",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 3
+    },
+    "flavor": "\"Flee! The arrows sting with light! And we are lost!\" -- Bilegnash Tarboil, Imp",
+    "text": "Cast on recruit group with archers. Archers in group get +2 missile damage. Dispelled after next combat.",
+    "castOn": "recruit group with archers"
+  },
+  {
+    "sid": 1051,
+    "name": "Faerie Glade",
+    "slug": "faerie-glade",
+    "house": "life",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 3,
+      "world": 3
+    },
+    "flavor": null,
+    "text": "Cast on forest. Affects all contiguous forest squares. Enemy recruits in squares get -1 level.",
+    "castOn": "forest"
+  },
+  {
+    "sid": 708,
+    "name": "Faerie Knight",
+    "slug": "faerie-knight",
+    "house": "life",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 4,
+      "world": 1
+    },
+    "flavor": "\"Once in a great while the Fae choose a champion amongst us, to tell their stories and teach us of the ancient ages.\" -- Alicar, Elven bard",
+    "text": "Cast on recruit. Recruit gets +4 maximum and current hit points. Recruit receives no combat damage from recruits without enchantments (after checking armor).",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 547,
+    "name": "Filigreed Armor",
+    "slug": "filigreed-armor",
+    "house": "life",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 2,
+      "world": 1
+    },
+    "flavor": "\"While we have been able to create replicas, they do not have the properties of the original. This lends some credence to that upstart Fletcher's claim that the armor is grown by the Elves, not made ...\" -- Forgemaster Ulrik's report to Odar",
+    "text": "Cast on recruit. Recruit gets +1 armor. Recruit receives -1 damage from recruits without enchantments (before checking armor).",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 371,
+    "name": "Flight",
+    "slug": "flight",
+    "house": "life",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 3,
+      "world": 1
+    },
+    "flavor": "\"The archers turned in midair to offer us a hail of arrows; a deadly maneuver indeed.\" -- Turgan Qef, Kumatru Academy",
+    "text": "Cast on recruit group. Group gains Flight. (Group may cross any terrain, and is immune to adverse terrain effects.)",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 175,
+    "name": "Fountain of Youth",
+    "slug": "fountain-of-youth",
+    "house": "life",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 3,
+      "world": 1
+    },
+    "flavor": "Just a drop from the Fountain is said to remove the burdens (and the lessons) of the years.",
+    "text": "Cast on square. When group enters square, every member of group is fully healed, and gets Youth (-1 level). (Any minions who join this group later are not affected.)",
+    "castOn": "square"
+  },
+  {
+    "sid": 546,
+    "name": "Golden Grove",
+    "slug": "golden-grove",
+    "house": "life",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 3,
+      "world": 1
+    },
+    "flavor": "From a Keeper legionnaire's report: \"Then the sun rose, and the horror began. Everywhere awful white light, the nauseating scents of flowers, the unending noise of rushing water and a thousand flying and scurrying vermin enervated and confused us.\"",
+    "text": "Cast on plains. Monsters cannot enter or be targeted on square. At start of turn of casting +3, square matures and becomes forest. A mature Golden Grove generates 1 mana of its owner's choice, and is captured like a structure. Dispelled if terrain changes.",
+    "castOn": "plains"
+  },
+  {
+    "sid": 1052,
+    "name": "Greater Clarity",
+    "slug": "greater-clarity",
+    "house": "life",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 2
+    },
+    "flavor": null,
+    "text": "Cast on archer. Archer gets +T missile damage, where T is the number of tokens. Recursive (Starts with 1 token. When cast, a copy of this spell is added to your hand that costs +1 mana and has +1 token.)",
+    "castOn": "archer"
+  },
+  {
+    "sid": 13,
+    "name": "Healing Hands",
+    "slug": "healing-hands",
+    "house": "life",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 2
+    },
+    "flavor": "\"Then graceful Lady Adriel knelt to lay her golden hands upon me, and at once my agony was replaced by sweet peace.\" -- Theriel of Caenedor",
+    "text": "Cast on recruit. At start of turn, all members of group heal 1 hit point.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 442,
+    "name": "Incarnate",
+    "slug": "incarnate",
+    "house": "life",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 1
+    },
+    "flavor": "Elvish peasants often name their daughters Lienna in the hope of \"catching her spirit\". While the elite find this crass, the court, who know Lienna did not die, find it hilarious.",
+    "text": "Cast on recruit. When recruit dies, one new recruit of the same nation and class is created in the recruit owner's Sanctum. (If the recruit cannot be created this turn, it is lost.)",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 869,
+    "name": "Individualism",
+    "slug": "individualism",
+    "house": "life",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 3,
+      "world": 2
+    },
+    "flavor": null,
+    "text": "Cast on globe. Neither player may cast any group spells. (This squanders all subsequent group spells cast this turn.) Duration: Turn of casting +2.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 440,
+    "name": "Lienna",
+    "slug": "lienna",
+    "house": "life",
+    "expansion": "Bloodlines",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 4,
+      "world": 4
+    },
+    "flavor": "They sang her praises, and profited from the love she inspired in the people; but the Seelie court is a cloistered world, and they never truly trust an outsider.",
+    "text": "M:2 A:0 HP:7 L:2 Cast on recruit group in forest. Creates Lienna, an Elven Hero archer. While Lienna is in play, her caster's side has Initiative. (When Lienna leaves play, her caster's side does not automatically lose Initiative.) (Each Hero may be cast only once per game.)",
+    "castOn": "recruit group in forest"
+  },
+  {
+    "sid": 159,
+    "name": "Lienna's Sigil",
+    "slug": "liennas-sigil",
+    "house": "life",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 3
+    },
+    "flavor": "\"The beast's heart had always been clouded by rage. This life in you, I told it silently, is the same life as is in me.\" -- Journal of Lienna: Volume XII",
+    "text": "Cast on group. At start of combat against monsters, group withdraws, ending combat.",
+    "castOn": "group"
+  },
+  {
+    "sid": 870,
+    "name": "Lienna's Steed",
+    "slug": "liennas-steed",
+    "house": "life",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 2,
+      "world": 2
+    },
+    "flavor": "Astride my steed, I had little to fear. Though I will pass from the forest, my steed will live on along as the forests remain, and will help when needed. -- Journals of Lienna, Volume XXVI",
+    "text": "Cast on friendly recruit group. Group moves one square diagonally toward opponent's edge of the board. Group's movement orders are cancelled.",
+    "castOn": "friendly recruit group"
+  },
+  {
+    "sid": 26,
+    "name": "Oasis",
+    "slug": "oasis",
+    "house": "life",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 3,
+      "world": 1
+    },
+    "flavor": "\"At last we reached Shederef. One can hardly believe our folk live here, but hidden in the barren crevasses is a lush world of green.\" -- Journal of Lienna: Volume XI",
+    "text": "Cast on town or colony. The four squares adjacent to town become desert. (Desert causes 1 hit point of damage at start of turn unless group has Desertwalk.) At start of turn, recruits in town heal 1 hit point.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 713,
+    "name": "Pacifism",
+    "slug": "pacifism",
+    "house": "life",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 2,
+      "world": 1
+    },
+    "flavor": "\"To achieve the greatest respect for life is to give up any destruction of it.\" -- Lienna",
+    "text": "Cast on recruit. Recruit no longer attacks, and no longer deals hand or missile damage.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 223,
+    "name": "Prismatic Serpent",
+    "slug": "prismatic-serpent",
+    "house": "life",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 5,
+      "world": 3
+    },
+    "flavor": "Intelligent and graceful creatures, who rarely speak, and then never in prose.",
+    "text": "H:4 A:2 HP:12 L:2 Nomadic. Gets +4 hand damage against Death or Despair monsters. Cannot be targeted by Death or Despair individual spells.",
+    "castOn": null
+  },
+  {
+    "sid": 330,
+    "name": "Pyx",
+    "slug": "pyx",
+    "house": "life",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 1,
+      "world": 1
+    },
+    "flavor": "Cherished by troops in battle, the healing salve contained within has saved more than one Elven life.",
+    "text": "Cast on group. Every member of group is fully healed.",
+    "castOn": "group"
+  },
+  {
+    "sid": 544,
+    "name": "Questing Beast",
+    "slug": "questing-beast",
+    "house": "life",
+    "expansion": "Oppositions",
+    "rarity": "Very Rare",
+    "cost": {
+      "clarity": 4,
+      "world": 3
+    },
+    "flavor": "\"And seek you then that golden Hide To hang in Adriel's mighty Hall The Jape of mages and the Jewel of bards The Foil of our Lord Auberol\" -- The Fae Quadrille of Wyr",
+    "text": "H:3 A:1 HP:6 L:1 Nomadic. Neutral. Cast on recruit group. Creates Q.B. in a random square. Target group leaves player control, cannot join groups, create new recruits, or enter structures, and hunts this Q.B. until Q.B. leaves play. At start of combat, Q.B. dies unless free (*), ending combat. If target group causes this, its members get +1 level. Only one on a group.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 213,
+    "name": "Redeemer's Sword",
+    "slug": "redeemers-sword",
+    "house": "life",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 2,
+      "world": 1
+    },
+    "flavor": "\"These swords are infused with the life of the world itself. They are said to have been created in the time of the world's greatest need.\" -- Uyden's Handbook",
+    "text": "Cast on swordsman. Swordsman gets +2 hand damage, or +4 damage against Death or Despair monsters. Swordsman cannot be targeted by Death or Despair individual spells.",
+    "castOn": "swordsman"
+  },
+  {
+    "sid": 281,
+    "name": "Ring of Light",
+    "slug": "ring-of-light",
+    "house": "life",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "world": 5
+    },
+    "flavor": "Twenty-four summers are required for a full recitation of the Clarity Cycle, and the town so honored is sometimes hard-pressed to keep the Bards in luxury that long.",
+    "text": "Cast on town or colony. Ring of Light generates +2 Clarity for town owner each turn.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 545,
+    "name": "Seelie Champion",
+    "slug": "seelie-champion",
+    "house": "life",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 1,
+      "world": 1
+    },
+    "flavor": "\"His eyes were clear and golden, His voice rang like a bell, And at his throat a flower Of our Lady Adriel\" -- The Fae Quadrille of Wyr",
+    "text": "Cast on archer. Archer gets +1 missile damage for each subsequent alteration cast on archer.",
+    "castOn": "archer"
+  },
+  {
+    "sid": 603,
+    "name": "Seelie Court",
+    "slug": "seelie-court",
+    "house": "life",
+    "expansion": "Whispers",
+    "rarity": "Very Rare",
+    "cost": {
+      "clarity": 5,
+      "world": 4
+    },
+    "flavor": "When the Keeper Legions advanced upon the Court, Lord Auberol asked the Fae to hide it. They hid it well, and to this day the Court is difficult to visit.",
+    "text": "Cast on town (not colony). Town has all spells dispelled, and disappears. Town and square cannot be targeted by spells. At start of every 1-3 turns, town reappears if square is empty, or disappears again. Town generates mana and creates novices while gone.",
+    "castOn": "town (not colony)"
+  },
+  {
+    "sid": 871,
+    "name": "Seelie Favor",
+    "slug": "seelie-favor",
+    "house": "life",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 2,
+      "world": 2
+    },
+    "flavor": "May the shiny hag from the hated Court be tormented forever. Her malignant bewitchment has left us open to the ravages of the desert. Our honour in the face of the Silent Fathers has been lost.",
+    "text": "Cast on non-friendly group. Group cannot be targeted by group spells.",
+    "castOn": "non-friendly group"
+  },
+  {
+    "sid": 1053,
+    "name": "Spy at Court",
+    "slug": "spy-at-court",
+    "house": "life",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 1,
+      "world": 1
+    },
+    "flavor": null,
+    "text": "Cast on town or colony. At start of turn, Spy at Court tells its caster the top card of structure owner's deck. (Start of turn effects happen before card draws.)",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 1054,
+    "name": "Standoff",
+    "slug": "standoff",
+    "house": "life",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 3,
+      "world": 2
+    },
+    "flavor": null,
+    "text": "Cast on globe. All recruit groups' movement orders are cancelled, and they cannot be moved. Duration: Turn of casting +1.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 1055,
+    "name": "Strategic Withdrawals",
+    "slug": "strategic-withdrawals",
+    "house": "life",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 4,
+      "world": 1
+    },
+    "flavor": null,
+    "text": "Cast on globe. All groups withdraw at the start of combat round 7, ending combat.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 276,
+    "name": "Sylph",
+    "slug": "sylph",
+    "house": "life",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 6,
+      "world": 2
+    },
+    "flavor": "Summoned from the air itself, the Sylph glides placidly into battle. Her very essence is magical and those foolish enough to test her must wield magic or face certain doom.",
+    "text": "M:3(x2) A:0 HP:15 L:1 Territorial. Two attacks. Receives no combat damage from recruits without enchantments (after checking armor).",
+    "castOn": null
+  },
+  {
+    "sid": 409,
+    "name": "Terrain Bind",
+    "slug": "terrain-bind",
+    "house": "life",
+    "expansion": "Bloodlines",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 4,
+      "world": 2
+    },
+    "flavor": "\"'Ah, you do not love my Lady, Justicar,' a silver voice whispered from the trees. 'Then love the ground you stand on, and love it well.'\" -- Ballad of the Justicar",
+    "text": "Cast on group. Group cannot enter a terrain type different from the one it is currently in. Structures count as plains. Duration: Turn of casting +2.",
+    "castOn": "group"
+  },
+  {
+    "sid": 437,
+    "name": "Undine",
+    "slug": "undine",
+    "house": "life",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 2,
+      "world": 2
+    },
+    "flavor": "\"The voice sang that there was no death, that the water would enfold us in loving arms. Every man among us longed for that embrace.\" -- Dwarven scout's report",
+    "text": "H:2 A:0 HP:15 L:3 Immobile. Cast on water. Plains, forest, and desert in the four squares adjacent to Undine attract enemy-controlled groups. (Groups adjacent to attracting squares before movement must move toward one of them.) Undine dies if not in water. (Immobile monsters cannot be moved.)",
+    "castOn": "water"
+  },
+  {
+    "sid": 872,
+    "name": "Vivant",
+    "slug": "vivant",
+    "house": "life",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 5,
+      "world": 2
+    },
+    "flavor": "To heal is the way of the elves that venture from the Court. Gladly are their gifts accepted, even in battle.",
+    "text": "Cast on recruit. Recruit no longer attacks, and no longer deals hand or missile damage. At start of each combat round, the most damaged other recruit in Vivant's group heals 3 hit points. At start of turn, all members of group are fully healed.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 873,
+    "name": "Wellspring",
+    "slug": "wellspring",
+    "house": "life",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 4,
+      "world": 1
+    },
+    "flavor": null,
+    "text": "Cast on square. When recruit group enters square, all minions on the board are fully healed, and Wellspring is dispelled. (Minions that are off the board are not affected.)",
+    "castOn": "square"
+  },
+  {
+    "sid": 549,
+    "name": "Yeoman",
+    "slug": "yeoman",
+    "house": "life",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 2,
+      "world": 1
+    },
+    "flavor": "The Fainne Ealith of Wyr, \"those who kill Death\", serve the Court in deserts and bogs far from Arboria. They are fierce, adaptable, and more gregarious than most Seelie folk. Dwarven brides are often chosen from their ranks.",
+    "text": "Cast on archer. Archer gets +1 missile damage, and its missile damage becomes magical. (Magical damage ignores armor, immunities, and spells.) When archer hits a Keeper, Keeper dies and Yeoman is dispelled.",
+    "castOn": "archer"
+  },
+  {
+    "sid": 56,
+    "name": "Amok",
+    "slug": "amok",
+    "house": "war",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 4,
+      "clarity": 3
+    },
+    "flavor": "Among humans, the state of Amok is considered almost holy. Lieutenants of War maintain that sheer berserker rage can often accomplish more than cool strategy.",
+    "text": "Cast on recruit group. Group moves twice this turn in its direction of travel. A player- controlled group moves in a random legal direction.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 583,
+    "name": "Armistice",
+    "slug": "armistice",
+    "house": "war",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 4,
+      "clarity": 4
+    },
+    "flavor": "\"Peace is an excellent ploy.\" -- Ngozi, the Book of War",
+    "text": "Cast on globe. No group enters combat. (This prevents all start-of-combat effects as well.) Duration: Turn of casting +2.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 222,
+    "name": "Berserker Blade",
+    "slug": "berserker-blade",
+    "house": "war",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 2,
+      "clarity": 2
+    },
+    "flavor": "When the rage is on him, a human soldier is said to be \"steeped in blood\". They say in his rage Khulainn spouted fire from his head thirty feet into the sky.",
+    "text": "Cast on swordsman. When swordsman is hit in combat, swordsman gets +1 hand damage, cumulative, until end of combat.",
+    "castOn": "swordsman"
+  },
+  {
+    "sid": 52,
+    "name": "Berserkers",
+    "slug": "berserkers",
+    "house": "war",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 3
+    },
+    "flavor": "\"They cut through our ranks of soldiers with fearsome speed, their eyes rolling madly in their blood-spattered faces, drunk with rage.\" -- Account of an Elven archer, Battle of Thurmagol",
+    "text": "Cast on recruit group. When any member of group dies in combat, all other members of group get +1 hand damage per casualty, to a maximum of +3, until end of combat.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 584,
+    "name": "Bloodlust",
+    "slug": "bloodlust",
+    "house": "war",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "strife": 2,
+      "clarity": 1
+    },
+    "flavor": "\"His eyeballs bulged / and filled with blood. / His hair stood straight, / and as he spun in rage, / his scream tore every heart in twain\" -- Epic poem, Vrathi tribe",
+    "text": "Cast on swordsman. Swordsman gets +1 attack each round.",
+    "castOn": "swordsman"
+  },
+  {
+    "sid": 1089,
+    "name": "Book of War",
+    "slug": "book-of-war",
+    "house": "war",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "strife": 4,
+      "clarity": 4
+    },
+    "flavor": null,
+    "text": "Cast on globe. When any recruit kills any opponents by combat damage, recruit gets +1 level at start of next turn (regardless of the number of kills). (The maximum recruit level is 5.)",
+    "castOn": "globe"
+  },
+  {
+    "sid": 327,
+    "name": "Brimstone Dragon",
+    "slug": "brimstone-dragon",
+    "house": "war",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 6,
+      "clarity": 3
+    },
+    "flavor": "\"This Fire Lizard makes its home in the hellmouth of the volcano. A symbol of power among Humans, much used in their Heraldry.\" -- Dwarven Field Guide to the Major Monstrosities",
+    "text": "H:4 A:1 HP:16 L:2 Territorial, Flight. Cast on mountain or volcano. At start of combat, casts Fireball (5 hit points of damage) on opposing group.",
+    "castOn": "mountain or volcano"
+  },
+  {
+    "sid": 279,
+    "name": "Call to Arms",
+    "slug": "call-to-arms",
+    "house": "war",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 5
+    },
+    "flavor": "\"A nation once again, A nation once again ...\" -- Battle-Hymn of Valgrave",
+    "text": "Cast on town or colony. Call to Arms generates +2 Strife for town owner each turn.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 1090,
+    "name": "Cannon",
+    "slug": "cannon",
+    "house": "war",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "strife": 4,
+      "clarity": 1
+    },
+    "flavor": null,
+    "text": "Cast on globe. At start of combat, if friendly group has at least one Human archer, Cannon inflicts 1 hit point of damage on each member of opposing group.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 1091,
+    "name": "Challenge",
+    "slug": "challenge",
+    "house": "war",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "strife": 2,
+      "clarity": 2
+    },
+    "flavor": null,
+    "text": "Cast on globe. The player who owns the recruit with highest level among all recruits on the board gains Initiative. (Recruits off the board are not considered.) If two or more players tie with highest recruit level, Initiative does not change.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 1092,
+    "name": "Decoy",
+    "slug": "decoy",
+    "house": "war",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 4,
+      "clarity": 2
+    },
+    "flavor": null,
+    "text": "H:0 A:3 HP:7 L:1 Cast on friendly recruit group. Creates a Human swordsman. Decoy gets +2 armor. Decoy does not attack, nor deal hand or missile damage. In combat, all enemy archers, and all unpaired enemy non-archers, must attack Decoy. Only one in a group.",
+    "castOn": "friendly recruit group"
+  },
+  {
+    "sid": 1093,
+    "name": "Defensive Pact",
+    "slug": "defensive-pact",
+    "house": "war",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 5,
+      "clarity": 4
+    },
+    "flavor": null,
+    "text": "Cast on friendly recruit group. A random friendly town or colony on the board is destroyed, and a friendly colony is created in group's square. (Structures that are off the board are not considered.)",
+    "castOn": "friendly recruit group"
+  },
+  {
+    "sid": 432,
+    "name": "Dragon Slayer",
+    "slug": "dragon-slayer",
+    "house": "war",
+    "expansion": "Bloodlines",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 3,
+      "clarity": 1
+    },
+    "flavor": "Khulainn, the great hero of the Northern Nations, slew an ancient Obsidian Dragon at Olmstead. To this day, \"Son of Khulainn\" is a title of respect conferred upon great archers.",
+    "text": "Cast on archer. When archer damages a monster, monster is killed.",
+    "castOn": "archer"
+  },
+  {
+    "sid": 116,
+    "name": "Dragon's Teeth",
+    "slug": "dragons-teeth",
+    "house": "war",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 3,
+      "clarity": 3
+    },
+    "flavor": "In the Song of Khulainn, the hero sowed dragon's teeth on the site of what is now Olmstead Marsh, and a host of new soldiers sprang up from the clay.",
+    "text": "H:2 A:1 HP:*(x2) L:1 Cast on friendly town or colony. Creates two level 1 swordsmen of random nations.",
+    "castOn": "friendly town or colony"
+  },
+  {
+    "sid": 582,
+    "name": "Encampment",
+    "slug": "encampment",
+    "house": "war",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 3,
+      "clarity": 2
+    },
+    "flavor": "\"At last, I am back among my people for a little while. I met them by chance encamped in the high country, and I might have missed them but for the festival fires. Little Shara is grown into a beauty ...\" -- Diary of Vlad Hrothgar",
+    "text": "Cast on friendly recruit group of two or more not in a structure. Group disappears. Creates a friendly colony that does not generate novices and cannot be targeted by spells. On turn of casting +3, if not occupied, colony is destroyed and group reappears. If captured, target group is removed from the game.",
+    "castOn": "friendly recruit group of two or more not in a structure"
+  },
+  {
+    "sid": 918,
+    "name": "Field Surgery",
+    "slug": "field-surgery",
+    "house": "war",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 1,
+      "clarity": 1
+    },
+    "flavor": null,
+    "text": "Cast on friendly recruit group. All damaged members of group are fully healed, and get -1 maximum hit point.",
+    "castOn": "friendly recruit group"
+  },
+  {
+    "sid": 76,
+    "name": "Fireball",
+    "slug": "fireball",
+    "house": "war",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 4,
+      "clarity": 2
+    },
+    "flavor": "It starts as a spark, cupped in the Mage's hands...",
+    "text": "Cast on group. All members of group take five hit points of damage.",
+    "castOn": "group"
+  },
+  {
+    "sid": 919,
+    "name": "Firewyrm",
+    "slug": "firewyrm",
+    "house": "war",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 3,
+      "clarity": 2
+    },
+    "flavor": null,
+    "text": "H:2(x2) A:0 HP:12 L:1 Two attacks. Cast on globe. Creates Firewyrm off the board. Before combat, it appears in lava or barren land adjacent to a non-friendly group, and its square becomes lava. After all combat, it disappears again. Dispelled when killed. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 920,
+    "name": "Flaming Arrows",
+    "slug": "flaming-arrows",
+    "house": "war",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 2,
+      "clarity": 1
+    },
+    "flavor": null,
+    "text": "Cast on archer. Archer gets +3 missile damage against groups in a structure or forest. When archer hits opponent in forest, after all combat, opponent's square becomes barren land.",
+    "castOn": "archer"
+  },
+  {
+    "sid": 94,
+    "name": "Flaming Sword",
+    "slug": "flaming-sword",
+    "house": "war",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "strife": 2
+    },
+    "flavor": "\"The Flaming Sword is to be wielded by a great hero. Cowards will only burn themselves.\" -- Ngozi, The Book of War",
+    "text": "Cast on swordsman. Swordsman gets +2 hand damage.",
+    "castOn": "swordsman"
+  },
+  {
+    "sid": 921,
+    "name": "Fog of War",
+    "slug": "fog-of-war",
+    "house": "war",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 3,
+      "clarity": 2
+    },
+    "flavor": null,
+    "text": "Cast on globe. All minions are concealed from both sides. (Minions concealed from both sides cannot be targeted by individual spells.) Duration: Turn of casting +2.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 5,
+    "name": "Forced March",
+    "slug": "forced-march",
+    "house": "war",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "strife": 2,
+      "clarity": 1
+    },
+    "flavor": "\"The mettle of a leader is tested in her ability to deploy her troops. The army of a great general will walk into the fire for her.\" -- Ngozi, The Book of War",
+    "text": "Cast on recruit group. Group moves twice this turn in its direction of travel.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 1094,
+    "name": "General",
+    "slug": "general",
+    "house": "war",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 3,
+      "clarity": 3
+    },
+    "flavor": null,
+    "text": "Cast on friendly recruit. All friendly swordsmen in squares adjacent to recruit get +1 missile damage.",
+    "castOn": "friendly recruit"
+  },
+  {
+    "sid": 922,
+    "name": "Good of the Many",
+    "slug": "good-of-the-many",
+    "house": "war",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "strife": 1
+    },
+    "flavor": null,
+    "text": "Cast on friendly recruit. Recruit dies.",
+    "castOn": "friendly recruit"
+  },
+  {
+    "sid": 1095,
+    "name": "Growing Strife",
+    "slug": "growing-strife",
+    "house": "war",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 2
+    },
+    "flavor": null,
+    "text": "Cast on swordsman. Swordsman gets +T hand damage, where T is the number of tokens. Recursive (Starts with 1 token. When cast, a copy of this spell is added to your hand that costs +1 mana and has +1 token.)",
+    "castOn": "swordsman"
+  },
+  {
+    "sid": 579,
+    "name": "Hellion",
+    "slug": "hellion",
+    "house": "war",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 5,
+      "clarity": 2
+    },
+    "flavor": "Wherever conflicts flare out of control, Hellions arise thirsty for battle, scorning loyalties. \"War is a forest fire. Only a fool starts a war and thinks he can control it.\" -- Ngozi",
+    "text": "H:4 A:1 HP:16 L:3 Nomadic. After all combat, if Hellion fought only non-Justice minions this turn, she changes sides.",
+    "castOn": null
+  },
+  {
+    "sid": 608,
+    "name": "Lava Flow",
+    "slug": "lava-flow",
+    "house": "war",
+    "expansion": "Whispers",
+    "rarity": "Very Rare",
+    "cost": {
+      "strife": 3,
+      "clarity": 2
+    },
+    "flavor": "It is said the Pyromancers of the Seulik tribe know how to enrage the mountains themselves.",
+    "text": "Cast on mountain or volcano. Mountain becomes volcano. At start of turn, volcano has 33% chance to erupt into 1-2 random adjacent non-structure squares except mountain or volcano. Affected squares become lava for current turn +2, then change from lava to barren land.",
+    "castOn": "mountain or volcano"
+  },
+  {
+    "sid": 105,
+    "name": "Legionnaires",
+    "slug": "legionnaires",
+    "house": "war",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "strife": 3,
+      "clarity": 1
+    },
+    "flavor": "The elite fighting force of the Human Nations, the Legionnaires, are practiced in the arts of swordsmanship and strategy.",
+    "text": "Cast on recruit group with swordsmen. Swordsmen in group get +1 hand damage.",
+    "castOn": "recruit group with swordsmen"
+  },
+  {
+    "sid": 923,
+    "name": "Lone Wolf",
+    "slug": "lone-wolf",
+    "house": "war",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "strife": 2,
+      "clarity": 1
+    },
+    "flavor": null,
+    "text": "Cast on swordsman in group of one. Swordsman gets +3 hand damage, +1 armor, and +6 maximum and current hit points. Swordsman cannot join groups, add new recruits, or be targeted by friendly individual spells. Swordsman's group cannot be targeted by friendly group spells.",
+    "castOn": "swordsman in group of one"
+  },
+  {
+    "sid": 924,
+    "name": "Marksman",
+    "slug": "marksman",
+    "house": "war",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "strife": 3,
+      "clarity": 2
+    },
+    "flavor": null,
+    "text": "Cast on archer. Archer gets +1 missile damage, +1 attack each round, and +2 maximum and current hit points.",
+    "castOn": "archer"
+  },
+  {
+    "sid": 421,
+    "name": "Ngozi",
+    "slug": "ngozi",
+    "house": "war",
+    "expansion": "Bloodlines",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 4,
+      "clarity": 4
+    },
+    "flavor": "Humans tell of Ngozi, the greatest general who ever lived. Her manuscript, \"The Book of War\", is considered the textbook of all strategists.",
+    "text": "H:2 A:1 HP:7 L:2 Cast on recruit group. Creates Ngozi, a Human Hero swordswoman. Before movement, and after she moves, the four squares adjacent to her group become barren land. (Each Hero may be cast only once per game.)",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 99,
+    "name": "Ngozi's Way",
+    "slug": "ngozis-way",
+    "house": "war",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 5,
+      "clarity": 1
+    },
+    "flavor": "\"Seek to be as your sword is: sharp, supple, deadly, and with a single point.\" -- Ngozi, The Book of War",
+    "text": "Cast on recruit group. All members of group get +1 level.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 925,
+    "name": "Palisade",
+    "slug": "palisade",
+    "house": "war",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 2,
+      "clarity": 2
+    },
+    "flavor": null,
+    "text": "Cast on square. While in square, archers in square get +1 armor.",
+    "castOn": "square"
+  },
+  {
+    "sid": 86,
+    "name": "Plains",
+    "slug": "plains",
+    "house": "war",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "strife": 3
+    },
+    "flavor": "\"Leave the enemy no cover, and nowhere to go to ground.\" -- Ngozi, The Book of War",
+    "text": "Cast on square. Square becomes plains.",
+    "castOn": "square"
+  },
+  {
+    "sid": 679,
+    "name": "Point of Clarity",
+    "slug": "point-of-clarity",
+    "house": "war",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "strife": 4
+    },
+    "flavor": "\"Study tactics, and know your enemy -- this is the way to victory.\" -- Ngozi, The Book of War",
+    "text": "Cast on globe. Caster gets +1 Clarity each turn. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 51,
+    "name": "Rain of Arrows",
+    "slug": "rain-of-arrows",
+    "house": "war",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "strife": 2,
+      "clarity": 1
+    },
+    "flavor": "\"Humans dispense with accuracy in favor of speed and quantity of arrows. An inelegant approach, but an effective one.\" -- Turgan Qef, Kumatru Academy",
+    "text": "Cast on recruit group with archers. Archers in group get +1 attack each round. Dispelled after next combat.",
+    "castOn": "recruit group with archers"
+  },
+  {
+    "sid": 433,
+    "name": "Renegades",
+    "slug": "renegades",
+    "house": "war",
+    "expansion": "Bloodlines",
+    "rarity": "Very Rare",
+    "cost": {
+      "strife": 6,
+      "clarity": 2
+    },
+    "flavor": "\"Humans. They are constantly splitting into factions, nursing small grievances, rising up and killing one another. What's the point?\" -- The Journey of Tansek",
+    "text": "Cast on player-controlled recruit group of three or less not in a structure. Group leaves player control, and becomes neutral. (Neutral groups move last, attack all other groups, and have \"half-initiative\" in combat. Neutral recruit groups cannot enter structures.)",
+    "castOn": "player-controlled recruit group of three or less not in a structure"
+  },
+  {
+    "sid": 431,
+    "name": "Salamander",
+    "slug": "salamander",
+    "house": "war",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "strife": 3,
+      "clarity": 2
+    },
+    "flavor": "Salamander is a fire elemental, known among the human nations as the \"Bringer of Fire\". They credit him with the birth of civilization.",
+    "text": "H:4 A:0 HP:12 L:1 Territorial, Firewalk. Target square becomes lava. (Lava causes 3 hit points of damage at start of turn unless group has Firewalk.)",
+    "castOn": null
+  },
+  {
+    "sid": 420,
+    "name": "Scorched Earth",
+    "slug": "scorched-earth",
+    "house": "war",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "strife": 2
+    },
+    "flavor": "\"In areas where long-range weapons are useless, torches are sometimes best.\" -- Ngozi, The Book of War",
+    "text": "Cast on forest. Affects all contiguous forest squares. Squares become barren land.",
+    "castOn": "forest"
+  },
+  {
+    "sid": 926,
+    "name": "Shattering Blow",
+    "slug": "shattering-blow",
+    "house": "war",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 2,
+      "clarity": 1
+    },
+    "flavor": null,
+    "text": "Cast on swordsman. When swordsman hits an opponent, opponent is killed, and Shattering Blow becomes Shattered Sword (-1 hand damage).",
+    "castOn": "swordsman"
+  },
+  {
+    "sid": 344,
+    "name": "Skirmish",
+    "slug": "skirmish",
+    "house": "war",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 1
+    },
+    "flavor": "\"Choose your battles wisely; know when to retreat, as well as when to strike.\" -- Ngozi, The Book of War",
+    "text": "Cast on group. Group withdraws at the start of combat round 3. Dispelled after next combat.",
+    "castOn": "group"
+  },
+  {
+    "sid": 927,
+    "name": "Swashbuckler",
+    "slug": "swashbuckler",
+    "house": "war",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 1
+    },
+    "flavor": null,
+    "text": "Cast on swordsman. Swordsman gets +N levels, where N is its current armor. Swordsman is then set to 0 armor, and cannot gain armor. (These stat changes cannot be dispelled.)",
+    "castOn": "swordsman"
+  },
+  {
+    "sid": 578,
+    "name": "Thermites",
+    "slug": "thermites",
+    "house": "war",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "strife": 2
+    },
+    "flavor": "For generations, the Seulik band hid from Justicar dominion in the Badlands of Arun. There, they learned to cultivate the creatures native to the lava flow.",
+    "text": "Cast on recruit. When recruit hits an opponent, opponent gets Thermite Damage (-1 armor, cumulative). Recruit ignores armor against Gargoyles.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 8,
+    "name": "Veteran",
+    "slug": "veteran",
+    "house": "war",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "strife": 3
+    },
+    "flavor": "\"Young Vela took to the sword as one possessed. I'll swear I saw the General's spirit in his face.\" -- Kyman Firth, \"The Siege of Groven's Weald\"",
+    "text": "Cast on recruit. Recruit gets +1 hand damage, +1 armor, and +4 maximum and current hit points.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 1096,
+    "name": "Vlad Hrothgar",
+    "slug": "vlad-hrothgar",
+    "house": "war",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 4,
+      "clarity": 4
+    },
+    "flavor": null,
+    "text": "H:3 A:2 HP:11 L:2 (Vlad), H:3 A:1 HP:13 L:2 (Oro) Cast on friendly town or colony. Creates Vlad Hrothgar, a Human Hero swordsman with Veteran, and Oro, a Cyclops Hero swordsman with Rite of Growth. (Each Hero may be cast only once per game.)",
+    "castOn": "friendly town or colony"
+  },
+  {
+    "sid": 92,
+    "name": "Volcano",
+    "slug": "volcano",
+    "house": "war",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 4,
+      "clarity": 3
+    },
+    "flavor": "\"The soul of the warrior is forged in fire.\" -- Ngozi, The Book of War",
+    "text": "Cast on square. Square becomes volcano. (Volcano causes 5 hit points of damage at start of turn unless group has Firewalk. Volcano blocks movement unless group has Mountainwalk.)",
+    "castOn": "square"
+  },
+  {
+    "sid": 928,
+    "name": "War Drums",
+    "slug": "war-drums",
+    "house": "war",
+    "expansion": "Revolutions",
+    "rarity": "Very Rare",
+    "cost": {
+      "strife": 1
+    },
+    "flavor": "Sound the Drums of War after battle. They represent our hearts which will beat proudly for one more day. Sound the Drums of War after battle. They remind us of the hearts of our fallen comrades, which lie still now and forever. Sound the Drums of War after battle. We shall fight again.\" -- Human soldiers' chant",
+    "text": "Cast on recruit group. At end of combat, if group survives and opposing group died, triumphant music is played.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 705,
+    "name": "Warlord",
+    "slug": "warlord",
+    "house": "war",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 4,
+      "clarity": 3
+    },
+    "flavor": "Ragnor Vela was a great Warlord of legend who, coming from the East, single-handedly turned the tide of the battle of Valgrave, and led the human horde to victory.",
+    "text": "H:5 A:1 HP:7 L:2 Cast on friendly town or colony. Creates a Human swordsman. Warlord gets +2 hand damage. All swordsmen in Warlord's group (including Warlord) get +1 hand damage.",
+    "castOn": "friendly town or colony"
+  },
+  {
+    "sid": 581,
+    "name": "Weapon Master",
+    "slug": "weapon-master",
+    "house": "war",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 2,
+      "clarity": 2
+    },
+    "flavor": "\"Other human bands have hunters, traders, herders, and mothers, but there are only combatants among the Farouki. They grow in numbers by adopting the orphans of war, and bear arms from age six ...\" -- Alicar, History of the Human Bands of Acheron",
+    "text": "Cast on recruit. Recruit becomes an archer/swordsman. A swordsman gains a missile attack at M:2. An archer gains a sword attack at H:2. Recruit may now be targeted by both archer and swordsman spells. Cannot be targeted by Bear, Eagle, Lion, or Lizard Spirit, or Shapeshifter.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 580,
+    "name": "Wyrmling",
+    "slug": "wyrmling",
+    "house": "war",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 3,
+      "clarity": 2
+    },
+    "flavor": "\"Along the broken ridge, great Khulainn ran / Where earth's blood boiled on either side / Then stopped, his arrow Drachensbane let fly / And pierced the new-born Dragon's hide\" -- Epic poem, Seulik band",
+    "text": "H:2 A:2 HP:6 L:0 Nomadic, Flight. Neutral. Cast on volcano. If killed by a recruit group, that group gets Wyrmling Hide (all members of group get +2 armor).",
+    "castOn": "volcano"
+  }
+]
