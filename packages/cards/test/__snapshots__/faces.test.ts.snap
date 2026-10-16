@@ -20,6 +20,12 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Recruit group.",
     "Moves twice in a random direction.",
   ],
+  "arboriads": [
+    "Globe.",
+    "Stackable.",
+    "+4 H against Death minions.",
+    "Summon 2 Arboriads (H:3 A:1 HP:7 L:1) off the board. Before combat it appears in forest next to a non-friendly recruit group. After all combat it disappears. Dispelled when killed.",
+  ],
   "armistice": [
     "Globe.",
     "Truce, Lasts 3 turns.",
@@ -131,6 +137,11 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "fireball": [
     "Group.",
     "Deal 5 damage to each member.",
+  ],
+  "firewyrm": [
+    "Globe.",
+    "Stackable.",
+    "Summon Firewyrm (H:2(x2) A:0 HP:12 L:1) off the board. Before combat it appears in lava or barren next to a non-friendly group, and its square becomes lava. After all combat it disappears. Dispelled when killed.",
   ],
   "flaming-sword": [
     "Swordsman.",

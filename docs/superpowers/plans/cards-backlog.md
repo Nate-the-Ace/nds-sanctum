@@ -1,21 +1,19 @@
 # War and Life cards not yet implemented
 
-Implemented: 67 (33 War, 34 Life). Source data: `packages/cards/data/cards.json`. Each group is one engine extension;
+Implemented: 69 (34 War, 35 Life). Source data: `packages/cards/data/cards.json`. Each group is one engine extension;
 implementing it unlocks the listed cards. `packages/cards/test/backlog.test.ts` keeps this list equal to `pendingCards`.
 Card lines must stay in the form `- Name (War|Life)`.
 
-## E1. Monsters, heroes, nations and minion creation (12)
+## E1. Monsters, heroes, nations and minion creation (10)
 Needs: summon with stat lines (`H:4 A:1 HP:16 L:2`), monster behaviours (Territorial, Nomadic, Immobile, Flight, Neutral,
 off-board appearance), nations as a minion property, `ctx.addMinion(group, spec)`, novice creation in a town, a
 once-per-game rule for heroes. This is the next plan (2c).
 - Decoy (War)
 - Dragon's Teeth (War)
-- Firewyrm (War)
 - Ngozi (War)
 - Vlad Hrothgar (War)
 - Warlord (War)
 - Allies (Life)
-- Arboriads (Life)
 - Bard (Life)
 - Incarnate (Life)
 - Lienna (Life)

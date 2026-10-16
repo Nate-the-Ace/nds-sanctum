@@ -107,7 +107,7 @@ describe('printed card text', () => {
   it('pins the printed text of every card', async () => {
     const { allCards } = await import('../src/index');
     const faces = Object.fromEntries(allCards.map((c) => [c.id, faceOf(c.id)?.lines]));
-    expect(Object.keys(faces)).toHaveLength(76);
+    expect(Object.keys(faces)).toHaveLength(78);
     expect(faces).toMatchSnapshot();
   });
 });

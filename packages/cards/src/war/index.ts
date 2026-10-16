@@ -35,6 +35,7 @@ import brimstoneDragon from './brimstoneDragon';
 import wyrmling from './wyrmling';
 import wyrmlingHide from './wyrmlingHide';
 import hellion from './hellion';
+import firewyrm from './firewyrm';
 
 export const warCards: CardDef[] = [
   flamingSword, bloodlust, legionnaires, ngozisWay, palisade, warDrums, swashbuckler,
@@ -46,5 +47,5 @@ export const warCards: CardDef[] = [
   forcedMarch, amok,
   armistice, skirmish,
   fogOfWar, loneWolf,
-  salamander, brimstoneDragon, wyrmling, wyrmlingHide, hellion,
+  salamander, brimstoneDragon, wyrmling, wyrmlingHide, hellion, firewyrm,
 ];
