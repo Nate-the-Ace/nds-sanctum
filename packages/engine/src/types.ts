@@ -99,6 +99,8 @@ export interface Structure {
   novices: number;
   turnCount: number;
   captured: boolean;
+  /** Nations queued for the next novices trained as recruits (oldest first). */
+  noviceNations?: Nation[];
 }
 
 export interface ActiveSpell {

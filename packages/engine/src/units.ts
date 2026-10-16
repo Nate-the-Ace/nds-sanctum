@@ -45,6 +45,41 @@ export function addRecruit(e: Engine, owner: Side, pos: Pos, cls: 'swordsman' | 
   return spawnMinion(e, g.id, recruitSpec(cls, nation));
 }
 
+/** Adds a minion to an existing group; null when the group is gone or full. */
+export function joinGroup(e: Engine, groupId: number, spec: MinionSpec): Minion | null {
+  const g = e.state.groups[groupId];
+  if (!g || g.minionIds.length >= RULES.maxGroup) return null;
+  return spawnMinion(e, groupId, spec);
+}
+
+/** Recruit created on a square: joins the friendly player group there or starts one. Null when the square is blocked. */
+export function placeRecruit(e: Engine, owner: Side, pos: Pos, spec: MinionSpec): Minion | null {
+  const existing = groupAt(e.state, pos);
+  if (!existing) {
+    const g = createGroup(e, owner, pos, 'recruit', 'player');
+    return spawnMinion(e, g.id, spec);
+  }
+  const usable = existing.owner === owner && existing.kind === 'recruit' && existing.control === 'player';
+  return usable ? joinGroup(e, existing.id, spec) : null;
+}
+
+/** Flips a recruit or monster group to the other side (minions and the spells on them go with it). */
+export function flipGroup(e: Engine, groupId: number): void {
+  const s = e.state;
+  const g = s.groups[groupId];
+  if (!g || g.owner === 'neutral') return;
+  const to: Side = g.owner === 'red' ? 'blue' : 'red';
+  s.groupSeq[g.owner] = s.groupSeq[g.owner].filter((id) => id !== groupId);
+  s.groupSeq[to].push(groupId);
+  g.owner = to;
+  for (const mid of g.minionIds) if (s.minions[mid]) s.minions[mid].owner = to;
+  for (const sp of s.spells) {
+    const onGroup = sp.host.kind === 'group' && sp.host.id === groupId;
+    const onMinion = sp.host.kind === 'minion' && g.minionIds.includes(sp.host.id);
+    if (onGroup || onMinion) sp.owner = to;
+  }
+}
+
 /** Deletes a group record and its group spells. Does not touch its minions. */
 export function removeGroup(e: Engine, groupId: number): void {
   const s = e.state;

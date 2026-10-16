@@ -11,8 +11,9 @@ import { addSpellRecord } from './spellstore';
 import { dispel, recheck, recheckSquare } from './spells';
 import { canEnterSquare } from './movement';
 import { checkFatal, groupCanEnter } from './terrainfx';
-import { summonGroup } from './units';
-import type { ActiveSpell, Dir, GameState, Group, Mana, Minion, PlayerId, Pos, Ref, Side, Structure, SummonDef, TerrainId } from './types';
+import { RULES } from './rules';
+import { flipGroup, joinGroup, placeRecruit, summonGroup } from './units';
+import type { ActiveSpell, Dir, GameState, Group, Mana, Minion, MinionSpec, Nation, PlayerId, Pos, Ref, Side, Structure, SummonDef, TerrainId } from './types';
 
 /** Read-only view handed to canCast / persistent / stats callbacks. */
 export interface QueryContext {
@@ -57,7 +58,15 @@ export interface EventContext extends QueryContext {
    * Cast an engine-owned helper spell onto a host, ignoring targeting rules and exclusivity. Owner defaults to this
    * spell's owner; `turns` overrides the helper card's duration. Returns the new spell's id.
    */
-  createSpell(cardId: string, host: Ref, opts?: { owner?: PlayerId; turns?: number | null }): number;
+  createSpell(cardId: string, host: Ref, opts?: { owner?: PlayerId; turns?: number | null; tokens?: Record<string, number> }): number;
+  /** Adds a minion to a group. Returns its id, or null when the group is full or gone. */
+  addMinion(groupId: number, spec: MinionSpec): number | null;
+  /** Creates a recruit on a structure's square (joins the friendly player group there). Null when blocked or full. */
+  createRecruit(structureId: number, spec: MinionSpec): number | null;
+  /** Adds novices (up to the maximum) to a structure; `nation` marks them to train as that nation. */
+  addNovices(structureId: number, count: number, nation?: Nation): void;
+  /** The group changes sides. */
+  changeSides(groupId: number): void;
   /** Changes a square's terrain. Structures and Sanctum squares are immune. Fatal terrain applies at once. */
   setTerrain(pos: Pos, terrain: TerrainId): void;
   /** Overwrite a group's movement order for this turn (null cancels it). */
@@ -128,12 +137,29 @@ export function makeCtx(e: Engine, spell: ActiveSpell, event?: GameEvent): Event
       if (!card) throw new Error(`createSpell: unknown card "${cardId}"`);
       const made = addSpellRecord(e.state, {
         cardId, owner: opts?.owner ?? spell.owner, host, visible: card.visible !== false,
-        turnsLeft: opts?.turns !== undefined ? opts.turns : (card.duration?.turns ?? null), tokens: {},
+        turnsLeft: opts?.turns !== undefined ? opts.turns : (card.duration?.turns ?? null), tokens: { ...opts?.tokens },
       });
       recheck(e, host);
       syncHp(e);
       return made.id;
     },
+    addMinion: (groupId, spec) => joinGroup(e, groupId, spec)?.id ?? null,
+    createRecruit: (structureId, spec) => {
+      const st = e.state.structures[structureId];
+      if (!st || st.owner === 'neutral') return null;
+      const m = placeRecruit(e, st.owner, st.pos, spec);
+      if (!m) return null;
+      dispatch(e, 'minion:created', { kind: 'structure', id: structureId }, { minionId: m.id });
+      return m.id;
+    },
+    addNovices: (structureId, count, nation) => {
+      const st = e.state.structures[structureId];
+      if (!st) return;
+      const added = Math.max(0, Math.min(count, RULES.maxNovices - st.novices));
+      st.novices += added;
+      if (nation) st.noviceNations = [...(st.noviceNations ?? []), ...Array<Nation>(added).fill(nation)];
+    },
+    changeSides: (groupId) => flipGroup(e, groupId),
     setTerrain: (pos, terrain) => {
       const s = e.state;
       if (!s.cells.includes(key(pos)) || isSanctumArea(pos) || structureAt(s, pos)) return;

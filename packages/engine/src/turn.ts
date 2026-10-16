@@ -47,6 +47,7 @@ export function beginTurn(e: Engine, first: boolean): void {
     delta[captor]++;
     st.owner = captor;
     st.novices = 0;
+    st.noviceNations = [];
     st.turnCount = RULES.townNoviceRate;
     st.manaType = null;
     st.captured = true;
@@ -98,8 +99,10 @@ function applyTraining(e: Engine, side: Side, o: Orders): void {
     const st = s.structures[t.structureId];
     if (!st || st.owner !== side || st.novices <= 0) continue;
     st.novices--;
+    const queued = t.as === 'swordsman' || t.as === 'archer' ? st.noviceNations?.shift() : undefined;
+    if (st.noviceNations && st.noviceNations.length > st.novices) st.noviceNations.length = st.novices;
     if (t.as === 'swordsman' || t.as === 'archer') {
-      const m = addRecruit(e, side, st.pos, t.as, nationOfHouse(s.players[side].house));
+      const m = addRecruit(e, side, st.pos, t.as, queued ?? nationOfHouse(s.players[side].house));
       dispatch(e, 'minion:created', { kind: 'structure', id: st.id }, { minionId: m.id });
     }
   }
