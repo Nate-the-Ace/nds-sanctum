@@ -14,7 +14,7 @@ Faithful clone of Sanctum (Digital Addiction, 1998; community revival at playsan
 
 Taken from the original rules. Where the original leaves something open or I simplified, it is marked **(decision)**.
 
-**Board.** Square grid drawn diagonally. 94 squares: two 5-square Sancta (plus shape: Sanctum + 4 entrances) and 84 playable squares. Board geometry is data (`BoardLayout`), not hard-coded; exact dimensions are fixed in the plan from the original map. One group per square (stacking limit), max 8 minions per group. Terrains: plains, forest, desert, water, swamp, mountain, plus barren land, ice, lava, volcano, void (data table `terrains.ts` filled from `Elements_terrainswalks.txt`). Each minion has terrainwalks that decide where it may enter. **(decision)** M1 ships the Veldt realm only (5 towns, plains default, 57/19.5/4/2.5/0.5/0.5 distribution); other realms are data additions. Symmetric option on by default.
+**Board.** Square grid drawn diagonally. 94 squares: two 5-square Sancta (plus shape: Sanctum + 4 entrances) and 84 playable squares. Board geometry is data (`BoardLayout`), not hard-coded; exact dimensions are fixed in the plan from the original map. One group per square (stacking limit), max 8 minions per group. Terrains: plains, forest, desert, water, swamp, mountain, plus barren land, ice, lava, volcano, void (data table `terrains.ts` filled from `Elements_terrainswalks.txt`). Each minion has terrainwalks that decide where it may enter. **(decision)** M1 ships the Veldt realm only (5 towns, plains default, 57/19.5/4/2.5/0.5/0.5 distribution); other realms are data additions. Terrain is rolled symmetrically (half the squares rolled, half rotated). The board is 10x10 minus a 3-square staircase at two opposite corners = 94 squares.
 
 **Towns.** 5 neutral towns, placed by the original algorithm (half random, rotated to the other half, excluded squares per the Map page). A town makes 1 mana/turn of the type its owner picks at capture (any of 6, fixed until lost) and 1 novice per 2 turns. A Sanctum makes novices every 4 turns and mana only of its house's 2 types. Capture happens at start of turn if a hostile recruit group sits in the structure; capturing a Sanctum wins. Colonies: engine supports the structure type, no M1 cards create one.
 
@@ -32,9 +32,9 @@ Taken from the original rules. Where the original leaves something open or I sim
 
 **Damage.** Takes-Damage and Apply-Damage pipelines as written (before armor, armor soak, after armor, apply), with hand, missile, ignores-armor and magical damage types.
 
-**Recruits.** Swordsman: 1 hand attack, 2 damage, 1 armor. Archer: 1 missile attack, 2 damage, 0 armor. **(decision)** Recruits start with 7 hit points (the original's worked examples assume 7), level 0. Players start with a group of 4 recruits in the Sanctum.
+**Recruits.** Swordsman: 1 hand attack, 2 damage, 1 armor. Archer: 1 missile attack, 2 damage, 0 armor. **(decision)** Recruits start with 7 hit points (the original's worked examples assume 7) and level 1 (per `Concepts_armorlevels`). Players start with a group of 4 recruits in the Sanctum.
 
-**Deck and hand.** Hand of 5, discard up to one per turn, refill at turn start. **(decision)** Deck size and duplicate limit are config values, default 40 cards, max 4 copies; confirm against `Elements_deckhand.txt` in the plan.
+**Deck and hand.** Hand of 5, discard up to one per turn, refill at turn start. **(decision)** Deck size and duplicate limit are config values, minimum 30 cards, no maximum, max 4 copies of a card (confirmed in `Elements_deckhand.txt`).
 
 **Neutral player.** Owns monsters and neutral groups; computer-controlled groups move by a movement-AI hook on the monster card.
 
