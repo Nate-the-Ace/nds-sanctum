@@ -21,6 +21,8 @@ import wellspring from './wellspring';
 import faerieKnight from './faerieKnight';
 import elixirVitae from './elixirVitae';
 import dropOfElixirVitae from './dropOfElixirVitae';
+import standoff from './standoff';
+import liennasSteed from './liennasSteed';
 
 export const lifeCards: CardDef[] = [
   caravan, flight, cleansingLight, pyx, healingHands, oasis, wellspring,
@@ -28,4 +30,5 @@ export const lifeCards: CardDef[] = [
   fountainOfYouth, youth, faerieGlade, faerieGladeSquare,
   faerieKnight, elixirVitae, dropOfElixirVitae,
   auraOfWorld, ringOfLight,
+  standoff, liennasSteed,
 ];

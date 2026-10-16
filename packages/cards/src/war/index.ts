@@ -24,6 +24,8 @@ import fieldSurgeryScar from './fieldSurgeryScar';
 import warDrums from './warDrums';
 import pointOfClarity from './pointOfClarity';
 import callToArms from './callToArms';
+import forcedMarch from './forcedMarch';
+import amok from './amok';
 
 export const warCards: CardDef[] = [
   flamingSword, bloodlust, legionnaires, ngozisWay, palisade, warDrums, swashbuckler,
@@ -32,4 +34,5 @@ export const warCards: CardDef[] = [
   thermites, thermiteDamage,
   veteran, marksman, fieldSurgery, fieldSurgeryScar,
   pointOfClarity, callToArms,
+  forcedMarch, amok,
 ];

@@ -37,10 +37,6 @@ Needs: `ctx.addMana(side, type, n)` during the mana step of start of turn.
 
 ## E4. Movement-order control (4)
 Needs: persistent move-order cancellation, "moves twice" movement, random legal direction, diagonal teleport.
-- Amok (War)
-- Forced March (War)
-- Lienna's Steed (Life)
-- Standoff (Life)
 
 ## E5. Withdraw and combat cancellation (4)
 Needs: a way to end a combat at a given round or before it starts.
