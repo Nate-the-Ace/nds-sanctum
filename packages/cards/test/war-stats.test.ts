@@ -82,4 +82,24 @@ describe('Swashbuckler', () => {
     expect(st.level).toBe(2);
     expect(st.armor).toBe(0);
   });
+  it('counts all armor at cast time, including spell armor', () => {
+    const e = world();
+    const id = put(e, 'red', { x: 4, y: 4 }, ['swordsman']).minionIds[0];
+    expect(cast(e, 'blue', 'filigreed-armor', mref(id))).toBe('cast');
+    expect(stats(e, id).armor).toBe(2);
+    expect(cast(e, 'red', 'swashbuckler', mref(id))).toBe('cast');
+    const st = stats(e, id);
+    expect(st.level).toBe(3);
+    expect(st.armor).toBe(0);
+  });
+  it('cannot be dispelled by Cleansing Light', () => {
+    const e = world();
+    const g = put(e, 'red', { x: 4, y: 4 }, ['swordsman']);
+    const id = g.minionIds[0];
+    cast(e, 'red', 'swashbuckler', mref(id));
+    expect(cast(e, 'blue', 'cleansing-light', gref(g.id))).toBe('cast');
+    expect(e.state.spells.map((sp) => sp.cardId)).toEqual(['swashbuckler']);
+    expect(stats(e, id).level).toBe(2);
+    expect(stats(e, id).armor).toBe(0);
+  });
 });
