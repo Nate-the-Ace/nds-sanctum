@@ -5,7 +5,7 @@ import type { Engine } from './engine';
 import type { GameEvent } from './events';
 import { groupAt, hostile, minionsOf, structureAt } from './query';
 import { nextRandom } from './rng';
-import { computeStats, type Stats } from './stats';
+import { computeStats, syncHp, type Stats } from './stats';
 import { drawCards } from './deck';
 import { addSpellRecord } from './spellstore';
 import { dispel, recheck, recheckSquare } from './spells';
@@ -91,7 +91,9 @@ export function makeCtx(e: Engine, spell: ActiveSpell, event?: GameEvent): Event
     damage: (id, amount, opts) => applyDamage(e, id, amount, opts),
     heal: (id, amount) => {
       const m = e.state.minions[id];
-      if (m && m.status !== 'dead') m.hp = Math.min(m.maxHp, m.hp + Math.max(0, amount));
+      if (!m || m.status === 'dead') return;
+      m.maxHp = computeStats(e, id).maxHp;
+      m.hp = Math.min(m.maxHp, m.hp + Math.max(0, amount));
     },
     kill: (id) => {
       killMinion(e, id, null, 'dies');
@@ -108,6 +110,7 @@ export function makeCtx(e: Engine, spell: ActiveSpell, event?: GameEvent): Event
         turnsLeft: opts?.turns !== undefined ? opts.turns : (card.duration?.turns ?? null), tokens: {},
       });
       recheck(e, host);
+      syncHp(e);
       return made.id;
     },
     setTerrain: (pos, terrain) => {

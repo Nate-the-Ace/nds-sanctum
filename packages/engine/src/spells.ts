@@ -4,6 +4,7 @@ import { makeCtx, makeQuery } from './ctx';
 import type { Engine } from './engine';
 import { groupAt, isConcealed, spellsOn, structureAt } from './query';
 import { addSpellRecord, removeSpellRecord } from './spellstore';
+import { syncHp } from './stats';
 import type { ActiveSpell, PlayerId, Pos, Ref } from './types';
 
 /** Is `ref` a legal target for `card` cast by `caster` right now? Checks type, concealment and occupancy only. */
@@ -61,6 +62,7 @@ export function dispel(e: Engine, spellId: number): void {
   if (!sp) return;
   e.state.log.push({ type: 'dispel', card: sp.cardId });
   recheck(e, sp.host);
+  syncHp(e);
 }
 
 /** Dispels every spell on `ref` whose card `persistent` check now fails. */
@@ -112,6 +114,7 @@ export function executeCast(e: Engine, caster: PlayerId, cardId: string, ref: Re
     const transient: ActiveSpell = { id: -1, cardId, owner: caster, host: ref, visible: false, turnsLeft: null, tokens: {} };
     card.onCast?.(makeCtx(e, transient), ref);
   }
+  syncHp(e);
   return 'cast';
 }
 

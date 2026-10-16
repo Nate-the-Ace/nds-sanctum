@@ -8,6 +8,7 @@ export interface StatDelta {
   hand?: number;
   missile?: number;
   armor?: number;
+  maxHp?: number;
   level?: number;
   handAttacks?: number;
   missileAttacks?: number;
@@ -19,6 +20,7 @@ export interface Stats {
   hand: number;
   missile: number;
   armor: number;
+  maxHp: number;
   level: number;
   handAttacks: number;
   missileAttacks: number;
@@ -33,7 +35,7 @@ export function computeStats(e: Engine, minionId: number): Stats {
   if (!m) throw new Error(`no minion ${minionId}`);
   const b = m.base;
   const out: Stats = {
-    hand: b.hand, missile: b.missile, armor: b.armor, level: b.level,
+    hand: b.hand, missile: b.missile, armor: b.armor, maxHp: b.hp, level: b.level,
     handAttacks: b.handAttacks, missileAttacks: b.missileAttacks, walks: [...b.walks], noDamage: false,
   };
   const g = s.groups[m.groupId];
@@ -52,6 +54,7 @@ export function computeStats(e: Engine, minionId: number): Stats {
       out.hand += d.hand ?? 0;
       out.missile += d.missile ?? 0;
       out.armor += d.armor ?? 0;
+      out.maxHp += d.maxHp ?? 0;
       out.level += d.level ?? 0;
       out.handAttacks += d.handAttacks ?? 0;
       out.missileAttacks += d.missileAttacks ?? 0;
@@ -65,5 +68,16 @@ export function computeStats(e: Engine, minionId: number): Stats {
   out.armor = Math.max(0, out.armor);
   out.handAttacks = Math.max(0, out.handAttacks);
   out.missileAttacks = Math.max(0, out.missileAttacks);
+  out.maxHp = Math.max(1, out.maxHp);
   return out;
+}
+
+/** Recompute every live minion's maximum hit points and clamp current hit points to it. */
+export function syncHp(e: Engine): void {
+  for (const m of Object.values(e.state.minions)) {
+    if (m.status === 'dead') continue;
+    const max = computeStats(e, m.id).maxHp;
+    m.maxHp = max;
+    if (m.hp > max) m.hp = max;
+  }
 }
