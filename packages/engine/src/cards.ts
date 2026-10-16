@@ -1,4 +1,4 @@
-import type { EventContext, QueryContext } from './ctx';
+import type { BotContext, EventContext, QueryContext } from './ctx';
 import type { EventType, GameEvent } from './events';
 import type { StatDelta } from './stats';
 import type { ActiveSpell, Dir, HouseId, ManaPool, PlayerId, Ref } from './types';
@@ -50,7 +50,7 @@ export interface CardDef {
   /** Event handlers, keyed by event type. */
   on?: Partial<Record<EventType, (c: EventContext, ev: GameEvent) => void>>;
   /** Movement AI for computer-controlled groups this card summons. Return null to stand still. */
-  bot?: (q: QueryContext, groupId: number) => Dir | null;
+  bot?: (q: BotContext, groupId: number) => Dir | null;
 }
 
 export type CardIndex = Record<string, CardDef>;

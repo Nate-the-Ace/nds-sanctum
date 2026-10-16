@@ -1,5 +1,5 @@
 import { distance2, key, parseKey, samePos, step } from './board';
-import { makeQuery } from './ctx';
+import { makeBotContext } from './ctx';
 import { killMinion } from './death';
 import type { Engine } from './engine';
 import { dispatch } from './events';
@@ -31,7 +31,7 @@ function trackOf(tracks: Tracks, g: Group): Track {
 
 function botMove(e: Engine, g: Group): Dir | null {
   const card = g.botId ? e.cards[g.botId] : undefined;
-  return card?.bot ? card.bot(makeQuery(e, g.owner), g.id) : null;
+  return card?.bot ? card.bot(makeBotContext(e, g.owner), g.id) : null;
 }
 
 export function canEnterSquare(e: Engine, g: Group, dest: Pos): boolean {
@@ -192,7 +192,7 @@ function movePass(e: Engine, only?: Set<number>): void {
 export function runMovement(e: Engine): void {
   const s = e.state;
   dispatch(e, 'movement:before');
-  for (const g of Object.values(s.groups)) if (g.control === 'computer') g.moveOrder = botMove(e, g);
+  for (const g of Object.values(s.groups)) if (g.control === 'computer' && g.pos) g.moveOrder = botMove(e, g);
   movePass(e);
   dispatch(e, 'movement:after');
   const again = new Set(

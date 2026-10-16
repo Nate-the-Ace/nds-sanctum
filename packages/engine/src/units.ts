@@ -12,10 +12,13 @@ export function recruitSpec(cls: 'swordsman' | 'archer', nation?: Nation): Minio
 }
 
 export function createGroup(
-  e: Engine, owner: PlayerId, pos: Pos, kind: 'recruit' | 'monster', control: 'player' | 'computer', botId: string | null = null,
+  e: Engine, owner: PlayerId, pos: Pos | null, kind: 'recruit' | 'monster', control: 'player' | 'computer', botId: string | null = null,
 ): Group {
   const s = e.state;
-  const g: Group = { id: s.nextId++, kind, owner, minionIds: [], pos: { ...pos }, control, botId, moveOrder: null, moveSeq: null, movesTwice: false };
+  const g: Group = {
+    id: s.nextId++, kind, owner, minionIds: [], pos: pos ? { ...pos } : null, control, botId,
+    moveOrder: null, moveSeq: null, movesTwice: false, home: kind === 'monster' && pos ? { ...pos } : null,
+  };
   s.groups[g.id] = g;
   s.groupSeq[owner].push(g.id);
   return g;

@@ -45,7 +45,8 @@ export interface MinionSpec {
 
 export interface SummonDef {
   owner: PlayerId;
-  pos: Pos;
+  /** null: the group starts off the board. */
+  pos: Pos | null;
   control?: 'player' | 'computer';
   botId?: string | null;
   minions: MinionSpec[];
@@ -88,6 +89,8 @@ export interface Group {
   /** Index of this group's order within the player's issued move orders; null when none (voting tiebreak and pass-I order). */
   moveSeq: number | null;
   movesTwice: boolean;
+  /** Monster groups: the centre of the 3x3 territory a Territorial monster keeps to. */
+  home: Pos | null;
 }
 
 export interface Structure {

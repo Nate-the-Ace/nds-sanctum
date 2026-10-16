@@ -81,6 +81,29 @@ export interface EventContext extends QueryContext {
   canEnter(groupId: number, pos: Pos): boolean;
   /** Relocate a group to an empty square without moving through the squares between. Does nothing if occupied. */
   moveGroup(groupId: number, pos: Pos): void;
+  /** The group leaves the board ("disappears"). Its spells are suspended until it appears again. */
+  hide(groupId: number): void;
+  /** An off-board group appears on an empty square, not by moving: no movement events. Returns whether it did. */
+  appear(groupId: number, pos: Pos): boolean;
+  /** Sets a monster group's home square. */
+  setHome(groupId: number, pos: Pos): void;
+}
+
+/** What a card's `bot` sees: the query view plus a random source and the legal steps of a group. */
+export interface BotContext extends QueryContext {
+  random(): number;
+  legalDirections(groupId: number): Dir[];
+}
+
+function legalDirs(e: Engine, id: number): Dir[] {
+  const g = e.state.groups[id];
+  if (!g || !g.pos) return [];
+  const from = g.pos;
+  return DIR_LIST.filter((d) => canEnterSquare(e, g, step(from, d)));
+}
+
+export function makeBotContext(e: Engine, owner: PlayerId): BotContext {
+  return { ...makeQuery(e, owner), random: () => nextRandom(e.state), legalDirections: (id) => legalDirs(e, id) };
 }
 
 export function makeQuery(e: Engine, caster: PlayerId): QueryContext {
@@ -181,12 +204,7 @@ export function makeCtx(e: Engine, spell: ActiveSpell, event?: GameEvent): Event
       const g = e.state.groups[id];
       if (g) g.movesTwice = value;
     },
-    legalDirections: (id) => {
-      const g = e.state.groups[id];
-      if (!g || !g.pos) return [];
-      const from = g.pos;
-      return DIR_LIST.filter((d) => canEnterSquare(e, g, step(from, d)));
-    },
+    legalDirections: (id) => legalDirs(e, id),
     canEnter: (id, pos) => {
       const g = e.state.groups[id];
       return !!g && e.state.cells.includes(key(pos)) && groupCanEnter(e, g, e.state.terrain[key(pos)]);
@@ -208,6 +226,27 @@ export function makeCtx(e: Engine, spell: ActiveSpell, event?: GameEvent): Event
         dispatch(e, 'group:move', ref, { from, to: g.pos });
         dispatch(e, 'group:enter', ref, { to: g.pos });
       }
+    },
+    hide: (id) => {
+      const g = e.state.groups[id];
+      if (!g || !g.pos) return;
+      const from = g.pos;
+      g.pos = null;
+      g.moveOrder = null;
+      recheckSquare(e, from);
+    },
+    appear: (id, pos) => {
+      const s = e.state;
+      const g = s.groups[id];
+      if (!g || g.pos !== null || !s.cells.includes(key(pos)) || groupAt(s, pos) || structureAt(s, pos)) return false;
+      g.pos = { ...pos };
+      checkFatal(e, g);
+      recheckSquare(e, pos);
+      return true;
+    },
+    setHome: (id, pos) => {
+      const g = e.state.groups[id];
+      if (g) g.home = { ...pos };
     },
   };
 }

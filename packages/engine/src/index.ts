@@ -4,7 +4,7 @@ export { createGame, validateDeck, submitOrders, confirmOrders, chooseMana } fro
 export type { GameConfig, DeckConfig, Result } from './api';
 export { defineCard, indexCards } from './cards';
 export type { CardDef, CardIndex, CastAttempt, SpellType, TargetType } from './cards';
-export type { EventContext, QueryContext } from './ctx';
+export type { BotContext, EventContext, QueryContext } from './ctx';
 export type { EventType, GameEvent } from './events';
 export type { Stats, StatDelta } from './stats';
 export { HOUSES, houseMana } from './houses';
@@ -12,7 +12,7 @@ export { RULES } from './rules';
 export { NATIONS, NATION_LIST, nationOfHouse } from './nations';
 export { recruitSpec } from './units';
 export { validateOrders } from './orders';
-export { createCells, SANCTUM_POS, sanctumSquares, entrances } from './board';
+export { createCells, SANCTUM_POS, sanctumSquares, entrances, step, DIR_LIST, key, isSanctumArea } from './board';
 export { emptyOrders, emptyPool, MANA_TYPES, SIDES } from './types';
 export type {
   ActiveSpell, BaseStats, Dir, GameState, Group, HouseId, LogEntry, Mana, ManaPool, Minion, MinionSpec, Nation,
