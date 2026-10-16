@@ -30,11 +30,17 @@ export interface BaseStats {
   walks: Walk[];
 }
 
+export type Nation =
+  | 'imp' | 'cyclops' | 'keeper' | 'shadow' | 'vision' | 'gargoyle'
+  | 'elf' | 'dwarf' | 'djinn' | 'satyr' | 'misfit' | 'human';
+
 export interface MinionSpec {
   kind: 'recruit' | 'monster';
   cls: 'swordsman' | 'archer' | 'monster';
   name: string;
   base: BaseStats;
+  nation?: Nation;
+  house?: HouseId;
 }
 
 export interface SummonDef {
@@ -65,6 +71,8 @@ export interface Minion {
   status: 'alive' | 'dying' | 'dead';
   expQualified: boolean;
   hasExp: boolean;
+  nation: Nation | null;
+  house: HouseId | null;
   combat: { armor: number; handLeft: number; missileLeft: number; misses: number; victim: number | null };
 }
 

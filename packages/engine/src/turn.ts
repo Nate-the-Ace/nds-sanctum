@@ -3,6 +3,7 @@ import { drawCards } from './deck';
 import type { Engine } from './engine';
 import { dispatch } from './events';
 import { runMovement } from './movement';
+import { nationOfHouse } from './nations';
 import { groupAt, otherSide } from './query';
 import { RULES } from './rules';
 import { executeCast, expireSpells } from './spells';
@@ -98,7 +99,7 @@ function applyTraining(e: Engine, side: Side, o: Orders): void {
     if (!st || st.owner !== side || st.novices <= 0) continue;
     st.novices--;
     if (t.as === 'swordsman' || t.as === 'archer') {
-      const m = addRecruit(e, side, st.pos, t.as);
+      const m = addRecruit(e, side, st.pos, t.as, nationOfHouse(s.players[side].house));
       dispatch(e, 'minion:created', { kind: 'structure', id: st.id }, { minionId: m.id });
     }
   }

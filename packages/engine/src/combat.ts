@@ -4,6 +4,7 @@ import { killMinion } from './death';
 import type { Engine } from './engine';
 import { dispatch } from './events';
 import { groupAt, hostile, minionsOf, ownerRank, sequence } from './query';
+import { NATIONS } from './nations';
 import { nextRandom, shuffle } from './rng';
 import { RULES } from './rules';
 import { computeStats } from './stats';
@@ -101,6 +102,11 @@ function chooseVictims(e: Engine, hiId: number, loId: number, round: number): vo
   }
 }
 
+const nationBonus = (m: Minion, useMissile: boolean, round: number): number => {
+  const c = m.nation ? NATIONS[m.nation].combat : null;
+  return (c === 'hand2' && !useMissile && round === 2) || (c === 'missile1' && useMissile && round === 1) ? 1 : 0;
+};
+
 /** One attack: pipeline steps A1-A8 from the rules. */
 function attack(e: Engine, m: Minion, v: Minion, round: number): void {
   const st = computeStats(e, m.id);
@@ -115,6 +121,7 @@ function attack(e: Engine, m: Minion, v: Minion, round: number): void {
   m.combat.misses = 0;
   // A2: damage
   let dmg = useMissile ? st.missile - (round === 1 ? 1 : 0) : st.hand;
+  dmg += nationBonus(m, useMissile, round);
   dmg = st.noDamage ? 0 : Math.max(0, dmg);
   // A3: victim takes damage
   const res = takeDamage(e, v.id, dmg, { kind: useMissile ? 'missile' : 'hand', ignoresArmor: false, magical: false }, m.id);

@@ -1,11 +1,14 @@
 import type { Engine } from './engine';
 import { groupAt } from './query';
+import { applyNation, NATIONS } from './nations';
 import { RULES, recruitBase } from './rules';
 import { removeSpellsOn } from './spellstore';
-import type { Group, Minion, MinionSpec, PlayerId, Pos, Side, SummonDef } from './types';
+import type { Group, Minion, MinionSpec, Nation, PlayerId, Pos, Side, SummonDef } from './types';
 
-export function recruitSpec(cls: 'swordsman' | 'archer'): MinionSpec {
-  return { kind: 'recruit', cls, name: cls, base: recruitBase(cls) };
+export function recruitSpec(cls: 'swordsman' | 'archer', nation?: Nation): MinionSpec {
+  const base = recruitBase(cls);
+  if (!nation) return { kind: 'recruit', cls, name: cls, base };
+  return { kind: 'recruit', cls, name: cls, base: applyNation(base, nation), nation, house: NATIONS[nation].house };
 }
 
 export function createGroup(
@@ -24,7 +27,7 @@ export function spawnMinion(e: Engine, groupId: number, spec: MinionSpec): Minio
   const m: Minion = {
     id: s.nextId++, kind: spec.kind, cls: spec.cls, name: spec.name, owner: g.owner, groupId,
     hp: spec.base.hp, maxHp: spec.base.hp, base: { ...spec.base, walks: [...spec.base.walks] },
-    status: 'alive', expQualified: false, hasExp: false,
+    status: 'alive', expQualified: false, hasExp: false, nation: spec.nation ?? null, house: spec.house ?? null,
     combat: { armor: 0, handLeft: 0, missileLeft: 0, misses: 0, victim: null },
   };
   s.minions[m.id] = m;
@@ -33,13 +36,13 @@ export function spawnMinion(e: Engine, groupId: number, spec: MinionSpec): Minio
 }
 
 /** New recruit joins the friendly player-controlled recruit group in the square if it has room, else starts a group. */
-export function addRecruit(e: Engine, owner: Side, pos: Pos, cls: 'swordsman' | 'archer'): Minion {
+export function addRecruit(e: Engine, owner: Side, pos: Pos, cls: 'swordsman' | 'archer', nation?: Nation): Minion {
   const existing = groupAt(e.state, pos);
   const usable =
     existing && existing.owner === owner && existing.kind === 'recruit' &&
     existing.control === 'player' && existing.minionIds.length < RULES.maxGroup;
   const g = usable ? existing : createGroup(e, owner, pos, 'recruit', 'player');
-  return spawnMinion(e, g.id, recruitSpec(cls));
+  return spawnMinion(e, g.id, recruitSpec(cls, nation));
 }
 
 /** Deletes a group record and its group spells. Does not touch its minions. */

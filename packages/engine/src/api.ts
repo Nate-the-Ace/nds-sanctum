@@ -1,6 +1,7 @@
 import { SANCTUM_POS } from './board';
 import type { CardIndex } from './cards';
 import { makeEngine } from './engine';
+import { nationOfHouse } from './nations';
 import { placeTowns, rollTerrain } from './mapgen';
 import { validateOrders } from './orders';
 import { shuffle } from './rng';
@@ -71,7 +72,7 @@ export function createGame(config: GameConfig, cards: CardIndex): GameState {
     };
   }
   for (const side of SIDES) {
-    for (const cls of RULES.startGroup) addRecruit(e, side, SANCTUM_POS[side], cls);
+    for (const cls of RULES.startGroup) addRecruit(e, side, SANCTUM_POS[side], cls, nationOfHouse(s.players[side].house));
   }
   beginTurn(e, true);
   return e.state;
