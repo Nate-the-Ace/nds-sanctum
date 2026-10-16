@@ -1,13 +1,13 @@
-# War and Life cards not yet implemented (72)
+# War and Life cards not yet implemented
 
-Implemented: 30 (17 War, 13 Life). Source data: `packages/cards/data/cards.json`. Each group is one engine extension;
+Implemented: 60 (29 War, 31 Life). Source data: `packages/cards/data/cards.json`. Each group is one engine extension;
 implementing it unlocks the listed cards. `packages/cards/test/backlog.test.ts` keeps this list equal to `pendingCards`.
 Card lines must stay in the form `- Name (War|Life)`.
 
 ## E1. Monsters, heroes, nations and minion creation (19)
 Needs: summon with stat lines (`H:4 A:1 HP:16 L:2`), monster behaviours (Territorial, Nomadic, Immobile, Flight, Neutral,
 off-board appearance), nations as a minion property, `ctx.addMinion(group, spec)`, novice creation in a town, a
-once-per-game rule for heroes.
+once-per-game rule for heroes. This is the next plan (2c).
 - Brimstone Dragon (War)
 - Decoy (War)
 - Dragon's Teeth (War)
@@ -28,24 +28,9 @@ once-per-game rule for heroes.
 - Sylph (Life)
 - Undine (Life)
 
-## E2. Maximum hit points as a stat (6)
-Needs: `StatDelta.maxHp` and "+N maximum and current hit points" on cast.
-
-## E3. Mana generation (4)
-Needs: `ctx.addMana(side, type, n)` during the mana step of start of turn.
-
-## E4. Movement-order control (4)
-Needs: persistent move-order cancellation, "moves twice" movement, random legal direction, diagonal teleport.
-
-## E5. Withdraw and combat cancellation (4)
-Needs: a way to end a combat at a given round or before it starts.
-
-## E6. Helper spells created on other hosts (6)
-Needs: `ctx.createSpell(card, owner, host)` for engine-cast spells (Thermite Damage, Youth, Faerie Blessing, Grace of Auberol).
+## E6. Spells that remove a group for a while (1)
+Needs: groups that disappear from the board and reappear (boardhop-style), with a "cannot re-enter" rule.
 - Faerie Circle (Life)
-
-## E7. Casting and targeting restrictions (7)
-Needs: spells that squander other spells (globe/group/structure bans), untargetable groups, global concealment.
 
 ## E8. Initiative and structures (6)
 Needs: `ctx.setInitiative`, create/destroy/move structures, colonies, hidden structures.
