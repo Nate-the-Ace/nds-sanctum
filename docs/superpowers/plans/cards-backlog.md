@@ -1,6 +1,6 @@
 # War and Life cards not yet implemented
 
-Implemented: 78 (39 War, 39 Life). Source data: `packages/cards/data/cards.json`. Each group is one engine extension;
+Implemented: 83 (41 War, 42 Life). Source data: `packages/cards/data/cards.json`. Each group is one engine extension;
 implementing it unlocks the listed cards. `packages/cards/test/backlog.test.ts` keeps this list equal to `pendingCards`.
 Card lines must stay in the form `- Name (War|Life)`.
 
@@ -22,15 +22,6 @@ Needs: `ctx.setInitiative`, create/destroy/move structures, colonies, hidden str
 - Golden Grove (Life)
 - Seelie Court (Life)
 - Spy at Court (Life)
-
-## E9. Damage kinds and conditional damage (5)
-Needs: per-attack modifiers keyed on the target (vs swordsmen, vs structure/forest), magical missile damage, healing
-attacks, nation conditions.
-- Cannon (War)
-- Flaming Arrows (War)
-- Cadre (Life)
-- Fae Gift (Life)
-- Yeoman (Life)
 
 ## E10. Tokens, copies and experience (5)
 Needs: recursive hand copies with token counts, "subsequent alteration" counting, grant experience level, deck removal.

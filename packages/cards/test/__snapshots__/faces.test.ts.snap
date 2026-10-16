@@ -70,9 +70,17 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Summon Brimstone Dragon (H:4 A:1 HP:16 L:2, Flight).",
     "Start of combat: Deal 5 damage to the opposing group.",
   ],
+  "cadre": [
+    "Recruit group with archers.",
+    "Archers +1 M against swordsmen.",
+  ],
   "call-to-arms": [
     "Town or colony.",
     "Mana: +2 Strife to its owner.",
+  ],
+  "cannon": [
+    "Globe.",
+    "Start of combat: if the friendly group has a Human archer, deal 1 damage to each member of the opposing group.",
   ],
   "caravan": [
     "Recruit group.",
@@ -127,6 +135,10 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Recruit group.",
     "Plays bagpipe music at start of combat.",
   ],
+  "fae-gift": [
+    "Swordsman.",
+    "Becomes an Elf. Its attacks heal the victim instead of damaging it (armor soaks first).",
+  ],
   "faerie-fire": [
     "Recruit group with archers.",
     "Fleeting.",
@@ -168,6 +180,11 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Globe.",
     "Stackable.",
     "Summon Firewyrm (H:2(x2) A:0 HP:12 L:1) off the board. Before combat it appears in lava or barren next to a non-friendly group, and its square becomes lava. After all combat it disappears. Dispelled when killed.",
+  ],
+  "flaming-arrows": [
+    "Archer.",
+    "+3 M against groups in a structure or forest.",
+    "When it hits an opponent in forest, that square becomes barren after all combat.",
   ],
   "flaming-sword": [
     "Swordsman.",
@@ -419,6 +436,11 @@ exports[`printed card text > pins the printed text of every card 1`] = `
   "wyrmling-hide": [
     "Group.",
     "+2 A.",
+  ],
+  "yeoman": [
+    "Archer.",
+    "+1 M.",
+    "Its missile damage is magical (ignores armor). When it hits a Keeper, the Keeper dies and Yeoman is dispelled.",
   ],
   "youth": [
     "Recruit.",

@@ -93,6 +93,8 @@ describe('review fixes: board keyboard', () => {
 const ordersSetup = (cards?: CardIndex, tweak?: (s: ReturnType<typeof begin>) => void) => {
   const s = clone(begin(newSession(7, { red: 'war', blue: 'war' }), 'red'));
   s.cards = cards ?? cardIndex;
+  // Pinned: the starter decks grow with every new card, which reshuffles seed 7's opening hand.
+  s.state.players.red.hand = ['berserker-blade', 'rain-of-arrows', 'warlord', 'swashbuckler', 'bloodlust'];
   tweak?.(s);
   const onLock = vi.fn<(o: Orders) => string | null>(() => null);
   const view = render(<OrdersScreen session={s} side="red" onLock={onLock} />);

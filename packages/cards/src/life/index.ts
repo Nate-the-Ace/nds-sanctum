@@ -46,6 +46,9 @@ import allies from './allies';
 import incarnate from './incarnate';
 import lienna from './lienna';
 import liennasPresence from './liennasPresence';
+import cadre from './cadre';
+import faeGift from './faeGift';
+import yeoman from './yeoman';
 
 export const lifeCards: CardDef[] = [
   caravan, flight, cleansingLight, pyx, healingHands, oasis, wellspring,
@@ -60,4 +63,5 @@ export const lifeCards: CardDef[] = [
   prismaticSerpent, sylph, undine, arboriads,
   bard, bardSong, allies, incarnate,
   lienna, liennasPresence,
+  cadre, faeGift, yeoman,
 ];

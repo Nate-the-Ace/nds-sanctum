@@ -104,10 +104,24 @@ describe('printed card text', () => {
     ]);
   });
 
+  it('plan 2d: damage kinds', () => {
+    expect(lines('cadre')).toEqual(['Recruit group with archers.', 'Archers +1 M against swordsmen.']);
+    expect(lines('flaming-arrows')).toEqual([
+      'Archer.', '+3 M against groups in a structure or forest.', 'When it hits an opponent in forest, that square becomes barren after all combat.',
+    ]);
+    expect(lines('yeoman')).toEqual([
+      'Archer.', '+1 M.', 'Its missile damage is magical (ignores armor). When it hits a Keeper, the Keeper dies and Yeoman is dispelled.',
+    ]);
+    expect(lines('fae-gift')).toEqual(['Swordsman.', 'Becomes an Elf. Its attacks heal the victim instead of damaging it (armor soaks first).']);
+    expect(lines('cannon')).toEqual([
+      'Globe.', 'Start of combat: if the friendly group has a Human archer, deal 1 damage to each member of the opposing group.',
+    ]);
+  });
+
   it('pins the printed text of every card', async () => {
     const { allCards } = await import('../src/index');
     const faces = Object.fromEntries(allCards.map((c) => [c.id, faceOf(c.id)?.lines]));
-    expect(Object.keys(faces)).toHaveLength(93);
+    expect(Object.keys(faces)).toHaveLength(98);
     expect(faces).toMatchSnapshot();
   });
 });

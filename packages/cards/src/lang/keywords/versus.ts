@@ -1,5 +1,5 @@
-import type { HouseId } from '@sanctum/engine';
-import { INDIVIDUAL_TARGETS, isHostMinion } from '../../helpers';
+import type { EventContext, HouseId, Minion, TerrainId } from '@sanctum/engine';
+import { GROUP_TARGETS, INDIVIDUAL_TARGETS, isHostMinion } from '../../helpers';
 import { requireHost } from '../hosts';
 import { defineKeyword, keywordDef } from '../registry';
 import type { Keyword } from '../types';
@@ -121,6 +121,70 @@ defineKeyword<AuraKeyword>({
         const hostId = spell.host.kind === 'minion' ? spell.host.id : -1;
         if (id === hostId) return k.self ? toDelta(k.self, m) : {};
         return appliesTo(k.to, m, spell) ? toDelta(k.others, m) : {};
+      },
+    };
+  },
+});
+
+/* ---------- Versus ---------- */
+
+export interface VersusVictim {
+  /** The victim is of this class. */
+  cls?: 'swordsman' | 'archer';
+  /** The victim's group stands on one of these terrains, or in a structure. */
+  in?: Array<TerrainId | 'structure'>;
+}
+export interface VersusKeyword extends Keyword {
+  kind: 'versus';
+  hand: number;
+  missile: number;
+  vs: VersusVictim;
+  to: GrantTo;
+}
+/** "+N M against swordsmen": extra damage when an attacker of the host (minion, or `to` members of the host group) strikes such a victim. */
+export const Versus = (bonus: { hand?: number; missile?: number }, vs: VersusVictim, opts: { to?: GrantTo } = {}): VersusKeyword => ({
+  kind: 'versus', hand: bonus.hand ?? 0, missile: bonus.missile ?? 0, vs, to: opts.to ?? 'all',
+});
+
+const VERSUS_SUBJECT: Record<GrantTo, string> = { all: '', swordsmen: 'Swordsmen ', archers: 'Archers ', enemies: 'Enemy recruits ' };
+const victimText = (vs: VersusVictim): string =>
+  vs.cls ? (vs.cls === 'swordsman' ? 'swordsmen' : 'archers')
+  : `groups in ${(vs.in ?? []).map((t) => (t === 'structure' ? 'a structure' : t)).join(' or ')}`;
+
+function victimMatches(c: EventContext, v: Minion, vs: VersusVictim): boolean {
+  if (vs.cls && v.cls !== vs.cls) return false;
+  if (vs.in) {
+    const pos = c.group(v.groupId)?.pos;
+    if (!pos) return false;
+    const inStructure = !!c.structureAt(pos) && vs.in.includes('structure');
+    if (!inStructure && !vs.in.includes(c.terrainAt(pos) as TerrainId)) return false;
+  }
+  return true;
+}
+
+defineKeyword<VersusKeyword>({
+  kind: 'versus', term: 'Versus', tier: 'house',
+  gloss: '"+N M against <victims>": extra hand (H) or missile (M) damage when this minion, or the named members of this group, strike such a victim.',
+  print: (k) => {
+    const stat = [k.hand ? `+${k.hand} H` : '', k.missile ? `+${k.missile} M` : ''].filter(Boolean).join(', ');
+    return { layout: 'line', text: `${VERSUS_SUBJECT[k.to]}${stat} against ${victimText(k.vs)}.` };
+  },
+  compile: (k, ctx) => {
+    const t = ctx.host ?? ctx.target.type;
+    const ok = t === 'minion' || t === 'group' || GROUP_TARGETS.includes(t as never) || INDIVIDUAL_TARGETS.includes(t as never);
+    if (!ok) throw new Error(`card "${ctx.cardId}": Versus needs a minion or group target, not "${t}"`);
+    return {
+      on: {
+        'attacker:strikes': (c, ev) => {
+          if (ev.ref?.kind !== 'minion') return;
+          const attacker = c.minion(ev.ref.id);
+          if (!attacker) return;
+          const mine = c.host.kind === 'minion' ? c.host.id === attacker.id : c.host.kind === 'group' && c.host.id === attacker.groupId;
+          if (!mine || !appliesTo(k.to, attacker, c.spell)) return;
+          const v = c.minion(ev.data.victimId);
+          if (!v || !victimMatches(c, v, k.vs)) return;
+          ev.data.damage += ev.data.kind === 'hand' ? k.hand : k.missile;
+        },
       },
     };
   },

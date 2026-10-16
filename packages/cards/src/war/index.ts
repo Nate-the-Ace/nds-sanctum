@@ -45,6 +45,8 @@ import ngozi from './ngozi';
 import ngozisBlight from './ngozisBlight';
 import vladHrothgar from './vladHrothgar';
 import riteOfGrowth from './riteOfGrowth';
+import cannon from './cannon';
+import flamingArrows from './flamingArrows';
 
 export const warCards: CardDef[] = [
   flamingSword, bloodlust, legionnaires, ngozisWay, palisade, warDrums, swashbuckler,
@@ -59,4 +61,5 @@ export const warCards: CardDef[] = [
   salamander, brimstoneDragon, wyrmling, wyrmlingHide, hellion, firewyrm,
   warlord, warlordCommand, decoy, decoyRuse, dragonsTeeth,
   ngozi, ngozisBlight, vladHrothgar, riteOfGrowth,
+  cannon, flamingArrows,
 ];

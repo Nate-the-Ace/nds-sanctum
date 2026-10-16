@@ -4,8 +4,12 @@ import { legalTargets, type Orders } from '@sanctum/engine';
 import { OrdersScreen } from '../src/ui/OrdersScreen';
 import { begin, newSession } from '../src/model/session';
 
+const RED_HAND = ['berserker-blade', 'rain-of-arrows', 'warlord', 'swashbuckler', 'bloodlust'];
+
 const setup = () => {
   const s = begin(newSession(7, { red: 'war', blue: 'war' }), 'red');
+  // Pinned: the starter decks grow with every new card, which reshuffles seed 7's opening hand.
+  s.state.players.red.hand = [...RED_HAND];
   const onLock = vi.fn<(o: Orders) => string | null>(() => null);
   const view = render(<OrdersScreen session={s} side="red" onLock={onLock} />);
   const group = Object.values(s.state.groups).find((g) => g.owner === 'red')!;
@@ -37,7 +41,7 @@ describe('OrdersScreen', () => {
     expect(screen.getByText(/Train swordsman/, { selector: '.orders-list *' })).toBeTruthy();
   });
 
-  // Seed 7, war vs war: red's hand is berserker-blade, rain-of-arrows, warlord, swashbuckler, bloodlust (no globe card).
+  // Seed 7, war vs war, red's hand pinned to berserker-blade, rain-of-arrows, warlord, swashbuckler, bloodlust (no globe card).
   it('arms a group-target card, highlights its targets and queues the cast', () => {
     const { s, view, group } = setup();
     const hand = s.state.players.red.hand;
