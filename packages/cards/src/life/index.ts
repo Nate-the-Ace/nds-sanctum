@@ -55,6 +55,9 @@ import seelieChampion from './seelieChampion';
 import spyAtCourt from './spyAtCourt';
 import faeQuadrille from './faeQuadrille';
 import terrainBind from './terrainBind';
+import faerieCircle from './faerieCircle';
+import faerieBlessing from './faerieBlessing';
+import faerieCircleHop from './faerieCircleHop';
 
 export const lifeCards: CardDef[] = [
   caravan, flight, cleansingLight, pyx, healingHands, oasis, wellspring,
@@ -72,4 +75,5 @@ export const lifeCards: CardDef[] = [
   cadre, faeGift, yeoman,
   dayOfMourning, ...greaterClarityCards, seelieChampion, spyAtCourt,
   faeQuadrille, terrainBind,
+  faerieCircle, faerieBlessing, faerieCircleHop,
 ];

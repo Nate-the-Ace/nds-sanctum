@@ -157,6 +157,21 @@ exports[`printed card text > pins the printed text of every card 1`] = `
     "Lasts 2 turns.",
     "Heal every minion in the four adjacent squares fully when cast. The square cannot be entered.",
   ],
+  "faerie-blessing": [
+    "Recruit.",
+    "+1 L.",
+    "Its group cannot enter a Faerie Circle.",
+  ],
+  "faerie-circle": [
+    "Forest square.",
+    "Bound to forest.",
+    "Start of turn: the group here disappears for this turn and the next 1-5 unless a member has Faerie Blessing. Its members are healed fully and get Faerie Blessing. It comes back at the start of the first turn its square is empty. If Faerie Circle ends while it is away, the group is removed from the game.",
+  ],
+  "faerie-circle-hop": [
+    "Globe.",
+    "Undispellable.",
+    "Brings a group back from a Faerie Circle.",
+  ],
   "faerie-fire": [
     "Recruit group with archers.",
     "Fleeting.",

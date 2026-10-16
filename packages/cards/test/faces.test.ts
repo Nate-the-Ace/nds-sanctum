@@ -159,10 +159,19 @@ describe('printed card text', () => {
     expect(lines('lava-flow-lava')).toEqual(['Square.', 'Lasts 3 turns.', 'When it ends, lava here becomes barren.']);
   });
 
+  it('plan 2d: Faerie Circle', () => {
+    expect(lines('faerie-circle')).toEqual([
+      'Forest square.', 'Bound to forest.',
+      'Start of turn: the group here disappears for this turn and the next 1-5 unless a member has Faerie Blessing. Its members are healed fully and get Faerie Blessing. It comes back at the start of the first turn its square is empty. If Faerie Circle ends while it is away, the group is removed from the game.',
+    ]);
+    expect(lines('faerie-blessing')).toEqual(['Recruit.', '+1 L.', 'Its group cannot enter a Faerie Circle.']);
+    expect(lines('faerie-circle-hop')).toEqual(['Globe.', 'Undispellable.', 'Brings a group back from a Faerie Circle.']);
+  });
+
   it('pins the printed text of every card', async () => {
     const { allCards } = await import('../src/index');
     const faces = Object.fromEntries(allCards.map((c) => [c.id, faceOf(c.id)?.lines]));
-    expect(Object.keys(faces)).toHaveLength(126);
+    expect(Object.keys(faces)).toHaveLength(129);
     expect(faces).toMatchSnapshot();
   });
 });
