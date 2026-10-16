@@ -67,6 +67,7 @@ function startRound(e: Engine, hiId: number, loId: number, round: number): void 
       m.combat.armor = st.armor;
       m.combat.handLeft = round === 1 ? 0 : st.handAttacks;
       m.combat.missileLeft = st.missileAttacks;
+      if (st.missileAttacks > 0) m.combat.victim = null; // shooters go idle each round (R1)
       if (round === 1) m.combat.misses = FIRST_HIT;
     }
   }
