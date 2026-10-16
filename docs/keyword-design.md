@@ -2,7 +2,8 @@
 
 Goal: replace wordy instruction-style card text with a small keyword language that **is** the card definition (the engine
 runs it and the UI prints text from it). This document borrows the structure MTG settled on and proposes the first
-Sanctum vocabulary. Nothing here is implemented yet.
+Sanctum vocabulary. Implemented in `packages/cards/src/lang` (plan `2026-10-16-keyword-language`); the 68 War and Life
+cards are all declared with it.
 
 Sources for the MTG structure: the [Comprehensive Rules as summarised on mtg.wiki (keyword actions)](https://mtg.wiki/page/Keyword_action),
 [keyword abilities](https://mtg.wiki/page/Keywords), [deciduous](https://mtg.wiki/page/Deciduous), and the
@@ -107,3 +108,22 @@ Candidates once houses are added: `Rage` (grows when hit or when comrades fall: 
 3. The renderer prints text with the templates in section 2.
 4. A glossary page and card tooltips are generated from the same registry.
 5. The scaffolder (later) proposes a keyword list from scraped text using the phrase tables.
+
+## 6. As built
+
+The vocabulary above is implemented in `packages/cards/src/lang`. Constructors by family:
+
+- **Targets:** `Target.*` (the target line of every card, and its `canCast` rule).
+- **Grants:** `Grant`, `Walk`, `Concealed`, `Pacified`.
+- **Modifiers:** `Lasts`, `Stackable`, `Fleeting`, `Undispellable`, `Truce`, `Bound`, `Afterward`, `Fanfare`.
+- **Triggers:** `On` with `When.*`.
+- **Effects:** `OnCast`, `Heal`, `Damage`, `Kill`, `Terraform`, `Expend`, `DispelAll`, `AddMana`, `Give`, `GiveSquares`,
+  `Withdraw`, `MoveTwice`, `RandomMove`, `CancelMoves`.
+- **Restrictions:** `Forbid`, `Shroud`, `Warded`, `Concealment`.
+- **Special:** `Ramp` (the `Rage` ability word), `Script` (escape hatch with hand-written text).
+
+Not built yet: `Unique`, `Ambush` and `Flurry N` from section 3. No War or Life card needs them; plan 2c (monsters and
+heroes) adds them.
+
+The printed text of every card comes from `cardFace(id)` and the reminder text from `keywordGlossary()`, both exported
+from `@sanctum/cards`; `packages/cards/test/faces.test.ts` pins every face.

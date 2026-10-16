@@ -102,4 +102,11 @@ describe('printed card text', () => {
       'Friendly recruit group.', 'Move 1 square diagonally toward the enemy and cancel its move order.',
     ]);
   });
+
+  it('pins the printed text of every card', async () => {
+    const { allCards } = await import('../src/index');
+    const faces = Object.fromEntries(allCards.map((c) => [c.id, faceOf(c.id)?.lines]));
+    expect(Object.keys(faces)).toHaveLength(68);
+    expect(faces).toMatchSnapshot();
+  });
 });

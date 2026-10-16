@@ -25,3 +25,5 @@ export const cardIndex = indexCards(allCards);
 export const playableCards = allCards.filter((c) => !c.helper);
 /** Scraped cards with no script yet (see docs/superpowers/plans/cards-backlog.md). */
 export const pendingCards = cardData.filter((c) => !cardIndex[c.slug]);
+export { faceOf as cardFace, glossary as keywordGlossary, helperSummary } from './lang';
+export type { Face, GlossaryEntry } from './lang';

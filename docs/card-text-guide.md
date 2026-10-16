@@ -123,10 +123,13 @@ Rule of thumb: if a sentence is "X gets +N <stat>" and nothing else, the card is
 ## 9. Adding a card (checklist)
 
 1. Read the scraped text (`cards.json`). Mark each sentence: target / stat line / effect / modifier / reminder.
-2. Map target and modifiers with the tables above (declare the spell type yourself).
-3. Express stat grants as `stats()`, timing phrases as `on: {...}`, effects as `ctx` calls.
-4. If a sentence has no row above, it needs an engine extension: add it to `cards-backlog.md` under the group it belongs to.
-5. Name any "gets <Named Effect>" as a helper card (`helper: true`) so it shows up in the spell list and can be dispelled.
-6. Write tests: one per sentence, plus the "cannot target / squanders" cases. Add a `// RULING:` comment for any clause not
+2. Declare the card with `card({ id, name, house, cost, type, target, keywords: [...] })` in `packages/cards/src/<house>/`.
+   Target phrases map to `Target.*`; stat grants to `Grant`; timing phrases to `On(When.*, ...)`; one-off effects to
+   `OnCast(...)`; durations and stacking to `Lasts`, `Stackable`, `Fleeting`.
+3. If a sentence has no keyword, first check the tables above for an existing effect verb. If none fits, either add a
+   keyword (when at least 3 cards would use it) or use `Script(text, fragment)` with hand-written text.
+4. Name any "gets <Named Effect>" as a helper card (`helper: true`) and use `Give('helper-id', scope)`.
+5. Write one test per sentence, plus the "cannot target / squanders" cases; add a `// RULING:` comment for any clause not
    implemented exactly.
-7. The metadata test checks house, cost and target against the scrape automatically.
+6. Add the card's printed text to `faces.test.ts`; the printed text comes from the keywords, so read it and rewrite the
+   keyword list until it reads like a card.

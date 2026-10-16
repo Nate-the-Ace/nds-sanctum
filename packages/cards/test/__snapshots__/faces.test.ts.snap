@@ -1,0 +1,301 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`printed card text > pins the printed text of every card 1`] = `
+{
+  "adriels-glamour": [
+    "Globe.",
+    "Lasts 5 turns.",
+    "No globe spells.",
+  ],
+  "adriels-mantle": [
+    "Group.",
+    "Lasts 2 turns, Shroud.",
+  ],
+  "adriels-promise": [
+    "Globe.",
+    "Lasts 8 turns.",
+    "No structure spells.",
+  ],
+  "amok": [
+    "Recruit group.",
+    "Move twice, Random direction.",
+  ],
+  "armistice": [
+    "Globe.",
+    "Truce, Lasts 3 turns.",
+  ],
+  "auberols-grace": [
+    "Town or colony.",
+    "Recruit created: Give Grace of Auberol (+4 HP) (new recruit), Heal 4 (new recruit).",
+  ],
+  "aura-of-world": [
+    "Globe.",
+    "Stackable.",
+    "Mana: +1 World.",
+  ],
+  "berserker-blade": [
+    "Swordsman.",
+    "Rage: +1 H each time hit, until end of combat.",
+  ],
+  "berserkers": [
+    "Recruit group.",
+    "Rage: +1 H per casualty (max +3), until end of combat.",
+  ],
+  "bloodlust": [
+    "Swordsman.",
+    "+1 Attack.",
+  ],
+  "call-to-arms": [
+    "Town or colony.",
+    "Mana: +2 Strife (owner).",
+  ],
+  "caravan": [
+    "Recruit group.",
+    "Desertwalk.",
+  ],
+  "clandestine": [
+    "Town or colony.",
+    "Lasts 5 turns.",
+    "Recruit created: Give Greymantle (Concealed) (new recruit).",
+  ],
+  "cleansing-light": [
+    "Group.",
+    "Dispel all (target group).",
+  ],
+  "court-politics": [
+    "Globe.",
+    "Lasts 3 turns, Stackable.",
+    "Caster: no group or individual spells on friends.",
+    "Afterwards: Court Politics II (Stackable; Mana: +2 Clarity).",
+  ],
+  "court-politics-ii": [
+    "Globe.",
+    "Stackable.",
+    "Mana: +2 Clarity.",
+  ],
+  "dragon-slayer": [
+    "Archer.",
+    "On damage (monster): Kill (victim).",
+  ],
+  "drop-of-elixir-vitae": [
+    "Recruit.",
+    "+6 HP.",
+  ],
+  "elixir-vitae": [
+    "Globe.",
+    "Give Drop of Elixir Vitae (+6 HP) (all recruits).",
+  ],
+  "elven-piper": [
+    "Recruit group.",
+    "Plays bagpipe music at start of combat.",
+  ],
+  "faerie-fire": [
+    "Recruit group with archers.",
+    "Fleeting.",
+    "Archers +2 M.",
+  ],
+  "faerie-glade": [
+    "Forest square.",
+    "Give Faerie Glade (Bound to forest; Enemy recruits -1 L) to contiguous forest.",
+  ],
+  "faerie-glade-square": [
+    "Square.",
+    "Bound to forest.",
+    "Enemy recruits -1 L.",
+  ],
+  "faerie-knight": [
+    "Recruit.",
+    "Warded.",
+    "+4 HP.",
+  ],
+  "field-surgery": [
+    "Friendly recruit group.",
+    "Give Field Surgery (Undispellable; -1 HP) (each damaged), Heal full (each).",
+  ],
+  "field-surgery-scar": [
+    "Recruit.",
+    "Undispellable.",
+    "-1 HP.",
+  ],
+  "filigreed-armor": [
+    "Recruit.",
+    "Warded 1.",
+    "+1 A.",
+  ],
+  "fireball": [
+    "Group.",
+    "5 damage (each).",
+  ],
+  "flaming-sword": [
+    "Swordsman.",
+    "+2 H.",
+  ],
+  "flight": [
+    "Recruit group.",
+    "Flight.",
+  ],
+  "fog-of-war": [
+    "Globe.",
+    "Lasts 3 turns.",
+    "All minions are Concealed.",
+  ],
+  "forced-march": [
+    "Recruit group.",
+    "Move twice.",
+  ],
+  "fountain-of-youth": [
+    "Square.",
+    "On enter: Heal full (entering group), Give Youth (-1 L) (entering group).",
+  ],
+  "good-of-the-many": [
+    "Friendly recruit.",
+    "Kill.",
+  ],
+  "grace-of-auberol": [
+    "Recruit.",
+    "+4 HP.",
+  ],
+  "greymantle": [
+    "Recruit.",
+    "Concealed.",
+  ],
+  "healing-hands": [
+    "Recruit.",
+    "Start of turn: Heal 1 (group).",
+  ],
+  "individualism": [
+    "Globe.",
+    "Lasts 3 turns.",
+    "No group spells.",
+  ],
+  "legionnaires": [
+    "Recruit group with swordsmen.",
+    "Swordsmen +1 H.",
+  ],
+  "liennas-sigil": [
+    "Group.",
+    "Start of combat (vs monsters): Withdraw.",
+  ],
+  "liennas-steed": [
+    "Friendly recruit group.",
+    "Move 1 square diagonally toward the enemy and cancel its move order.",
+  ],
+  "lone-wolf": [
+    "Swordsman alone in its group.",
+    "Shroud (friendly spells).",
+    "+3 H, +1 A, +6 HP.",
+  ],
+  "marksman": [
+    "Archer.",
+    "+1 M, +2 HP, +1 Attack.",
+  ],
+  "ngozis-way": [
+    "Recruit group.",
+    "+1 L.",
+  ],
+  "oasis": [
+    "Town or colony.",
+    "Adjacent squares become desert.",
+    "Start of turn: Heal 1 (recruits here).",
+  ],
+  "pacifism": [
+    "Recruit.",
+    "Pacified.",
+  ],
+  "palisade": [
+    "Square.",
+    "Archers +1 A.",
+  ],
+  "plains": [
+    "Square.",
+    "Square becomes plains.",
+  ],
+  "point-of-clarity": [
+    "Globe.",
+    "Stackable.",
+    "Mana: +1 Clarity.",
+  ],
+  "pyx": [
+    "Group.",
+    "Heal full (each).",
+  ],
+  "rain-of-arrows": [
+    "Recruit group with archers.",
+    "Fleeting.",
+    "Archers +1 Attack.",
+  ],
+  "redeemers-sword": [
+    "Swordsman.",
+    "+2 H.",
+  ],
+  "ring-of-light": [
+    "Town or colony.",
+    "Mana: +2 Clarity (owner).",
+  ],
+  "scorched-earth": [
+    "Forest square.",
+    "Contiguous forest becomes barren.",
+  ],
+  "seelie-favor": [
+    "Non-friendly group.",
+    "Shroud (group spells).",
+  ],
+  "shattering-blow": [
+    "Swordsman.",
+    "On hit: kill the victim, then -1 H.",
+  ],
+  "skirmish": [
+    "Group.",
+    "Fleeting.",
+    "Round 3: Withdraw.",
+  ],
+  "standoff": [
+    "Globe.",
+    "Lasts 2 turns.",
+    "Before movement: Cancel all moves.",
+  ],
+  "strategic-withdrawals": [
+    "Globe.",
+    "Round 7: Withdraw.",
+  ],
+  "swashbuckler": [
+    "Swordsman.",
+    "Undispellable.",
+    "Gain L equal to A, then A becomes 0.",
+  ],
+  "thermite-damage": [
+    "Recruit.",
+    "-1 A.",
+  ],
+  "thermites": [
+    "Recruit.",
+    "On hit: Give Thermite Damage (-1 A) (victim).",
+  ],
+  "veteran": [
+    "Recruit.",
+    "+1 H, +1 A, +4 HP.",
+  ],
+  "vivant": [
+    "Recruit.",
+    "Pacified.",
+    "Each round: Heal 3 (most hurt ally).",
+    "Start of turn: Heal full (group).",
+  ],
+  "volcano": [
+    "Square.",
+    "Square becomes volcano.",
+  ],
+  "war-drums": [
+    "Recruit group.",
+    "Plays triumphant music after a win.",
+  ],
+  "wellspring": [
+    "Square.",
+    "On enter (recruit group): Heal full (all minions), Expend.",
+  ],
+  "youth": [
+    "Recruit.",
+    "-1 L.",
+  ],
+}
+`;
