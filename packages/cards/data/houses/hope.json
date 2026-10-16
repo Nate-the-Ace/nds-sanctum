@@ -1,0 +1,733 @@
+[
+  {
+    "sid": 1032,
+    "name": "Abstention",
+    "slug": "abstention",
+    "house": "hope",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 3,
+      "order": 3
+    },
+    "flavor": null,
+    "text": "Cast on globe. Caster cannot discard or cast any globe spells. Duration: Turn of casting +2. On expiration, Abstention II (caster gets +2 Clarity each turn) is cast on the globe. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 154,
+    "name": "Army of Light",
+    "slug": "army-of-light",
+    "house": "hope",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 4,
+      "order": 3
+    },
+    "flavor": "As inspiration grows and spreads, fledgling whispered hopes become stronger, substantial Visions.",
+    "text": "Cast on town or colony. Creates two Vision novices in town.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 47,
+    "name": "Ascension",
+    "slug": "ascension",
+    "house": "hope",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 3,
+      "order": 2
+    },
+    "flavor": "\"The sky opened up and took her, laughing, from us. My comrades fell to their knees. 'Take us too, Zana! We are worthy!'\" -- The Tale of Bella",
+    "text": "Cast on recruit. Recruit is removed from the game. (This does not set off any death-triggered effects.)",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 534,
+    "name": "Atonement",
+    "slug": "atonement",
+    "house": "hope",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 2
+    },
+    "flavor": "The Imp Bloodspike was Zana's torturer at Bar-Thadarak. Later he embraced Hope and took the name Heartsong. On hearing this, Zana wept with gladness, and said: \"Remorse is the gateway to joy.\"",
+    "text": "Cast on recruit. If recruit is killed, the attacker's owner discards all spells in hand. If killed by a recruit, Atonement transfers to the killer.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 1033,
+    "name": "Aurora",
+    "slug": "aurora",
+    "house": "hope",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 2,
+      "order": 1
+    },
+    "flavor": null,
+    "text": "Cast on globe. All friendly recruits on the board get Aura (+1 armor, dispelled when recruit is hit in combat). (Recruits that are off the board are not affected.)",
+    "castOn": "globe"
+  },
+  {
+    "sid": 118,
+    "name": "Bella's Sigil",
+    "slug": "bellas-sigil",
+    "house": "hope",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 2
+    },
+    "flavor": "\"She strode toward the snorting monster, smiling. At first we thought she had lost hold of her senses, and then the great beast lay down at her feet.\" -- The Tale of Bella",
+    "text": "Cast on monster. It becomes immobile. (Immobile monsters cannot be moved.)",
+    "castOn": "monster"
+  },
+  {
+    "sid": 340,
+    "name": "Burst of Clarity",
+    "slug": "burst-of-clarity",
+    "house": "hope",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 2
+    },
+    "flavor": "Clarity showers upon the world, enriching everything with its brilliance.",
+    "text": "Cast on globe. Caster gets +2 Clarity next turn.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 530,
+    "name": "Centaurs",
+    "slug": "centaurs",
+    "house": "hope",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 5,
+      "order": 2
+    },
+    "flavor": "\"My folk distrust Mages, and we do not follow Houses; but the Maiden Z'naa is a friend, and we honor our friends.\" -- A'hnarrha, Centaur",
+    "text": "M:2(x2) A:0 HP:10(x2) L:1 Nomadic. Two attacks. Cast on forest. Creates two Centaurs.",
+    "castOn": "forest"
+  },
+  {
+    "sid": 408,
+    "name": "Chalice of Hope",
+    "slug": "chalice-of-hope",
+    "house": "hope",
+    "expansion": "Bloodlines",
+    "rarity": "Very Rare",
+    "cost": {
+      "clarity": 4,
+      "order": 1
+    },
+    "flavor": "\"This chalice we seek may be only a dream, but then the creatures of Hope are dreams too in their way.\" -- Journal of Lienna: Volume III",
+    "text": "Cast on globe. All owned structures create one novice each turn. Duration: Turn of casting +3.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 18,
+    "name": "Change of Heart",
+    "slug": "change-of-heart",
+    "house": "hope",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 4,
+      "order": 3
+    },
+    "flavor": "\"The town seemed to move of a body. Without word or signal, they put down their ploughs and began passing out weapons ...\" -- The Journey of Tansek",
+    "text": "Cast on neutral town or colony. Town joins caster\\'s side. Any group in town is removed from the game.",
+    "castOn": "neutral town or colony"
+  },
+  {
+    "sid": 1034,
+    "name": "Charmed Existence",
+    "slug": "charmed-existence",
+    "house": "hope",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 2,
+      "order": 1
+    },
+    "flavor": null,
+    "text": "Cast on recruit. Recruit dodges the first attack each round that would normally hit recruit.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 456,
+    "name": "Citizens' Militia",
+    "slug": "citizens-militia",
+    "house": "hope",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 4,
+      "order": 2
+    },
+    "flavor": "\"I despise the arrogance of would-be tyrants; underestimate me, and I will spit in your eye.\" -- Ngozi's Manifesto",
+    "text": "Cast on non-neutral town or colony. Creates four level 0 Vision swordsmen off the board. Before combat, they appear in town when a non-friendly group is adjacent. After all combat, they disappear again. Enemy groups cannot enter town. Dispelled when killed or if town is captured.",
+    "castOn": "non-neutral town or colony"
+  },
+  {
+    "sid": 847,
+    "name": "Deva's Quiver",
+    "slug": "devas-quiver",
+    "house": "hope",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 5
+    },
+    "flavor": "The Quivers Deva made were things of beauty and awe, filled with the essence of Hope itself. Arrows steeped in their light pierce any darkness of soul and strip away all doubt.",
+    "text": "Cast on archer. Archer gets +2 missile damage and +1 level, and ignores opponent's armor.",
+    "castOn": "archer"
+  },
+  {
+    "sid": 841,
+    "name": "Emancipation",
+    "slug": "emancipation",
+    "house": "hope",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 2,
+      "order": 1
+    },
+    "flavor": null,
+    "text": "Cast on globe. All monster groups on the board get Emancipated (monster group becomes neutral).",
+    "castOn": "globe"
+  },
+  {
+    "sid": 842,
+    "name": "Empathy",
+    "slug": "empathy",
+    "house": "hope",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 3,
+      "order": 2
+    },
+    "flavor": "Followers of Hope feel the pain of others.",
+    "text": "Cast on friendly recruit. Enemy group spells cast on recruit's group are squandered, and recruit takes damage equal to the casting cost of the squandered spell.",
+    "castOn": "friendly recruit"
+  },
+  {
+    "sid": 306,
+    "name": "Farm-Boys",
+    "slug": "farm-boys",
+    "house": "hope",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 5,
+      "order": 1
+    },
+    "flavor": "\"In battle, enthusiasm is rarely a match for practice.\" -- Ngozi, The Book of War",
+    "text": "Cast on town or colony. Every recruit created in town gets Farm-Boy (-1 level).",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 529,
+    "name": "Griffin",
+    "slug": "griffin",
+    "house": "hope",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 4
+    },
+    "flavor": "\"Climbed ark of Sky have I, and felt the gold of Sun on golden Wings. That is enough forever; no need of more. In battle cry for joy, for what you've lived, and strike the dark, that hope live on!\" -- the Griffin of Zur",
+    "text": "H:3 A:1 HP:12 L:2 Nomadic, Flight. Cast within a 3x3 diamond centered on a mountain. Cannot be targeted by Despair individual spells. Receives -1 damage from minions without Flight. Deals magical damage against Shadows. (Magical damage ignores armor, immunities, and spells.)",
+    "castOn": null
+  },
+  {
+    "sid": 843,
+    "name": "Hand of Zana",
+    "slug": "hand-of-zana",
+    "house": "hope",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 1
+    },
+    "flavor": "Hope can move you, sometimes in a literal sense.",
+    "text": "Cast on globe. All friendly groups gain Flight. (Groups may cross any terrain, and are immune to adverse terrain effects.) Duration: M turns. Revolver (Casting cost M revolves from 1 to 10, starting at 1 and increasing by 1 mana per turn, restarting at 1 when it reaches 10, until cast).",
+    "castOn": "globe"
+  },
+  {
+    "sid": 1035,
+    "name": "Heartsong",
+    "slug": "heartsong",
+    "house": "hope",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 4,
+      "order": 4
+    },
+    "flavor": null,
+    "text": "H:2 A:1 HP:7 L:2 Cast on square not adjacent to any structure, and only after turn 25. Creates Heartsong, an Imp Hero swordsman. (Each Hero may be cast only once per game.)",
+    "castOn": "square not adjacent to any structure, and only after turn 25"
+  },
+  {
+    "sid": 300,
+    "name": "Hero's Legacy",
+    "slug": "heros-legacy",
+    "house": "hope",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 2,
+      "order": 1
+    },
+    "flavor": "\"A hush fell over the battlefield. Then came the cry, 'For Vela!' First one voice, and then the others, began the chant: 'For Vela! For Vela!'\" -- The Onomonridoriad",
+    "text": "Cast on recruit. When recruit dies, all surviving members of its group get Legacy (+1 level).",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 844,
+    "name": "Illender",
+    "slug": "illender",
+    "house": "hope",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 2
+    },
+    "flavor": "Where the ground is poisonus, let it be simple. Where dust lies, let grasses grow. Where marshes reign, let lush forest live.",
+    "text": "Cast on square. Void, lava, and desert become barren land. Barren land becomes plains. Volcano becomes mountain. Swamp becomes forest.",
+    "castOn": "square"
+  },
+  {
+    "sid": 531,
+    "name": "Inspiration",
+    "slug": "inspiration",
+    "house": "hope",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 3
+    },
+    "flavor": "\"Clarity's portents: All secrets will be made known, and all gates opened. Pure hearts schooled in trust will hold the Ring of Six Stones in trembling fingers.\" -- the Faldathi Prophecy",
+    "text": "Cast on globe. A random spell is added to the top of caster's deck, altered to caster's house and mana types.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 214,
+    "name": "Leadership",
+    "slug": "leadership",
+    "house": "hope",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 4,
+      "order": 1
+    },
+    "flavor": "The hero who walks with vision inspires love and courage in his fellows. The more who partake of the spark of vision, the stronger it becomes.",
+    "text": "Cast on recruit. Recruit gets +1 level. Recruit and other swordsmen in its group get +1 hand damage.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 532,
+    "name": "Leap of Faith",
+    "slug": "leap-of-faith",
+    "house": "hope",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 1
+    },
+    "flavor": "\"In the end, love can have no reason and no proof. Freedom lies in a commitment springing out of nothing. Giving up all attachment and identity is the fundamental generosity; and what remains is bliss.\" -- Ch\\'tai academy discourse on Hope",
+    "text": "Cast on globe. Caster discards all spells in hand that were not cast this turn.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 64,
+    "name": "Man of Iron",
+    "slug": "man-of-iron",
+    "house": "hope",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 6
+    },
+    "flavor": "\"The townspeople of this region speak with whispered reverence and blazing eyes of an iron man, a creature of great strength who defends them against tyrants.\" -- Diary of Vlad Hrothgar",
+    "text": "H:3 A:2 HP:12 L:2 Nomadic.",
+    "castOn": null
+  },
+  {
+    "sid": 1036,
+    "name": "Master Armorer",
+    "slug": "master-armorer",
+    "house": "hope",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 3,
+      "order": 3
+    },
+    "flavor": null,
+    "text": "Cast on friendly town or colony. Every recruit created in structure gets Visionary Armor (+1 armor).",
+    "castOn": "friendly town or colony"
+  },
+  {
+    "sid": 90,
+    "name": "Mountain Pass",
+    "slug": "mountain-pass",
+    "house": "hope",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 1
+    },
+    "flavor": "With insubstantial hope, heroes can tumble the walls of fortresses and move mountains. It will open any impasse effortlessly, even that which seems set in stone.",
+    "text": "Cast on mountain or volcano. Caster's groups can cross this square. (This does not protect groups from volcano damage.)",
+    "castOn": "mountain or volcano"
+  },
+  {
+    "sid": 318,
+    "name": "Pegasus",
+    "slug": "pegasus",
+    "house": "hope",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 6,
+      "order": 1
+    },
+    "flavor": "Those who have ascended these mountains claim to have seen a dazzling white steed alight on the highest peaks, and felt wings beat the air above them in the piercing blue.",
+    "text": "H:4 A:1 HP:12 L:2 Nomadic, Flight, Moves 2. Cast within a 3x3 diamond centered on a mountain. Receives -1 damage from minions without Flight.",
+    "castOn": null
+  },
+  {
+    "sid": 845,
+    "name": "Perfection",
+    "slug": "perfection",
+    "house": "hope",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 6
+    },
+    "flavor": null,
+    "text": "Cast on town or colony. Dispels all structure spells. (This does not destroy colonies.) Town or colony cannot be targeted by structure spells.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 535,
+    "name": "Piercing Rays",
+    "slug": "piercing-rays",
+    "house": "hope",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 1
+    },
+    "flavor": "\"As the arrows landed, my grim employers uttered unearthly wails. The bright faces of our ambushers were calm, compassionate. As an arrow grazed my arm, I thought of my own sins.\" -- Jan Palczred, mercenary",
+    "text": "Cast on archer. Archer gets +1 missile damage. Vision archer gets additional +2 damage against Shadows.",
+    "castOn": "archer"
+  },
+  {
+    "sid": 190,
+    "name": "Prophet",
+    "slug": "prophet",
+    "house": "hope",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 3,
+      "order": 2
+    },
+    "flavor": "When a great soul walks the world, his light crosses all boundaries; that which enlightens is ineffable and not restricted to nations.",
+    "text": "Cast on recruit. Recruit generates +1 mana of each type associated with its nation for both players each turn.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 1037,
+    "name": "Recall",
+    "slug": "recall",
+    "house": "hope",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 5,
+      "order": 2
+    },
+    "flavor": null,
+    "text": "Cast on friendly recruit group. Group is removed from the game. For each recruit in group, 1 novice is created in caster's Sanctum.",
+    "castOn": "friendly recruit group"
+  },
+  {
+    "sid": 194,
+    "name": "Sanctuary",
+    "slug": "sanctuary",
+    "house": "hope",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 4
+    },
+    "flavor": "That which the Armies of Hope claim as Sacred Ground, none may pollute with bloodshed.",
+    "text": "Cast on square. At start of combat, any group in square withdraws, ending combat.",
+    "castOn": "square"
+  },
+  {
+    "sid": 301,
+    "name": "Settlement",
+    "slug": "settlement",
+    "house": "hope",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 8
+    },
+    "flavor": "\"With a song in your hearts strike down the wilderness, clear land and plant new seed. Cultivate Hope, and prepare to reap a new harvest.\" -- Sayings of Zana to the Acolytes",
+    "text": "Cast on recruit group not in a structure. Group is replaced by a colony belonging to the owner of the group. (A new colony dispels its square and changes it to plains.)",
+    "castOn": "recruit group not in a structure"
+  },
+  {
+    "sid": 614,
+    "name": "Shield of Vela",
+    "slug": "shield-of-vela",
+    "house": "hope",
+    "expansion": "Whispers",
+    "rarity": "Very Rare",
+    "cost": {
+      "clarity": 3,
+      "order": 1
+    },
+    "flavor": "Vela rid the Howling Lands of Gorgons. His legacy is used in Hope's defense even today.",
+    "text": "Cast on recruit. Recruit's hits give Gorgon's Gaze (-1 damage and +1 armor, cumulative. A minion who gets three or more Gorgon's Gaze is killed). Only one in play at a time.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 110,
+    "name": "Spirit Sword",
+    "slug": "spirit-sword",
+    "house": "hope",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 2
+    },
+    "flavor": "When first you take up the Blade of Clarity, its light burns away all your doubts and fears, that you may strike true.",
+    "text": "Cast on swordsman. Swordsman gets +1 hand damage, and now ignores opponents' armor.",
+    "castOn": "swordsman"
+  },
+  {
+    "sid": 1038,
+    "name": "Spiritual Advisers",
+    "slug": "spiritual-advisers",
+    "house": "hope",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 4,
+      "order": 3
+    },
+    "flavor": null,
+    "text": "M:2 A:0 HP:7 L:1 Cast on globe. One Vision archer is created in every recruit group on the board. (Recruit groups off the board are not affected.)",
+    "castOn": "globe"
+  },
+  {
+    "sid": 846,
+    "name": "Sublimity",
+    "slug": "sublimity",
+    "house": "hope",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 2,
+      "order": 2
+    },
+    "flavor": null,
+    "text": "Cast on friendly town or colony. After all combat, each recruit in town gets -2 maximum hit points, or Sublimity is dispelled if town is unoccupied. For each affected recruit, town generates +1 primary mana next turn.",
+    "castOn": "friendly town or colony"
+  },
+  {
+    "sid": 22,
+    "name": "Sword of Zana",
+    "slug": "sword-of-zana",
+    "house": "hope",
+    "expansion": "Classic",
+    "rarity": "Very Rare",
+    "cost": {
+      "clarity": 6,
+      "order": 3
+    },
+    "flavor": "Zana called her generals and blessed their swords. \"It is a terrible power I give you,\" she said. \"But when Vask falls, all this land will be free of horror.\"",
+    "text": "Cast on recruit group not in a structure. At start of combat, opposing group dies, ending combat. Dispelled after next combat.",
+    "castOn": "recruit group not in a structure"
+  },
+  {
+    "sid": 615,
+    "name": "Sword of Zana II",
+    "slug": "sword-of-zana-ii",
+    "house": "hope",
+    "expansion": "Whispers",
+    "rarity": "Very Rare",
+    "cost": {
+      "clarity": 6,
+      "order": 3
+    },
+    "flavor": "Zana called her generals and blessed their swords. \"You are my most faithful,\" she said, \"and you will need your faith today, for it is a terrible power I give you.\"",
+    "text": "Cast on recruit group not in a structure. At start of combat, opposing group dies, ending combat. Dispelled after next combat.",
+    "castOn": "recruit group not in a structure"
+  },
+  {
+    "sid": 287,
+    "name": "Threshold of Order",
+    "slug": "threshold-of-order",
+    "house": "hope",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 4
+    },
+    "flavor": "\"Step forward, through fear. Fear cannot limit you. All is as it should be in the world; know this, and be free of the chains of mystery and strife.\" -- Sayings of Zana to the Acolytes",
+    "text": "Cast on globe. Caster gets +1 Order each turn. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 533,
+    "name": "Unerring Focus",
+    "slug": "unerring-focus",
+    "house": "hope",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 1,
+      "order": 1
+    },
+    "flavor": "\"Rage, spite, despair my constant temptations. Every moment a trial, a lesson, and a gift. Keep the Light always before me!\" -- Heartsong, Imp disciple of Hope",
+    "text": "Cast on recruit. Recruit's attacks always hit and cannot be dodged, regardless of its opponent's level.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 441,
+    "name": "Unicorn Herd",
+    "slug": "unicorn-herd",
+    "house": "hope",
+    "expansion": "Bloodlines",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 4,
+      "order": 3
+    },
+    "flavor": "\"Who harms the Unicorn, maims his own soul.\" -- Alicar, Elven bard",
+    "text": "H:2 A:0 HP:7(x3) L:1 Territorial. Creates three Unicorns. If a Unicorn is killed by a recruit, recruit gets Unicorn's Blood (recruit is set to level 0 and cannot gain levels).",
+    "castOn": null
+  },
+  {
+    "sid": 848,
+    "name": "Vale of Peace",
+    "slug": "vale-of-peace",
+    "house": "hope",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 2,
+      "order": 2
+    },
+    "flavor": null,
+    "text": "Cast on town or colony. Monsters cannot enter or be targeted on squares in the 3x3 diamond centered on town.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 28,
+    "name": "Valiant Stand",
+    "slug": "valiant-stand",
+    "house": "hope",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 2
+    },
+    "flavor": "\"Perhaps there was no error, but only my Fate; perhaps I will win the contest... and my errors were in the end a path to glory.\" -- Zaduth-Jar, Lecturer in Xenology",
+    "text": "Cast on town or colony. While in town, swordsmen in town get +2 hand damage. Dispelled after next combat or if town is captured.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 849,
+    "name": "Volunteers",
+    "slug": "volunteers",
+    "house": "hope",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 5,
+      "order": 2
+    },
+    "flavor": "Those who flock to the cause, Hope calls volunteers. But the Shadows claim they are forced and have no free will.",
+    "text": "Cast on globe. Before movement, for every new recruit created, a new Vision archer is created in the new recruit's group. Duration: Turn of casting +2.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 414,
+    "name": "Zana",
+    "slug": "zana",
+    "house": "hope",
+    "expansion": "Bloodlines",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 4,
+      "order": 4
+    },
+    "flavor": "Known also as ZHNH, Z'naa, or simply the Maiden. It was said of Zana that \"where she walked, light and love sprang up; the hardest hearts turned toward her outstretched hand\".",
+    "text": "H:2 A:1 HP:7 L:2 Cast on recruit group. Creates Zana, a Vision Hero swordswoman. While Zana is in play, all monsters join her caster's side. (Each Hero may be cast only once per game.)",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 453,
+    "name": "Zana's Blessing",
+    "slug": "zanas-blessing",
+    "house": "hope",
+    "expansion": "Bloodlines",
+    "rarity": "Uncommon",
+    "cost": {
+      "clarity": 4,
+      "order": 2
+    },
+    "flavor": "\"The terrible foe confronted us before the grime-encrusted walls of Vask, and we were sore afraid. Then we heard voices lifted in song and the whine of arrows, and we knew that our prayers had been answered.\" -- Alicar, Elven bard",
+    "text": "M:2 A:1 HP:7(x2) L:1 Cast on recruit group. At start of combat, two level 1 Vision archers are created in group. At end of combat, they are removed from the game. (If group is in a structure, all town spells affect the new recruits.) Dispelled after next combat.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 850,
+    "name": "Zana's Champion",
+    "slug": "zanas-champion",
+    "house": "hope",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "clarity": 4,
+      "order": 4
+    },
+    "flavor": "Rarely, a town can be completely united in their commitment to Hope. Such a beacon has been known to garner Zana's attention, and results in the creation of a Champion.",
+    "text": "H:4 A:4 HP:7 L:2 Cast on friendly, unoccupied town or colony. Town or colony is replaced by Zana's Champion, a Vision swordsman. Champion's group and its members cannot be targeted by any group spells or individual spells. Only one in play at a time.",
+    "castOn": "friendly, unoccupied town or colony"
+  },
+  {
+    "sid": 1039,
+    "name": "Zana's Escape",
+    "slug": "zanas-escape",
+    "house": "hope",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "clarity": 3
+    },
+    "flavor": null,
+    "text": "Cast on globe. When any friendly recruit is dying, recruit returns to life, is fully healed, has all group spells dispelled, and disappears, and Zana's Escape is dispelled. Recruit's new group reappears in a random friendly structure at start of turn if it is unoccupied, or on the earliest turn thereafter.",
+    "castOn": "globe"
+  }
+]

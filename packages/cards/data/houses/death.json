@@ -1,0 +1,767 @@
+[
+  {
+    "sid": 333,
+    "name": "Apocalypse",
+    "slug": "apocalypse",
+    "house": "death",
+    "expansion": "Classic",
+    "rarity": "Very Rare",
+    "cost": {
+      "mystery": 6,
+      "will": 3
+    },
+    "flavor": "\"The final wrath, delight of my lord Khobai, the conflagration in which all are blasted, forgotten.\" -- Zharduk Thal",
+    "text": "Cast on globe. Every recruit on the board dies. (Recruits that are off the board are not affected.) Only one in play at a time.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 616,
+    "name": "Apocalypse II",
+    "slug": "apocalypse-ii",
+    "house": "death",
+    "expansion": "Whispers",
+    "rarity": "Very Rare",
+    "cost": {
+      "mystery": 6,
+      "will": 3
+    },
+    "flavor": "Some cheat Death once. Yet in the end, Death always collects.",
+    "text": "Cast on globe. Every recruit on the board dies. (Recruits that are off the board are not affected.) Only one in play at a time.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 519,
+    "name": "Assassin",
+    "slug": "assassin",
+    "house": "death",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 2,
+      "will": 2
+    },
+    "flavor": "\"I crawled from my sepulcher and fell before my lord Khobai. \\'Lienna\\', he said in his hollow whisper. \\'Yellow witch of the Seelie. Find her and send her to the Silent Fathers.\\'\" -- The Assassin\\'s Tale",
+    "text": "Cast on recruit. Recruit gets +1 attack each round. At start of combat, all Heroes in opposing group die.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 97,
+    "name": "Body Rot",
+    "slug": "body-rot",
+    "house": "death",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 1
+    },
+    "flavor": "Discoveries in embalming, the Queen of Keeper sciences, sometimes have interesting military applications ...",
+    "text": "Cast on recruit. Recruit gets -1 hand and missile damage.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 691,
+    "name": "Bolstering Spirit",
+    "slug": "bolstering-spirit",
+    "house": "death",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 1
+    },
+    "flavor": "\"If they slay us, we may at last embrace the Night we long for: but if they fell the pillars of our city, who will bury us?\" -- Sharul-Nar",
+    "text": "Cast on town or colony. While in town, recruits in town get +1 armor. Dispelled after next combat or if town is captured.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 821,
+    "name": "Bone Chariot",
+    "slug": "bone-chariot",
+    "house": "death",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 1,
+      "will": 1
+    },
+    "flavor": "The heat of this dry land may kill the flesh once. Fortunate, then, that our mounts no longer feel it. -- Diary of Sharul-Nar",
+    "text": "Cast on group. Group gains Desertwalk and Firewalk. (Group takes no damage from desert, lava or volcanoes. This does not allow group to cross volcanoes.)",
+    "castOn": "group"
+  },
+  {
+    "sid": 341,
+    "name": "Burst of Mystery",
+    "slug": "burst-of-mystery",
+    "house": "death",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 2
+    },
+    "flavor": "\"As if learning more would do more than poison me for that moment when I face the Bone-white Fathers, and all is swept away!\" -- Zaduth-Jar, Lecturer in Xenology",
+    "text": "Cast on globe. Caster gets +2 Mystery next turn.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 285,
+    "name": "Cenotaph of Will",
+    "slug": "cenotaph-of-will",
+    "house": "death",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 4
+    },
+    "flavor": "\"The true struggle is each mortal being's struggle to impose her will permanently upon the Universe. This struggle is always doomed, and because it is doomed, it is beautiful.\" -- Bes-Kandra",
+    "text": "Cast on globe. Caster gets +1 Will each turn. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 517,
+    "name": "Curse of Khobai",
+    "slug": "curse-of-khobai",
+    "house": "death",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 3,
+      "will": 1
+    },
+    "flavor": "\"Lord Khobai had discovered my treachery, and for an endless night I waited in terror. Then, for the first time, I saw my Master smile. It was a grisly smile.\" -- The Assassin's Tale",
+    "text": "Cast on minion. Minion is lowered to 1 maximum and current hit point. When minion kills an opponent by combat damage, minion gets +1 maximum and current hit point.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 406,
+    "name": "Dark Minion",
+    "slug": "dark-minion",
+    "house": "death",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 2,
+      "will": 2
+    },
+    "flavor": "The Keeper communication network, the Dark Whispering, functions wherever there are graves.",
+    "text": "H:2 A:1 HP:7 L:1 Cast on recruit group. Creates a Keeper swordsman.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 822,
+    "name": "Day of the Dead",
+    "slug": "day-of-the-dead",
+    "house": "death",
+    "expansion": "Revolutions",
+    "rarity": "Very Rare",
+    "cost": {
+      "mystery": 3,
+      "will": 2
+    },
+    "flavor": "To arms! To arms! Your duty is not done this day!",
+    "text": "H:3 A:0 HP:10 L:1 Nomadic. Cast on globe. After all combat, for every recruit group that died in combat this turn not in a structure, a neutral group of an equal number of Skeletons is created in the recruit group's square. Skeletons receives no missile damage (before checking armor).",
+    "castOn": "globe"
+  },
+  {
+    "sid": 1016,
+    "name": "Dehydration",
+    "slug": "dehydration",
+    "house": "death",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 2,
+      "will": 1
+    },
+    "flavor": null,
+    "text": "Cast on recruit in desert, even if it is concealed. Recruit dies.",
+    "castOn": "recruit in desert, even if it is concealed"
+  },
+  {
+    "sid": 521,
+    "name": "Dire Portent",
+    "slug": "dire-portent",
+    "house": "death",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 2
+    },
+    "flavor": "\"The Portent appears to a soldier in a nightmare. It is the holiest thing that can happen to him, a great honor. He awaits battle in grim terror, eagerly. But an Elf's touch will banish the Portent; the Elf will die, but the soldier will be robbed of a holy death.\" -- Diary of Sharul-Nar",
+    "text": "Cast on minion. When minion damages an opponent, opponent is killed. If opponent is not an Elf, minion dies as well. Dispelled after one use.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 823,
+    "name": "Drought",
+    "slug": "drought",
+    "house": "death",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 3
+    },
+    "flavor": null,
+    "text": "Cast on square. Squares in the 3x3 diamond centered on target square get Drought Effect (square changes sequentially from water to swamp to plains to barren land to desert).",
+    "castOn": "square"
+  },
+  {
+    "sid": 1017,
+    "name": "Famine",
+    "slug": "famine",
+    "house": "death",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 1,
+      "will": 1
+    },
+    "flavor": null,
+    "text": "Cast on globe. At start of turn, one random non-desert square becomes desert. Duration: Turn of casting +4.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 516,
+    "name": "Furies",
+    "slug": "furies",
+    "house": "death",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 4,
+      "will": 2
+    },
+    "flavor": "When Bes-Kandra extended the Keeper Code into Acheron, she created these beings and bound them to hound and destroy any who would violate it. They are Thesol'n, the tenth category of existence in Keeper theology ...",
+    "text": "H:2 A:0 HP:12(x3) L:1 Nomadic, Flight. Cast on globe. Creates three Furies in a random square. At start of combat, each Fury kills one random opposing minion, and all Furies in this group are removed from the game, ending combat.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 1018,
+    "name": "Garrote of Bes-Kandra",
+    "slug": "garrote-of-bes-kandra",
+    "house": "death",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 2,
+      "will": 1
+    },
+    "flavor": null,
+    "text": "Cast on swordsman. Swordsman attacks normally in combat round 1, and gets +3 hand damage in combat round 1 only.",
+    "castOn": "swordsman"
+  },
+  {
+    "sid": 824,
+    "name": "Ghost Town",
+    "slug": "ghost-town",
+    "house": "death",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 4,
+      "will": 3
+    },
+    "flavor": "Mere miles behind us lay the desert. Yet the town ahead spoke of true desolation. We entered near dusk, but were met only with hollow wind and broken homes. No evidence of inhabitants could be found - no foodstuffs, no clothing, no graves. It was as if there had never been anyone there at all. -- Journal of Lienna: Volume XI",
+    "text": "Cast on town (not colony). Town becomes a colony, and cannot be targeted by structure spells.",
+    "castOn": "town (not colony)"
+  },
+  {
+    "sid": 136,
+    "name": "Gifts of the Fallen",
+    "slug": "gifts-of-the-fallen",
+    "house": "death",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 2,
+      "will": 1
+    },
+    "flavor": "\"I had served with that Legion before. Though the faces were new, I recognized a few stitched-on hands and feet of former comrades. The Keepers are economical.\" -- Vlad Hrothgar\\'s Diary",
+    "text": "Cast on group. When any member of group dies in combat, all surviving members of its group are fully healed at end of combat.",
+    "castOn": "group"
+  },
+  {
+    "sid": 1019,
+    "name": "Harm Monster",
+    "slug": "harm-monster",
+    "house": "death",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 2,
+      "will": 1
+    },
+    "flavor": null,
+    "text": "Cast on monster group. Each member of group is lowered to 1 current hit point.",
+    "castOn": "monster group"
+  },
+  {
+    "sid": 825,
+    "name": "Harmattan",
+    "slug": "harmattan",
+    "house": "death",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 1,
+      "will": 1
+    },
+    "flavor": "This hot, dry wind blows from the desert to the sea for days at a time, and gathers such dust that the sun is obscured in haze. Keeper legions walk in time with the swirling sand, so that distant observers cannot tell which is which.",
+    "text": "Cast on friendly group. While group is in desert, each member of group is concealed. (Concealed minions cannot be targeted by enemy individual spells.)",
+    "castOn": "friendly group"
+  },
+  {
+    "sid": 207,
+    "name": "Haunted Forest",
+    "slug": "haunted-forest",
+    "house": "death",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 4
+    },
+    "flavor": "Gallowswode timber, prized by Elves for its fragrance, is a great rarity ... Few woodcutters enter such forests, and fewer still return.",
+    "text": "Cast on forest. Affects all contiguous forest squares. All minions in squares except Death or Abomination minions get -1 level.",
+    "castOn": "forest"
+  },
+  {
+    "sid": 1020,
+    "name": "Keeper Code",
+    "slug": "keeper-code",
+    "house": "death",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 5,
+      "will": 4
+    },
+    "flavor": null,
+    "text": "H:2 A:1 HP:7 L:1 Cast on globe. Each time an enemy recruit dies outside of combat, one Keeper swordsman is created in caster's Sanctum. (If the recruit cannot be created this turn, it is lost.)",
+    "castOn": "globe"
+  },
+  {
+    "sid": 416,
+    "name": "Khobai",
+    "slug": "khobai",
+    "house": "death",
+    "expansion": "Bloodlines",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 4,
+      "will": 4
+    },
+    "flavor": "\"His reign ended in the Third Year of his Second Death. Khobai may yet gather the strength to challenge the Pretender.\" -- The Kandra Lineage Scrolls",
+    "text": "H:2 A:1 HP:1 L:2 Cast on recruit group. Creates Khobai, a Keeper Hero swordsman. Each time a minion dies, Khobai heals 1 hit point. If undamaged, Khobai also gets +1 maximum hit point. (Each Hero may be cast only once per game.)",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 15,
+    "name": "Legion of the Dead",
+    "slug": "legion-of-the-dead",
+    "house": "death",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 5,
+      "will": 3
+    },
+    "flavor": "\"From afar, we saw Benneth's standard, and our hearts rejoiced at their survival. Then we saw what they had become, and we cursed foul Keeper magic.\" -- Theriel of Caenedor",
+    "text": "H:2 A:0 HP:4(x8) L:0 Nomadic. Creates eight Undead Warriors.",
+    "castOn": null
+  },
+  {
+    "sid": 515,
+    "name": "Master Vampire",
+    "slug": "master-vampire",
+    "house": "death",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 5,
+      "will": 2
+    },
+    "flavor": "\"The'SSol'chur is the thirteenth category of existence: Having been mortal, died, and continuing to act and move in a body, in the mortal world, for reasons other than duty.\" -- The Keeper Code",
+    "text": "H:3(x2) A:1 HP:12 L:2 Territorial. Two attacks. Gets +1 hand damage against Life minions. At end of combat, if Master Vampire survives and an opposing recruit died, one Vampire (H:3 A:0 HP:5 L:1 Territorial) is created in group.",
+    "castOn": null
+  },
+  {
+    "sid": 618,
+    "name": "Neb_s Mirage",
+    "slug": "neb-s-mirage",
+    "house": "death",
+    "expansion": "Whispers",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 2,
+      "will": 2
+    },
+    "flavor": "There is water just beyond the next hill. It\\'s only a little further away.",
+    "text": "Cast on desert. Square attracts non-neutral player-controlled groups. (Groups adjacent to attracting squares before movement must move toward one of them.) Dispelled when entered.",
+    "castOn": "desert"
+  },
+  {
+    "sid": 137,
+    "name": "Necromancer",
+    "slug": "necromancer",
+    "house": "death",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 3,
+      "will": 2
+    },
+    "flavor": "\"'Apologies, brother,' Bes-Kandra said, reaching down to the common soldier's corpse. 'I cannot let you sleep just yet.'\" -- Diary of Sharul-Nar",
+    "text": "Cast on recruit. Recruit will resurrect every other member of its group once each. When any other member of recruit's group is dying, the dying recruit returns to life, is fully healed, has all individual spells dispelled, and gets -2 maximum hit points (cumulative).",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 282,
+    "name": "Necropolis",
+    "slug": "necropolis",
+    "house": "death",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "will": 5
+    },
+    "flavor": "A mortal whose bodily systems are failing as a result of starvation, suffocation or loss of fluids, particularly if unwilling, is considered to be the ideal state to apprehend Mystery.",
+    "text": "Cast on town or colony. Necropolis generates +2 Mystery for town owner each turn.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 176,
+    "name": "Plague",
+    "slug": "plague",
+    "house": "death",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 3,
+      "will": 2
+    },
+    "flavor": "The Plague is kept alive carefully in a special tomb in Bes-Tharal. A constant supply of slaves must be infected and imprisoned there ... And they must never escape.",
+    "text": "Cast on group. Every member of group gets -2 maximum hit points, and then takes two hit points of damage.",
+    "castOn": "group"
+  },
+  {
+    "sid": 613,
+    "name": "Pyre",
+    "slug": "pyre",
+    "house": "death",
+    "expansion": "Whispers",
+    "rarity": "Very Rare",
+    "cost": {
+      "mystery": 3,
+      "will": 1
+    },
+    "flavor": "\"Cast aside the firefly magics of these glittering monsters! And if the Silent Fathers will it, may this night find us Tasharaf!\" -- Khobai to the Jackals before the Battle of Groven's Weald",
+    "text": "Cast on swordsman. Dispels all individual spells on swordsman. Swordsman gets +1 hand damage for each spell dispelled.",
+    "castOn": "swordsman"
+  },
+  {
+    "sid": 520,
+    "name": "Raven Shroud",
+    "slug": "raven-shroud",
+    "house": "death",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 3,
+      "will": 3
+    },
+    "flavor": "\"Thr'harruk is the eighth category of existence: Having been mortal, died, and been improperly buried, but nonetheless having realized Mystery, merged with the Darkness, and been utterly forgotten.\" -- The Keeper Code",
+    "text": "Cast on friendly recruit group. Group cannot be targeted by enemy group spells.",
+    "castOn": "friendly recruit group"
+  },
+  {
+    "sid": 167,
+    "name": "Reanimate",
+    "slug": "reanimate",
+    "house": "death",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 2,
+      "will": 2
+    },
+    "flavor": "\"Back again, out of the sweet, dark night into the jittery light of twitching pump-bloodies!\" -- Keeper Moan",
+    "text": "Cast on minion. When minion is dying, minion returns to life, and is fully healed. Dispelled after one use.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 829,
+    "name": "Reaper",
+    "slug": "reaper",
+    "house": "death",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 1,
+      "will": 1
+    },
+    "flavor": "The Gleaning is a sacred task in which Keepers scour a battlefield and grant proper burials to all who fell, for persons of all nations, if so tended, may yet meet the Silent Fathers. Those fallen who might have survived are most revered, and are buried alive with ceremonial honors -- and such encouragement as is necessary.",
+    "text": "Cast on swordsman. Swordsman gets +1 hand damage. Swordsmen in its group (including itself) get +1 hand damage in combat round 2 only.",
+    "castOn": "swordsman"
+  },
+  {
+    "sid": 826,
+    "name": "Sacrifice",
+    "slug": "sacrifice",
+    "house": "death",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 3
+    },
+    "flavor": "Thr'zzan is the eleventh category of existence: Being mortal and dying, by starvation, suffocation, or loss of fluids, due to having been buried, embalmed, or impaled, with ceremonial honors, particularly if unwilling. Keepers may earn this privilege through noble rank or great deeds, while the rich simply buy it; the poor can only hope to win it in a lottery.",
+    "text": "Cast on friendly recruit group. Group is removed from the game. For each recruit in group, caster gets +2 Mystery next turn.",
+    "castOn": "friendly recruit group"
+  },
+  {
+    "sid": 444,
+    "name": "Sand Sphinx",
+    "slug": "sand-sphinx",
+    "house": "death",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 3,
+      "will": 2
+    },
+    "flavor": "The traditional mount of the Lich-Kings of Bes-Tharal.",
+    "text": "H:2 A:1 HP:12 L:1 Nomadic, Desertwalk. Target square becomes desert. Sand Sphinx seeks opponent's Sanctum. After Sand Sphinx moves, its new square becomes desert. (Desert causes 1 hit point of damage at start of turn unless group has Desertwalk.)",
+    "castOn": null
+  },
+  {
+    "sid": 827,
+    "name": "Sandstorm",
+    "slug": "sandstorm",
+    "house": "death",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 3,
+      "will": 2
+    },
+    "flavor": "Keepers are widely rumored to control the sands themselves, which they allow, as it strengthens their position. The truth is simpler: They minimize risk through diligent study of the seasons and the winds; and when this fails them, they go quietly, which others mistake for a lack of casualties.",
+    "text": "Cast on recruit group in desert. On turn of casting only, group's movement orders are cancelled, and all members of group take 1 hit point of damage. All members of group are concealed from both players. Duration: Turn of casting +1. (Minions concealed from both players cannot be targeted by individual spells.)",
+    "castOn": "recruit group in desert"
+  },
+  {
+    "sid": 518,
+    "name": "Shifting Sands",
+    "slug": "shifting-sands",
+    "house": "death",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 2,
+      "will": 1
+    },
+    "flavor": "\"Then graceful Auberol did cry And fall to his knees in the silent Sand And mourned his fair companions three, Buried alive in a lifeless Land.\" -- The Fae Quadrille of Wyr",
+    "text": "Cast on desert. Before combat, each minion in square has 50% chance to be removed from the game, unless it has Desertwalk or Flight. (This does not set off any death-triggered effects.)",
+    "castOn": "desert"
+  },
+  {
+    "sid": 109,
+    "name": "Skeletal Horror",
+    "slug": "skeletal-horror",
+    "house": "death",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 5,
+      "will": 2
+    },
+    "flavor": "\"... and unfortunately the 5th Raven Brigade had depended greatly on its missileteers' firepower.\" -- Captain Agredel Silpherion",
+    "text": "H:4 A:0 HP:15 L:2 Territorial, Mountainwalk. Receives no missile damage (before checking armor).",
+    "castOn": null
+  },
+  {
+    "sid": 41,
+    "name": "Skeleton",
+    "slug": "skeleton",
+    "house": "death",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 3,
+      "will": 1
+    },
+    "flavor": "It is common for poor Keepers to sell themselves for a decent burial. But sometimes the period of servitude lasts longer than the flesh to be buried.",
+    "text": "H:3 A:0 HP:10 L:1 Nomadic. Receives no missile damage (before checking armor).",
+    "castOn": null
+  },
+  {
+    "sid": 1021,
+    "name": "Slave Labor",
+    "slug": "slave-labor",
+    "house": "death",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 3,
+      "will": 3
+    },
+    "flavor": null,
+    "text": "Cast on globe. Caster cannot cast any group or individual spells. Duration: Turn of casting +1. On expiration, Slave Labor II (caster gets +1 Mystery and +1 Will each turn) is cast on the globe. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 690,
+    "name": "Slay Monster",
+    "slug": "slay-monster",
+    "house": "death",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 4
+    },
+    "flavor": "There is an ancient, bitter theological debate in the Keeper priesthood about whether all creatures can realize Mystery, and thus may be embalmed.",
+    "text": "Cast on monster group. Monster group dies.",
+    "castOn": "monster group"
+  },
+  {
+    "sid": 828,
+    "name": "Soul Jar",
+    "slug": "soul-jar",
+    "house": "death",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 3,
+      "will": 1
+    },
+    "flavor": "In the moment that a conscious soul draws back the curtain between worlds and plunges into the dark abyss, its body, crude broken ship of its voyage above, may be physically thrust after it into the Lower Realms. This interloper is soon sent back, its owner forced to pilot it anew; it reawakens with the keenest disappointment, and a hollow chuckle in its ears.",
+    "text": "Cast on friendly recruit group. During combat, when any recruit in group is dying, recruit disappears, is fully healed, and has all group and individual spells dispelled, and Soul Jar is dispelled. (New group reappears at start of turn if its square is unoccupied, or on the earliest turn thereafter.)",
+    "castOn": "friendly recruit group"
+  },
+  {
+    "sid": 1022,
+    "name": "Terrifying Mystery",
+    "slug": "terrifying-mystery",
+    "house": "death",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 2
+    },
+    "flavor": null,
+    "text": "Cast on recruit. Recruit gets -T hand and missile damage, where T is the number of tokens. Recursive (Starts with 1 token. When cast, a copy of this spell is added to your hand that costs +1 mana and has +1 token.)",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 830,
+    "name": "The Withering",
+    "slug": "the-withering",
+    "house": "death",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 1
+    },
+    "flavor": "Recent advances in plagues of mass dispersal have led to a popular shift in interpreting the ancient Keeper Code. A silent majority now believe The Withering fulfills a key requirement for Thr'zzan, that the body fails while the mind remains whole, so that its victims can still realize Mystery.",
+    "text": "Cast on globe. At start of turn, all minions on the board take 1 hit point of damage. (Minions that are off the board are not affected.) Duration: M turns. Revolver (Casting cost M revolves from 1 to 10, starting at 1 and increasing by 1 mana per turn, restarting at 1 when it reaches 10, until cast).",
+    "castOn": "globe"
+  },
+  {
+    "sid": 445,
+    "name": "Touch of Death",
+    "slug": "touch-of-death",
+    "house": "death",
+    "expansion": "Bloodlines",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 4,
+      "will": 2
+    },
+    "flavor": "It is a great honor to be endowed with the Touch, and the warrior who has it is called 'The Generous'. Not all foes appreciate his generosity.",
+    "text": "Cast on friendly swordsman. When swordsman damages an opponent, opponent is killed. When Touch of Death expires, swordsman dies. Duration: Turn of casting +2.",
+    "castOn": "friendly swordsman"
+  },
+  {
+    "sid": 24,
+    "name": "Venom'd Arrow",
+    "slug": "venomd-arrow",
+    "house": "death",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 3,
+      "will": 1
+    },
+    "flavor": "A shaft of ebony and fletched with vulturine feathers; it seeks out the victim, and guides him gently through the Lesser and Greater Deaths.",
+    "text": "Cast on minion. Minion dies.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 701,
+    "name": "Venom'd Blade",
+    "slug": "venomd-blade",
+    "house": "death",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 2
+    },
+    "flavor": "\"Oro had been grazed by the strange blade. He fought on, but his great frame shook, and his features were twisted into a smile. Cyclopes never smile.\" -- Vlad Hrothgar's Diary",
+    "text": "Cast on swordsman. Swordsman gets +2 hand damage.",
+    "castOn": "swordsman"
+  },
+  {
+    "sid": 1023,
+    "name": "Waste Not",
+    "slug": "waste-not",
+    "house": "death",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 1,
+      "will": 1
+    },
+    "flavor": null,
+    "text": "Cast on globe. When any spell is squandered, a copy of that spell is randomly inserted into its caster's deck.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 346,
+    "name": "Wasteland",
+    "slug": "wasteland",
+    "house": "death",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 3,
+      "will": 3
+    },
+    "flavor": "\"Suck the spit out -- not dry enough. Suck the blood out -- not dry enough. Crush bone brittle, scattered dry. Thousand years, empty sky.\" -- Keeper children's chant",
+    "text": "Cast on square. The 3x3 diamond centered on square becomes desert. (Desert causes 1 hit point of damage at start of turn unless group has Desertwalk.)",
+    "castOn": "square"
+  },
+  {
+    "sid": 404,
+    "name": "Wild Plague",
+    "slug": "wild-plague",
+    "house": "death",
+    "expansion": "Bloodlines",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 1
+    },
+    "flavor": "\"We watched from the gates as the manticore devoured the screaming slave. 'The plague is out now,' I told Varnash-Zul. 'And it will run its course.'\" -- Diary of Sharul-Nar",
+    "text": "Cast on globe. At start of turn, every monster on the board takes 1 hit point of damage. (Monsters that are off the board are not affected.) May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 692,
+    "name": "Winnowing Sigil",
+    "slug": "winnowing-sigil",
+    "house": "death",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 2
+    },
+    "flavor": "Keepers believe ideas, ambitions and identities are repulsive but inevitable burdens in life. The prized Sigil scours these away.",
+    "text": "Cast on minion. Dispels all individual spells on minion.",
+    "castOn": "minion"
+  }
+]

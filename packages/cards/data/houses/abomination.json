@@ -1,0 +1,741 @@
+[
+  {
+    "sid": 114,
+    "name": "Accursed Minion",
+    "slug": "accursed-minion",
+    "house": "abomination",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 5,
+      "strife": 1
+    },
+    "flavor": "The Chosen One of Ulanoth carries the seed of Abomination. If he suspects what is within him, he does not tell his fellows ...",
+    "text": "Cast on minion in group of two or more. At start of combat, minion kills all other minions on both sides (friendly minions first), ending combat. Dispelled after next combat.",
+    "castOn": "minion in group of two or more"
+  },
+  {
+    "sid": 12,
+    "name": "Altar of Blood",
+    "slug": "altar-of-blood",
+    "house": "abomination",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "will": 3,
+      "strife": 2
+    },
+    "flavor": "\"'You have freed these villagers' bodies', Zana cried, 'but their souls are slaves to Abomination yet! Come -- I will show you where the Altar is hid.'\" -- Journal of Lienna: Volume VII",
+    "text": "Cast on friendly town or colony. If town contains novices, and when any novices would be created in town, they are sacrificed (eliminated), and town's owner gets +2 Will and +2 Strife next turn. Duration: Turn of casting +4.",
+    "castOn": "friendly town or colony"
+  },
+  {
+    "sid": 160,
+    "name": "Arcane Stigma",
+    "slug": "arcane-stigma",
+    "house": "abomination",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "will": 2,
+      "strife": 1
+    },
+    "flavor": "Oh, those Imps! They do get into trouble, and when they do, Arcane Stigma is there to take care of it!",
+    "text": "Cast on minion. Dispels all individual spells on minion. Minion cannot be targeted by individual spells.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 11,
+    "name": "Beast's Embrace",
+    "slug": "beasts-embrace",
+    "house": "abomination",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "will": 2
+    },
+    "flavor": "\"When the Mage put the Beast in him, he screamed. Afterwards, he was the Mage's pet, and nothing could hurt him. But the agony he had in his eyes ...\" -- Jan Palczred, mercenary",
+    "text": "Cast on minion. Minion gets +1 armor for each subsequent alteration cast on minion or its group.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 507,
+    "name": "Bilious Rage",
+    "slug": "bilious-rage",
+    "house": "abomination",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "will": 1,
+      "strife": 1
+    },
+    "flavor": "\"You say this is Nature's Design, that I die of her plague? Then Nature will no more be my love! I find I prize my own self above her! Tell me, friend Djibari, what must I do?\" -- Goldleaf the Satyr, father of the Imps",
+    "text": "Cast on recruit. Recruit gets +1 hand and missile damage, or +2 damage against Satyrs.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 80,
+    "name": "Bog Horror",
+    "slug": "bog-horror",
+    "house": "abomination",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 4,
+      "strife": 3
+    },
+    "flavor": "\"The foul stench of the Bog Horror overcame us, and we knew we were lost.\" -- Field Report, Battle of Thrgal",
+    "text": "H:2 A:1 HP:18 L:1 Territorial. At start of combat, casts Plague (-2 maximum hit points, then 2 hit points of damage) on opposing group.",
+    "castOn": null
+  },
+  {
+    "sid": 337,
+    "name": "Burst of Will",
+    "slug": "burst-of-will",
+    "house": "abomination",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "will": 2
+    },
+    "flavor": "\"Fool Elves tie me by one arm only! As if the chew through arm not in me! For Master's pleasure and Elf meat, I chew each my arm!\" -- Painscreech Boilsuck, Imp",
+    "text": "Cast on globe. Caster gets +2 Will next turn.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 117,
+    "name": "Cannibalism",
+    "slug": "cannibalism",
+    "house": "abomination",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 4,
+      "strife": 1
+    },
+    "flavor": "\"How I tire of the hardtack we\\'re served! I would do just about anything for some nice, fresh meat.\" -- Letter from the Omistad front",
+    "text": "Cast on minion. When cast, and at end of combat, minion kills the most damaged other minion in its group.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 801,
+    "name": "Carbuncle",
+    "slug": "carbuncle",
+    "house": "abomination",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 2,
+      "strife": 2
+    },
+    "flavor": "\"Blood boiling in rage\" is not merely a figure of speech among Imps.",
+    "text": "Cast on friendly recruit. At start of next combat, recruit explodes (dies), and all other minions in both groups take 3 hit points of damage.",
+    "castOn": "friendly recruit"
+  },
+  {
+    "sid": 673,
+    "name": "Cauldron of Strife",
+    "slug": "cauldron-of-strife",
+    "house": "abomination",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "will": 4
+    },
+    "flavor": "\"Strife burns, burns. Dip right hand in the cauldron, feel the flesh dissolve. Left hand in the cauldron, two hands at war, power for the taking!\" -- Impish recipe",
+    "text": "Cast on globe. Caster gets +1 Strife each turn. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 1000,
+    "name": "Civil Unrest",
+    "slug": "civil-unrest",
+    "house": "abomination",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 3,
+      "strife": 2
+    },
+    "flavor": null,
+    "text": "Cast on globe. Every town and colony no longer generates mana unless a friendly recruit is present at start of turn. (Mana-generating spells still produce mana normally.)",
+    "castOn": "globe"
+  },
+  {
+    "sid": 1001,
+    "name": "Crucible",
+    "slug": "crucible",
+    "house": "abomination",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "will": 2,
+      "strife": 2
+    },
+    "flavor": null,
+    "text": "Cast on globe. At start of next turn, all Imps in lava or volcano squares are fully healed, and take no damage from lava or volcanoes, and Crucible is dispelled.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 171,
+    "name": "Demon's Tongue",
+    "slug": "demons-tongue",
+    "house": "abomination",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "will": 1,
+      "strife": 1
+    },
+    "flavor": "Who wields the Demon's Tongue, the Eater of Souls, feeds off the pain of those he kills. If he knew how he will pay, later, he might pause.",
+    "text": "Cast on swordsman. When swordsman kills an opponent by combat damage, swordsman gets +1 hand damage.",
+    "castOn": "swordsman"
+  },
+  {
+    "sid": 802,
+    "name": "Devouring",
+    "slug": "devouring",
+    "house": "abomination",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "will": 1
+    },
+    "flavor": "The foulest Imp recipes describe not how the meat is prepared, but the victim's state of mind as he is consumed -- which requires a meal both sentient and conscious. 'Incensed, unfettered' is a most potent brew, in which energy is released and reharnessed, 'from one belly to another'. -- Al-Talataa Umunayyil, Tan'u'zhadhi Academy",
+    "text": "Cast on friendly recruit. It eats (kills) all other recruits in its group, and absorbs their maximum and current hit points. (Recruit gets +M maximum and +C current hit points, where M and C are the sums of maximum and current hit points of all other recruits in its group. These stat changes cannot be dispelled.)",
+    "castOn": "friendly recruit"
+  },
+  {
+    "sid": 803,
+    "name": "Dissention",
+    "slug": "dissention",
+    "house": "abomination",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "will": 2,
+      "strife": 2
+    },
+    "flavor": "It is a pastime among Imps to give counsel that strengthens the client's resolve, deepens emotional attachments, rebuts by insult rather than insight, and advocates dominance over compromise. Supplicants are pleased to hear such flattering words, and the outcome amuses the Imp.",
+    "text": "Cast on minion. Every other minion in its group takes N hit points of damage, where N is the greater of target minion's hand or missile damage.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 505,
+    "name": "Djibari's Legacy",
+    "slug": "djibaris-legacy",
+    "house": "abomination",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 1,
+      "strife": 1
+    },
+    "flavor": "\"What then does the Sar'ul Academy teach, if not extremes? To become a Misfit feared by Misfits, to corrupt the gentle Satyrs -- why do Djibari's acts embarrass the Sar'uli? He but had the courage of their convictions!\" -- Ch'tai Academy polemic",
+    "text": "Cast on globe. All new novices created are Imps.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 606,
+    "name": "Doppelganger",
+    "slug": "doppelganger",
+    "house": "abomination",
+    "expansion": "Whispers",
+    "rarity": "Very Rare",
+    "cost": {
+      "will": 4,
+      "strife": 2
+    },
+    "flavor": "\"Name, form, image, memory: these are the structures of attachment. Burn each away, and from non-Being, Being arises as new each instant. In this, each Power we see becomes our own.\" -- Sar'ul Academy lesson",
+    "text": "H:2(x2) A:0 HP:15 L:2 Nomadic. Two attacks. At start of combat against monsters, Doppelganger kills the first opposing monster, copies its hand and missile damage, attacks, armor, hit points, level, and house, and is fully healed. (This does not give Doppelganger missile attacks.)",
+    "castOn": null
+  },
+  {
+    "sid": 804,
+    "name": "Eat and Run",
+    "slug": "eat-and-run",
+    "house": "abomination",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "will": 1,
+      "strife": 1
+    },
+    "flavor": "\"Toebreak devised this strategem, to replenish expenditures of energy by redistributing, ha, weight! And the first short stick he drew himself. Huzzah!\" -- Gash Tic, Imp troubadour",
+    "text": "Cast on friendly recruit in group of two or more. Target recruit eats (kills) a random other member of its group. Group moves twice this turn in its direction of travel.",
+    "castOn": "friendly recruit in group of two or more"
+  },
+  {
+    "sid": 401,
+    "name": "Entrail Eater",
+    "slug": "entrail-eater",
+    "house": "abomination",
+    "expansion": "Bloodlines",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 4,
+      "strife": 2
+    },
+    "flavor": "\"The dissection of these beasts is challenging (hands have been lost to the devouring pods) but a fascinating example of anatomic Strife.\" -- Panoman Jar, Vivisectionist Second Class",
+    "text": "H:3 A:1 HP:10 L:2 Nomadic. At start of turn, Entrail Eater is fully healed.",
+    "castOn": null
+  },
+  {
+    "sid": 172,
+    "name": "False Prophet",
+    "slug": "false-prophet",
+    "house": "abomination",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "will": 3,
+      "strife": 2
+    },
+    "flavor": "This spell brings Ekrivan, the silver-tongued demon. He binds the energies of its citizens to false and fruitless pursuits. Forever.",
+    "text": "Cast on town or colony. Town no longer generates its 1 mana. (Mana-generating spells on the town are not affected.)",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 805,
+    "name": "Fiend",
+    "slug": "fiend",
+    "house": "abomination",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "will": 1
+    },
+    "flavor": "Tell a fib, touch my rib Tell a lie, touch my eye Break your word, catch a bird Break a treaty, touch the sky -- Imp ritual chant",
+    "text": "H:M A:1 HP:2*M L:2 Nomadic, Flight, Moves 2. Cast on globe. Creates Fiend in a random square. Revolver (Casting cost M revolves from 1 to 10, starting at 1 and increasing by 1 mana per turn, restarting at 1 when it reaches 10, until cast).",
+    "castOn": "globe"
+  },
+  {
+    "sid": 506,
+    "name": "Gogar's Wrath",
+    "slug": "gogars-wrath",
+    "house": "abomination",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "will": 4,
+      "strife": 2
+    },
+    "flavor": "\"In bubble boil bile pool Gogar writhes. Spite his delight, and crushing hate. Let Gogar ruin what you used to like!\" -- Spleen Bloodboil, Imp thaumaturge and merchant",
+    "text": "Cast on friendly town or any colony. Town or colony is destroyed. Square becomes barren land.",
+    "castOn": "friendly town or any colony"
+  },
+  {
+    "sid": 502,
+    "name": "Husks",
+    "slug": "husks",
+    "house": "abomination",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 3,
+      "strife": 2
+    },
+    "flavor": "From a peak Diomesia watched the barren lands spreading through the forests. For the first time ever, the Queen of the Wild Wood was afraid.",
+    "text": "H:3 A:0 HP:7 L:0 Nomadic. Cast on square. Square becomes barren land, and cannot be targeted by Nature spells. Every other turn, before movement, one Husk is created in square. Dispelled if terrain changes or when entered by a recruit group.",
+    "castOn": "square"
+  },
+  {
+    "sid": 806,
+    "name": "Implosion",
+    "slug": "implosion",
+    "house": "abomination",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "will": 1,
+      "strife": 1
+    },
+    "flavor": "Imps are quite willing to die so long as they do not die alone. This makes them exceptionally dangerous when cornered. -- Ngozi, The Book of War",
+    "text": "Cast on friendly minion group. After movement, target group implodes (is removed from the game), and all minions in the 3x3 diamond centered on group's square take 2 hit points of damage for each minion in target group.",
+    "castOn": "friendly minion group"
+  },
+  {
+    "sid": 422,
+    "name": "Larval Imp",
+    "slug": "larval-imp",
+    "house": "abomination",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "will": 2,
+      "strife": 1
+    },
+    "flavor": "Imp larvae lie dormant in a host for years. The putrefaction of dead flesh feeds them and they burst forth, fully grown and covered with entrails.",
+    "text": "Cast on recruit. When recruit is dying, recruit returns to life, is fully healed, has all individual spells dispelled, and changes into an Imp. Dispelled after one use.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 325,
+    "name": "Maloch Horror",
+    "slug": "maloch-horror",
+    "house": "abomination",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 6
+    },
+    "flavor": "\"Third, if you fight Maloch, be sure and die. For his captives, the first thousand years are only practice; then the real pain begins.\" -- the Yfreet Zanizub's advice to Lienna",
+    "text": "H:4 A:1 HP:15 L:2 Nomadic, Flight.",
+    "castOn": null
+  },
+  {
+    "sid": 1002,
+    "name": "Maloch's Pact",
+    "slug": "malochs-pact",
+    "house": "abomination",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "will": 4,
+      "strife": 4
+    },
+    "flavor": null,
+    "text": "Cast on group. Group dies. The Pact Is Sealed (caster gets -4 Will and -4 Strife each turn, may be cast more than once) is cast on the globe.",
+    "castOn": "group"
+  },
+  {
+    "sid": 124,
+    "name": "Mark of Ulanoth",
+    "slug": "mark-of-ulanoth",
+    "house": "abomination",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "will": 2
+    },
+    "flavor": "\"Your arrows will find no purchase in Ulanoth's chosen ...\" -- Maloch",
+    "text": "Cast on recruit. Recruit receives no missile damage (before checking armor).",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 600,
+    "name": "Organ Grinder",
+    "slug": "organ-grinder",
+    "house": "abomination",
+    "expansion": "Whispers",
+    "rarity": "Very Rare",
+    "cost": {
+      "will": 1
+    },
+    "flavor": "\"Always we were! Always! Fire and pain! But Bitterus brought us out here. So many pretty things out here to crush and hurt! Thank Bitterus - tear his horns off! Play a happy song!\" -- Spittle Toothcrack, Imp historian and lyricist",
+    "text": "Cast on recruit. When recruit kills an opponent by combat damage, joyful music is played.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 400,
+    "name": "Ostralek",
+    "slug": "ostralek",
+    "house": "abomination",
+    "expansion": "Bloodlines",
+    "rarity": "Rare",
+    "cost": {
+      "will": 4,
+      "strife": 4
+    },
+    "flavor": "Ostralek is mighty, but demands tribute. The practiced Infernalist ritually sacrifices his own warriors without blinking an eye.",
+    "text": "H:2 A:1 HP:7 L:2 Cast on recruit group. Creates Ostralek, an Imp Hero swordsman. At start of turn, he kills the most damaged other recruit in his group and gets +1 hand damage, +2 maximum and current hit points. Cannot be targeted by Cannibalism. (Each Hero may be cast only once per game.)",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 1003,
+    "name": "Perverse Speed",
+    "slug": "perverse-speed",
+    "house": "abomination",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "will": 3,
+      "strife": 3
+    },
+    "flavor": null,
+    "text": "Cast on friendly recruit group. All members of group get -3 max HP and +1 attack.",
+    "castOn": "friendly recruit group"
+  },
+  {
+    "sid": 352,
+    "name": "Pestilence",
+    "slug": "pestilence",
+    "house": "abomination",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "will": 5,
+      "strife": 2
+    },
+    "flavor": "The first wave of victims bloats with a putrid stench, vomits black bile, and dies slowly and painfully. Survivors are rendered sterile.",
+    "text": "Cast on globe. All novices are eliminated. All owned structures no longer create novices. Duration: Turn of casting +3.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 155,
+    "name": "Possession",
+    "slug": "possession",
+    "house": "abomination",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "will": 5,
+      "strife": 4
+    },
+    "flavor": "\"My hearthbrother, Ruldar, was among the madmen beating at the gate, frothing at the mouth and shrieking obscenities. I believe our arrows were merciful.\" -- Account of the Siege of Omistad",
+    "text": "Cast on recruit group not in a structure. Group joins caster's side, and its movement orders are cancelled. Group cannot join groups, add recruits, or enter structures. Group and its members cannot be targeted by friendly spells. Duration: Turn of casting +4. Dispelled after next combat.",
+    "castOn": "recruit group not in a structure"
+  },
+  {
+    "sid": 504,
+    "name": "Putrefaction",
+    "slug": "putrefaction",
+    "house": "abomination",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "will": 4,
+      "strife": 2
+    },
+    "flavor": "\"Ostralek was the first of them. His hatred of Nature was boundless. His first act was a curse that struck the wild wood silent and littered the forest floor with corpses.\" -- the Saga of Goldleaf",
+    "text": "Cast on globe. Every monster on the board dies. (Monsters that are off the board are not affected.)",
+    "castOn": "globe"
+  },
+  {
+    "sid": 104,
+    "name": "Rain of Blood",
+    "slug": "rain-of-blood",
+    "house": "abomination",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 5,
+      "strife": 2
+    },
+    "flavor": "Ritual genocide is the aim of every true Mage of Abomination. Each living soul he kills feeds the engines of his unholy power.",
+    "text": "Cast on group. Every member of group without enchantments dies.",
+    "castOn": "group"
+  },
+  {
+    "sid": 418,
+    "name": "Ring of Fire",
+    "slug": "ring-of-fire",
+    "house": "abomination",
+    "expansion": "Bloodlines",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 4,
+      "strife": 2
+    },
+    "flavor": "\"Look not to the right or left; you are surrounded by the Nine Hells.\" -- the Infernalist Javhakr",
+    "text": "Cast on globe. Affects all squares in a two-deep ring around the edge of the board. Affected squares become lava. (Lava causes 3 hit points of damage at start of turn unless group has Firewalk.)",
+    "castOn": "globe"
+  },
+  {
+    "sid": 402,
+    "name": "Rogue Monster",
+    "slug": "rogue-monster",
+    "house": "abomination",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "will": 1,
+      "strife": 1
+    },
+    "flavor": "Twists the mind of the monster to madness, until it lashes out at all around it.",
+    "text": "Cast on monster group. Group becomes neutral. (Neutral groups move last, attack all other groups, and have \"half-initiative\" in combat.)",
+    "castOn": "monster group"
+  },
+  {
+    "sid": 807,
+    "name": "Salted Wounds",
+    "slug": "salted-wounds",
+    "house": "abomination",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 1,
+      "strife": 1
+    },
+    "flavor": "Imps' bodies secrete certain salts and noxious compounds that interfere with healing. They must be kept far away from open wounds. -- Journals of Lienna: Volume VII",
+    "text": "Cast on group. Each member of group has its maximum hit points lowered to its current hit points.",
+    "castOn": "group"
+  },
+  {
+    "sid": 503,
+    "name": "Sawbones",
+    "slug": "sawbones",
+    "house": "abomination",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "will": 2,
+      "strife": 2
+    },
+    "flavor": "\"Parts is parts\" -- Crunch Toebleed, Imp physician",
+    "text": "H:2 A:1 HP:7 L:1 Cast on recruit group. Creates an Imp swordsman. At end of combat, if any other members of its group are damaged, Sawbones kills the most damaged other recruit in its group, and all surviving members of its group are fully healed.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 808,
+    "name": "Scars of Kolekh",
+    "slug": "scars-of-kolekh",
+    "house": "abomination",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "will": 2,
+      "strife": 2
+    },
+    "flavor": "Tuition -- Arm and leg Benefit -- No crowd too tough -- Kolekh's Body Art",
+    "text": "Cast on friendly group. Minions in group get -1 hand and missile damage. If group is killed in battle, Scars of Kolekh transfers to the killing group.",
+    "castOn": "friendly group"
+  },
+  {
+    "sid": 1004,
+    "name": "Slavers",
+    "slug": "slavers",
+    "house": "abomination",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "will": 4,
+      "strife": 3
+    },
+    "flavor": null,
+    "text": "Cast on friendly recruit group. During combat, when any enemy recruit is dying, recruit is healed to 1 hit point, has all spells dispelled, and disap- pears. Enemy recruits reappear in Slaver's square when empty, with Enslaved (group joins caster's side; in friendly structure, group is replaced by an equal number of no- vices; dispelled at start of combat).",
+    "castOn": "friendly recruit group"
+  },
+  {
+    "sid": 1005,
+    "name": "Song of the Doomed",
+    "slug": "song-of-the-doomed",
+    "house": "abomination",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "will": 2
+    },
+    "flavor": null,
+    "text": "Cast on globe. For each minion on either side that dies this turn, minion's owner gets +1 Will next turn.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 809,
+    "name": "Soul Eater",
+    "slug": "soul-eater",
+    "house": "abomination",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 2,
+      "strife": 1
+    },
+    "flavor": "'Ask me not how quickly I'll sip,' whispered the voice from the other side of the portal. 'Ask yourself how much you can thresh.' -- Padrek-Dar, Observations on the Greater Rituals of Strife",
+    "text": "Cast on swordsman. Swordsman gets +1 hand damage. At start of turn, swordsman gets -1 maximum and current hit point. When swordsman damages an opponent, swordsman gets +1 maximum and current hit point.",
+    "castOn": "swordsman"
+  },
+  {
+    "sid": 84,
+    "name": "Swamp Land",
+    "slug": "swamp-land",
+    "house": "abomination",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 5,
+      "strife": 2
+    },
+    "flavor": "At the touch of a Mage of Abomination, the earth shrieks with revulsion, and begins to seethe with strife and pestilence.",
+    "text": "Cast on square. Square becomes swamp. (Groups can exit swamp only in the direction from which they entered.)",
+    "castOn": "square"
+  },
+  {
+    "sid": 707,
+    "name": "Unholy Aura",
+    "slug": "unholy-aura",
+    "house": "abomination",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "will": 2,
+      "strife": 2
+    },
+    "flavor": "\"The Imp\\'s stroke was well timed, but his sword shattered against my body. \\'Ah, foolish little apprentice\\', I said quietly. \\'Now, my sport begins.\\'\" -- the Infernalist Javhakr",
+    "text": "Cast on minion. Minion receives no combat damage from recruits without enchantments (after checking armor).",
+    "castOn": "minion"
+  },
+  {
+    "sid": 501,
+    "name": "Volgaris",
+    "slug": "volgaris",
+    "house": "abomination",
+    "expansion": "Oppositions",
+    "rarity": "Very Rare",
+    "cost": {
+      "will": 5,
+      "strife": 4
+    },
+    "flavor": "\"You can't bind a demon without a little sacrifice. Besides, it's fun!\" -- Spleen Bloodboil, Imp Thaumaturge and merchant",
+    "text": "H:4(x2) A:1 HP:20 L:2 Nomadic. Two attacks. Cast on undamaged friendly monster group. Group is replaced by Volgaris. At start of combat, casts Lightning Bolt (5 hit points of damage) on one random opposing minion.",
+    "castOn": "undamaged friendly monster group"
+  },
+  {
+    "sid": 1006,
+    "name": "Wild Abandon",
+    "slug": "wild-abandon",
+    "house": "abomination",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 3,
+      "strife": 1
+    },
+    "flavor": null,
+    "text": "Cast on globe. Both players discard all spells in hand that were not cast this turn.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 283,
+    "name": "Will to Power",
+    "slug": "will-to-power",
+    "house": "abomination",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 5
+    },
+    "flavor": "\"There was my master, my teacher, torn almost to shreds by our knives. Our eyes locked; I gazed into his bottomless hatred, and knew joy.\" -- the Infernalist Javhakr",
+    "text": "Cast on town or colony. Will to Power generates +2 Will for town owner each turn.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 1007,
+    "name": "Willing Supplicants",
+    "slug": "willing-supplicants",
+    "house": "abomination",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 4
+    },
+    "flavor": null,
+    "text": "Cast on town or colony. If structure is occupied by two or more recruits, Willing Supplicants generates +1 Will and +1 Strife for structure owner each turn.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 810,
+    "name": "Winged Monkeys",
+    "slug": "winged-monkeys",
+    "house": "abomination",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "will": 3,
+      "strife": 2
+    },
+    "flavor": "\"One dreamt of wings, the other of hands -- yet what mind can wield both? And so their abominable offspring go mad. O, be careful what you wish for aloud -- an Imp might grant it!\" -- Nettlebeard's Lament",
+    "text": "H:3 A:1 HP:2(x3) L:1 Nomadic, Flight. Creates three Winged Monkeys. Withdraws at the start of combat round 3. At end of combat, enemy group is carried to to a random adjacent unoccupied non-structure square, and Winged Monkeys are removed from the game.",
+    "castOn": null
+  }
+]

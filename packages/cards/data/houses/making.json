@@ -1,0 +1,737 @@
+[
+  {
+    "sid": 424,
+    "name": "Adriel's Timepiece",
+    "slug": "adriels-timepiece",
+    "house": "making",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "order": 3,
+      "will": 3
+    },
+    "flavor": "Elven women kept the Dwarven nation from extinction after the Great Wasting. This gift to Adriel, the Elven Protectress of Life, was created soon after.",
+    "text": "Cast on globe. Swaps Initiative.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 42,
+    "name": "Ancient King",
+    "slug": "ancient-king",
+    "house": "making",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 4,
+      "will": 3
+    },
+    "flavor": "Dwarves are a long-lived nation, and their Kings are forbidden to serve more than 200 years. Ancient Kings are widely sought for their great experience and tactical abilities.",
+    "text": "H:3 A:2 HP:9 L:2 Cast on friendly town or colony. Creates a Dwarven swordsman. Ancient King gets +1 hand damage, +1 armor, and +2 maximum and current hit points. When Ancient King dies, all surviving members of his group get Legacy (+1 level).",
+    "castOn": "friendly town or colony"
+  },
+  {
+    "sid": 1056,
+    "name": "Appeal to Hope",
+    "slug": "appeal-to-hope",
+    "house": "making",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 4,
+      "will": 2
+    },
+    "flavor": null,
+    "text": "H:2 A:1 HP:7(x4) L:2, M:2 A:1 HP:7(x4) L:2 Cast on friendly, unoccupied town or colony. Creates a neutral, immobile group of 4 Vision swordsmen and 4 Vision archers. (Immobile groups cannot be moved.)",
+    "castOn": "friendly, unoccupied town or colony"
+  },
+  {
+    "sid": 139,
+    "name": "Astronomic Clock",
+    "slug": "astronomic-clock",
+    "house": "making",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "order": 3
+    },
+    "flavor": "The Dwarven understanding and conquest of time has made their nation a marvel of efficiency and progress.",
+    "text": "Cast on town or colony. Astronomic Clock generates +1 Will for town owner each turn.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 555,
+    "name": "Belvario's Horn",
+    "slug": "belvarios-horn",
+    "house": "making",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "order": 1
+    },
+    "flavor": "\"Sound the horn! Flush out the beasts, and let us close!\" -- Guild Master Belvario on the hunt",
+    "text": "Cast on friendly recruit not in a structure. All mobile monsters move towards recruit. Dispelled when recruit's group enters structure. Only one in play at a time.",
+    "castOn": "friendly recruit not in a structure"
+  },
+  {
+    "sid": 345,
+    "name": "Belvario's Trap",
+    "slug": "belvarios-trap",
+    "house": "making",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 4,
+      "will": 2
+    },
+    "flavor": "Designed by the late Guild Master to trap the Great Bear of Cyclopean folklore. He lived long enough to see the trap in action, but never imagined the fury of the wounded beast ...",
+    "text": "Cast on group. All members of group take five hit points of damage.",
+    "castOn": "group"
+  },
+  {
+    "sid": 556,
+    "name": "Beobogh's Helm",
+    "slug": "beoboghs-helm",
+    "house": "making",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "order": 4,
+      "will": 2
+    },
+    "flavor": "After the Great Wasting killed the Dwarven women, Beobogh the Armorer became King, and led the Dwarves into the mountains.",
+    "text": "Cast on friendly recruit. Recruit's group cannot be targeted by enemy group spells. Recruit and other members of its group cannot be targeted by Unmaking individual spells.",
+    "castOn": "friendly recruit"
+  },
+  {
+    "sid": 348,
+    "name": "Blinding Orb",
+    "slug": "blinding-orb",
+    "house": "making",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "order": 4,
+      "will": 1
+    },
+    "flavor": "Fingle invented and activated his Blinding Orb to cover the Dwarves' retreat from Arboria. Since Fingle's banishment, it is used by Dwarves without attribution.",
+    "text": "Cast on globe. All minions are concealed from opponent. (Concealed minions cannot be targeted by enemy individual spells.) Duration: Turn of casting +1.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 1057,
+    "name": "Boret'hu's Influence",
+    "slug": "borethus-influence",
+    "house": "making",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "order": 3,
+      "will": 2
+    },
+    "flavor": null,
+    "text": "When any player casts a spell, a copy of that spell is added to the bottom of its caster's deck. Duration: Turn of casting +5.",
+    "castOn": null
+  },
+  {
+    "sid": 50,
+    "name": "Bow of Quickening",
+    "slug": "bow-of-quickening",
+    "house": "making",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "order": 3
+    },
+    "flavor": "Originally commissioned for Auberol's use in the Elven lands, this bow was quickly adopted by the Guildsmen who made it.",
+    "text": "Cast on archer. Archer gets +1 attack each round.",
+    "castOn": "archer"
+  },
+  {
+    "sid": 338,
+    "name": "Burst of Order",
+    "slug": "burst-of-order",
+    "house": "making",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "order": 2
+    },
+    "flavor": "An investment in Guild magic is seldom for naught.",
+    "text": "Cast on globe. Caster gets +2 Order next turn.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 551,
+    "name": "Combustioneers",
+    "slug": "combustioneers",
+    "house": "making",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "order": 2,
+      "will": 2
+    },
+    "flavor": "\"They may be little, but they're loud\" -- Zalima, Master Smith",
+    "text": "M:2 A:0 HP:2(x3) L:1 Nomadic. Creates three Combustioneers. When a Combustioneer is killed, it explodes, inflicting 2 hit points of damage on its attacker.",
+    "castOn": null
+  },
+  {
+    "sid": 554,
+    "name": "Deflection",
+    "slug": "deflection",
+    "house": "making",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 2
+    },
+    "flavor": "On the Eastern Continent, old wounds between the Dwarves and Djinn have healed, and collaboration thrives between the Kumatru Academy and the Guilds. Singh-Mukkajin's \"Theory of the Properties of Fuligin\" helped the Dwarven Tylemi clan develop force-deflection alloys.",
+    "text": "Cast on recruit. When recruit is damaged in combat (after checking armor), its attacker receives an equal amount of damage, ignoring armor.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 875,
+    "name": "Domed City",
+    "slug": "domed-city",
+    "house": "making",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 5
+    },
+    "flavor": null,
+    "text": "Cast on town or colony. Town or colony cannot be targeted by structure spells.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 1058,
+    "name": "Dwarven Airship",
+    "slug": "dwarven-airship",
+    "house": "making",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "order": 2,
+      "will": 1
+    },
+    "flavor": null,
+    "text": "Cast on friendly group. Group gains Flight. (Group may cross any terrain, and is immune to adverse terrain effects.) When group moves into a structure, duration is reset to current turn +9. On expiration, group dies. Duration: Turn of casting +9.",
+    "castOn": "friendly group"
+  },
+  {
+    "sid": 1059,
+    "name": "Field Armorer",
+    "slug": "field-armorer",
+    "house": "making",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 5,
+      "will": 2
+    },
+    "flavor": null,
+    "text": "Cast on friendly recruit. At start of turn, a random friendly recruit in an adjacent square who doesn't have Field Armor gets Field Armor (+1 armor).",
+    "castOn": "friendly recruit"
+  },
+  {
+    "sid": 17,
+    "name": "Fortify",
+    "slug": "fortify",
+    "house": "making",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "order": 2,
+      "will": 1
+    },
+    "flavor": "Walls, vaulted chambers, arches, buttresses and gates all lead to a competent defense.",
+    "text": "Cast on town or colony. While in town, recruits in town get +1 armor.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 153,
+    "name": "Found City",
+    "slug": "found-city",
+    "house": "making",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "order": 5,
+      "will": 4
+    },
+    "flavor": "Few understand the processes involved in creating a town from nothing, fewer still know the hidden workings of the Dwarves below ground.",
+    "text": "Cast on square. Creates a neutral colony. (A new colony dispels its square and changes it to plains.)",
+    "castOn": "square"
+  },
+  {
+    "sid": 609,
+    "name": "Fuligin",
+    "slug": "fuligin",
+    "house": "making",
+    "expansion": "Whispers",
+    "rarity": "Very Rare",
+    "cost": {
+      "order": 2
+    },
+    "flavor": "All other Dwarven Guilds now accept apprentices from any clan and debate their methods openly with other Masters; but the Metallurgists of the Tylemi clan keep their secrets. Not even the Armorers, who receive their ingots of Fuligin, know what it is.",
+    "text": "Cast on recruit. When recruit is hit in combat, Fuligin dispels the first individual spell on the attacking minion.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 550,
+    "name": "Gnome",
+    "slug": "gnome",
+    "house": "making",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "order": 5,
+      "will": 3
+    },
+    "flavor": "In ancient days, the Dwarves revered and worshipped their elemental cousins. True to tradition, young Dwarves are still sent as tributary servants to the Deep Burrows, but in fact these \"servants\" politely rule the Gnomes.",
+    "text": "H:5 A:0 HP:20 L:2 Nomadic. Cast on mountain. After Gnome moves, its old square becomes barren land, and its new square becomes mountain. Against Misfits, Gnome casts Mountain under opposing group at start of combat, and withdraws at the start of combat round 3.",
+    "castOn": "mountain"
+  },
+  {
+    "sid": 704,
+    "name": "Homunculi",
+    "slug": "homunculi",
+    "house": "making",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 3
+    },
+    "flavor": "These tiny mechanical men are found throughout the Dwarven Kingdoms. They are most often used for menial tasks and as messengers.",
+    "text": "M:2 A:0 HP:2(x3) L:1 Nomadic. Creates three Homunculi.",
+    "castOn": null
+  },
+  {
+    "sid": 876,
+    "name": "Juggernaut",
+    "slug": "juggernaut",
+    "house": "making",
+    "expansion": "Revolutions",
+    "rarity": "Very Rare",
+    "cost": {
+      "order": 7,
+      "will": 2
+    },
+    "flavor": "We made them to be a vanguard for our armies, and crafted them to sustain their own energies from their harvest. But you don't win a war just by cutting down some trees! And then they began to outlive their crews ... -- Imre, Dwarven royal engineer, to Keb, historian",
+    "text": "H:10 A:1 HP:40 L:1 Nomadic, Neutral. Cast on mountain. Target mountain becomes barren land. After movement, Juggernaut's square has all spells dispelled, and becomes barren land. Cannot be targeted by Unmaking spells.",
+    "castOn": "mountain"
+  },
+  {
+    "sid": 417,
+    "name": "Karkara",
+    "slug": "karkara",
+    "house": "making",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "order": 1,
+      "will": 1
+    },
+    "flavor": "This three-man vehicle was designed for the most hazardous tasks; deep sea mining, earth-moving, and (of course) combat. Dwarves sometimes hold mock Karkara battles for royal audiences.",
+    "text": "H:4(x2) A:2 HP:25 L:1 Player- controlled, Waterwalk. Two attacks. Cast on friendly recruit group of three or more. Group is replaced by Karkara. Karkara executes the group's movement order on the turn it is created.",
+    "castOn": "friendly recruit group of three or more"
+  },
+  {
+    "sid": 426,
+    "name": "Lode Star",
+    "slug": "lode-star",
+    "house": "making",
+    "expansion": "Bloodlines",
+    "rarity": "Rare",
+    "cost": {
+      "order": 3,
+      "will": 2
+    },
+    "flavor": "The last project Fingle completed before his exile was intended to draw metal from the heavens, but proved more sensible for defense. Some Guilds seek to ban its use.",
+    "text": "Cast on friendly town or colony. Five random non-structure squares in the 5x5 diamond centered on square become lava. (Lava causes 3 hit points of damage at start of turn unless group has Firewalk.)",
+    "castOn": "friendly town or colony"
+  },
+  {
+    "sid": 877,
+    "name": "Loose Bearings",
+    "slug": "loose-bearings",
+    "house": "making",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 3,
+      "will": 2
+    },
+    "flavor": null,
+    "text": "Cast on group. Members of group do not attack in their first combat round. Dispelled after next combat.",
+    "castOn": "group"
+  },
+  {
+    "sid": 552,
+    "name": "Lost Mine",
+    "slug": "lost-mine",
+    "house": "making",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "order": 2,
+      "will": 1
+    },
+    "flavor": "\"This war has ravaged the land, and our war machines have created horrors. We will accept the dictum of the Gargoyles: we will abandon these lands, and seek the mountains.\" -- Beobogh, Dwarven king",
+    "text": "Cast on square. A random non- structure square becomes Lost Mine's exit. After all combat, friendly recruit group in square disappears for current turn +1-3, then reappears in the exit square. (Group reappears at start of turn if its square is unoccupied, or on the earliest turn thereafter.)",
+    "castOn": "square"
+  },
+  {
+    "sid": 878,
+    "name": "Man-Catcher",
+    "slug": "man-catcher",
+    "house": "making",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 2,
+      "will": 1
+    },
+    "flavor": null,
+    "text": "Cast on friendly recruit. Recruit, and the enemy minion with highest hand or missile damage, do not attack, nor deal hand or missile damage. Dispelled after next combat.",
+    "castOn": "friendly recruit"
+  },
+  {
+    "sid": 879,
+    "name": "Master Fletcher",
+    "slug": "master-fletcher",
+    "house": "making",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 3,
+      "will": 1
+    },
+    "flavor": "It is said that Ogi's daughter Arrabel protects the Fletcher's Guild, and that her abilities hail as much from her absent mother as her King-making father.",
+    "text": "Cast on town or colony. Every archer created in town gets Dwarven Arrows (archer ignores opponent's armor).",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 133,
+    "name": "Master Smith",
+    "slug": "master-smith",
+    "house": "making",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 3,
+      "will": 1
+    },
+    "flavor": "Few are allowed audience with these mysterious Dwarven women. They are well guarded and their numbers are small; their Elven heritage is obvious in their height.",
+    "text": "Cast on town or colony. Every swordsman created in town gets Dwarven Blade (+1 hand damage).",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 39,
+    "name": "Mechanical Man",
+    "slug": "mechanical-man",
+    "house": "making",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "order": 5,
+      "will": 1
+    },
+    "flavor": "These \"men\" were created to defend the casemates from Misfits and other marauders. Dwarves prefer them to Human mercenaries, as they are less treacherous.",
+    "text": "H:4(x2) A:2 HP:12 L:2 Nomadic. Two attacks. Withdraws at the start of combat round 3.",
+    "castOn": null
+  },
+  {
+    "sid": 880,
+    "name": "Minefield",
+    "slug": "minefield",
+    "house": "making",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "order": 3,
+      "will": 2
+    },
+    "flavor": null,
+    "text": "Cast on square. On turn of casting +2, Minefield becomes active. Thereafter, when group enters square, or at start of turn if group occupies square, each member of group takes 2-6 hit points of damage, and Minefield is dispelled.",
+    "castOn": "square"
+  },
+  {
+    "sid": 85,
+    "name": "Mountain",
+    "slug": "mountain",
+    "house": "making",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 5,
+      "will": 1
+    },
+    "flavor": "Telluric engineering is the only visible sign of the long alliance between Dwarves and the mighty subterranean Gnomes.",
+    "text": "Cast on square. Square becomes mountain. (Mountain blocks movement unless group has Mountainwalk.)",
+    "castOn": "square"
+  },
+  {
+    "sid": 1060,
+    "name": "Natural Defenses",
+    "slug": "natural-defenses",
+    "house": "making",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 1,
+      "will": 1
+    },
+    "flavor": null,
+    "text": "Cast on friendly town or colony adjacent to at least one non-structure, non- mountain square, and not adjacent to any enemy minions. Up to two random adjacent non-structure squares become mountain. (Mountain blocks movement unless group has Mountainwalk.)",
+    "castOn": "friendly town or colony adjacent to at least one non-structure, non- mountain square, and not adjacent to any enemy minions"
+  },
+  {
+    "sid": 675,
+    "name": "Oculus of Will",
+    "slug": "oculus-of-will",
+    "house": "making",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "order": 4
+    },
+    "flavor": "This metal device is so well made that it magnifies the will of Guildsman and outsider alike.",
+    "text": "Cast on globe. Caster gets +1 Will each turn. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 413,
+    "name": "Ogi",
+    "slug": "ogi",
+    "house": "making",
+    "expansion": "Bloodlines",
+    "rarity": "Rare",
+    "cost": {
+      "order": 4,
+      "will": 4
+    },
+    "flavor": "\"It is no mystery why I, greatest of the Guildsmen, do not seek the crown. I could be King for only 200 years; I can be Kingmaker forever.\" -- Ogi",
+    "text": "M:3 A:3 HP:7 L:2 Cast on friendly town or colony. Creates Ogi, a Dwarven Hero archer. Ogi has Ogi's Armor, Ogi's Arrows, and Ogi's Gauntlet, and they have no casting cost for Ogi's caster while he is in play. (Each Hero may be cast only once per game.)",
+    "castOn": "friendly town or colony"
+  },
+  {
+    "sid": 93,
+    "name": "Ogi's Armor",
+    "slug": "ogis-armor",
+    "house": "making",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "order": 3
+    },
+    "flavor": "Many were stunned when Ogi broke from the mighty Armorers' Guild, founded by Beobogh himself. But Ogi's control over the upstart Fletchers' Guild was absolute, which served his purposes.",
+    "text": "Cast on recruit. Recruit gets +3 armor.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 350,
+    "name": "Ogi's Arrows",
+    "slug": "ogis-arrows",
+    "house": "making",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 3,
+      "will": 1
+    },
+    "flavor": "\"After Thrgal, Patriarch Odar was forced to give the Fletchers full autonomy. Hana'udhi models Dwarven politics using parastatic dominance tensors ...\" -- Report of the Djinni ambassador",
+    "text": "Cast on recruit group with archers. Archers in group get +1 missile damage.",
+    "castOn": "recruit group with archers"
+  },
+  {
+    "sid": 164,
+    "name": "Ogi's Gauntlet",
+    "slug": "ogis-gauntlet",
+    "house": "making",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "order": 1,
+      "will": 1
+    },
+    "flavor": "\"Theriel didn't die in battle. He died for talking of Ogi and Adriel's tryst to the wrong person. The Kingmaker was serious about covering his tracks.\" -- Seelie court gossip",
+    "text": "Cast on recruit. Recruit is concealed. (Concealed minions cannot be targeted by enemy individual spells.)",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 553,
+    "name": "Panopticon",
+    "slug": "panopticon",
+    "house": "making",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 1,
+      "will": 1
+    },
+    "flavor": "Many youths would rather bear the shame of remaining guildless than apply to the Mirrorers\\' Guild -- politically powerless, religiously suspect, and the only guild ever to accept non-Dwarven applicants. The Panopticon of Master Mirrorer Fuko is the Guild\\'s one triumph.",
+    "text": "Cast on town or colony. Town\\'s 1 mana cycles through all six mana types, beginning with Strife. (Mana-generating spells on the town are not affected.) Duration: Turn of casting +6.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 1061,
+    "name": "Pinnacle of Order",
+    "slug": "pinnacle-of-order",
+    "house": "making",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "order": 2
+    },
+    "flavor": null,
+    "text": "Cast on recruit. Recruit gets +T Armor, where T is the number of tokens. Recursive (Starts with 1 token. When cast, a copy of this spell is added to your hand that costs +1 mana and has +1 token.)",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 1062,
+    "name": "Quantum Mechanic",
+    "slug": "quantum-mechanic",
+    "house": "making",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "order": 1,
+      "will": 1
+    },
+    "flavor": null,
+    "text": "Cast on globe. All spells whose casting costs use only one mana type are drawn to the top of both player's decks.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 874,
+    "name": "Rangefinder",
+    "slug": "rangefinder",
+    "house": "making",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "order": 2
+    },
+    "flavor": null,
+    "text": "Cast on archer. Archer gets +1 missile damage. Archers in its group (including itself) get +1 missile damage in combat round 1 only.",
+    "castOn": "archer"
+  },
+  {
+    "sid": 295,
+    "name": "Shell of Gold",
+    "slug": "shell-of-gold",
+    "house": "making",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "order": 2
+    },
+    "flavor": "Created by two Master Smiths, this golden skin was crafted for its beauty. It has replaced the bulkier Mail of Lead for isolating and dispelling magics.",
+    "text": "Cast on minion. Dispels all individual spells on minion.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 106,
+    "name": "Shieldbearers",
+    "slug": "shieldbearers",
+    "house": "making",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "order": 3,
+      "will": 2
+    },
+    "flavor": "In the hope of winning honor and a bride, younger sons of the elite Guilds will sometimes insist on serving as footsoldiers. Every precaution is taken to ensure their safety.",
+    "text": "Cast on recruit group. All members of group get +1 armor.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 425,
+    "name": "Siege Engine",
+    "slug": "siege-engine",
+    "house": "making",
+    "expansion": "Bloodlines",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 4,
+      "will": 1
+    },
+    "flavor": "Engines of this type are often crafted to resemble Dragons, Rocs and other giant monsters. The engineers cleave to natural forms, knowing the fear and confusion this can create.",
+    "text": "Cast on recruit group. At start of combat against a group in a structure, Siege Engine inflicts 4 hit points of damage on each member of opposing group. Dispelled after one use.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 881,
+    "name": "Stronghold",
+    "slug": "stronghold",
+    "house": "making",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "order": 2,
+      "will": 1
+    },
+    "flavor": "Since our banishment from the plains, the mountains have become our place of refuge. ­- King Beobough in the final year of his reign",
+    "text": "Cast on mountain. While in square, recruits in square get +1 level.",
+    "castOn": "mountain"
+  },
+  {
+    "sid": 1063,
+    "name": "Theralda Glaivesforge",
+    "slug": "theralda-glaivesforge",
+    "house": "making",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "order": 4,
+      "will": 4
+    },
+    "flavor": null,
+    "text": "H:2 A:1 HP:7 L:2 Cast on friendly town or colony. Creates Theralda Glaivesforge, a Dwarven Hero swordswoman. Caster's non-Making spells that have Order or Will in their casting cost are adjusted by -1 primary and -1 secondary mana of those spells' mana types.",
+    "castOn": "friendly town or colony"
+  },
+  {
+    "sid": 882,
+    "name": "Toy Factory",
+    "slug": "toy-factory",
+    "house": "making",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "order": 1
+    },
+    "flavor": null,
+    "text": "Cast on square adjacent to friendly town or colony. At start of turn, one Combustioneer (M:2 A:0 HP:2 L:1 When killed, killer takes 2 damage) is created in square. Duration: M turns. Revolver (Casting cost M revolves from 1 to 10, starting at 1 and increasing by 1 mana per turn, restarting at 1 when it reaches 10, until cast).",
+    "castOn": "square adjacent to friendly town or colony"
+  },
+  {
+    "sid": 883,
+    "name": "Trebuchet",
+    "slug": "trebuchet",
+    "house": "making",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "order": 2,
+      "will": 1
+    },
+    "flavor": "These siege engines convert the pull of gravity to drive their arms forward, heaving massive stones at city walls. Yet Dwarves will build these inside their own walls, facing outward. And theirs are larger than yours, because they do not need to move.",
+    "text": "Cast on group adjacent to friendly town or colony. A random member of group dies.",
+    "castOn": "group adjacent to friendly town or colony"
+  },
+  {
+    "sid": 884,
+    "name": "Warhammer",
+    "slug": "warhammer",
+    "house": "making",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "order": 2
+    },
+    "flavor": null,
+    "text": "Cast on swordsman. Swordsman gets +N hand damage, where N is swordsman's hand damage on turn of casting. Swordsman attacks every other combat round.",
+    "castOn": "swordsman"
+  }
+]

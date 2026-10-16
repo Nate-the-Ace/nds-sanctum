@@ -1,0 +1,754 @@
+[
+  {
+    "sid": 684,
+    "name": "Abatement",
+    "slug": "abatement",
+    "house": "nature",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 2,
+      "order": 2
+    },
+    "flavor": "\"It is a simple matter to strip all your nonsense away, and return the land to her folk!\" -- Acornbelly, boasting to Fingle",
+    "text": "Cast on square. Dispels all spells on square. Square becomes plains.",
+    "castOn": "square"
+  },
+  {
+    "sid": 896,
+    "name": "Back to Nature",
+    "slug": "back-to-nature",
+    "house": "nature",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 4,
+      "order": 3
+    },
+    "flavor": "\"Goldleaf's treachery, however vile, shall not mark the fall of Nature! Come, loyal nymphs and playful dryads! Come, towering folk of the woods and courageous dwellers of the forest! Flourish throughout the land and restore this vile, sad world to her previous glory!\" -- Acornbelly to the denizens of Nature",
+    "text": "Cast on globe. Dispels all spells on globe.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 10,
+    "name": "Barkskin",
+    "slug": "barkskin",
+    "house": "nature",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "world": 1
+    },
+    "flavor": "Denizens of nature commonly develop hardened bark skin as they grow older, some finally losing themselves to become one with the forest.",
+    "text": "Cast on minion. Minion gets +1 armor. May be cast more than once on the same minion.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 512,
+    "name": "Bellwether",
+    "slug": "bellwether",
+    "house": "nature",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "world": 4,
+      "order": 2
+    },
+    "flavor": "\"None of your artful befuddlements will fool the folk of Nature, while the kind-eyed Bellwether walks among us!\" -- Acornbelly, boasting to Al Hakim",
+    "text": "H:0(x0) A:0 HP:10 L:0 Cast on recruit group. Creates Pacified Cow, a Satyr swordsman. It does not attack. Its group cannot be targeted by enemy group spells, and cannot join other groups or add any new recruits.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 897,
+    "name": "Biting Wind",
+    "slug": "biting-wind",
+    "house": "nature",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "world": 1
+    },
+    "flavor": null,
+    "text": "Cast on minion, even if it is concealed. Minion takes 2*M points of damage. Revolver (Casting cost M revolves from 1 to 10, starting at 1 and increasing by 1 mana per turn, restarting at 1 when it reaches 10, until cast).",
+    "castOn": "minion, even if it is concealed"
+  },
+  {
+    "sid": 9,
+    "name": "Deluge",
+    "slug": "deluge",
+    "house": "nature",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "world": 4,
+      "order": 4
+    },
+    "flavor": "\"Shinies floated, bluemen walked, beards and shades on mountains stalked, in the endless rushing wave, heroes met a sodden grave\" -- Human children's rhyme",
+    "text": "Cast on globe. Affects all non-water squares adjacent to water squares. Affected squares become water for current turn +1, then change from water to plains. Duration: Turn of casting +1.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 450,
+    "name": "Diomesia",
+    "slug": "diomesia",
+    "house": "nature",
+    "expansion": "Bloodlines",
+    "rarity": "Rare",
+    "cost": {
+      "world": 4,
+      "order": 4
+    },
+    "flavor": "\"Come, join in the vast dance of nature, drink from our skins and raise your voice with our pipes. Lose yourself, and join Nature.\" -- Call of Diomesia",
+    "text": "H:0 A:0 HP:7 L:2 Cast on recruit group. Creates Diomesia, a Satyr Hero swordswoman. All swordsmen in her group and any opposing group do not deal hand damage. (Each Hero may be cast only once per game.)",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 898,
+    "name": "Druid",
+    "slug": "druid",
+    "house": "nature",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 2,
+      "order": 2
+    },
+    "flavor": null,
+    "text": "Cast on archer. Archer gets +1 missile damage, and cannot be targeted by individual Abomination or Mind spells. If archer's group is in forest, Druid generates +1 World for group owner each turn.",
+    "castOn": "archer"
+  },
+  {
+    "sid": 25,
+    "name": "Dryad's Favors",
+    "slug": "dryads-favors",
+    "house": "nature",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 3,
+      "order": 1
+    },
+    "flavor": "Dryads are peaceful folk who rely on seduction and guile. Those bewitched by dryads often disappear for days, returning with no memory of what happened.",
+    "text": "Cast on recruit. Recruit is removed from the game. At start of turn of casting +3, one new recruit of the same nation and class is created in square. (Group is created if square is unoccupied, or on the earliest turn thereafter.).",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 1072,
+    "name": "Eagle Eyes",
+    "slug": "eagle-eyes",
+    "house": "nature",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 4,
+      "order": 2
+    },
+    "flavor": null,
+    "text": "Cast on friendly recruit. All friendly archers in squares adjacent to recruit get +1 missile damage.",
+    "castOn": "friendly recruit"
+  },
+  {
+    "sid": 899,
+    "name": "Earthquake",
+    "slug": "earthquake",
+    "house": "nature",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "world": 6,
+      "order": 4
+    },
+    "flavor": null,
+    "text": "Cast on square. Target square becomes barren land. Colonies in the four adjacent squares are destroyed. Each minion in the four adjacent squares takes 0-4 hit points of damage.",
+    "castOn": "square"
+  },
+  {
+    "sid": 89,
+    "name": "Forestation",
+    "slug": "forestation",
+    "house": "nature",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "world": 3
+    },
+    "flavor": "\"While you erect battlements and halls of stone, we dwell in the great hall of Nature!\" -- Acornbelly, boasting to Belvario",
+    "text": "Cast on square. Square becomes forest. (Minions in forest cannot be targeted by enemy individual spells.)",
+    "castOn": "square"
+  },
+  {
+    "sid": 900,
+    "name": "Fusillade",
+    "slug": "fusillade",
+    "house": "nature",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "world": 3,
+      "order": 2
+    },
+    "flavor": null,
+    "text": "Cast on group with archers. Archers in group get +1 attack in combat round 1 only.",
+    "castOn": "group with archers"
+  },
+  {
+    "sid": 901,
+    "name": "Gale Force",
+    "slug": "gale-force",
+    "house": "nature",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "world": 5,
+      "order": 4
+    },
+    "flavor": null,
+    "text": "Cast on globe. All groups move twice this turn in their direction of travel.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 460,
+    "name": "Geomancy",
+    "slug": "geomancy",
+    "house": "nature",
+    "expansion": "Bloodlines",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 2,
+      "order": 2
+    },
+    "flavor": "There have ever been cycles of climatic change. Geomancy simply hastens Nature's abundant renewal.",
+    "text": "Cast on globe. All non-structure terrain is randomly regenerated, according to the realm of the current game.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 566,
+    "name": "Goldcaps",
+    "slug": "goldcaps",
+    "house": "nature",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "world": 4
+    },
+    "flavor": "\"Goldcaps are the spirits of autumn, born to frolic a moment, then gladly die -- for each one that dies turns a tree leaf gold.\" -- Uyden's Handbook",
+    "text": "H:1 A:0 HP:3(x3) L:0 Territorial. Neutral. Creates three Goldcaps. Goldcaps attack all groups, even if friendly.",
+    "castOn": null
+  },
+  {
+    "sid": 1073,
+    "name": "Hailstorm",
+    "slug": "hailstorm",
+    "house": "nature",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "world": 2,
+      "order": 1
+    },
+    "flavor": null,
+    "text": "Cast on square. Affects square and all adjacent squares. At start of turn, all minions in affected squares take 1 hit point of damage. Duration: Turn of casting +2.",
+    "castOn": "square"
+  },
+  {
+    "sid": 77,
+    "name": "Healing Spring",
+    "slug": "healing-spring",
+    "house": "nature",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "world": 3
+    },
+    "flavor": "\"He struck the ground with his Dythramb, laughing, and a spring of fresh water immediately bubbled forth, wholesome and clear.\" -- Kyman Firth, \"The Siege of Groven's Weald\"",
+    "text": "Cast on square. When group enters square, all members of group are fully healed.",
+    "castOn": "square"
+  },
+  {
+    "sid": 130,
+    "name": "Huntsman",
+    "slug": "huntsman",
+    "house": "nature",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "world": 4,
+      "order": 2
+    },
+    "flavor": "Those beloved of Nature may find themselves crowned with antlers, gifted with sight, and made to stand against those who would encroach upon her bower.",
+    "text": "H:3 A:2 HP:10 L:2 Territorial. Gets +2 hand damage against monsters.",
+    "castOn": null
+  },
+  {
+    "sid": 902,
+    "name": "Icecaps",
+    "slug": "icecaps",
+    "house": "nature",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "world": 3,
+      "order": 3
+    },
+    "flavor": null,
+    "text": "H:1 A:1 HP:1(x3) L:1 Nomadic, Neutral. Creates three Icecaps. When Icecaps' group dies, group's square becomes ice.",
+    "castOn": null
+  },
+  {
+    "sid": 209,
+    "name": "Ill Winds",
+    "slug": "ill-winds",
+    "house": "nature",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 4,
+      "order": 1
+    },
+    "flavor": "The Winds Ventrius, Borundo, Celyph, and Autrenith are the oldest and mightiest of the Unseelie Horde.",
+    "text": "Cast on town or colony. Affects town and the four adjacent squares. Minions in squares deal no missile damage (before checking armor).",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 87,
+    "name": "Inundate",
+    "slug": "inundate",
+    "house": "nature",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 5,
+      "order": 1
+    },
+    "flavor": "Even beneath the desert, in thousand hidden rivulets and channels, water awaits the call to surge forth.",
+    "text": "Cast on square. Square becomes water. (Each minion drowns (dies) in water when water is created, when minion enters square, at start of turn, before movement, and before combat, unless minion has Waterwalk. Water blocks movement unless group has Waterwalk.)",
+    "castOn": "square"
+  },
+  {
+    "sid": 565,
+    "name": "Jade Dragon",
+    "slug": "jade-dragon",
+    "house": "nature",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "world": 6,
+      "order": 3
+    },
+    "flavor": "The Dragon Zhe was born to guard the woodland lakes. When Goldleaf betrayed Nature, Zhe swore her daughters would dedicate themselves to destroying what Goldleaf had unleashed into the world.",
+    "text": "H:4(x2) A:1 HP:15 L:2 Waterwalk. Two attacks. Target square becomes water. At start of combat against Imps, kills one random opposing Imp. At start of turn, is removed from the game.",
+    "castOn": null
+  },
+  {
+    "sid": 294,
+    "name": "Jaguar's Blood",
+    "slug": "jaguars-blood",
+    "house": "nature",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "world": 1
+    },
+    "flavor": "He who bathes in the Jaguar's Blood takes on the vigor and spirit of the great cat.",
+    "text": "Cast on minion. Minion gets +4 maximum and current hit points.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 410,
+    "name": "Karillian Arrows",
+    "slug": "karillian-arrows",
+    "house": "nature",
+    "expansion": "Bloodlines",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 2,
+      "order": 1
+    },
+    "flavor": "Satyr archers cultivate the poison from the glands of these venomous Karillian tree frogs; they use a distillate to tip their arrows.",
+    "text": "Cast on archer. When archer damages an opponent, opponent gets an effect that gives 1 hit point of damage at the start of each round for the rest of that combat.",
+    "castOn": "archer"
+  },
+  {
+    "sid": 75,
+    "name": "Lightning Bolt",
+    "slug": "lightning-bolt",
+    "house": "nature",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "world": 2
+    },
+    "flavor": "\"The skies themselves roiled at our approach, and then the great lightning struck not far away ...\" -- Kyman Firth, \"The Siege of Groven\\'s Weald\"",
+    "text": "Cast on minion. Minion takes five hit points of damage.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 903,
+    "name": "Natural Order",
+    "slug": "natural-order",
+    "house": "nature",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 1,
+      "order": 1
+    },
+    "flavor": null,
+    "text": "Cast on square. Dispels all square spells in the 3x3 diamond centered on square. This does not change terrain or destroy colonies.",
+    "castOn": "square"
+  },
+  {
+    "sid": 1074,
+    "name": "Overflow",
+    "slug": "overflow",
+    "house": "nature",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 1,
+      "order": 1
+    },
+    "flavor": null,
+    "text": "Cast on friendly town or colony adjacent to at least one non-structure, non- water square, and not adjacent to any enemy minions. Up to two random adjacent non-structure squares become water. (Each minion drowns (dies) in water when water is created, when minion enters square, at start of turn, before movement, and before combat, unless minion has Waterwalk. Water blocks movement unless group has Waterwalk.)",
+    "castOn": "friendly town or colony adjacent to at least one non-structure, non- water square, and not adjacent to any enemy minions"
+  },
+  {
+    "sid": 36,
+    "name": "Pixie Dust",
+    "slug": "pixie-dust",
+    "house": "nature",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 3,
+      "order": 1
+    },
+    "flavor": "\"Pixies are the tiniest of Nature's minions, but a handful in your hair are enough to incapacitate your entire company.\" -- Uyden's Handbook",
+    "text": "Cast on minion. All other members of minion's group get -2 hand damage.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 208,
+    "name": "Primeval Forest",
+    "slug": "primeval-forest",
+    "house": "nature",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "world": 2
+    },
+    "flavor": "Deep in the heart of the primeval forest lies the Great Tree of Life. In times of need the Forest Elders stir from their rest to defend this sacred stand.",
+    "text": "Cast on forest. Affects all contiguous forest squares. Every monster created in Primeval Forest gets Primeval Strength (+1 hand damage).",
+    "castOn": "forest"
+  },
+  {
+    "sid": 571,
+    "name": "Protective Cover",
+    "slug": "protective-cover",
+    "house": "nature",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 3,
+      "order": 2
+    },
+    "flavor": "\"Wild wood! These changed ones are no longer your children! In the fight tomorrow, O branches, O thorns -- trip and tangle, strike and strangle!\" -- Diomesia in her cups",
+    "text": "Cast on recruit. Recruit no longer attacks, and receives no combat damage. When recruit is hit by an Imp (before checking armor), the Imp receives the damage instead, ignoring armor. Dispelled after next combat.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 567,
+    "name": "Revelers",
+    "slug": "revelers",
+    "house": "nature",
+    "expansion": "Oppositions",
+    "rarity": "Very Rare",
+    "cost": {
+      "world": 2,
+      "order": 1
+    },
+    "flavor": "Every revel has its price.",
+    "text": "Cast on recruit group. All members of group lose their natural house abilities.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 569,
+    "name": "Seed on the Wind",
+    "slug": "seed-on-the-wind",
+    "house": "nature",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "world": 3,
+      "order": 3
+    },
+    "flavor": "\"The dancing ripple from a pebble's strike -- The seed alighting in a patch of sand -- Begins a wave that bursts a city's dike -- Begins a pine that seeds a desert land\" -- Song of the Satyrs",
+    "text": "Cast on square. The 3x3 diamond centered on square becomes forest. (Minions in forest cannot be targeted by enemy individual spells.)",
+    "castOn": "square"
+  },
+  {
+    "sid": 677,
+    "name": "Sign of Order",
+    "slug": "sign-of-order",
+    "house": "nature",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "world": 4
+    },
+    "flavor": "\"In all of Nature's promulgation some design / Faint, inscrutable, yet sure discerned / Penetrates the whole, drives fuse through flower / Requires the sparrow's taking of the worm\" -- Song of the Satyrs",
+    "text": "Cast on globe. Caster gets +1 Order each turn. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 451,
+    "name": "Simian Warriors",
+    "slug": "simian-warriors",
+    "house": "nature",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "world": 2,
+      "order": 2
+    },
+    "flavor": "\"Structural similarities suggest that Simians and Humans share a common ancestry, though neither group is eager to acknowledge this theory.\" -- Zaduth-Jar, Lecturer in Xenology",
+    "text": "H:3 A:1 HP:7 L:1, H:1 A:0 HP:3 L:2, H:2 A:0 HP:5 L:1 Territorial. Creates three different Simian Warriors.",
+    "castOn": null
+  },
+  {
+    "sid": 1075,
+    "name": "Smell the Roses",
+    "slug": "smell-the-roses",
+    "house": "nature",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "world": 5,
+      "order": 4
+    },
+    "flavor": null,
+    "text": "Cast on recruit group. Group becomes computer-controlled, cannot join groups or create new recruits, and moves like a territorial monster within the 3x3 diamond centered on group's square at time of casting. Duration: Turn of casting +2.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 459,
+    "name": "Stone Circle",
+    "slug": "stone-circle",
+    "house": "nature",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "world": 4,
+      "order": 1
+    },
+    "flavor": "The harmonics of living Stone can be used by the clever Geomancer. Dwarven stonesmiths have tried to duplicate the effect through engineering, with no success.",
+    "text": "Cast on square. Square and its occupants cannot be targeted by any spells. While in square, minions in square get +1 level.",
+    "castOn": "square"
+  },
+  {
+    "sid": 904,
+    "name": "Straight-Arrow",
+    "slug": "straight-arrow",
+    "house": "nature",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "world": 1
+    },
+    "flavor": null,
+    "text": "Cast on archer. Archer gets +4 missile damage in combat round 1 only.",
+    "castOn": "archer"
+  },
+  {
+    "sid": 610,
+    "name": "Syzygy",
+    "slug": "syzygy",
+    "house": "nature",
+    "expansion": "Whispers",
+    "rarity": "Very Rare",
+    "cost": {
+      "world": 3,
+      "order": 1
+    },
+    "flavor": "\"There is a moment, then, in every life -- and wild lives teem in the abundant green -- when chance alignments of the great and small -- reveal the Pattern seldom seen\" -- Song of the Satyrs",
+    "text": "Cast on globe. Next turn, caster has all spell casting costs adjusted by -1 primary and -1 secondary mana per spell.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 570,
+    "name": "Tornado",
+    "slug": "tornado",
+    "house": "nature",
+    "expansion": "Oppositions",
+    "rarity": "Very Rare",
+    "cost": {
+      "world": 3,
+      "order": 2
+    },
+    "flavor": "\"Winds roared, the ground exploded, the trees fell into the sky! These Satyrs really know how to entertain a guest!\" -- Elevava Glasshead, Misfit traveler",
+    "text": "Cast on square. Square's terrain is moved to a random adjacent non-structure square. Square becomes barren land.",
+    "castOn": "square"
+  },
+  {
+    "sid": 69,
+    "name": "Tree Man",
+    "slug": "tree-man",
+    "house": "nature",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 3
+    },
+    "flavor": "Of Thumofol, it is said that he never died, but mossy and oaken himself, became one with the great wood, there to slumber until needed again.",
+    "text": "H:3 A:1 HP:12 L:1 Territorial. Cast on forest.",
+    "castOn": "forest"
+  },
+  {
+    "sid": 1076,
+    "name": "Unseelie Howl",
+    "slug": "unseelie-howl",
+    "house": "nature",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 2,
+      "order": 2
+    },
+    "flavor": null,
+    "text": "Cast on recruit group. Group's movement orders are cancelled. Every friendly recruit group's movement orders are cancelled.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 905,
+    "name": "Uproot",
+    "slug": "uproot",
+    "house": "nature",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "world": 5,
+      "order": 4
+    },
+    "flavor": null,
+    "text": "H:3 A:1 HP:12(x3) L:1 Nomadic. Cast on forest. Target square becomes barren land. Creates 3 Uprooted Tree Men. When Uprooted group dies, group's square becomes forest.",
+    "castOn": "forest"
+  },
+  {
+    "sid": 1077,
+    "name": "Utaban Brothers",
+    "slug": "utaban-brothers",
+    "house": "nature",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "world": 2,
+      "order": 1
+    },
+    "flavor": null,
+    "text": "H:2 A:1 HP:7 L:1 or M:2 A:0 HP:7 L:1 Cast on friendly recruit group in a structure. Creates a Satyr recruit of random class.",
+    "castOn": "friendly recruit group in a structure"
+  },
+  {
+    "sid": 83,
+    "name": "Water Breathing",
+    "slug": "water-breathing",
+    "house": "nature",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "world": 1
+    },
+    "flavor": "Under the protection of the Naiads, travelers may move silently through their underwater grottos.",
+    "text": "Cast on group. Group gains Waterwalk. (Group may cross water, and does not drown in water.)",
+    "castOn": "group"
+  },
+  {
+    "sid": 1078,
+    "name": "Water's Gift",
+    "slug": "waters-gift",
+    "house": "nature",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "world": 2,
+      "order": 2
+    },
+    "flavor": null,
+    "text": "Cast on friendly town or colony. The four squares adjacent to structure become ice.",
+    "castOn": "friendly town or colony"
+  },
+  {
+    "sid": 1079,
+    "name": "Watersniper",
+    "slug": "watersniper",
+    "house": "nature",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "world": 1,
+      "order": 1
+    },
+    "flavor": null,
+    "text": "Cast on archer. Archer gets +1 missile damage, and its group gains Waterwalk. (Group may cross water, and does not drown in water.)",
+    "castOn": "archer"
+  },
+  {
+    "sid": 342,
+    "name": "Will o' the Wisp",
+    "slug": "will-o-the-wisp",
+    "house": "nature",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "world": 5,
+      "order": 3
+    },
+    "flavor": "\"Finally on the third day they came stumbling over the hill. We asked them where they had been. 'We followed a light,' they told us.\" -- Diary of Vlad Hrothgar",
+    "text": "Cast on recruit group not in a structure. Group disappears for turn of casting +2. (Group reappears at start of turn if its square is unoccupied, or on the earliest turn thereafter.)",
+    "castOn": "recruit group not in a structure"
+  },
+  {
+    "sid": 676,
+    "name": "Wolf Pack",
+    "slug": "wolf-pack",
+    "house": "nature",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 5,
+      "order": 2
+    },
+    "flavor": "When necessary, the wolves themselves may be summoned to guard against those who would encroach upon the sanctity of the forest.",
+    "text": "H:3 A:0 HP:12(x3) L:1 Territorial. Cast on forest. Creates three Wolves.",
+    "castOn": "forest"
+  },
+  {
+    "sid": 906,
+    "name": "Woodhenge",
+    "slug": "woodhenge",
+    "house": "nature",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 1,
+      "order": 1
+    },
+    "flavor": null,
+    "text": "Cast on forest. Square and its occupants cannot be targeted by any spells. Duration: Turn of casting +1.",
+    "castOn": "forest"
+  },
+  {
+    "sid": 284,
+    "name": "World Dance",
+    "slug": "world-dance",
+    "house": "nature",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "order": 5
+    },
+    "flavor": "\"How pale and sickly your clarity looks in comparison, when the Diomesian throng of revelers sweeps past!\" -- Acornbelly, boasting to Lienna",
+    "text": "Cast on town or colony. World Dance generates +2 World for town owner each turn.",
+    "castOn": "town or colony"
+  }
+]

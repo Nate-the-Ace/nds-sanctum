@@ -1,0 +1,768 @@
+[
+  {
+    "sid": 49,
+    "name": "Armor to Meat",
+    "slug": "armor-to-meat",
+    "house": "unmaking",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "strife": 2
+    },
+    "flavor": "\"Before this spell, Dwarves so tinny and unpalatable. Now can eat five at a sitting!\" -- Seppukarno, Manticore",
+    "text": "Cast on recruit. Recruit gets -2 armor.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 574,
+    "name": "Bedlam",
+    "slug": "bedlam",
+    "house": "unmaking",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 3,
+      "world": 2
+    },
+    "flavor": "\"In the heart of Making lies the seed of Unmaking. After the horrific Dwarven war machines created the first Voids and Misfits, Chaos began to spread on its own.\" -- Az-arif, The Dominance Wars",
+    "text": "Cast on square. At start of turn, each minion in square gets Chaos Feature. (A recruit who gets 3 or more Chaos Features changes into a Misfit.)",
+    "castOn": "square"
+  },
+  {
+    "sid": 313,
+    "name": "Boggart",
+    "slug": "boggart",
+    "house": "unmaking",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 2,
+      "world": 1
+    },
+    "flavor": "Boggarts begin their lives as harmless Brownies. When Unmaking finds them, they twist and warp, taking on a broody seriousness and becoming dangerous to lone travelers.",
+    "text": "H:3 A:0 HP:12 L:1 Nomadic.",
+    "castOn": null
+  },
+  {
+    "sid": 54,
+    "name": "Bolt of Somersaults",
+    "slug": "bolt-of-somersaults",
+    "house": "unmaking",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 5,
+      "world": 3
+    },
+    "flavor": "\"Can we do it again? Can we please, can we?\" -- Elevava Glasshead, Misfit traveler",
+    "text": "Cast on group. Group is teleported to a random unoccupied non-structure square.",
+    "castOn": "group"
+  },
+  {
+    "sid": 339,
+    "name": "Burst of Strife",
+    "slug": "burst-of-strife",
+    "house": "unmaking",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "strife": 2
+    },
+    "flavor": "The romance of decay, the intrigue of mutation, the glory of anarchy and the triumphant silence of rot. The end is always Strife. Always. And sometimes the beginning too.",
+    "text": "Cast on globe. Caster gets +2 Strife next turn.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 293,
+    "name": "Carapace",
+    "slug": "carapace",
+    "house": "unmaking",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "strife": 1
+    },
+    "flavor": "\"Does not mutation provide? We become the rules, hide our blood in cornhusks, rubber, and salty flint! And only bruise ourselves!\" -- Mangrove Onyx the Bloody Icicle, Misfit demagogue",
+    "text": "Cast on minion. Minion gets +1 armor.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 419,
+    "name": "Changing Lands",
+    "slug": "changing-lands",
+    "house": "unmaking",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "strife": 4,
+      "world": 2
+    },
+    "flavor": "These roiling turbulent areas are thought to spontaneously create Misfits. And perhaps that is why Misfits create Changing Lands wherever they can.",
+    "text": "Cast on square. When cast, and at start of turn, square becomes any of plains, forest, barren land, ice, desert, lava, mountain, swamp, volcano, or water, at random. On and after turn of casting +2, square may also become Void.",
+    "castOn": "square"
+  },
+  {
+    "sid": 710,
+    "name": "Chaos Feature",
+    "slug": "chaos-feature",
+    "house": "unmaking",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 1
+    },
+    "flavor": "\"These external changes, however grotesque, are only symptomatic of more extreme internal realignments and dissolutions.\" -- Panoman Jar, Vivisectionist Second Class",
+    "text": "Cast on minion. Minion gets a random minion alteration or conjuration. (A recruit who gets 3 or more Chaos Features changes into a Misfit.)",
+    "castOn": "minion"
+  },
+  {
+    "sid": 165,
+    "name": "Chaos Fog",
+    "slug": "chaos-fog",
+    "house": "unmaking",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 1,
+      "world": 1
+    },
+    "flavor": "Fingle\\'s attempt to recreate his Blinding Orb for the Misfits who took him in. For this he was given the Impractical Joke Pickle, honor and insult.",
+    "text": "Cast on recruit. Every other member of its group is concealed. Recruit remains visible. (Concealed minions cannot be targeted by enemy individual spells.)",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 572,
+    "name": "Cockatrice",
+    "slug": "cockatrice",
+    "house": "unmaking",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 4,
+      "world": 2
+    },
+    "flavor": "\"An obscene creature, native to the Bedlam and the Badlands of Arun. Its gaze, its bite, and its tail are all to be avoided.\" -- Dwarven Field Guide to the Major Monstrosities",
+    "text": "H:3 A:0 HP:12 L:1 Nomadic. Cockatrice's hits give Cockatrice's Gaze (-1 damage and +1 armor, cumulative. A minion who gets three or more Cockatrice's Gaze is killed).",
+    "castOn": null
+  },
+  {
+    "sid": 907,
+    "name": "Cruel Greaves",
+    "slug": "cruel-greaves",
+    "house": "unmaking",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "strife": 1
+    },
+    "flavor": null,
+    "text": "Cast on recruit. Recruit takes N hit points of damage, where N is recruit's armor.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 1080,
+    "name": "Destroy Creation",
+    "slug": "destroy-creation",
+    "house": "unmaking",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "strife": 2,
+      "world": 2
+    },
+    "flavor": null,
+    "text": "Cast on minion, even if it is concealed. Minion is removed from the game. (This does not set off any death-triggered effects.) World Drain (caster gets -1 World each turn, may be cast more than once) is cast on the globe.",
+    "castOn": "minion, even if it is concealed"
+  },
+  {
+    "sid": 908,
+    "name": "Devolution",
+    "slug": "devolution",
+    "house": "unmaking",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 3
+    },
+    "flavor": "The Great Wasting still has its effects today. Centuries later it can still be found to create new Misfits.",
+    "text": "L:0, Neutral. Cast on monster group. Monster group is replaced by an equal number of neutral Misfits of random class. (Neutral groups move last, attack all other groups, and have \"half-initiative\" in combat. Neutral recruit groups cannot enter structures.)",
+    "castOn": "monster group"
+  },
+  {
+    "sid": 73,
+    "name": "Disintegrate",
+    "slug": "disintegrate",
+    "house": "unmaking",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "strife": 2,
+      "world": 2
+    },
+    "flavor": "\"Entropy unleashed, the whirligig dance -- hey hey! What fun to see a fellow fall apart from inside out!\" -- Thud Thud, Misfit, late of the Kumatru Academy",
+    "text": "Cast on minion. Minion dies.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 576,
+    "name": "Entropia",
+    "slug": "entropia",
+    "house": "unmaking",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 5,
+      "world": 2
+    },
+    "flavor": "\"The Shadows' magic had caught me in a trap, and each day I cursed the icy waves that lapped at the bleak city's edge. Then one morning the bitter seas were gone -- in their place stood a hooting, gibbering army of the strangest creatures I had ever seen ...\" -- The Journey of Tansek",
+    "text": "Cast on town or colony. Colony is destroyed. Dispels all spells on town. Town cannot be targeted by structure spells.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 909,
+    "name": "Ergotism",
+    "slug": "ergotism",
+    "house": "unmaking",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 2,
+      "world": 1
+    },
+    "flavor": null,
+    "text": "Cast on recruit. At start of turn, recruit takes 1 hit point of damage. When recruit is dying, recruit is fully healed, has all individual spells dispelled (including Ergotism), and changes into a Misfit.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 577,
+    "name": "Erisian Blade",
+    "slug": "erisian-blade",
+    "house": "unmaking",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "strife": 1,
+      "world": 1
+    },
+    "flavor": "\"If one loves two, and two love three, how merry will those many be! If three love four, and four love five, how mighty will the many thrive!\" -- The Carpist, Misfit bard",
+    "text": "Cast on recruit. Recruit gets +1 hand damage for every nation in its group.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 427,
+    "name": "Fingle",
+    "slug": "fingle",
+    "house": "unmaking",
+    "expansion": "Bloodlines",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 4,
+      "world": 4
+    },
+    "flavor": "The Guildmaster who tried to undo the Great Wasting that afflicted all the Dwarven women by study and practice of Chaos. His quest changed him forever, and he was exiled.",
+    "text": "H:2 A:1 HP:9 L:2 Cast on recruit group. Creates Fingle, a Misfit Hero swordsman. Every player- controlled group in the eight squares surrounding Fingle moves in a random legal direction. (Each Hero may be cast only once per game.)",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 428,
+    "name": "Fingle's Folly",
+    "slug": "fingles-folly",
+    "house": "unmaking",
+    "expansion": "Bloodlines",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 6,
+      "world": 2
+    },
+    "flavor": "In exile, before he had accepted the Chaos, Fingle tried to build a friend. He lost both arms to his folly ...",
+    "text": "H:2(x4) A:2 HP:16 L:0 Nomadic. Neutral. Four attacks. When Fingle's Folly dies in combat, it explodes as a Fireball (5 hit points of damage) on opposing group.",
+    "castOn": null
+  },
+  {
+    "sid": 1081,
+    "name": "Fizzle",
+    "slug": "fizzle",
+    "house": "unmaking",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 2,
+      "world": 2
+    },
+    "flavor": null,
+    "text": "Cast on globe. Dispels a random spell on the globe.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 706,
+    "name": "Forbidden Ichor",
+    "slug": "forbidden-ichor",
+    "house": "unmaking",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 1
+    },
+    "flavor": "A vile potion favored by Misfits traveling in the world for its powers to disguise tendril, claw and mandible.",
+    "text": "Cast on recruit. Recruit changes into a member of a random nation.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 602,
+    "name": "Gatemouth",
+    "slug": "gatemouth",
+    "house": "unmaking",
+    "expansion": "Whispers",
+    "rarity": "Very Rare",
+    "cost": {
+      "strife": 4,
+      "world": 4
+    },
+    "flavor": "\"Mind the teeth!\" -- Elevava Glasshead, Misfit traveler",
+    "text": "H:1 A:0 HP:3 L:0 Nomadic. Neutral. At start of turn, gets -1 maximum hit point. Before combat, all adjacent groups are teleported to random unoccupied non-structure squares not adjacent to this Gatemouth.",
+    "castOn": null
+  },
+  {
+    "sid": 573,
+    "name": "Gnax",
+    "slug": "gnax",
+    "house": "unmaking",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 4,
+      "world": 2
+    },
+    "flavor": "\"Misfits raise Gnax for food, and Badlands human tribes will hunt them on occasion, but the taste is unreliable. We dined on roasted Gnax at a Seulik encampment, and the meat, unseasoned, tasted of lemons, spoiled fish, ginger, and lead.\" -- Journal of Lienna: Volume VI",
+    "text": "H:2 A:0 HP:4(x2-8) L:0 Territorial. Creates two to eight Gnax. When a Gnax damages a Dwarf, the Dwarf gets Chaos Feature. (A recruit who gets 3 or more Chaos Features changes into a Misfit.)",
+    "castOn": null
+  },
+  {
+    "sid": 910,
+    "name": "Gyre",
+    "slug": "gyre",
+    "house": "unmaking",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 1
+    },
+    "flavor": null,
+    "text": "Cast on group. Group gets M total Chaos Features, assigned randomly. (A recruit who gets 3 or more Chaos Features changes into a Misfit.) Revolver (Casting cost M revolves from 1 to 10, starting at 1 and increasing by 1 mana per turn, restarting at 1 when it reaches 10, until cast).",
+    "castOn": "group"
+  },
+  {
+    "sid": 911,
+    "name": "Hollow Jester",
+    "slug": "hollow-jester",
+    "house": "unmaking",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 3,
+      "world": 2
+    },
+    "flavor": null,
+    "text": "H:0 A:1 HP:9 L:1 Cast on recruit group. Hollow Jester is a Misfit swordsman. Group cannot add any new recruits. At start of turn, a random other recruit in group gets Chaos Feature. Duration: N turns, where N is the number of recruits in group. On expiration, Hollow Jester is removed from the game.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 1082,
+    "name": "Horsing Around",
+    "slug": "horsing-around",
+    "house": "unmaking",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "strife": 2,
+      "world": 1
+    },
+    "flavor": null,
+    "text": "Cast on friendly recruit group. Group moves twice this turn in its direction of travel. A player- controlled group moves in a random legal direction toward an unoccupied square.",
+    "castOn": "friendly recruit group"
+  },
+  {
+    "sid": 912,
+    "name": "Instability",
+    "slug": "instability",
+    "house": "unmaking",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 2,
+      "world": 2
+    },
+    "flavor": null,
+    "text": "Cast on globe. Each monster group on the board is replaced by a new random monster group that can be targeted on squares. A monster group that cannot be replaced is removed from the game instead. (Monster groups that are off the board are not affected.)",
+    "castOn": "globe"
+  },
+  {
+    "sid": 586,
+    "name": "Iron Shillelagh",
+    "slug": "iron-shillelagh",
+    "house": "unmaking",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "strife": 2,
+      "world": 1
+    },
+    "flavor": "\"So my dear Ogi has created something wonderful, eh? Well, we'll just see about that. Bwahahahaha!\" -- Fingle, Misfit hero and Dwarven heretic",
+    "text": "Cast on recruit. When recruit damages an opponent, opponent has all individual spells dispelled. If opponent is a Dwarf, opponent's group has all group and individual spells dispelled. Duration: Turn of casting +3.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 1083,
+    "name": "Jester at Court",
+    "slug": "jester-at-court",
+    "house": "unmaking",
+    "expansion": "Allies & Traitors",
+    "rarity": "Very Rare",
+    "cost": {
+      "strife": 1,
+      "world": 1
+    },
+    "flavor": null,
+    "text": "Cast on town or colony. At start of turn, Jester at Court tells both players a random card that isn't on top of structure owner's deck. (Start of turn effects happen before card draws.)",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 7,
+    "name": "Jinx",
+    "slug": "jinx",
+    "house": "unmaking",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 1
+    },
+    "flavor": "\"In some cases the Misfit Transformation discards the body entirely. The new being spends its extremely long life looking for a friend.\" -- Al-Talataa Umunayyil, Tan'u'zhadhi Academy",
+    "text": "Cast on minion. Minion gets -2 hand and missile damage. If minion is killed, Jinx transfers to the killer.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 430,
+    "name": "Jumping Land",
+    "slug": "jumping-land",
+    "house": "unmaking",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "strife": 2,
+      "world": 1
+    },
+    "flavor": "\"A little wanderlust is good for those stodgy mountainy things and -- hey trala! -- for their overlords in House of Making.\" -- Ovo, Brass of the Sky",
+    "text": "Cast on mountain. Before combat, mountain has a 60% chance to move to a random adjacent non-structure, non-mountain square, leaving plains. Any group on the mountain moves with it. Any group in the new square is removed from the game. If mountain enters Void, it falls in.",
+    "castOn": "mountain"
+  },
+  {
+    "sid": 429,
+    "name": "Leechwood",
+    "slug": "leechwood",
+    "house": "unmaking",
+    "expansion": "Bloodlines",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 2,
+      "world": 2
+    },
+    "flavor": "This eerie creature is nourished by enchantment. The more magic it devours the blacker it becomes, whispering a low dissonant gurgle.",
+    "text": "Cast on forest. Affects all contiguous forest squares. When cast, at start of turn, and when group enters square, groups in squares have all spells dispelled.",
+    "castOn": "forest"
+  },
+  {
+    "sid": 913,
+    "name": "Maelstrom",
+    "slug": "maelstrom",
+    "house": "unmaking",
+    "expansion": "Revolutions",
+    "rarity": "Very Rare",
+    "cost": {
+      "strife": 2,
+      "world": 2
+    },
+    "flavor": null,
+    "text": "Cast on friendly town or colony. On expiration, town or colony is destroyed, and square becomes Void. Duration: Turn of casting +2.",
+    "castOn": "friendly town or colony"
+  },
+  {
+    "sid": 914,
+    "name": "Magnetic Accrual",
+    "slug": "magnetic-accrual",
+    "house": "unmaking",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 3,
+      "world": 2
+    },
+    "flavor": null,
+    "text": "Cast on recruit. Recruit absorbs all armor from its group. (Every other recruit gets -A armor, where A is its armor on turn of casting. Target recruit gets +N armor, where N is the sum of all A's. These stat changes cannot be dispelled.)",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 68,
+    "name": "Manticore",
+    "slug": "manticore",
+    "house": "unmaking",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 5,
+      "world": 2
+    },
+    "flavor": "Manticores haunt lost palaces and doomed cities. They are willful, sometimes wise and always vicious.",
+    "text": "H:8 A:0 HP:10 L:2 Territorial. Withdraws at the start of combat round 3.",
+    "castOn": null
+  },
+  {
+    "sid": 1084,
+    "name": "Mitosis",
+    "slug": "mitosis",
+    "house": "unmaking",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 3,
+      "world": 1
+    },
+    "flavor": null,
+    "text": "Cast on friendly recruit group of two or less. For every Misfit in group, Mitosis creates another Misfit of the same class, and all Misfits in group are lowered to 5 current hit points.",
+    "castOn": "friendly recruit group of two or less"
+  },
+  {
+    "sid": 1085,
+    "name": "Mudslinging",
+    "slug": "mudslinging",
+    "house": "unmaking",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 1,
+      "world": 1
+    },
+    "flavor": null,
+    "text": "Cast on plains square. One random square within all contiguous plains squares becomes swamp. (Group in swamp can exit only in the most recent direction from which any group entered that swamp.)",
+    "castOn": "plains square"
+  },
+  {
+    "sid": 915,
+    "name": "Ort",
+    "slug": "ort",
+    "house": "unmaking",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "strife": 2,
+      "world": 2
+    },
+    "flavor": null,
+    "text": "Cast on recruit group. Creates one or two recruits of random nation and class, or one or two recruits in group dies.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 227,
+    "name": "Pages to Dust",
+    "slug": "pages-to-dust",
+    "house": "unmaking",
+    "expansion": "Classic",
+    "rarity": "Very Rare",
+    "cost": {
+      "strife": 7
+    },
+    "flavor": "Who will be left standing when the season of magic ends, and the weighty tomes are sand and ash?",
+    "text": "Cast on globe. At start of turn, both players discard all spells in hand that were not cast last turn.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 916,
+    "name": "Runts",
+    "slug": "runts",
+    "house": "unmaking",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 5,
+      "world": 3
+    },
+    "flavor": null,
+    "text": "Cast on non-neutral town or colony. Town no longer creates novices. At start of turn, two swordsmen of random nations are created, and get Runt (-1 hand damage, -2 maximum hit points). Group in town cannot be targeted by group spells. Duration: Turn of casting +3.",
+    "castOn": "non-neutral town or colony"
+  },
+  {
+    "sid": 917,
+    "name": "Rust",
+    "slug": "rust",
+    "house": "unmaking",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "strife": 1
+    },
+    "flavor": "Within the waste, many things rust, and armour is affected. A wise warrior brings a good supply of towels.",
+    "text": "Cast on town or colony. While in town, recruits in town get -1 armor. Dispelled after next combat or if town is captured.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 678,
+    "name": "Source of World",
+    "slug": "source-of-world",
+    "house": "unmaking",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "strife": 4
+    },
+    "flavor": "How can the Leechwood grow without Forest or Treeman? The world supplies the material, Strife supplies the tools ...",
+    "text": "Cast on globe. Caster gets +1 World each turn. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 225,
+    "name": "The Unmagicking",
+    "slug": "the-unmagicking",
+    "house": "unmaking",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 5,
+      "world": 2
+    },
+    "flavor": "\"For every enchantment that fell, two shall take its place. Ours will be the last enchantments.\" - Fingle, the Fallen",
+    "text": "Cast on globe. Dispels all spells. (Summonings, nation changes, recruit class changes, and terrain changes are not dispelled.) Only one in play at a time.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 1086,
+    "name": "ThudThud",
+    "slug": "thudthud",
+    "house": "unmaking",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 4,
+      "world": 4
+    },
+    "flavor": null,
+    "text": "M:4 A:0 HP:9 L:2 Cast on friendly recruit group. Creates ThudThud, a Misfit Hero archer. ThudThud has Iron Shillelagh and Kumatru Archer. (Each Hero may be cast only once per game.)",
+    "castOn": "friendly recruit group"
+  },
+  {
+    "sid": 1087,
+    "name": "ThudThud's Journey",
+    "slug": "thudthuds-journey",
+    "house": "unmaking",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "strife": 3
+    },
+    "flavor": null,
+    "text": "Cast on recruit. Recruit gets three Chaos Features and changes into a Misfit.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 575,
+    "name": "Treacherous Armor",
+    "slug": "treacherous-armor",
+    "house": "unmaking",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 2,
+      "world": 1
+    },
+    "flavor": "\"Tharn stood point, arrows glancing off his breastplate -- a well-made thing, that. Suddenly, it moved like a live thing: its plates puckered like mouths to guide the arrows into his vitals!\" -- Dwarven eyewitness, Battle of Irrenburg",
+    "text": "Cast on recruit. When recruit is hit (before checking armor), recruit's total armor x 2 is added to the enemy's damage. Recruit's remaining armor this round will reduce this damage normally.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 1088,
+    "name": "Unstable Magick",
+    "slug": "unstable-magick",
+    "house": "unmaking",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 5,
+      "world": 5
+    },
+    "flavor": null,
+    "text": "Cast on globe. Each turn, one random spell cast by either player is squandered.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 91,
+    "name": "Void",
+    "slug": "void",
+    "house": "unmaking",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "strife": 6,
+      "world": 3
+    },
+    "flavor": "A howling blackness filled with distant mocking stars. Lethal to most forms of life, and Misfit proof that the world is flat or hollow.",
+    "text": "Cast on square. Square becomes Void. (Void removes group from the game when Void is created, when group enters square, at start of turn, before movement, and before combat. Void does not block movement.)",
+    "castOn": "square"
+  },
+  {
+    "sid": 96,
+    "name": "Weakness",
+    "slug": "weakness",
+    "house": "unmaking",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "strife": 1
+    },
+    "flavor": "Chaotic deformation of musculature, tissue collapse and painful cramping are the first gifts Unmaking grants the seeker.",
+    "text": "Cast on minion. Minion gets -1 hand damage. May be cast more than once on the same minion.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 32,
+    "name": "Werewolf",
+    "slug": "werewolf",
+    "house": "unmaking",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "strife": 4,
+      "world": 1
+    },
+    "flavor": "Lost to their lust for blood, some say that these fierce and shadowy creatures are all that remain of men who murdered for sport before Chaos claimed them.",
+    "text": "H:4 A:0 HP:18 L:1 Territorial.",
+    "castOn": null
+  },
+  {
+    "sid": 4,
+    "name": "Wrack",
+    "slug": "wrack",
+    "house": "unmaking",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "strife": 2,
+      "world": 1
+    },
+    "flavor": "The ruin of magical ambition can come in many forms. This is a strangely pure and blinding sweetness, sharp and transcendent. Its tragedy is its swift passing.",
+    "text": "Cast on minion. Dispels all individual spells on minion. Minion cannot be targeted by individual spells.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 605,
+    "name": "Zurzavar",
+    "slug": "zurzavar",
+    "house": "unmaking",
+    "expansion": "Whispers",
+    "rarity": "Very Rare",
+    "cost": {
+      "strife": 5,
+      "world": 3
+    },
+    "flavor": "\"I can't say I know if we ever reached the town -- every time I looked at it, it shifted; a wall one moment was a cave the next, a passageway would turn out to be solid stone -- we found ourselves looking back at the town before we'd really entered it.\" -- Diary of Vlad Hrothgar",
+    "text": "Cast on town or colony. Any player-controlled group in town moves in a random legal direction. Duration: Turn of casting +3.",
+    "castOn": "town or colony"
+  }
+]

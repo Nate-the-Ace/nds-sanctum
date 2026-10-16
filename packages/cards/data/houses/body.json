@@ -1,0 +1,761 @@
+[
+  {
+    "sid": 513,
+    "name": "Ancestral Home",
+    "slug": "ancestral-home",
+    "house": "body",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "world": 4,
+      "mystery": 3
+    },
+    "flavor": "\"Before there were stars or birds or wind or rain, out of the ocean came Grandfather World-Walker. On his back was the first village, and there sat the first four of our people who ever lived.\" -- Cyclops legend",
+    "text": "Cast on town or colony. Colony is destroyed. Dispels all spells on town. Town cannot be targeted by structure spells. When any recruits are created in town, town moves to an adjacent empty square, leaving plains. (A town dispels its square and changes it to plains.)",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 289,
+    "name": "Balance of Mystery",
+    "slug": "balance-of-mystery",
+    "house": "body",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "world": 4
+    },
+    "flavor": "The shaman guides the tribe's life: when to move, to camp, to hunt, to dance. The future is unknown: each step is into mystery; each day the shaman is wiser, and knows less.",
+    "text": "Cast on globe. Caster gets +1 Mystery each turn. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 448,
+    "name": "Bear Spirit",
+    "slug": "bear-spirit",
+    "house": "body",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "world": 1,
+      "mystery": 1
+    },
+    "flavor": "In this ritual the warrior takes on the spirit of the bear. Voda Ursa is a powerful totem animal among the Cyclopes.",
+    "text": "H:3(x2) A:0 L:0 Two attacks. Cast on swordsman. At start of turn, swordsman changes randomly between Bear and recruit form. Cannot be targeted by Weapon Master. (Hit points, levels, and spells remain unchanged after each transformation.)",
+    "castOn": "swordsman"
+  },
+  {
+    "sid": 811,
+    "name": "Big Rock",
+    "slug": "big-rock",
+    "house": "body",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 1,
+      "mystery": 1
+    },
+    "flavor": "Cyclops children at play throw enormous rocks, competing by weight and distance. As they mature, they learn to impart spin, and throw for accuracy. Many hunters carry carefully polished stones larger than two fists, or knee-high pieces of heavy wood, shaped into wings.",
+    "text": "Cast on Cyclops archer. Archer gets +3 missile damage and -1 level.",
+    "castOn": "Cyclops archer"
+  },
+  {
+    "sid": 508,
+    "name": "Blue Auk",
+    "slug": "blue-auk",
+    "house": "body",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "world": 2,
+      "mystery": 1
+    },
+    "flavor": "\"Now Brother Auk loved Sister Eel so much, that as he sat by the lakeside, his wings shrunk away ...\" -- Cyclops children's tale",
+    "text": "H:3 A:0 HP:16 L:1 Nomadic, Waterwalk. Cast within a 3x3 diamond centered on a water square.",
+    "castOn": null
+  },
+  {
+    "sid": 812,
+    "name": "Brother Wolf",
+    "slug": "brother-wolf",
+    "house": "body",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 3,
+      "mystery": 1
+    },
+    "flavor": "Brother Wolf, walking alone, adopts us as his pack. Sing with him, hunt with him, share food and shelter with him, and he will walk before you. -- Cyclops oral tradition",
+    "text": "H:3 A:0 HP:10 L:1 Cast on friendly recruit group. Creates Wolf. Other members of his group no longer attack. When any other member of his group is hit (before checking armor), Wolf receives the damage instead, ignoring armor. When Wolf dies, his group withdraws at the start of the next round, ending combat. Only one of Whipping Boy or Brother Wolf in a group.",
+    "castOn": "friendly recruit group"
+  },
+  {
+    "sid": 813,
+    "name": "Brown Striders",
+    "slug": "brown-striders",
+    "house": "body",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "world": 4
+    },
+    "flavor": "Shamen venture into forests to harvest herbs, molds, and exotic fauna. Predators that live in the canopies of the trees pose little danger if properly handled, and the larger ones can even be trained to respond to rewards of food.",
+    "text": "H:2 A:0 HP:3(x3) L:2 Cast on globe. Creates three Brown Striders off the board. Before combat, Striders appear in forest adjacent to a non-friendly recruit group. After all combat, they disappear again. Withdraws at the start of combat round 3. Striders' hits give Strider's Venom (-1 hand damage, cumulative). Dispelled when killed. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 336,
+    "name": "Burst of World",
+    "slug": "burst-of-world",
+    "house": "body",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "world": 2
+    },
+    "flavor": "The shaman calls upon the World Snake for power.",
+    "text": "Cast on globe. Caster gets +2 World next turn.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 1008,
+    "name": "Carnivorous Plant",
+    "slug": "carnivorous-plant",
+    "house": "body",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "world": 5,
+      "mystery": 2
+    },
+    "flavor": null,
+    "text": "H:* A:1 HP:10 L:1 Immobile. Carnivorous Plant's hand damage is equal to its current hit points. Withdraws at the start of combat round 4. Gets -5 hand damage if its owner has Initiative. (Immobile monsters cannot be moved.)",
+    "castOn": null
+  },
+  {
+    "sid": 510,
+    "name": "Cessao Rift",
+    "slug": "cessao-rift",
+    "house": "body",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "world": 3,
+      "mystery": 2
+    },
+    "flavor": "Every journey that has a beginning, has an end. Shamen on their dreamwalks discovered the secret to the other side of the Void, and the greatest of them can open the door from this side.",
+    "text": "Cast on square. At start of turn, if square is unoccupied, there is a 20% chance that a neutral group of random nation, injury, and enchantments is created in square. (Neutral recruit groups cannot enter structures.) Duration: Turn of casting +6.",
+    "castOn": "square"
+  },
+  {
+    "sid": 611,
+    "name": "Cessao Spiral",
+    "slug": "cessao-spiral",
+    "house": "body",
+    "expansion": "Whispers",
+    "rarity": "Very Rare",
+    "cost": {
+      "world": 4
+    },
+    "flavor": "\"Such was the beauty of Narya's song that many creatures followed her into the dream. Some like Grandmother Walkinglizard, dream still, and that is why you do not see them anymore upon the land.\" -- The Collected Folklore of the Monocular Aboriginals",
+    "text": "Cast on square. At start of turn, before movement, before combat, and when monster group enters square, monster group is removed from the game, regardless of Flight. (This does not set off any death-triggered effects.)",
+    "castOn": "square"
+  },
+  {
+    "sid": 689,
+    "name": "Circle of Wisdom",
+    "slug": "circle-of-wisdom",
+    "house": "body",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 3
+    },
+    "flavor": "If a tribe is afflicted by a Mala Ozo, they form a loose circle, drumming and chanting to drive away the curse and purify the group.",
+    "text": "Cast on friendly group. Dispels all group and individual spells on group.",
+    "castOn": "friendly group"
+  },
+  {
+    "sid": 688,
+    "name": "Complacency",
+    "slug": "complacency",
+    "house": "body",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "world": 5,
+      "mystery": 2
+    },
+    "flavor": "\"Mother Mud is warm, Sister Sky is tender; shut your eye, little one, shut your eye and sleep ...\" -- Cyclops lullaby",
+    "text": "Cast on group not in a structure. Group's movement orders are cancelled and it cannot be moved. Duration: Turn of casting +2.",
+    "castOn": "group not in a structure"
+  },
+  {
+    "sid": 814,
+    "name": "Eagle Spirit",
+    "slug": "eagle-spirit",
+    "house": "body",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 2,
+      "mystery": 1
+    },
+    "flavor": null,
+    "text": "M:3 A:0 L:1 Cast on archer. At start of turn, archer changes randomly between Eagle and recruit form. When Eagle damages a monster, monster is killed. Cannot be targeted by Weapon Master. (Hit points, levels, and spells remain unchanged after each transformation.)",
+    "castOn": "archer"
+  },
+  {
+    "sid": 458,
+    "name": "Fertility",
+    "slug": "fertility",
+    "house": "body",
+    "expansion": "Bloodlines",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 6,
+      "mystery": 3
+    },
+    "flavor": "The control the Cyclops tribe exercises over its own reproduction indicates a powerful herbal pharmacology. Childless for long treks with few resources, a tribe will seemingly reproduce overnight when occasion demands.",
+    "text": "Cast on town or colony. Town creates one novice each turn. Duration: Turn of casting +6.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 687,
+    "name": "Fleetness",
+    "slug": "fleetness",
+    "house": "body",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "world": 2,
+      "mystery": 1
+    },
+    "flavor": "Cyclopes distinguish between Xa Macao (\"world walking\") and Xa Cessao (\"mystery walking\"), a spiritual plane also called \"World of Mystery,\" \"other side\" and \"ancestor's home\".",
+    "text": "Cast on recruit group. Group moves twice this turn in its direction of travel.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 212,
+    "name": "Fortitude",
+    "slug": "fortitude",
+    "house": "body",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 3
+    },
+    "flavor": "Rooted in the world as it is, cradled in this moment, the shaman's disciples are free of pain and fear when the foe's blade bites.",
+    "text": "Cast on group. All members of group get +2 maximum and current hit points.",
+    "castOn": "group"
+  },
+  {
+    "sid": 321,
+    "name": "Giant",
+    "slug": "giant",
+    "house": "body",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "world": 4,
+      "mystery": 2
+    },
+    "flavor": "The Great Ones will always come to a shaman's aid. A cry in the mountains will raise even the solitary Giants, hermit Elders who live out their days in remote mountain caves.",
+    "text": "H:4 A:1 HP:16 L:2 Nomadic, Mountainwalk. Cast within a 3x3 diamond centered on a mountain. At start of combat, throws rock (5 hit points of damage) at one random opposing minion.",
+    "castOn": null
+  },
+  {
+    "sid": 509,
+    "name": "Great Bear",
+    "slug": "great-bear",
+    "house": "body",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "world": 3,
+      "mystery": 3
+    },
+    "flavor": "Belvario's downfall was not in his trust of the Horn or the Trap, but his hunting party of Djinni advisors.",
+    "text": "H:3 A:1 HP:18 L:1 Nomadic. Cannot be targeted by Mind spells. In combat against Djinni, Great Bear does a \"combined attack\" (always targets the first opposing Djinn, and each attack hits all opposing Djinni simultaneously).",
+    "castOn": null
+  },
+  {
+    "sid": 98,
+    "name": "Healing Balm",
+    "slug": "healing-balm",
+    "house": "body",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "world": 1
+    },
+    "flavor": "Cyclops medicinal herbology is largely unknown outside of their tribes, as it has never been written down. Their healing balm, Xexos, is legendary.",
+    "text": "Cast on recruit. At start of turn, recruit heals 1 hit point.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 511,
+    "name": "Immersion",
+    "slug": "immersion",
+    "house": "body",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 3
+    },
+    "flavor": "When her daughter Sibiki was killed by wild beasts, Xia cried for seven years. Her tears fell into the Sacred Lake, and whoever bathes there will escape Sibiki's fate.",
+    "text": "Cast on recruit. Recruit receives no combat damage from monsters (before checking armor).",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 1009,
+    "name": "Jungle",
+    "slug": "jungle",
+    "house": "body",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 2,
+      "mystery": 1
+    },
+    "flavor": null,
+    "text": "Cast on square. Square becomes forest. (Minions in forest are concealed. Concealed minions cannot be targeted by enemy individual spells.) Every monster created in Jungle gets Jungle Strength (+3 maximum and current hit points).",
+    "castOn": "square"
+  },
+  {
+    "sid": 1010,
+    "name": "Korgian Loincloth",
+    "slug": "korgian-loincloth",
+    "house": "body",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "world": 2,
+      "mystery": 1
+    },
+    "flavor": null,
+    "text": "Cast on recruit. Recruit gets +1 armor and +1 level.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 815,
+    "name": "Lion Spirit",
+    "slug": "lion-spirit",
+    "house": "body",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "world": 2,
+      "mystery": 1
+    },
+    "flavor": "The lion is native to the grasslands of the Eastern Continent, where it preys on migrating herds of large game. Nomads call it Voda Lea, Grandfather Hunting-Tribe, and those who claim it as their totem fear no lesser beast. -- Uyden's Handbook",
+    "text": "H:4 A:0 L:1 Cast on swordsman. At start of turn, swordsman changes randomly between Lion and recruit form. Changing to Lion form dispels all other individual spells. Lion receives no combat damage from monsters (before checking armor). Cannot be targeted by Weapon Master. (Hit points and levels remain unchanged after each transformation.)",
+    "castOn": "swordsman"
+  },
+  {
+    "sid": 816,
+    "name": "Lizard Spirit",
+    "slug": "lizard-spirit",
+    "house": "body",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "world": 1,
+      "mystery": 1
+    },
+    "flavor": null,
+    "text": "H:2 A:1 L:2 Cast on swordsman. At start of turn, swordsman changes randomly between Lizard and recruit form. Lizard cannot be targeted by enemy individual spells. Cannot be targeted by Weapon Master. (Hit points, levels, and spells remain unchanged after each transformation.)",
+    "castOn": "swordsman"
+  },
+  {
+    "sid": 314,
+    "name": "Lycanthropy",
+    "slug": "lycanthropy",
+    "house": "body",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "world": 5,
+      "mystery": 4
+    },
+    "flavor": "\"When Grandfather Wolf chooses you for his own, your spirit cannot refuse him.\" -- Cyclops proverb",
+    "text": "H:3 A:0 HP:12 L:1 Territorial. Cast on recruit group not in a structure. Recruit group is replaced by an equal number of Wolves. If dispelled, each Wolf is replaced by a new recruit of the original nation and class, with the same amount of damage.",
+    "castOn": "recruit group not in a structure"
+  },
+  {
+    "sid": 514,
+    "name": "Mask of Woad",
+    "slug": "mask-of-woad",
+    "house": "body",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "world": 1
+    },
+    "flavor": "\"The monoculars may be mindless, as the Sar'uli claim, but their souls are the mirror of ours, their silence the mirror of our thoughts. Whatever they suffer at our hands, we will surely suffer in return, for no jailer is ever truly free.\" -- Ch'tai Academy polemic",
+    "text": "Cast on swordsman. Swordsman gets +1 hand damage. Cyclopes in swordsman's group get +1 hand damage against Djinni.",
+    "castOn": "swordsman"
+  },
+  {
+    "sid": 312,
+    "name": "Minotaur",
+    "slug": "minotaur",
+    "house": "body",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 5,
+      "mystery": 2
+    },
+    "flavor": "\"I invite you, Grandfather Bison / I invite you, Grandfather Bison / Walk across this world / Swing your deadly axe!\" -- the Invocation of Voda Maxotau",
+    "text": "H:4 A:2 HP:12 L:2 Territorial. If killed by a recruit group, the first swordsman in group gets Minotaur's Axe (+1 hand damage).",
+    "castOn": null
+  },
+  {
+    "sid": 356,
+    "name": "Mountain Climb",
+    "slug": "mountain-climb",
+    "house": "body",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 1
+    },
+    "flavor": "A Xa Macao (\"world walking\") spell. Well-trained shamen can run up and down sheer cliff faces at will.",
+    "text": "Cast on group. Group gains Mountainwalk. (Group may cross mountains and volcanoes. This does not protect group from volcano damage.)",
+    "castOn": "group"
+  },
+  {
+    "sid": 1011,
+    "name": "Mountaindancer",
+    "slug": "mountaindancer",
+    "house": "body",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "world": 1,
+      "mystery": 1
+    },
+    "flavor": null,
+    "text": "Cast on swordsman. Swordsman gets +1 hand damage, and its group gains Mountainwalk. (Group may cross mountains and volcanoes. This does not protect group from volcano damage.)",
+    "castOn": "swordsman"
+  },
+  {
+    "sid": 353,
+    "name": "Nereid's Curse",
+    "slug": "nereids-curse",
+    "house": "body",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "world": 5
+    },
+    "flavor": "A Xa Macao (\"world walking\") spell. To elude their enemies, some Cyclops tribes grew gills and took to the lakes. From then on, the dryness of the land burned them.",
+    "text": "Cast on group. Group gains Waterwalk. At start of turn, all members of group heal 1 hit point of damage if group is in water, or take 1 hit point of damage if group is not in water.",
+    "castOn": "group"
+  },
+  {
+    "sid": 141,
+    "name": "Nomadic Tribe",
+    "slug": "nomadic-tribe",
+    "house": "body",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 5,
+      "mystery": 3
+    },
+    "flavor": "\"Your pulse is the pulse of the world, and will drum on in your progeny.\" -- Respectful ritual greeting among the Cyclopes",
+    "text": "Cast on recruit group. At start of every other turn, one level 1 Cyclops swordsman (if group size is three or less) or archer (if group size is four or more) is created in group. (If group is in a structure, all town spells affect the new recruits.)",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 446,
+    "name": "Olotus",
+    "slug": "olotus",
+    "house": "body",
+    "expansion": "Bloodlines",
+    "rarity": "Rare",
+    "cost": {
+      "world": 4,
+      "mystery": 4
+    },
+    "flavor": "Olotus was the eldest son of Xia. Rash and arrogant, he tried to steal sacred blood from the matriarchs. Xia banished him to the Cessao, but when he is needed, he returns.",
+    "text": "H:3 A:1 HP:13 L:2 Cast on recruit group. Creates Olotus, a Cyclops Hero swordsman. When Olotus is cast, all Cyclopes on the board (including Olotus) get Rite of Growth (+1 hand damage and +4 maximum and current hit points). (Each Hero may be cast only once per game.)",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 1012,
+    "name": "Oro",
+    "slug": "oro",
+    "house": "body",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "world": 4,
+      "mystery": 4
+    },
+    "flavor": null,
+    "text": "H:3 A:1 HP:13 L:2 (Oro), H:3 A:2 HP:11 L:2 (Vlad) Cast on friendly town or colony. Creates Oro, a Cyclops Hero swordsman with Rite of Growth, and Vlad Hrothgar, a Human Hero swordsman with Veteran. (Each Hero may be cast only once per game.)",
+    "castOn": "friendly town or colony"
+  },
+  {
+    "sid": 1013,
+    "name": "Outcast",
+    "slug": "outcast",
+    "house": "body",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 2,
+      "mystery": 1
+    },
+    "flavor": null,
+    "text": "Cast on friendly recruit in group of two or more. Recruit leaves its group, has all group spells dispelled, and moves twice this turn in its direction of travel. The remaining group's movement orders are cancelled.",
+    "castOn": "friendly recruit in group of two or more"
+  },
+  {
+    "sid": 447,
+    "name": "Priodont",
+    "slug": "priodont",
+    "house": "body",
+    "expansion": "Bloodlines",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 3,
+      "mystery": 3
+    },
+    "flavor": "\"The Priodont is highly regarded among the nomads for its ability to travel long distances without water; they call it Voda Macao, Grandfather World-Walker.\" -- Uyden's Handbook",
+    "text": "H:2 A:4 HP:14 L:1 Territorial, Desertwalk.",
+    "castOn": null
+  },
+  {
+    "sid": 403,
+    "name": "Rampage",
+    "slug": "rampage",
+    "house": "body",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "world": 3,
+      "mystery": 1
+    },
+    "flavor": "\"The monster snorted columns of flame that were visible over the trees of Arboria; we did not wait for it to approach, but fled in terror.\" -- Diary of Vlad Hrothgar",
+    "text": "Cast on monster. Monster gets +5 maximum and current hit points and +1 attack each round.",
+    "castOn": "monster"
+  },
+  {
+    "sid": 79,
+    "name": "Regenerate",
+    "slug": "regenerate",
+    "house": "body",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "world": 3
+    },
+    "flavor": "\"Do not resist the hurt; it is in you. Sing to torn flesh, be it, be the cracked bone. Be the body. When words are gone, heal.\" -- Song of Xia",
+    "text": "Cast on minion. At start of turn, minion is fully healed.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 6,
+    "name": "Rite of Growth",
+    "slug": "rite-of-growth",
+    "house": "body",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "world": 1,
+      "mystery": 1
+    },
+    "flavor": "The chosen warrior wanders the Cessao to find the World Snake, who wraps around him and breaks all the bones in his body. He heals as a giant.",
+    "text": "Cast on minion. Minion gets +1 hand damage and +4 maximum and current hit points.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 146,
+    "name": "Ritual Cleansing",
+    "slug": "ritual-cleansing",
+    "house": "body",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 2
+    },
+    "flavor": "An individual afflicted with a Mala Ozo must go on walkabout away from the tribe, taking with her only her drum.",
+    "text": "Cast on recruit. Dispels all individual spells on recruit.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 587,
+    "name": "Savannah",
+    "slug": "savannah",
+    "house": "body",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "world": 5
+    },
+    "flavor": "The tribe can only prosper and grow as long as there are animals to hunt and plants to gather. When the land is crowded, a powerful shaman can spread the savannah outwards, like the unfolding of a cloth.",
+    "text": "Cast on square. The 3x3 diamond centered on square becomes plains.",
+    "castOn": "square"
+  },
+  {
+    "sid": 568,
+    "name": "Scrying Pool",
+    "slug": "scrying-pool",
+    "house": "body",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 2
+    },
+    "flavor": "\"These blue ones hurt us, those talk big promises, and we stay patient. I say, enough waiting! Let us go to the Pool. There no creature can hide from me. There I can sort them out!\" -- Tyu, Cyclops shaman, at a war council",
+    "text": "Cast on square. When any group occupies square, group's owner ignores concealment and forest when targeting individual spells.",
+    "castOn": "square"
+  },
+  {
+    "sid": 1014,
+    "name": "Seedbearers",
+    "slug": "seedbearers",
+    "house": "body",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "world": 6
+    },
+    "flavor": null,
+    "text": "Cast on group. When group moves, its new square becomes forest. (Moves effects happen before any enters square effects.)",
+    "castOn": "group"
+  },
+  {
+    "sid": 187,
+    "name": "Shaman's Walk",
+    "slug": "shamans-walk",
+    "house": "body",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "world": 2,
+      "mystery": 1
+    },
+    "flavor": "Xa Macao spell of the highest order. The shaman with strong Xa Macao can walk his tribe across the abyss.",
+    "text": "Cast on recruit. Recruit's group gains Flight. (Group may cross any terrain, and is immune to adverse terrain effects.)",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 817,
+    "name": "Shapeshifter",
+    "slug": "shapeshifter",
+    "house": "body",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "world": 3,
+      "mystery": 2
+    },
+    "flavor": null,
+    "text": "Cast on swordsman. At start of turn, swordsman changes randomly between recruit form and Bear, Lion, and Lizard Spirits. These spells have no casting cost for Shapeshifter's caster. Cannot be targeted by Weapon Master. Only one in play at a time.",
+    "castOn": "swordsman"
+  },
+  {
+    "sid": 818,
+    "name": "Spirit Binding",
+    "slug": "spirit-binding",
+    "house": "body",
+    "expansion": "Revolutions",
+    "rarity": "Very Rare",
+    "cost": {
+      "world": 2,
+      "mystery": 2
+    },
+    "flavor": null,
+    "text": "Cast on recruit. When a new monster group is created on the board, recruit copies the first monster's hand and missile damage, armor, maximum hit points, and level, and Spirit Binding is dispelled. (This does not change recruit's attack types.)",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 44,
+    "name": "Strength of Body",
+    "slug": "strength-of-body",
+    "house": "body",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "world": 1
+    },
+    "flavor": "\"Oooh ... muscles!\" -- Elf Chicks from Hell, Radical Misfit Order",
+    "text": "Cast on recruit. Recruit gets +1 hand damage.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 819,
+    "name": "Vision Quest",
+    "slug": "vision-quest",
+    "house": "body",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "world": 3,
+      "mystery": 2
+    },
+    "flavor": "I look north, and I see no sheets or crystals of water on the ground. I see Keepers, with skin black like obsidian, not gray, ears erect and pointed! I see tribes, with Great Ones like me, their faces streaked with woad! Their limbs bare to the sky, without fur! -- Kisa Who Sees, in the story circle",
+    "text": "Cast on friendly recruit. Recruit disappears for turn of casting +2. Recruit is fully healed, has all group and individual spells dispelled, and gets +2 levels and Rite of Growth (+1 hand damage and +4 HP). (New group reappears at start of turn if its square is unoccupied, or on the earliest turn thereafter.)",
+    "castOn": "friendly recruit"
+  },
+  {
+    "sid": 820,
+    "name": "Visionary",
+    "slug": "visionary",
+    "house": "body",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "world": 3
+    },
+    "flavor": "He is Xa Cessao, walking in mystery. He leaves his Ge, his sight, in the Cessao. He is Xa Macao, walking in the world. He is Ge Cessao, seeing in mystery. No enemy hides from his Ge, no weakness turns from his Ge, no distance dulls his Ge. -- Cyclops oral tradition",
+    "text": "Cast on friendly recruit. Recruit gets +1 level, and no longer deals hand or missile damage. Archers in recruit's group get +1 missile damage.",
+    "castOn": "friendly recruit"
+  },
+  {
+    "sid": 43,
+    "name": "Water Walking",
+    "slug": "water-walking",
+    "house": "body",
+    "expansion": "Classic",
+    "rarity": "Very Rare",
+    "cost": {
+      "world": 1
+    },
+    "flavor": "\"Ugly meathead crossed the stream without a splash. Never bet with a Cyclops in mating season!\" -- Stonewallow, Satyr",
+    "text": "Cast on group. Group gains Waterwalk. (Group may cross water, and does not drown in water.)",
+    "castOn": "group"
+  },
+  {
+    "sid": 1015,
+    "name": "Worldwalking",
+    "slug": "worldwalking",
+    "house": "body",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "world": 2
+    },
+    "flavor": null,
+    "text": "Cast on group. Group gains Flight. (Group may cross any terrain, and is immune to adverse terrain effects.) Recursive (Starts with 1 token. When cast, a copy of this spell is added to your hand that costs +1 mana and has +1 token.) Duration: Turn of casting +T, where T is the number of tokens.",
+    "castOn": "group"
+  },
+  {
+    "sid": 163,
+    "name": "Xia's Walk",
+    "slug": "xias-walk",
+    "house": "body",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "world": 1
+    },
+    "flavor": "Singing this song of Xia allows the shaman to traverse long distances hidden in the Cessao (\"ancestors' realm\"). The Cyclopes say the Cessao exists as the negative side of the physical world.",
+    "text": "Cast on minion. Minion is concealed. (Concealed minions cannot be targeted by enemy individual spells.) Duration: Turn of casting +4.",
+    "castOn": "minion"
+  }
+]

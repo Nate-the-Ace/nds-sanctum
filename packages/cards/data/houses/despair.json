@@ -1,0 +1,758 @@
+[
+  {
+    "sid": 37,
+    "name": "Albatross",
+    "slug": "albatross",
+    "house": "despair",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 3,
+      "strife": 2
+    },
+    "flavor": "\"The many men, so beautiful and they all dead did lie -- and a thousand, thousand slimy things lived on -- and so did I.\" -- Samuel Taylor Coleridge, \"The Rime of the Ancient Mariner\"",
+    "text": "Cast on minion. At start of turn, every other member of minion's group takes 1 hit point of damage.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 831,
+    "name": "Atrophy",
+    "slug": "atrophy",
+    "house": "despair",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 3,
+      "strife": 2
+    },
+    "flavor": null,
+    "text": "Cast on group. At start of turn, each member of group has its maximum hit points lowered to its current hit points.",
+    "castOn": "group"
+  },
+  {
+    "sid": 288,
+    "name": "Augur of Strife",
+    "slug": "augur-of-strife",
+    "house": "despair",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 4
+    },
+    "flavor": "The last words Pantogar wrote were, \"Each day that my eyes are open on this world is a torture to endure.\"",
+    "text": "Cast on globe. Caster gets +1 Strife each turn. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 832,
+    "name": "Backlash",
+    "slug": "backlash",
+    "house": "despair",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 1
+    },
+    "flavor": null,
+    "text": "Cast on recruit. Recruit takes 1 hit point of damage for each group or individual alteration on recruit.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 71,
+    "name": "Banshee",
+    "slug": "banshee",
+    "house": "despair",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 5,
+      "strife": 2
+    },
+    "flavor": "The cry strikes ice in the hearts of brave warriors; for the Banshee will take one of them as her beloved.",
+    "text": "H:4 A:0 HP:10 L:1 Territorial. At start of combat, kills one random opposing minion.",
+    "castOn": null
+  },
+  {
+    "sid": 210,
+    "name": "Bleak Isle",
+    "slug": "bleak-isle",
+    "house": "despair",
+    "expansion": "Classic",
+    "rarity": "Very Rare",
+    "cost": {
+      "mystery": 5,
+      "strife": 4
+    },
+    "flavor": "Many desperate souls are drawn to the crags of the Bleak Isle. Some choose to remain here, cut off from the outside world.",
+    "text": "Cast on non-neutral town or colony. The four squares adjacent to town become water. On turn of casting, if any group occupies town, group gains Waterwalk. Every recruit created in town gets -1 level and Waterwalk (which cannot be dispelled).",
+    "castOn": "non-neutral town or colony"
+  },
+  {
+    "sid": 617,
+    "name": "Bleak Isle II",
+    "slug": "bleak-isle-ii",
+    "house": "despair",
+    "expansion": "Whispers",
+    "rarity": "Very Rare",
+    "cost": {
+      "mystery": 5,
+      "strife": 4
+    },
+    "flavor": "Many desperate souls are drawn to the crags of the Bleak Isle. Some choose to remain here, cut off from the outside world. They are called Programmers.",
+    "text": "Cast on non-neutral town or colony. The four squares adjacent to town become water. On turn of casting, if any group occupies town, group gains Waterwalk. Every recruit created in town gets -1 level and Waterwalk (which cannot be dispelled).",
+    "castOn": "non-neutral town or colony"
+  },
+  {
+    "sid": 833,
+    "name": "Blight",
+    "slug": "blight",
+    "house": "despair",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 1,
+      "strife": 1
+    },
+    "flavor": "Even the land itself can know Despair. When the Shadows pour over the terrain, they leave nothing but sorrow in their wake.",
+    "text": "Cast on square. Forest becomes plains. Plains become barren land. Barren land becomes desert. Desert becomes lava. Mountain becomes volcano.",
+    "castOn": "square"
+  },
+  {
+    "sid": 407,
+    "name": "Blindness",
+    "slug": "blindness",
+    "house": "despair",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 2
+    },
+    "flavor": "Even the fiercest creature can be blinded by a blighted heart.",
+    "text": "Cast on monster. Monster no longer deals hand or missile damage.",
+    "castOn": "monster"
+  },
+  {
+    "sid": 72,
+    "name": "Changelings",
+    "slug": "changelings",
+    "house": "despair",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 5,
+      "strife": 2
+    },
+    "flavor": "\"We expected the laughter of children at play, not empty eyes, slack limbs, and utter, malevolent stillness ...\" -- Journal of Lienna: Volume III",
+    "text": "Cast on town or colony. Every recruit created in town gets Changeling (-1 hand and missile damage and -3 maximum hit points).",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 1024,
+    "name": "Comrades in Suffering",
+    "slug": "comrades-in-suffering",
+    "house": "despair",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 3,
+      "strife": 3
+    },
+    "flavor": null,
+    "text": "Cast on globe. Shadows receive no combat damage from Shadows (before checking armor). Duration: Turn of casting +3.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 834,
+    "name": "Corrosion",
+    "slug": "corrosion",
+    "house": "despair",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 2,
+      "strife": 2
+    },
+    "flavor": null,
+    "text": "Cast on globe. All towns and colonies no longer generate mana. (Mana-generating spells are not affected.) Duration: Turn of casting +3.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 524,
+    "name": "Cruel Whim",
+    "slug": "cruel-whim",
+    "house": "despair",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 1,
+      "strife": 1
+    },
+    "flavor": "\"Perhaps the Pretender wished to test his power, or perhaps he was ruled by his Shadow counselors. Strange orders issued from the Deep Vault of Kings, and mighty legions were told to die with dishonor.\" -- The Kandra Lineage Scrolls",
+    "text": "Cast on recruit. A swordsman becomes an archer, while an archer becomes a swordsman. Has no effect on Weapon Master or Rakshasa.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 528,
+    "name": "Despond",
+    "slug": "despond",
+    "house": "despair",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 3,
+      "strife": 2
+    },
+    "flavor": "\"Do not forgive us; our sin is too great. We, who claimed to best serve Hope, allowed the slaughter at Vask. We, who claimed to love purely, cannot repent or forgive. We bear our guilt down with us, into cowards' graves.\" -- The Last Words of The Cheruli Mages",
+    "text": "Cast on group. All members of group receive +1 damage from Shadows (before checking armor). Visions in group receive +2 damage instead.",
+    "castOn": "group"
+  },
+  {
+    "sid": 55,
+    "name": "Disorient",
+    "slug": "disorient",
+    "house": "despair",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 2,
+      "strife": 2
+    },
+    "flavor": "\"We seem to drift, the whole of our company seized with a dull panic at once. We have wandered the hills for days now.\" -- Diary of Vlad Hrothgar",
+    "text": "Cast on group. A player- controlled group moves in a random legal direction different from its movement order, or stands still. Has no effect on a computer-controlled group.",
+    "castOn": "group"
+  },
+  {
+    "sid": 835,
+    "name": "Dissolution",
+    "slug": "dissolution",
+    "house": "despair",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 3,
+      "strife": 2
+    },
+    "flavor": null,
+    "text": "Cast on globe. Next turn, opponent has all spell casting costs adjusted by +1 primary and +1 secondary mana per spell.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 686,
+    "name": "Fear",
+    "slug": "fear",
+    "house": "despair",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 3,
+      "strife": 2
+    },
+    "flavor": "Once a Shadow has paralyzed his victim with fear, he can plunder his psyche and blast his every hope to ashes.",
+    "text": "Cast on group not in a structure. Group's movement orders are cancelled and it cannot be moved. Duration: Turn of casting +1.",
+    "castOn": "group not in a structure"
+  },
+  {
+    "sid": 132,
+    "name": "Forsaken",
+    "slug": "forsaken",
+    "house": "despair",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 3,
+      "strife": 1
+    },
+    "flavor": "\"All gates are closed against me, all men turn their eyes from me, wherever I go the wind mocks me for my sins.\" -- The Ballad of Odar",
+    "text": "Cast on recruit. Recruit (and its group) cannot enter structures. Duration: Turn of casting +2.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 454,
+    "name": "Freeze",
+    "slug": "freeze",
+    "house": "despair",
+    "expansion": "Bloodlines",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 2
+    },
+    "flavor": "\"The blood of the patriarch's heart congealed, the light of his eyes died, and all the lakes around the city were frozen all that summer.\" -- The Ballad of Odar",
+    "text": "Cast on water. Square becomes ice. (Groups entering ice slide past it onto next square, if possible. If group slides, it ignores any group and all spells in square. Flight does not prevent sliding.)",
+    "castOn": "water"
+  },
+  {
+    "sid": 836,
+    "name": "Frost Dragon",
+    "slug": "frost-dragon",
+    "house": "despair",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 4,
+      "strife": 4
+    },
+    "flavor": null,
+    "text": "H:3 A:1 HP:13 L:2 Territorial, Flight. At start of combat, casts Frostbite (-3 maximum hit points, +1 maximum hit points per turn for 3 turns) on opposing group. When Frost Dragon damages an opponent, opponent does not attack in the next combat round.",
+    "castOn": null
+  },
+  {
+    "sid": 837,
+    "name": "Frostbite",
+    "slug": "frostbite",
+    "house": "despair",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 3,
+      "strife": 2
+    },
+    "flavor": null,
+    "text": "Cast on group. Every member of group gets -3 maximum hit points. At start of turn, every member of group gets +1 maximum hit point. Duration: Turn of casting +3.",
+    "castOn": "group"
+  },
+  {
+    "sid": 439,
+    "name": "Gorgon",
+    "slug": "gorgon",
+    "house": "despair",
+    "expansion": "Bloodlines",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 3,
+      "strife": 1
+    },
+    "flavor": "\"I found the blind shaman weeping for her friends among a circle of strange stones. She would not speak of what she heard that day.\" -- Journal of Lienna: Volume IV",
+    "text": "H:2 A:0 HP:7 L:2 Territorial. Gorgon's hits give Gorgon's Gaze (-1 damage and +1 armor, cumulative. A minion who gets three or more Gorgon's Gaze is killed). If killed by a recruit, recruit gets Gorgon's Head (owner's hits give Gorgon's Gaze; transfers to a recruit who kills its owner).",
+    "castOn": null
+  },
+  {
+    "sid": 185,
+    "name": "Harrowing Cry",
+    "slug": "harrowing-cry",
+    "house": "despair",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 3,
+      "strife": 2
+    },
+    "flavor": "The cries of the Grey Shadows are themselves weapons, sapping the wills of soldiers and paralyzing them with fear.",
+    "text": "Cast on group. Every member of group gets -1 level. (Any minions who join this group later are not affected.)",
+    "castOn": "group"
+  },
+  {
+    "sid": 604,
+    "name": "Ice Age",
+    "slug": "ice-age",
+    "house": "despair",
+    "expansion": "Whispers",
+    "rarity": "Very Rare",
+    "cost": {
+      "mystery": 3,
+      "strife": 3
+    },
+    "flavor": "\"The portents for Strife: Water will embrace no more, nor quench raging thirst ...\" -- the Faldathi Prophecy",
+    "text": "Cast on globe. Before movement, all water squares become ice.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 838,
+    "name": "Immateriality",
+    "slug": "immateriality",
+    "house": "despair",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 2,
+      "strife": 2
+    },
+    "flavor": "To Shadows, the obstacles of the physical world are insignificant. They penetrate stone and wood as easily as their cursed whispers pierce your skull.",
+    "text": "Cast on globe. All groups gain Flight. (Groups may cross any terrain, and are immune to adverse terrain effects.) Duration: Turn of casting +1.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 14,
+    "name": "Insurrection",
+    "slug": "insurrection",
+    "house": "despair",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 6,
+      "strife": 3
+    },
+    "flavor": "\"When the people learned what Odar had done, they drove him from the city. But the madness stayed, and they strove with one another until Ogi returned.\" -- The Ballad of Odar",
+    "text": "Cast on town or colony. All novices in town are eliminated. Town no longer creates novices. Dispelled when entered.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 1025,
+    "name": "Lethargy",
+    "slug": "lethargy",
+    "house": "despair",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 3,
+      "strife": 2
+    },
+    "flavor": null,
+    "text": "Cast on globe. All recruits get -1 level.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 142,
+    "name": "Limbo",
+    "slug": "limbo",
+    "house": "despair",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 2,
+      "strife": 1
+    },
+    "flavor": "\"The land dissolved. In the whirling mists I caught strange glimpses of a place I did not know; but I was sure I had been there before, if only in a horrid dream ...\" -- Jan Palczred, mercenary",
+    "text": "Cast on square. Square becomes barren land. While in square, minions in square get -1 hand damage. At start of turn, if any recruit occupies square, caster gets +1 Strife.",
+    "castOn": "square"
+  },
+  {
+    "sid": 523,
+    "name": "Makva",
+    "slug": "makva",
+    "house": "despair",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 4,
+      "strife": 2
+    },
+    "flavor": "\"The world is so untidy ... And how I hate it when things rearrange themselves. I crush and snap and boil and break them, but there are always more!\" -- Makva",
+    "text": "H:3 A:1 HP:10 L:3 Nomadic, Flight.",
+    "castOn": null
+  },
+  {
+    "sid": 1026,
+    "name": "Nightmare",
+    "slug": "nightmare",
+    "house": "despair",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 4,
+      "strife": 3
+    },
+    "flavor": null,
+    "text": "H:3 A:1 HP:10 L:2 Nomadic. At start of combat against recruits, Nightmare casts Despond (all members of group receive +1 damage from Shadows; Visions receive +2 damage instead) on opposing group.",
+    "castOn": null
+  },
+  {
+    "sid": 438,
+    "name": "Nihil",
+    "slug": "nihil",
+    "house": "despair",
+    "expansion": "Bloodlines",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 4,
+      "strife": 4
+    },
+    "flavor": "\"He reached out toward us, stumbling, and we moved away, firing upon him repeatedly. Nothing seemed to damage him. He just kept coming.\" -- Account of an Elven archer, Battle of Thrgal",
+    "text": "H:2 A:1 HP:7 L:2 Cast on globe. Created in a random square. Nihil is a Shadow Hero swordsman. Cannot join groups, add recruits, or enter structures. When hit by a minion, minion gets Nihil's Curse. (Each Hero may be cast only once per game.)",
+    "castOn": "globe"
+  },
+  {
+    "sid": 525,
+    "name": "Nihil's Minion",
+    "slug": "nihils-minion",
+    "house": "despair",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 2,
+      "strife": 1
+    },
+    "flavor": "\"Gabromil's face was gray and slack. All around him his comrades died, but he made no move to save them. I saw him stiffen, and then his whole body changed ...\" -- Account of an Elven archer, Battle of Thrgal",
+    "text": "Cast on recruit. Recruit changes into a Shadow, no longer deals hand or missile damage, and is set to 0 armor and cannot gain armor. Duration: Turn of casting +1.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 1027,
+    "name": "Nihil's Touch",
+    "slug": "nihils-touch",
+    "house": "despair",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 2,
+      "strife": 2
+    },
+    "flavor": null,
+    "text": "Cast on globe. A random enemy minion dies.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 612,
+    "name": "Oblivion",
+    "slug": "oblivion",
+    "house": "despair",
+    "expansion": "Whispers",
+    "rarity": "Very Rare",
+    "cost": {
+      "mystery": 3,
+      "strife": 3
+    },
+    "flavor": "\"Our ears were full of ashes, and I heard no sounds of dying until the dark point of a spear found my arm. I awoke to find that all was lost, and that it bothered me not at all.\" -- Vahrus",
+    "text": "Cast on recruit group. Each recruit in group no longer attacks. When each recruit is damaged by an attacker, that recruit resumes attacking normally at the start of the next round. Dispelled after next combat.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 1028,
+    "name": "Odar",
+    "slug": "odar",
+    "house": "despair",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 4,
+      "strife": 4
+    },
+    "flavor": null,
+    "text": "H:2 A:1 HP:7 L:2 Cast on recruit in a non-friendly group of 3 or more. Recruit is replaced by Odar, a Shadow Hero swordsman. When cast, Odar kills a random other member of his group. Every time Odar attacks, he chooses a random minion on either side. When Odar is alone in his group, his group joins caster's side. (Each Hero may be cast only once per game.)",
+    "castOn": "recruit in a non-friendly group of 3 or more"
+  },
+  {
+    "sid": 1029,
+    "name": "Panic",
+    "slug": "panic",
+    "house": "despair",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 6,
+      "strife": 3
+    },
+    "flavor": null,
+    "text": "Cast on globe. Every player-controlled group in every structure moves in a random legal direction.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 297,
+    "name": "Pantogar's Curse",
+    "slug": "pantogars-curse",
+    "house": "despair",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 1
+    },
+    "flavor": "The Djinn Pantogar developed a passion for Justice, and shut himself away to complete a Book of Law. He was found years later, shrieking, his manuscript an unintelligible ramble.",
+    "text": "Cast on minion. Minion gets -1 hand damage. May be cast more than once on the same minion.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 1030,
+    "name": "Pantogar's Failure",
+    "slug": "pantogars-failure",
+    "house": "despair",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 5,
+      "strife": 2
+    },
+    "flavor": null,
+    "text": "Cast on globe. Dispels all spells on globe, and on all structures.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 839,
+    "name": "Paranoia",
+    "slug": "paranoia",
+    "house": "despair",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 3,
+      "strife": 3
+    },
+    "flavor": null,
+    "text": "Cast on globe. Recruit groups cannot join other groups or add any new recruits. Duration: Turn of casting +2.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 1031,
+    "name": "Passing in the Night",
+    "slug": "passing-in-the-night",
+    "house": "despair",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 2,
+      "strife": 1
+    },
+    "flavor": null,
+    "text": "Cast on globe. On turn of casting +1, neither player may cast any spell, nor discard, and no group enters combat. (This prevents all start-of-combat effects as well.) Duration: Turn of casting +1.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 527,
+    "name": "Penumbra",
+    "slug": "penumbra",
+    "house": "despair",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 2,
+      "strife": 2
+    },
+    "flavor": "\"All through the Shadowlands, constant horrible whispers kept our Fifth Battalion from sleep or meditation. Remarkable physical changes were observed ...\" -- From a Djinni committee's report",
+    "text": "Cast on recruit group. Every member of group changes into a Shadow.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 522,
+    "name": "Phantom",
+    "slug": "phantom",
+    "house": "despair",
+    "expansion": "Oppositions",
+    "rarity": "Very Rare",
+    "cost": {
+      "mystery": 4,
+      "strife": 3
+    },
+    "flavor": "The Cheruli could not forgive themselves for their failure to prevent a massacre, and their guilt drove them to Despair. After their suicides, they became fearsome enemies of the Light.",
+    "text": "M:2 A:2 HP:14 L:2 Nomadic, Mountainwalk. Gets +3 missile damage against Visions. Phantom's attack deals magical damage. (Magical damage ignores armor, immunities, and spells.)",
+    "castOn": null
+  },
+  {
+    "sid": 40,
+    "name": "Revenants",
+    "slug": "revenants",
+    "house": "despair",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 4
+    },
+    "flavor": "There are those who embrace Unmaking only to regret their decision. These Misfits listen to the whispers of their shadows. They become the Bitter Ones.",
+    "text": "H:2 A:0 HP:4(x3) L:1 Nomadic. Creates three Revenants.",
+    "castOn": null
+  },
+  {
+    "sid": 840,
+    "name": "Shadow Friend",
+    "slug": "shadow-friend",
+    "house": "despair",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 3,
+      "strife": 2
+    },
+    "flavor": "The Shadow is expert in finding the fond memories, self-indulgent whimsies, little boasts and longings that accrue to the brains of mortals in this imperfect, restless, too-bright life, and crushing them to ash and silence ... -- The Dead Letter of the Keeper Zaduth-Jar",
+    "text": "Cast on recruit. Recruit has all individual spells dispelled, and changes into a Shadow. Recruit's group has all group spells dispelled.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 526,
+    "name": "Shadowmasque",
+    "slug": "shadowmasque",
+    "house": "despair",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 2,
+      "strife": 2
+    },
+    "flavor": "\"His hood fell back, and I saw the mask. I fought on, but my arms grew heavy ...\" -- Account of an Elven swordsman, Battle of Thrgal",
+    "text": "Cast on recruit. When recruit is hit by a swordsman, swordsman gets Shadow's Chill (conjuration, 1 turn, -N hand damage, where N is the number of turns remaining. Duration increases by +1 turn every round for the initial fight only, to a maximum of swordsman's hand damage).",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 443,
+    "name": "Siren Song",
+    "slug": "siren-song",
+    "house": "despair",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 2,
+      "strife": 1
+    },
+    "flavor": "\"I am your torment, your destruction, and the cold fire of your longing. Never more will you know hearth and beloved, but only suffering and oblivion in my embrace. Come to me ...\" -- Adoni, Merrow",
+    "text": "Cast on monster. Plains, forest, desert, and barren land in the four squares adjacent to monster attract enemy-controlled groups. (Groups adjacent to attracting squares before movement must move toward one of them.)",
+    "castOn": "monster"
+  },
+  {
+    "sid": 712,
+    "name": "Spectre's Curse",
+    "slug": "spectres-curse",
+    "house": "despair",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 2
+    },
+    "flavor": "The victim first struggles when the Shadow falls over her. Then, when she realizes the bleeding will not stop, she succumbs to icy despair.",
+    "text": "Cast on minion. At start of turn, minion takes 1 hit point of damage.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 100,
+    "name": "Stupefy",
+    "slug": "stupefy",
+    "house": "despair",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 1,
+      "strife": 1
+    },
+    "flavor": "\"He saw there the Shadow which had beset him for years, source of all his agony. He raised his axe; but its face was his own, and he faltered ...\" -- The Ballad of Odar",
+    "text": "Cast on minion. Minion gets -1 level.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 60,
+    "name": "Trolls",
+    "slug": "trolls",
+    "house": "despair",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "mystery": 5,
+      "strife": 2
+    },
+    "flavor": "\"Trolls are nasty brutes and nearly impossible to exterminate.\" -- Dwarven Field Guide to the Major Monstrosities",
+    "text": "H:3 A:0 HP:10(x3) L:1 Territorial. Creates three Trolls.",
+    "castOn": null
+  },
+  {
+    "sid": 82,
+    "name": "Vicious Strength",
+    "slug": "vicious-strength",
+    "house": "despair",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 1
+    },
+    "flavor": "\"Odar thought he saw Ogi before him, and he struck with a dragon's force; then his madness cleared, and he saw it was his own son's head rolling on the tiles.\" -- The Ballad of Odar",
+    "text": "Cast on minion. Minion gets +1 hand damage. May be cast more than once on the same minion.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 121,
+    "name": "Whipping Boy",
+    "slug": "whipping-boy",
+    "house": "despair",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "mystery": 2
+    },
+    "flavor": "\"When you're backed into a corner, start looking for a Whipping Boy.\" -- Impish Proverb",
+    "text": "Cast on minion. Minion gets +4 maximum and current hit points. When any other member of minion's group is hit (before checking armor), minion receives the damage instead, ignoring armor. Only one of Whipping Boy or Brother Wolf in a group.",
+    "castOn": "minion"
+  }
+]

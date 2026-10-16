@@ -1,0 +1,753 @@
+[
+  {
+    "sid": 537,
+    "name": "Alabaster Guardian",
+    "slug": "alabaster-guardian",
+    "house": "justice",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "order": 3,
+      "mystery": 1
+    },
+    "flavor": "The stones of the Well correspond to the attributes of the just: alabaster for loyalty, ebony for steadfastness, quartz for service, malachite for wisdom, granite for courage ...",
+    "text": "H:4 A:2 HP:16 L:1 Moves 2. Cast on friendly recruit group not in a struc- ture. Creates Alabaster Guardian in a random adjacent square. Patrols the diamond centered on target group. When group dies, or is dispelled, Alabaster Guardian no longer moves unless forced. Only one on a group.",
+    "castOn": "friendly recruit group not in a struc- ture"
+  },
+  {
+    "sid": 1040,
+    "name": "Breaking the Chains",
+    "slug": "breaking-the-chains",
+    "house": "justice",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "order": 1,
+      "mystery": 1
+    },
+    "flavor": null,
+    "text": "Cast on friendly minion. Dispels all individual spells on minion.",
+    "castOn": "friendly minion"
+  },
+  {
+    "sid": 851,
+    "name": "Census",
+    "slug": "census",
+    "house": "justice",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "order": 3,
+      "mystery": 2
+    },
+    "flavor": null,
+    "text": "Cast on globe. On expiration, all novices are destroyed. Duration: Turn of casting +1.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 542,
+    "name": "Chamberlain",
+    "slug": "chamberlain",
+    "house": "justice",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 1,
+      "mystery": 1
+    },
+    "flavor": "\"Most of Ngozi's troops have been in gargoyle servitude, and the sight of the stony creatures inspires them to violent rage; but at the memory of the Star Chamber, their courage fails ...\" -- Kyman Firth, \"The Siege of Groven's Weald\"",
+    "text": "Cast on recruit. When recruit is damaged by an attacker, recruit's group withdraws at the start of the next round, ending combat. If this withdrawal occurs in combat against Humans, casts Cleansing Light (group dispel) on opposing group. Dispelled after one use.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 280,
+    "name": "Citadel",
+    "slug": "citadel",
+    "house": "justice",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "mystery": 5
+    },
+    "flavor": "The Parcae, inner circle of Justice, are hidden at the hub of an elaborate and secret infrastructure, while their silent agents walk the outer world.",
+    "text": "Cast on town or colony. Citadel generates +2 Order for town owner each turn.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 457,
+    "name": "City-State",
+    "slug": "city-state",
+    "house": "justice",
+    "expansion": "Bloodlines",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 3,
+      "mystery": 3
+    },
+    "flavor": "Under the cold, unblinking gaze of the gargoyles, martial law is swiftly and efficiently enforced.",
+    "text": "Cast on town or colony. Groups cannot enter or exit town. Duration: Turn of casting +1.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 129,
+    "name": "Codex of Order",
+    "slug": "codex-of-order",
+    "house": "justice",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "order": 5,
+      "mystery": 1
+    },
+    "flavor": "By the naming and describing of all things known and unknown, the Justicars bring Order to all they survey.",
+    "text": "Cast on recruit. Each turn, caster has all spell casting costs adjusted by -1 Order per spell.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 601,
+    "name": "Destiny Manifest",
+    "slug": "destiny-manifest",
+    "house": "justice",
+    "expansion": "Whispers",
+    "rarity": "Very Rare",
+    "cost": {
+      "order": 1,
+      "mystery": 1
+    },
+    "flavor": "\"Freedom is an illusion. The true path is set. There is only the freedom to stray from it, and that is no freedom at all. How much better, then, when that choice is removed.\" -- From the \"Initiatio Justicatorum\"",
+    "text": "Cast on globe. Neither player may discard. Whirlpool becomes still water. Duration: Turn of casting +3.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 434,
+    "name": "Dracha",
+    "slug": "dracha",
+    "house": "justice",
+    "expansion": "Bloodlines",
+    "rarity": "Rare",
+    "cost": {
+      "order": 4,
+      "mystery": 4
+    },
+    "flavor": "DRXH, in Elvish 'Dracha', most feared among the Gargoyles, is as enigmatic as all his race. Some say that he is the physical incarnation of Justice itself.",
+    "text": "H:2 A:1 HP:9 L:2 Cast on friendly town or colony. Creates Dracha, a Gargoyle Hero swordsman. Cannot be targeted by individual spells. When he dies, he creates a friendly colony if his square is empty, and his group withdraws at the start of the next round, ending combat. (Each Hero may be cast only once per game.)",
+    "castOn": "friendly town or colony"
+  },
+  {
+    "sid": 857,
+    "name": "Dracha's Decree",
+    "slug": "drachas-decree",
+    "house": "justice",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 4,
+      "mystery": 2
+    },
+    "flavor": "The world of trade is reminiscent of a wonderland: everything seemingly is, yet apparently isn't, simultaneously. It is a world in which the law is so vague that there is no way of knowing if it’s a good deal, or a good death.",
+    "text": "Cast on friendly town or colony. Group in town, and its members, cannot be targeted by group spells or individual spells.",
+    "castOn": "friendly town or colony"
+  },
+  {
+    "sid": 131,
+    "name": "Dracha's Sphere",
+    "slug": "drachas-sphere",
+    "house": "justice",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 4,
+      "mystery": 2
+    },
+    "flavor": "Nothing shall impede the ministers of Justice in the swift execution of their appointed tasks.",
+    "text": "Cast on recruit group. Group gains Flight. (Group may cross any terrain, and is immune to adverse terrain effects.) All members of group receive no missile damage (before checking armor).",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 711,
+    "name": "Dracha's Trade",
+    "slug": "drachas-trade",
+    "house": "justice",
+    "expansion": "Classic",
+    "rarity": "Very Rare",
+    "cost": {
+      "order": 5
+    },
+    "flavor": "Dracha is cruel but fair.",
+    "text": "Cast on town or colony. Town suffers a mana flame-out. Town generates six primary and three secondary mana for its owner next turn. Thereafter, town no longer generates its 1 mana. (Mana-generating spells on the town are not affected.)",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 435,
+    "name": "Ebon Guardian",
+    "slug": "ebon-guardian",
+    "house": "justice",
+    "expansion": "Bloodlines",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 5,
+      "mystery": 2
+    },
+    "flavor": "Carved from the deep ebon pits of the Well of Souls, the Guardian neither blinks nor moves from her watch.",
+    "text": "H:2(x2) A:3 HP:18 L:1 Immobile. Two attacks. (Immobile monsters cannot be moved.)",
+    "castOn": null
+  },
+  {
+    "sid": 852,
+    "name": "Exile",
+    "slug": "exile",
+    "house": "justice",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "order": 2
+    },
+    "flavor": "Be it by flood or fire, sword or shaft, all that flies, crawls, walks or swims shall henceforth be banished to the edges of the abyss.",
+    "text": "Cast on globe. Every monster group on the board gets Exiled. (Monster group leaves player control. If mobile, group moves toward the edge of board. At start of turn, if group is in an edge square, group is removed from the game.)",
+    "castOn": "globe"
+  },
+  {
+    "sid": 853,
+    "name": "Gilt",
+    "slug": "gilt",
+    "house": "justice",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "order": 1,
+      "mystery": 1
+    },
+    "flavor": "\"Gifts from above can be both blessings and curses. At times one must be protected from both and let truth be the guide.\" -- Sayings of Pantogar",
+    "text": "Cast on group. The next spell cast on target group, or on any member of group, is squandered, and Gilt is dispelled.",
+    "castOn": "group"
+  },
+  {
+    "sid": 177,
+    "name": "Golem",
+    "slug": "golem",
+    "house": "justice",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 3,
+      "mystery": 2
+    },
+    "flavor": "Created from thatch and mud and awakened when the sign of the Covenant is inscribed upon it, the creature protects communities that thirst for justice.",
+    "text": "H:5 A:1 HP:18 L:1 Nomadic. Cast on square adjacent to friendly town or colony. Receives -1 damage from swordsmen.",
+    "castOn": "square adjacent to friendly town or colony"
+  },
+  {
+    "sid": 1041,
+    "name": "Granite Guardian",
+    "slug": "granite-guardian",
+    "house": "justice",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 4,
+      "mystery": 3
+    },
+    "flavor": null,
+    "text": "H:4 A:3 HP:15 L:2 Cast on globe. Creates Granite Guardian off board. Before combat, it appears adjacent to a non-friendly recruit group that is adjacent to a friendly town. After all combat, it disappears again. Dispelled when killed. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 854,
+    "name": "Hapax Legomenon",
+    "slug": "hapax-legomenon",
+    "house": "justice",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 2,
+      "mystery": 1
+    },
+    "flavor": "It is always the best policy to speak the truth, for in these times you may do so only once.",
+    "text": "Cast on globe. The next spell cast from any player's hand cannot be cast again for the rest of the game. Only one in play at a time.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 855,
+    "name": "Injunction",
+    "slug": "injunction",
+    "house": "justice",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 4,
+      "mystery": 1
+    },
+    "flavor": "As the enemy draws blissfully from the Well, so do we dam the waters from which it is fed.",
+    "text": "Cast on globe. Neither player draws cards. Duration: Turn of casting +2.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 359,
+    "name": "Intercession",
+    "slug": "intercession",
+    "house": "justice",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 3,
+      "mystery": 3
+    },
+    "flavor": "All must submit to the implacable mystery of Law.",
+    "text": "Cast on globe. Neither player may cast any spells. (This squanders all subsequent spells cast this turn.) Duration: Turn of casting +1.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 856,
+    "name": "Jade Gargoyle",
+    "slug": "jade-gargoyle",
+    "house": "justice",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "order": 3,
+      "mystery": 2
+    },
+    "flavor": null,
+    "text": "H:2 A:1 HP:9 L:1 Cast on friendly recruit in group that can add new recruits. Recruit is replaced by Jade Gargoyle, a Gargoyle swordsman. Jade Gargoyle cannot be targeted by individual spells. When any individual spell is cast on a member of group, and member remains in group, a copy of that spell is cast on Jade Gargoyle. (Jade Gargoyle does not copy Jade Gargoyle.)",
+    "castOn": "friendly recruit in group that can add new recruits"
+  },
+  {
+    "sid": 538,
+    "name": "Justicars",
+    "slug": "justicars",
+    "house": "justice",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "order": 3,
+      "mystery": 1
+    },
+    "flavor": "\"'Ateros!' I cried. But he spoke, and dashed my hopes of clemency: 'Ateros is no more. He has taken the Mask, and now there is only the Justicar.'\" -- Diary of Vlad Hrothgar",
+    "text": "Cast on recruit group. When group enters square, colony is destroyed, square and town have all spells dispelled, and square becomes plains, before group enters.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 436,
+    "name": "Justicars' Reserve",
+    "slug": "justicars-reserve",
+    "house": "justice",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "order": 4,
+      "mystery": 2
+    },
+    "flavor": "Ancient stones demarcate the permitted Ground. While the Court of Being is in session, no creature, however mad, will respond to a Mage's call from proscribed territory.",
+    "text": "Cast on square. Affects a 3x3 diamond centered on square. Summoning spells must be targeted within this area. (This prevents globe-targeted monsters as well.) Duration: Turn of casting +5.",
+    "castOn": "square"
+  },
+  {
+    "sid": 858,
+    "name": "Law of the Land",
+    "slug": "law-of-the-land",
+    "house": "justice",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 3,
+      "mystery": 3
+    },
+    "flavor": null,
+    "text": "Cast on square. Squares in the 3x3 diamond centered on target square cannot be targeted by any spells. Duration: Turn of casting +5.",
+    "castOn": "square"
+  },
+  {
+    "sid": 78,
+    "name": "Minion of Order",
+    "slug": "minion-of-order",
+    "house": "justice",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "order": 2
+    },
+    "flavor": "\"I act under sanction of Law; submit or be compelled to comply.\" -- Ateros, Dwarven agent of the Justicars",
+    "text": "Cast on minion. Minion gets +1 level.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 541,
+    "name": "Nemesis",
+    "slug": "nemesis",
+    "house": "justice",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 1
+    },
+    "flavor": "At Cheol, Ngozi's son Ozande turned traitor and took the Justicar mask. It is said that while he lives, Ngozi will not return to reunite the tribes.",
+    "text": "Cast on recruit. Neither player may cast any Hero spells.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 540,
+    "name": "Obeisance",
+    "slug": "obeisance",
+    "house": "justice",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "order": 3,
+      "mystery": 2
+    },
+    "flavor": "\"Never seek power. Seek justice. Justice may call you to obey, or to command. That Justice may speak through you, abandon now your name, your memory and your relations ...\" -- From the \"Initiatio Justicatorum\"",
+    "text": "Cast on recruit. Recruit gets +1 level for every other recruit in its group. All other members of recruit's group are set to level 0 and cannot gain levels. Only one in a group.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 67,
+    "name": "Obsidian Dragon",
+    "slug": "obsidian-dragon",
+    "house": "justice",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "order": 6,
+      "mystery": 1
+    },
+    "flavor": "Close inspection of the spiny armorplate confirms that it is highly polished stone. The creature is indeed a denizen of the Well, and agent of the Covenant.",
+    "text": "H:4 A:2 HP:20 L:2 Nomadic, Mountainwalk, Firewalk. If killed by a recruit group, that group gets Obsidian Armor (all members of group get +1 armor).",
+    "castOn": null
+  },
+  {
+    "sid": 859,
+    "name": "Orrery",
+    "slug": "orrery",
+    "house": "justice",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "order": 2,
+      "mystery": 2
+    },
+    "flavor": null,
+    "text": "Cast on recruit. Neither player may cast any globe spells. (This squanders all subsequent globe spells cast this turn.) Only one in play at a time.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 412,
+    "name": "Ostracize",
+    "slug": "ostracize",
+    "house": "justice",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "order": 3
+    },
+    "flavor": "A penalty of Justicar adjudication. Any group so condemned is shunned among nations. Even the Misfits will not take them in.",
+    "text": "Cast on recruit group. Group cannot join other groups or add any new recruits.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 1042,
+    "name": "Ozande",
+    "slug": "ozande",
+    "house": "justice",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "order": 4,
+      "mystery": 4
+    },
+    "flavor": null,
+    "text": "H:2 A:1 HP:7 L:2 Cast on friendly recruit group. Creates Ozande, a Human Hero swordsman. Ozande has Retribution and Justicars. (Each Hero may be cast only once per game.)",
+    "castOn": "friendly recruit group"
+  },
+  {
+    "sid": 224,
+    "name": "Pact of Mystery",
+    "slug": "pact-of-mystery",
+    "house": "justice",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "order": 1
+    },
+    "flavor": "\"I wish I were at liberty to discuss our ... arrangement with the Justicars.\" -- Zaduth-Jar, Lecturer in Xenology",
+    "text": "Cast on globe. For each minion on either side that dies this turn, minion's owner gets +1 Mystery next turn.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 189,
+    "name": "Parted Sea",
+    "slug": "parted-sea",
+    "house": "justice",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "order": 1
+    },
+    "flavor": "The Well of Souls is said to be guarded by eight great seas that part for the Nameless Ones, and four impassable mountains whose secret paths they know.",
+    "text": "Cast on water. Caster's groups can cross this square without drowning. (This does not allow caster's groups on this square to enter adjacent water squares.) Non-friendly groups can enter or appear in this square, but doing so dispels Parted Sea, and the group suffers the effects.",
+    "castOn": "water"
+  },
+  {
+    "sid": 1043,
+    "name": "Preservation",
+    "slug": "preservation",
+    "house": "justice",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 3,
+      "mystery": 3
+    },
+    "flavor": null,
+    "text": "Cast on globe. Caster cannot cast any structure or square spells. Duration: Turn of casting +2. On expiration, Preservation II (caster gets +1 Order and +1 Mystery each turn) is cast on the globe. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 860,
+    "name": "Prohibition",
+    "slug": "prohibition",
+    "house": "justice",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "order": 2
+    },
+    "flavor": "\"Truly variety is the spice of life, but those damn gargoyles can have such a one-track mind sometimes.\" -- Dinous, Satyr wine merchant",
+    "text": "Cast on globe. Next turn, neither player may cast any spell that contains the player's secondary mana in its cost.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 23,
+    "name": "Pyrrhic Victory",
+    "slug": "pyrrhic-victory",
+    "house": "justice",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 4,
+      "mystery": 3
+    },
+    "flavor": "\"The Elves may sing of the beauty of life and the light in the trees -- to me there is no poetry like the poetry of justice.\" -- Sayings of Pantogar",
+    "text": "Cast on group. When group is killed, the opposing group dies also.",
+    "castOn": "group"
+  },
+  {
+    "sid": 147,
+    "name": "Restoration",
+    "slug": "restoration",
+    "house": "justice",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 3
+    },
+    "flavor": "Dracha grants you sanction to lift unwanted enchantments, but it will cost you.",
+    "text": "Cast on friendly group. Dispels all group and individual spells on group.",
+    "castOn": "friendly group"
+  },
+  {
+    "sid": 115,
+    "name": "Retribution",
+    "slug": "retribution",
+    "house": "justice",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "order": 3,
+      "mystery": 1
+    },
+    "flavor": "Those who dare strike the emissary of Order face swift and terrible reprisal at the hands of the just.",
+    "text": "Cast on minion. When minion is damaged in combat (after checking armor), its attacker is killed. Dispelled after one use.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 674,
+    "name": "Rite of Mystery",
+    "slug": "rite-of-mystery",
+    "house": "justice",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "order": 4
+    },
+    "flavor": "\"'I know not how those Mystery-mongers gain power,' said the old Satyr, slamming down his flagon. 'And I don't care to know.'\" -- Journal of Lienna: Volume IX",
+    "text": "Cast on globe. Caster gets +1 Mystery each turn. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 1044,
+    "name": "Road Building",
+    "slug": "road-building",
+    "house": "justice",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "order": 4,
+      "mystery": 1
+    },
+    "flavor": null,
+    "text": "Cast on square. Affects all contiguous non-structure squares in the same row, and all contiguous non-structure squares in the same column. Affected squares cannot be targeted by any spells.",
+    "castOn": "square"
+  },
+  {
+    "sid": 1045,
+    "name": "Rule by Example",
+    "slug": "rule-by-example",
+    "house": "justice",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 4,
+      "mystery": 2
+    },
+    "flavor": null,
+    "text": "Cast on globe. On turn of casting +1, caster cannot cast any spells. On turn of casting +2 and +3, opponent cannot cast any spells. Duration: Turn of casting +3.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 702,
+    "name": "Second Chance",
+    "slug": "second-chance",
+    "house": "justice",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "order": 3
+    },
+    "flavor": "\"The gargoyle breathed deep, the stones shook and the bones knit. In the darkness, he seemed almost kind.\" -- Kyman Firth, \"The Siege of Groven\\'s Weald\"",
+    "text": "Cast on recruit. Dispels all individual spells on recruit. Recruit is fully healed.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 34,
+    "name": "Sentinel",
+    "slug": "sentinel",
+    "house": "justice",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "order": 4,
+      "mystery": 2
+    },
+    "flavor": "\"The gargoyle turned his silent face towards us. His dwarf spoke. 'He commands us to stay,' said Ateros, 'until their arrows pierce our souls.'\" -- Diary of Vlad Hrothgar",
+    "text": "Cast on minion not in a structure. Minion's movement orders are cancelled and its group cannot be moved. Minion receives no hand damage (before checking armor). Duration: Turn of casting +2.",
+    "castOn": "minion not in a structure"
+  },
+  {
+    "sid": 122,
+    "name": "Spawn of Toganni",
+    "slug": "spawn-of-toganni",
+    "house": "justice",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "order": 4,
+      "mystery": 3
+    },
+    "flavor": "\"And with what fear my soul is rent / Seeing Toganni's Spawn descend / Upon whose judgment all depend!\" -- Human epic poem, Farthrad band",
+    "text": "Cast on town or colony. Creates two Gargoyle novices in town.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 1046,
+    "name": "Summoning Licensure",
+    "slug": "summoning-licensure",
+    "house": "justice",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "order": 2,
+      "mystery": 2
+    },
+    "flavor": null,
+    "text": "Cast on globe. The next summoning spell cast is squandered, and Summoning Licensure is dispelled.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 539,
+    "name": "Talisman of Souls",
+    "slug": "talisman-of-souls",
+    "house": "justice",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "order": 2
+    },
+    "flavor": "\"Only in being judged is the soul free. When Justice is complete, every penance paid, every wrong righted, the world in balance again, then the soul slips into the peaceful night to rest.\" -- From the \"Initiatio Justicatorum\"",
+    "text": "Cast on recruit. Recruit gets +2 maximum and current hit points for each subsequent alteration cast on recruit.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 145,
+    "name": "The Star Chamber",
+    "slug": "the-star-chamber",
+    "house": "justice",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "order": 5,
+      "mystery": 1
+    },
+    "flavor": "Those who have appeared before the Star Council rarely relate their experiences. In fact, they rarely return.",
+    "text": "Cast on town or colony. The Star Chamber generates +1 Mystery and +1 Order for town owner each turn.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 861,
+    "name": "The Well",
+    "slug": "the-well",
+    "house": "justice",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "order": 1,
+      "mystery": 1
+    },
+    "flavor": null,
+    "text": "Cast on globe. Before movement, any card that caster discarded into the whirlpool this turn is returned to the bottom of caster's deck. (This does not save any cards that were discarded by other effects.) Duration: Turn of casting +5. Only one per player at a time.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 536,
+    "name": "Tindelhunden",
+    "slug": "tindelhunden",
+    "house": "justice",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "order": 4,
+      "mystery": 2
+    },
+    "flavor": "\"Judgment is not tangential and contingent, but inevitable; each action contains its price within it, and the execution of Justice is implacable, though its Agents vary.\" -- Sayings of Pantogar",
+    "text": "H:4 A:1 HP:10(x2) L:2 Flight, Moves 2. Cast on recruit group. Creates two Tindelhunden in a random edge square. They hunt target group, switching sides if necessary. When target group dies, or is dispelled, Tindelhunden are removed from the game. Humans get -1 damage per Tindelhund. Only one on a group.",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 296,
+    "name": "True Aim",
+    "slug": "true-aim",
+    "house": "justice",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "order": 1
+    },
+    "flavor": "Where negotiations break down, Order may come on the point of an arrow.",
+    "text": "Cast on archer. Archer gets +1 missile damage. May be cast more than once on the same archer.",
+    "castOn": "archer"
+  },
+  {
+    "sid": 1047,
+    "name": "Trump",
+    "slug": "trump",
+    "house": "justice",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "order": 2,
+      "mystery": 2
+    },
+    "flavor": null,
+    "text": "Cast on globe. Dispels the most recent alteration or conjuration that was cast from either player's hand.",
+    "castOn": "globe"
+  }
+]

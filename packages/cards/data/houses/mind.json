@@ -1,0 +1,756 @@
+[
+  {
+    "sid": 415,
+    "name": "Al Hakim",
+    "slug": "al-hakim",
+    "house": "mind",
+    "expansion": "Bloodlines",
+    "rarity": "Rare",
+    "cost": {
+      "will": 4,
+      "clarity": 4
+    },
+    "flavor": "Founder of the Musqatbal Academy; it is said he has transcended time entirely, and manifests his physical form whenever he wishes.",
+    "text": "H:2 A:1 HP:7 L:2 Cast on recruit group. Creates Al Hakim, a Djinn Hero swordsman. At start of turn, Al Hakim tells his caster the next three cards at the top of his caster's deck. (Each Hero may be cast only once per game.)",
+    "castOn": "recruit group"
+  },
+  {
+    "sid": 1064,
+    "name": "Alchemy",
+    "slug": "alchemy",
+    "house": "mind",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "will": 3,
+      "clarity": 1
+    },
+    "flavor": null,
+    "text": "Cast on globe. Caster gets +2 Will and -1 Clarity on odd-numbered turns, or -1 Will and +2 Clarity on even-numbered turns. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 886,
+    "name": "Awaiting",
+    "slug": "awaiting",
+    "house": "mind",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "will": 2,
+      "clarity": 1
+    },
+    "flavor": null,
+    "text": "Cast on globe. When any monster group is created, group disappears until Awaiting expires. (Groups reappear at start of turn if their square is unoccupied, or on the earliest turn thereafter.) Duration: Turn of casting +3.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 885,
+    "name": "Bestiary",
+    "slug": "bestiary",
+    "house": "mind",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 2,
+      "clarity": 1
+    },
+    "flavor": null,
+    "text": "Cast on town or colony. Before movement, if any recruits were created in town, a random summoning spell is added to the top of town owner's deck, with normal house and mana types. Duration: Turn of casting +5.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 126,
+    "name": "Betrayal",
+    "slug": "betrayal",
+    "house": "mind",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "will": 3,
+      "clarity": 1
+    },
+    "flavor": "The Tan\\'u\\'zhadhi Academy specializes in the study of the will and the mind. Its less profound members concentrate on manipulating wills and minds ...",
+    "text": "Cast on monster group. Group joins caster\\'s side.",
+    "castOn": "monster group"
+  },
+  {
+    "sid": 33,
+    "name": "Binding Cube",
+    "slug": "binding-cube",
+    "house": "mind",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 4,
+      "clarity": 3
+    },
+    "flavor": "\"We sought the walls that held them in place and found none. Finally we had to leave them. They weren't imprisoned -- they but thought themselves to be ...\" -- Dwarven scout's report",
+    "text": "Cast on group not in a structure. Group's movement orders are cancelled and it cannot be moved. Duration: Turn of casting +2.",
+    "castOn": "group not in a structure"
+  },
+  {
+    "sid": 324,
+    "name": "Celestial Sphere",
+    "slug": "celestial-sphere",
+    "house": "mind",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "will": 4,
+      "clarity": 2
+    },
+    "flavor": "The sphere seen is a twelfth-order emanation of a demi-perfect shadow of one of the Postulate Hyperia. Luckily, at the twelfth order, blades still dent them.",
+    "text": "H:4 A:1 HP:15 L:2 Territorial, Flight.",
+    "castOn": null
+  },
+  {
+    "sid": 887,
+    "name": "Ch'tai Exchange",
+    "slug": "chtai-exchange",
+    "house": "mind",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "will": 2,
+      "clarity": 1
+    },
+    "flavor": null,
+    "text": "Cast on friendly recruit in group that can add new recruits. Recruit exchanges places with a random recruit from a non-friendly group that can add new recruits. (Each recruit leaves its group, has all group spells dispelled, then joins the other recruit's group.)",
+    "castOn": "friendly recruit in group that can add new recruits"
+  },
+  {
+    "sid": 20,
+    "name": "Civilize",
+    "slug": "civilize",
+    "house": "mind",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "will": 5,
+      "clarity": 1
+    },
+    "flavor": "\"Once we ate the Masters. Now we build their cities.\" -- the Troll Ta Crushlung, Butler of the Tan'u'zhadhi Academy, as recorded by Tansek",
+    "text": "Cast on monster group. Group is replaced by a neutral colony that does not generate novices. (A new colony dispels its square and changes it to plains.)",
+    "castOn": "monster group"
+  },
+  {
+    "sid": 559,
+    "name": "Djinni Debate",
+    "slug": "djinni-debate",
+    "house": "mind",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "will": 1,
+      "clarity": 1
+    },
+    "flavor": "In the original 'Djinni debate', the Ch'tai and Sar'ul Academies split over the treatment of the Cyclopes. Rival polemicists stood and spoke nonstop for twelve years. Many nations now use the phrase to mean 'paralyzing indecision'.",
+    "text": "Cast on town or colony. Enemy town no longer generates its 1 mana. On friendly town, caster re-selects town's mana type. (Mana-generating spells on the town are not affected.) Duration: Turn of casting +2. Dispelled if town is captured.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 19,
+    "name": "Domesticate",
+    "slug": "domesticate",
+    "house": "mind",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 4,
+      "clarity": 2
+    },
+    "flavor": "In the Tan\\'u\\'zhadhi Willow analogy, the original will of the creature is called \"paint on a hidden canvas\".",
+    "text": "Cast on monster group. Group joins caster\\'s side, and becomes player- controlled.",
+    "castOn": "monster group"
+  },
+  {
+    "sid": 888,
+    "name": "Farseeing",
+    "slug": "farseeing",
+    "house": "mind",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "will": 2
+    },
+    "flavor": null,
+    "text": "Cast on globe. Tells caster her opponent's current mana generation.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 607,
+    "name": "FireWalking",
+    "slug": "firewalking",
+    "house": "mind",
+    "expansion": "Whispers",
+    "rarity": "Very Rare",
+    "cost": {
+      "will": 1
+    },
+    "flavor": "\"That the Ch'tai offer no credible theory to explain this could be mere failure. That they refuse to try, insisting that pure Faith is necessary, is treason. They are seduced by Hope, and should be stripped of their status ...\" -- Sar'ul Academy polemic",
+    "text": "Cast on group. Group gains Firewalk. (Group takes no damage from lava or volcanoes. This does not allow group to cross volcanoes.)",
+    "castOn": "group"
+  },
+  {
+    "sid": 889,
+    "name": "Flail of Sar'ul",
+    "slug": "flail-of-sarul",
+    "house": "mind",
+    "expansion": "Revolutions",
+    "rarity": "Common",
+    "cost": {
+      "will": 2,
+      "clarity": 1
+    },
+    "flavor": null,
+    "text": "Cast on swordsman. When swordsman damages an opponent, opponent does not attack in the next combat round.",
+    "castOn": "swordsman"
+  },
+  {
+    "sid": 452,
+    "name": "Flying Carpet",
+    "slug": "flying-carpet",
+    "house": "mind",
+    "expansion": "Bloodlines",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 5,
+      "clarity": 1
+    },
+    "flavor": "\"Best value Carpets of Zin! Guaranteed not to unravel!\" -- Djinni sign in a Human bazaar",
+    "text": "Cast on group. Group moves twice each turn in its direction of travel. Group gains Flight. (Group may cross any terrain, and is immune to adverse terrain effects.) Duration: Turn of casting +2.",
+    "castOn": "group"
+  },
+  {
+    "sid": 290,
+    "name": "Focus of Clarity",
+    "slug": "focus-of-clarity",
+    "house": "mind",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "will": 4
+    },
+    "flavor": "\"So he juxtaposed the Inverted Endless and the root of the convexity of sums!\" -- punch line to a Djinni joke",
+    "text": "Cast on globe. Caster gets +1 Clarity each turn. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 1065,
+    "name": "Force of Mind",
+    "slug": "force-of-mind",
+    "house": "mind",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "will": 1,
+      "clarity": 1
+    },
+    "flavor": null,
+    "text": "Cast on globe. If the top card of opponent's deck is Force of Mind, one copy of Force of Mind is added to the top of opponent's deck. Otherwise, two copies of Force of Mind are added to the top of opponent's deck.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 890,
+    "name": "Foresight",
+    "slug": "foresight",
+    "house": "mind",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 3,
+      "clarity": 2
+    },
+    "flavor": null,
+    "text": "Cast on group with archers. At start of combat, each archer in group inflicts 2 hit points of magical damage on random opposing minions. (Magical damage ignores armor, immunities, and spells.)",
+    "castOn": "group with archers"
+  },
+  {
+    "sid": 697,
+    "name": "Hypnotic Trance",
+    "slug": "hypnotic-trance",
+    "house": "mind",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "will": 1
+    },
+    "flavor": "\"When the decadent Tan'u'zhadhi exhaust themselves controlling all their pets, they can barely manage to confuse them!\" --Turgan Qef, Kumatru Academy",
+    "text": "Cast on monster. Monster gets -1 level.",
+    "castOn": "monster"
+  },
+  {
+    "sid": 166,
+    "name": "Inscrutability",
+    "slug": "inscrutability",
+    "house": "mind",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "will": 3,
+      "clarity": 1
+    },
+    "flavor": "\"The Tan\\'u\\'zhadhi fool you, the Kumatru fool the light, and I gather those Xin Shia fool themselves -- Djinn are sneakier than Imps, and no fit allies for this Hearth!\" -- Heard in a Dwarven High Council",
+    "text": "Cast on group. All members of group are concealed. (Concealed minions cannot be targeted by enemy individual spells.)",
+    "castOn": "group"
+  },
+  {
+    "sid": 310,
+    "name": "Insight",
+    "slug": "insight",
+    "house": "mind",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "will": 1
+    },
+    "flavor": "\"To vanquish your enemy's deceit is not difficult. Deceit is brittle. The difficulty lies in your own unwillingness to see.\" -- Al Hakim",
+    "text": "Cast on globe. Caster ignores concealment when targeting individual spells. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 557,
+    "name": "Itrokos Gate",
+    "slug": "itrokos-gate",
+    "house": "mind",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "will": 3,
+      "clarity": 2
+    },
+    "flavor": "Shezif Xan, founder of the Itrokos Academy, invented the Xan topomorph function. It gives, for any two points, a topology under which they are adjacent, and has several interesting practical applications ...",
+    "text": "Cast on plains. Creates a random monster that can be cast on plains.",
+    "castOn": "plains"
+  },
+  {
+    "sid": 423,
+    "name": "Kumatru Academy",
+    "slug": "kumatru-academy",
+    "house": "mind",
+    "expansion": "Bloodlines",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 3,
+      "clarity": 2
+    },
+    "flavor": "Kumatru Academy, 7th year subjects: Focus, Teleontology, Convergence, Rhetoric, Silence, Tactics, Analysis of Forms, Emanative Dynamics.",
+    "text": "Cast on friendly town or colony. When any novices would be created in town, 1 Djinn archer is created in town instead. Archers created in this way get +1 armor and +1 level, but cannot gain a level from experience.",
+    "castOn": "friendly town or colony"
+  },
+  {
+    "sid": 135,
+    "name": "Kumatru Archer",
+    "slug": "kumatru-archer",
+    "house": "mind",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "will": 1,
+      "clarity": 1
+    },
+    "flavor": "\"Those schools disdain our empirical focus, but at times like this they appreciate our precision.\" --Turgan Qef, Kumatru Academy",
+    "text": "Cast on archer. Archer gets +2 missile damage.",
+    "castOn": "archer"
+  },
+  {
+    "sid": 195,
+    "name": "Kumatru Library",
+    "slug": "kumatru-library",
+    "house": "mind",
+    "expansion": "Classic",
+    "rarity": "Rare",
+    "cost": {
+      "will": 2,
+      "clarity": 1
+    },
+    "flavor": "The Kumatru fondness for physical books is considered atavistic by most Djinn.",
+    "text": "Cast on square. At start of turn, if any group occupies square, group\\'s owner gets +1 Clarity and +1 Will.",
+    "castOn": "square"
+  },
+  {
+    "sid": 120,
+    "name": "Kumatru Trance",
+    "slug": "kumatru-trance",
+    "house": "mind",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "will": 1,
+      "clarity": 1
+    },
+    "flavor": "Kumatru Academy, 9th year subjects: Trance, Metaontology, Epistemic Projection, Cosmology, Purity, Stochastic Projection, Esthetics/Ethics, Emanative Catastrophics.",
+    "text": "Cast on recruit. Recruit cannot be targeted by individual spells.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 449,
+    "name": "Loch Dweller",
+    "slug": "loch-dweller",
+    "house": "mind",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "will": 2,
+      "clarity": 2
+    },
+    "flavor": "It is said that Azimuth Fand'autherasaj kept one as a pet in an octagon of force, but his son fell in love with the creature and, unwisely, released it.",
+    "text": "H:3(x3) A:0 HP:15 L:2 Three attacks. Cast on globe. Creates Loch Dweller off the board. Before combat, it appears in water adjacent to a non-friendly group. After all combat, it disappears again. Withdraws at the start of combat round 3. Dispelled when killed. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 134,
+    "name": "Master Bowyer",
+    "slug": "master-bowyer",
+    "house": "mind",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 3,
+      "clarity": 1
+    },
+    "flavor": "Even among the Kumatru, makers of durable objects are the lowest class of Djinn, but their Bowyers are said to work less with wood than with inevitability.",
+    "text": "Cast on town or colony. Every archer created in town gets Djinni Bow (+1 missile damage).",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 1066,
+    "name": "Meditation",
+    "slug": "meditation",
+    "house": "mind",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 4,
+      "clarity": 2
+    },
+    "flavor": null,
+    "text": "Cast on group. Group's movement orders are cancelled. Group gets Meditating (all members of group get +1 level).",
+    "castOn": "group"
+  },
+  {
+    "sid": 563,
+    "name": "Memorize",
+    "slug": "memorize",
+    "house": "mind",
+    "expansion": "Oppositions",
+    "rarity": "Common",
+    "cost": {
+      "will": 2,
+      "clarity": 2
+    },
+    "flavor": "\"As the fires exploded around us, I cursed the old Djinn and begged him to let us all flee. But he sat watching the destruction with an expression of intense concentration ...\" -- The Journey of Tansek",
+    "text": "Cast on globe. The next spell opponent casts is added to the top of caster's deck, altered to caster's house and mana types.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 170,
+    "name": "Mirage",
+    "slug": "mirage",
+    "house": "mind",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 2,
+      "clarity": 2
+    },
+    "flavor": "\"What joy, what splendor! The never-can, the wasn't-once, the sweet escape of is-not-is ...\" -- Xin Shia Academy sage",
+    "text": "Cast on forest, ice, desert, plains, or barren land. Square attracts non-neutral player-controlled groups. (Groups adjacent to attracting squares before movement must move toward one of them.) Dispelled when entered.",
+    "castOn": "forest, ice, desert, plains, or barren land"
+  },
+  {
+    "sid": 123,
+    "name": "Mirrored Armor",
+    "slug": "mirrored-armor",
+    "house": "mind",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 4
+    },
+    "flavor": "\"At first seeing all those perspectives is exhilarating, but after a while you almost hope the soulless thing will break ...\" -- Elven mercenary in Sar'ul Academy employ",
+    "text": "Cast on recruit. Recruit receives no combat damage (before checking armor). When recruit is hit, Mirrored Armor has 10% chance to shatter (dispel). If Mirrored Armor does not shatter, and attacker is a Gorgon or Cockatrice, attacker dies.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 891,
+    "name": "Narh'u'ha",
+    "slug": "narhuha",
+    "house": "mind",
+    "expansion": "Revolutions",
+    "rarity": "Very Rare",
+    "cost": {
+      "will": 3,
+      "clarity": 2
+    },
+    "flavor": null,
+    "text": "M:5 A:0 HP:7 L:2 Neutral. Cast on globe. Created in a random square. Narh'u'ha is a Djinn archer with Djinni Bow, Kumatru Archer, and Mirrored Armor. Cannot join groups or add recruits. Any individual spell targeted on Narh'u'ha is squandered, and a random spell of same total cost is added to the top of caster's deck, altered to caster's house and mana types. Only one in play at a time.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 149,
+    "name": "Nullify",
+    "slug": "nullify",
+    "house": "mind",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "will": 4
+    },
+    "flavor": "Among the Djinni Academies, the Xin Shia distinguish themselves by their fascination with paradox, contradiction, and reversals.",
+    "text": "Cast on square. Dispels all spells on square. Square becomes plains.",
+    "castOn": "square"
+  },
+  {
+    "sid": 1067,
+    "name": "Octagon of Force",
+    "slug": "octagon-of-force",
+    "house": "mind",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 3,
+      "clarity": 3
+    },
+    "flavor": null,
+    "text": "Cast on square. When recruit group enters square, group gets Binding Cube (group cannot be moved for current turn +2).",
+    "castOn": "square"
+  },
+  {
+    "sid": 1068,
+    "name": "Pantogar's Dream",
+    "slug": "pantogars-dream",
+    "house": "mind",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "will": 5,
+      "clarity": 4
+    },
+    "flavor": null,
+    "text": "Cast on globe. Caster gets +2 Order, +2 Strife, and +2 Mystery each turn. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 694,
+    "name": "Power",
+    "slug": "power",
+    "house": "mind",
+    "expansion": "Classic",
+    "rarity": "Common",
+    "cost": {
+      "will": 1
+    },
+    "flavor": "Kumatru Academy, 2nd year subjects: Focus, Domination and Dominion, Law, Poetics, Transcendence of Physicality, Emanative Statics.",
+    "text": "Cast on minion. Minion gets +1 hand damage.",
+    "castOn": "minion"
+  },
+  {
+    "sid": 1069,
+    "name": "Purity of Will",
+    "slug": "purity-of-will",
+    "house": "mind",
+    "expansion": "Allies & Traitors",
+    "rarity": "Rare",
+    "cost": {
+      "will": 2
+    },
+    "flavor": null,
+    "text": "Cast on town or colony. Structure generates Will mana instead of its previous mana type. Recursive (Starts with 2 tokens. When cast, a copy of this spell is added to your hand that costs +1 mana and has +1 token.) Duration: Turn of casting +T, where T is the number of tokens.",
+    "castOn": "town or colony"
+  },
+  {
+    "sid": 558,
+    "name": "Rakshasa",
+    "slug": "rakshasa",
+    "house": "mind",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 3,
+      "clarity": 3
+    },
+    "flavor": "\"how unworthy am i - to ask you that honor me - in accepting my hospitality - but surely your graces - would not refuse - my humble gift of entertainment - a trifling gambling game - of meager odds - merely our lives\" -- Varaki, Rakshasa",
+    "text": "H:2/M:2 A:0 HP:12 L:2 Nomadic. Creates a computer-controlled Djinn archer/swordsman without Waterwalk. Can be targeted by both archer and swordsman spells. Cannot join groups, add recruits, or enter structures. Cannot be targeted by group spells or Bear, Eagle, Lion, or Lizard Spirit, or Shapeshifter.",
+    "castOn": null
+  },
+  {
+    "sid": 405,
+    "name": "Revelation",
+    "slug": "revelation",
+    "house": "mind",
+    "expansion": "Bloodlines",
+    "rarity": "Common",
+    "cost": {
+      "will": 1,
+      "clarity": 1
+    },
+    "flavor": "\"Time is not an illusion; everything else is ...\" -- Al Hakim",
+    "text": "Cast on globe. Tells caster the next five cards in opponent's hand, and on top of opponent's deck if opponent's hand has fewer than five cards.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 1070,
+    "name": "Sar'uli Muzzle",
+    "slug": "saruli-muzzle",
+    "house": "mind",
+    "expansion": "Allies & Traitors",
+    "rarity": "Common",
+    "cost": {
+      "will": 2,
+      "clarity": 1
+    },
+    "flavor": null,
+    "text": "Cast on minion with hand attacks. Minion gets -5 hand damage.",
+    "castOn": "minion with hand attacks"
+  },
+  {
+    "sid": 564,
+    "name": "Sar'uli Overseer",
+    "slug": "saruli-overseer",
+    "house": "mind",
+    "expansion": "Oppositions",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 2,
+      "clarity": 2
+    },
+    "flavor": "\"Morality, compassion, hesitation, and fear are attachments that we must destroy. In the Mindless Ones, we can create and study extremes of experience that would kill a Djinn. Through subjugating them, we will free ourselves ...\" -- Sar'uli manifesto",
+    "text": "Cast on recruit. Recruit receives no hand damage from recruits (before checking armor). Recruit and other members of its group receive no damage from Cyclopes (before checking armor). Dispelled after next combat.",
+    "castOn": "recruit"
+  },
+  {
+    "sid": 892,
+    "name": "Seal of Djai",
+    "slug": "seal-of-djai",
+    "house": "mind",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 3,
+      "clarity": 3
+    },
+    "flavor": null,
+    "text": "Cast on square. At start of turn, and when group enters square, group in square has all spells dispelled. Duration: Turn of casting +2.",
+    "castOn": "square"
+  },
+  {
+    "sid": 59,
+    "name": "Stalking Blyk",
+    "slug": "stalking-blyk",
+    "house": "mind",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 5
+    },
+    "flavor": "Utterly silent, with terrible claws, and long memories.",
+    "text": "H:2(x2) A:0 HP:15 L:2 Nomadic. Two attacks.",
+    "castOn": null
+  },
+  {
+    "sid": 561,
+    "name": "Tan'u'zhadhi Ploy",
+    "slug": "tanuzhadhi-ploy",
+    "house": "mind",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "will": 4,
+      "clarity": 2
+    },
+    "flavor": "The Tan'u'zhadhi created the Two Mages Game, now a wildly popular Djinn pastime. But none of the other Academies will play with the Tan'u'zhadhi, and not only because they cheat. They insist on using a Gorbak as a discard pile -- and legs have been lost to overeager Gorbaks.",
+    "text": "Cast on globe. Opponent discards all spells in hand that were not cast this turn.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 893,
+    "name": "Teleportation",
+    "slug": "teleportation",
+    "house": "mind",
+    "expansion": "Revolutions",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 3,
+      "clarity": 2
+    },
+    "flavor": null,
+    "text": "Cast on friendly town or colony. Before movement, recruit groups created in other friendly towns or colonies are teleported to target town. Dispelled when any recruits are created in town, or if town is captured. Only one per player at a time.",
+    "castOn": "friendly town or colony"
+  },
+  {
+    "sid": 894,
+    "name": "Transubstantiation",
+    "slug": "transubstantiation",
+    "house": "mind",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "will": 2,
+      "clarity": 1
+    },
+    "flavor": null,
+    "text": "Cast on the globe. Caster's primary and secondary mana totals are reversed next turn.",
+    "castOn": "the globe"
+  },
+  {
+    "sid": 895,
+    "name": "Usam University",
+    "slug": "usam-university",
+    "house": "mind",
+    "expansion": "Revolutions",
+    "rarity": "Rare",
+    "cost": {
+      "will": 2,
+      "clarity": 1
+    },
+    "flavor": null,
+    "text": "Cast on town (not colony). For every novice in town, town generates +1 of its selected mana type. Dispelled when any recruits are created in town, or if town is captured.",
+    "castOn": "town (not colony)"
+  },
+  {
+    "sid": 1071,
+    "name": "Xenological Study",
+    "slug": "xenological-study",
+    "house": "mind",
+    "expansion": "Allies & Traitors",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 3,
+      "clarity": 3
+    },
+    "flavor": null,
+    "text": "Cast on globe. Caster cannot cast any summoning spells. Duration: Turn of casting +1. On expiration, Xenological Study II (caster gets +2 Will each turn) is cast on the globe. May be cast more than once.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 560,
+    "name": "Xin Shian Alcoves",
+    "slug": "xin-shian-alcoves",
+    "house": "mind",
+    "expansion": "Oppositions",
+    "rarity": "Rare",
+    "cost": {
+      "will": 4
+    },
+    "flavor": "Xin Shia is the oldest of the Academies, and its teachings are nonsensical to many. But Xin Shian monks have meditated in their Alcoves since the childhood of the nations, and some say these meditations create all magic, or even that the whole world is but the monks' dream.",
+    "text": "Cast on globe. Both players get +1 of all six mana types each turn. Only one in play at a time.",
+    "castOn": "globe"
+  },
+  {
+    "sid": 317,
+    "name": "Yfreet",
+    "slug": "yfreet",
+    "house": "mind",
+    "expansion": "Classic",
+    "rarity": "Uncommon",
+    "cost": {
+      "will": 6,
+      "clarity": 2
+    },
+    "flavor": "Famous for eloquence, piety, hospitality, and violence, and moved only by curiosity or revenge, the Yfreet cut through the bonds of magic with metaphysical blades.",
+    "text": "H:4 A:1 HP:12 L:2 Territorial. At start of combat, casts Cleansing Light (group dispel) on opposing group.",
+    "castOn": null
+  }
+]
