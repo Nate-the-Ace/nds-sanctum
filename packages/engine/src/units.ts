@@ -102,6 +102,17 @@ export function flipGroup(e: Engine, groupId: number): void {
   }
 }
 
+/** Gives a group (and its minions) to `owner`, neutral included. Spells on it keep their owners. */
+export function setGroupOwner(e: Engine, groupId: number, owner: PlayerId): void {
+  const s = e.state;
+  const g = s.groups[groupId];
+  if (!g || g.owner === owner) return;
+  s.groupSeq[g.owner] = s.groupSeq[g.owner].filter((id) => id !== groupId);
+  s.groupSeq[owner].push(groupId);
+  g.owner = owner;
+  for (const mid of g.minionIds) if (s.minions[mid]) s.minions[mid].owner = owner;
+}
+
 /** Deletes a group record and its group spells. Does not touch its minions. */
 export function removeGroup(e: Engine, groupId: number): void {
   const s = e.state;

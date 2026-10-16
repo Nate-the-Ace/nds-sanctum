@@ -1,6 +1,6 @@
 import { makeQuery } from './ctx';
 import type { Engine } from './engine';
-import { spellsOn, structureAt } from './query';
+import { isOffBoard, spellsOn, structureAt } from './query';
 import { RULES } from './rules';
 import type { Ref, Walk } from './types';
 
@@ -16,6 +16,8 @@ export interface StatDelta {
   noDamage?: boolean;
   concealed?: boolean;
   taunt?: boolean;
+  /** Counts as both a swordsman and an archer for spell targeting (Weapon Master). */
+  dualClass?: boolean;
 }
 
 export interface Stats {
@@ -30,6 +32,8 @@ export interface Stats {
   noDamage: boolean;
   concealed: boolean;
   taunt: boolean;
+  /** Counts as both a swordsman and an archer for spell targeting (Weapon Master). */
+  dualClass: boolean;
 }
 
 /** Base stats plus the `stats` contribution of every active spell that reaches this minion. Never stored. */
@@ -40,7 +44,7 @@ export function computeStats(e: Engine, minionId: number): Stats {
   const b = m.base;
   const out: Stats = {
     hand: b.hand, missile: b.missile, armor: b.armor, maxHp: b.hp, level: b.level,
-    handAttacks: b.handAttacks, missileAttacks: b.missileAttacks, walks: [...b.walks], noDamage: false, concealed: false, taunt: false,
+    handAttacks: b.handAttacks, missileAttacks: b.missileAttacks, walks: [...b.walks], noDamage: false, concealed: false, taunt: false, dualClass: false,
   };
   const g = s.groups[m.groupId];
   const refs: Ref[] = [{ kind: 'minion', id: m.id }, { kind: 'group', id: m.groupId }];
@@ -64,18 +68,27 @@ export function computeStats(e: Engine, minionId: number): Stats {
     if (d.noDamage) out.noDamage = true;
     if (d.concealed) out.concealed = true;
     if (d.taunt) out.taunt = true;
+    if (d.dualClass) out.dualClass = true;
   };
   for (const ref of refs) {
-    for (const sp of spellsOn(s, ref)) add(e.cards[sp.cardId]?.stats?.(q, minionId, sp));
+    for (const sp of spellsOn(s, ref)) {
+      const card = e.cards[sp.cardId];
+      if (card?.reach !== 'board') add(card?.stats?.(q, minionId, sp));
+    }
   }
   if (g) {
     for (const mid of g.minionIds) {
       if (mid === m.id) continue;
       for (const sp of spellsOn(s, { kind: 'minion', id: mid })) {
         const card = e.cards[sp.cardId];
-        if (card?.groupAura) add(card.stats?.(q, minionId, sp));
+        if (card?.groupAura && card.reach !== 'board') add(card.stats?.(q, minionId, sp));
       }
     }
+  }
+  // Board-reach spells are asked about every minion exactly once; off the board they are suspended.
+  for (const sp of s.spells) {
+    const card = e.cards[sp.cardId];
+    if (card?.reach === 'board' && !isOffBoard(s, sp.host)) add(card.stats?.(q, minionId, sp));
   }
   out.level = Math.max(0, Math.min(RULES.maxLevel, out.level));
   out.hand = Math.max(0, out.hand);

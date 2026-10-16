@@ -12,7 +12,7 @@ import { dispel, recheck, recheckSquare } from './spells';
 import { canEnterSquare, entryBlocked } from './movement';
 import { checkFatal, groupCanEnter } from './terrainfx';
 import { RULES } from './rules';
-import { changeNation, flipGroup, joinGroup, placeRecruit, summonGroup } from './units';
+import { changeNation, flipGroup, joinGroup, placeRecruit, setGroupOwner, summonGroup } from './units';
 import type { ActiveSpell, Dir, GameState, Group, Mana, Minion, MinionSpec, Nation, PlayerId, Pos, Ref, Side, Structure, SummonDef, TerrainId } from './types';
 
 /** Read-only view handed to canCast / persistent / stats callbacks. */
@@ -77,6 +77,10 @@ export interface EventContext extends QueryContext {
   addNovices(structureId: number, count: number, nation?: Nation): void;
   /** The group changes sides. */
   changeSides(groupId: number): void;
+  /** The group (and its minions) now belongs to `owner`, neutral included; spells on it keep their owners. */
+  setOwner(groupId: number, owner: PlayerId): void;
+  /** Player or computer control. A computer group moves by the bot of card `botId` (default: this spell's card). */
+  setControl(groupId: number, control: 'player' | 'computer', botId?: string | null): void;
   /** The minion changes nation (permanent): new house; a recruit takes the new nation's hit points and walks. */
   setNation(minionId: number, nation: Nation): void;
   /** Changes a square's terrain. Structures and Sanctum squares are immune. Fatal terrain applies at once. */
@@ -214,6 +218,15 @@ export function makeCtx(e: Engine, spell: ActiveSpell, event?: GameEvent): Event
       if (nation) st.noviceNations = [...(st.noviceNations ?? []), ...Array<Nation>(added).fill(nation)];
     },
     changeSides: (groupId) => flipGroup(e, groupId),
+    setOwner: (groupId, owner) => setGroupOwner(e, groupId, owner),
+    setControl: (groupId, control, botId) => {
+      const g = e.state.groups[groupId];
+      if (!g) return;
+      g.control = control;
+      g.botId = control === 'computer' ? (botId === undefined ? spell.cardId : botId) : null;
+      g.moveOrder = null;
+      g.moveSeq = null;
+    },
     setNation: (id, nation) => {
       changeNation(e, id, nation);
       syncHp(e);

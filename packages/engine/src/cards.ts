@@ -43,6 +43,8 @@ export interface CardDef {
   stats?: (q: QueryContext, minionId: number, spell: ActiveSpell) => StatDelta;
   /** On a minion-hosted spell: `stats` also applies to every other minion in the host minion's group. */
   groupAura?: boolean;
+  /** 'board': `stats` is asked about every minion on the board (the hook decides who gets what), e.g. General. */
+  reach?: 'board';
   /** While this spell is active, return true to forbid the attempted cast (it squanders, or is rejected while ordering). */
   blocksCast?: (q: QueryContext, spell: ActiveSpell, attempt: CastAttempt) => boolean;
   /**
