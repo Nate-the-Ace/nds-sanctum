@@ -6,9 +6,9 @@ export const manaLabel = (m: string) => MANA_LABEL[m] ?? m;
 export const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 /** A cost or pool as chips ("2 Strife"). Zero entries are hidden. */
-export function ManaChips({ cost }: { cost: Partial<ManaPool> }) {
+export function ManaChips({ cost, empty = 'free' }: { cost: Partial<ManaPool>; empty?: string }) {
   const entries = Object.entries(cost).filter(([, n]) => (n as number) !== 0);
-  if (entries.length === 0) return <span class="chip free">free</span>;
+  if (entries.length === 0) return <span class="chip free">{empty}</span>;
   return (
     <span class="chips">
       {entries.map(([m, n]) => (

@@ -80,5 +80,6 @@ export function Sidebar({ state, cards, selected, children }: { state: GameState
       </section>
     );
   }
-  return <aside class="sidebar">{body}{children}</aside>;
+  // Actions (training, casting, the orders list) come first so they never scroll out of sight under a long group.
+  return <aside class="sidebar">{children}{body}</aside>;
 }

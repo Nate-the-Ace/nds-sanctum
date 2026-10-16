@@ -43,6 +43,11 @@ export function Board({ state, selected, highlights, arrows, onCell }: BoardProp
           onClick={() => onCell(pos)}
         />
       ))}
+      {/* Outlines drawn after every tile so neighbouring tiles cannot paint over them. */}
+      {cells.filter(({ k }) => highlights.has(k) || selKey === k).map(({ k, pos }) => (
+        <polygon key={`o${k}`} class={`outline${highlights.has(k) ? ' hl' : ''}${selKey === k ? ' selected' : ''}`}
+          points={diamondPoints(pos)} pointer-events="none" />
+      ))}
       {Object.values(state.structures).map((st) => {
         const c = project(st.pos);
         const glyph = st.kind === 'sanctum' ? 'S' : st.kind === 'town' ? 'T' : 'C';
