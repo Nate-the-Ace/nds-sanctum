@@ -1,0 +1,111 @@
+Sanctum | Rules | Orders | Training
+                      Novice Training Orders
+To (issue an order to) train a novice, 
+  click its structure on the board to 
+  open its town sidebar, then drag-and-drop the novice's button onto the desired 
+  training icon.
+To untrain a novice, just re-drag it (to nowhere).
+      New Group of 2 New Recruits
+        (swordsman, archer) 
+      Training 3 Novices in a Sanctum
+        (as Mystery mana, swordsman, archer)
+Training Rules
+  Training Recruits
+    Effects of Training Recruits
+    Untraining Recruits
+  Training Mana
+    Effects of Training and Untraining Mana
+Training Strategies
+  Leaving Novices Untrained
+Training Rules
+Training Recruits. Any 
+  structure that produces novices 
+  can train them as recruits.
+  Any class. You can train a novice as 1 of any class of recruit. 
+      To train a swordsman, 
+        drop the novice onto the sword icon.
+      To train an archer, 
+        drop the novice onto the arrow icon.
+  Max 8. You can train any number of recruits in each structure 
+    each turn (up to the maximum of 8). 
+Effects of Training Recruits. 
+  The new recruit appears immediately on the board.
+  Commits novice. The novice is marked as &#147;committed&#148;.
+  New group. If this structure's 
+    square is unoccupied, then a 
+    new empty recruit group 
+    is created in the square, and your new recruit joins it. After this, the 
+    square is occupied (by your new group). The group's 
+    sprite immediately appears in the structure's square. You can target group 
+    spells on this group in the same turn.
+  Training is joining. If this structure's square already contained 
+    a recruit group, your new recruit automatically joins that group. Some 
+    spells prevent joining, so they also prevent this kind of training.
+  New tile. Its recruit 
+    tile appears in the left sidebar. You can target individual 
+    spells on this tile in the same turn.
+  Potent recheck. All members of the group in this structure immediately 
+    recheck all potent spells.
+Untraining Recruits. You 
+  can cancel a novice training at any time during the player 
+  orders phase, before you click Confirm Orders. Just re-drag it to nowhere 
+  (i.e. drop it anywhere that isn't a training icon).
+   Removes tile. This novice's recruit 
+    tile immediately vanishes. Any individual 
+    spells that you targeted onto this recruit are automatically uncast, and 
+    refund their mana to your mana pool. 
+  Flushes group. If this novice was the sole recruit in a new group, 
+    and the group is now empty, then the group's 
+    sprite is immediately erased from the board. Any group 
+    spells that you targeted onto this group automatically uncast, and refund 
+    their mana.
+  Potent recheck. Otherwise, if a group still exists in this structure, 
+    all members of the group immediately recheck 
+    all potent spells.
+Training Mana. Your Sanctum 
+  can also train a novice as mana.
+  House mana. You can choose only your house's 2 
+    mana types. The other 4 mana training icons are disabled.
+  Max 1. You can train only 1 novice as 1 point of mana per turn. After 
+    you &#147;commit&#148; one novice as mana, both mana training icons are highlighted 
+    (disabled), and ignore further drops that turn.
+  Slow rate. Your Sanctum produces new novices slowly 
+    (1 every 4 turns). Plan your mana path wisely!
+Effects of Training and Untraining 
+  Mana 
+  Credit. When you train a novice as mana, its 1 point of mana is immediately 
+    added to your mana pool. You can use this mana to cast a spell this turn. 
+    This is the standard way to cast a 1-cost spell on turn 1 of the game.
+  Foreclosure. When you untrain a mana novice, its 1 point of mana 
+    is immediately deducted from your mana pool. If you are at 0 current 
+    mana in that mana type (because you already used that mana to pay for a spell 
+    targeting), then your most recent spell casting 
+    order that uses this mana type is automatically cancelled, which uncasts 
+    that spell and refunds its mana cost.
+Training Strategies
+Leaving Novices Untrained. 
+  You can leave novices untrained as long as you want. Having a stockpile of untrained 
+  novices is sometimes more advantageous than training them right away. Caution: 
+  Some spells eliminate novices!
+  The Popup Defense. When the opponent 
+    is besieging one of your structures with an adjacent recruit 
+    group, and is threatening to enter 
+    and capture it, you can 
+    stall for time by training 1 novice as a recruit each turn. This creates a 
+    new group in the structure, which blocks non-friendly groups from entering. 
+      With init, fight. If you have initiative, 
+        you must stand still and fight. You will probably lose, so this is 
+        only a delaying tactic.
+      Without, retreat. If your opponent has initiative, 
+        then you can order your new group to exit the structure in any unblocked 
+        direction (which avoids a combat at poor odds). Since your opponent moves 
+        first, she will still bounce off your group's back, and be unable to enter 
+        the structure. If you do this with enough groups of 1 recruit each, 
+        you could eventually build up a substantial group adjacent to your town 
+        that might even beat off your opponent's attack!
+  The Turtle Defense. If your opponent has spells that can damage or 
+    otherwise target recruits and groups, you can keep your strength &#147;in 
+    reserve&#148; by leaving them as novices, which most spells cannot hurt in 
+    any way.
+v2.20.00 Last updated 2009/03/22
+         | Mailing Lists

@@ -1,0 +1,395 @@
+Sanctum | Rules | Pipelines | Combat
+                      The Combat Pipeline
+Definitions
+  Precedence Between Groups
+  Minions' Combat Attributes
+Pipelines
+  Pipeline to Check for All Combats
+  Pipeline for a Full Combat
+  Pipeline to Choose Victims Wisely
+    Combat Damage (Quasi-)Immunities
+  Pipeline for One Combat Round
+  Pipeline for One Attack
+Questions
+  If my group is surrounded, in what sequence will it 
+    fight?
+  Why didn't my attacker apply 
+  her &#147;hits give&#148; effect to her victim?
+Definitions
+Precedence Between Groups. 
+  Precedence between two groups is uniquely determined by: 
+  Owners' initiative: Precedence goes to the initiative 
+    player's group, then to the neutral 
+    player's group, then to the non-initiative player's group, in that order. 
+    Note: This is a non-standard sequence, used only for combats.
+  Older group: If both groups belong to the same player, precedence 
+    goes to the older group, i.e. the group that was created earlier (regardless 
+    of their current positions within their owner's group 
+    sequence). (This rule is needed to disambiguate neutral-neutral combats.)
+Minions' Combat Attributes. 
+  Each minion (let's call him Joe) maintains these dynamic attributes for 
+  each combat.
+  Current armor. This is Joe's remaining armor 
+    for this round. At the start of each round, it 
+    is reset to Joe's maximum 
+    armor stat. During a round, it soaks off 
+    incoming damage until it reaches 0. 
+  Remaining attacks. This is Joe's remaining 
+    number of attacks for this round. At the start of each 
+    round, it is reset to Joe's attacks per round stat. Each time Joe attacks 
+    his victim, it decrements by 1.
+  Victim. Joe's victim is the single 
+    enemy minion whom Joe is currently attacking. 
+      The victim relation is non-symmetric. Joe's victim could attack 
+        one of Joe's comrades instead of Joe.
+  Idle. A minion with no current victim and 
+    1 or more attacks per round is said to be idle. A minion with 
+    zero attacks per round is a non-combatant 
+    instead.
+  Misses. This is the number of consecutive 
+    times Joe has attacked and missed 
+    any victim(s) since the last time Joe hit any victim, due to level 
+    differences. The victims could be a single enemy minion, or any combination 
+    of different minions.
+Pipelines
+Pipeline to Check for 
+  All Combats. During the combat 
+  phase, every orthogonally adjacent 
+  pair of hostile groups will fight 
+  1 combat per pair. All groups check for combats as follows:
+  For each player in the player 
+    initiative sequence
+    (initiative, non-initiative, neutral): 
+      For each group g in this player's 
+        group sequence, from first to last (approximately oldest to youngest): 
+          For each of the (up to) 4 squares that are orthogonally adjacent 
+            to current group g: 
+              If a hostile group 
+                h is in this square, and group g has precedence 
+                over hostile group h: 
+                  Groups g and h immediately fight a full 
+                    combat.
+  A group could fight 4 combats in 1 turn, if it is surrounded on all 4 sides 
+    by hostile groups (and if it survives the first 3 fights).
+  Each pair of groups g and h will fight only 1 combat per turn 
+    against each other. If both groups survive, then the group with lower precedence 
+    will usually find the same pair of groups later in the same turn, but it will 
+    skip that fight.
+Pipeline for a Full Combat. 
+  Each combat involves two hostile groups. Each combat lasts for 10 rounds, or 
+  until:
+  Either group (or both groups!) loses all of its minions
+  The two groups are no longer hostile
+      #
+      Sub-Phase
+      Effect
+      C1
+      Start of Combat
+      Both groups animate into their combat poses.
+      All &#147;start of combat&#148; effects 
+        happen, in group precedence order.
+      Check for &#147;ending combat&#148;. Some spell effects cause 
+        combat to end early.
+      C2
+      Combat round 1 (&#147;missile round&#148;)
+        All minions use only missile attacks 
+           in this round. A minion that has both hand and missile attacks 
+          uses only its missile attacks in this round.
+        All missile attacks are at -1 damage in this round.
+        Bashers (minions with only 
+          hand attacks) skip this round.
+      C3
+      Combat rounds 2-10
+        All minions use all hand attacks 
+          and all missile attacks.
+        All attacks are at normal damage.
+      C4
+      End of Combat
+      All &#147;end of 
+        combat&#148; effects happen, in group precedence 
+        order.
+      Surviving groups animate into their standing poses.
+      All &#147;after combat&#148; effects 
+        happen, in group precedence order.
+Pipeline for One Combat Round. 
+  In each combat round, all minions on both sides strike with all of their attacks, 
+  unless otherwise stated.
+      #
+      Sub-Phase
+      Effect
+      R1
+      Start of Round
+      All minions reset: 
+        their current armor to their maximum armor 
+          stat
+        their remaining attacks to their attacks 
+          per round stat
+          Note: Any &#147;do/does not attack&#148; and &#147;no 
+          longer attacks&#148; effects (even those that were received in the 
+          immediately preceding combat round!) will set a minion's attacks per 
+          round stat to 0, and the minion will be a non-combatant 
+          this round.
+      All &#147;start of each combat round&#148; 
+        and &#147;every round&#148; effects happen, in group 
+        precedence order.
+      If either group has died, or has been displaced, halt.
+      If the two groups are no longer hostile, 
+        halt.
+      All shooters (minions with 1+ 
+        missile attacks) go idle.
+      R2
+      Choose Victims
+        (round 1) 
+      All minions set their misses 
+        to &#147;infinite&#148;. This ensures that each minion's first attack 
+        will hit, regardless of its victim's level.
+      All minions forfeit all of their hand 
+        attacks. Some spells allow all hand attacks in round 1.
+      (All shooters remain idle until step R3/R4.)
+      Choose Victims
+        (rounds 2-10)
+      Bashers pair up. All idle 
+        bashers on each side &#147;pair 
+        up&#148; randomly with each other, i.e. each basher becomes the other 
+        one's victim, and vice versa. This usually 
+        locks these two bashers into a duel until one of them dies.
+      Compulsion. All idle 
+        minions on both sides check all &#147;must attack&#148; effects 
+        (which could assign their victim).
+      Idles wise up. All minions on both 
+        sides who are still idle now choose victims wisely. 
+        This includes all shooters, 
+        and all unpaired bashers.
+      R3
+      High- precedence side attacks
+      In the group with precedence:
+        For each minion m with 1 or more attacks remaining,
+        from first to last in this group:
+      Compulsion II. If minion m is idle 
+        (e.g. because its victim already died), 
+        m checks all &#147;must attack&#148; effects (which could 
+        assign a new victim).
+      If minion m is still idle: 
+        Shooter is wise. If m is 
+          a shooter, m immediately 
+          chooses a new victim wisely.
+        Basher retaliates. Otherwise, 
+          m must be a basher. If 
+          m is still the victim of 1 or more enemy minions, m immediately 
+          chooses the first such enemy minion to be m's victim.
+      Basher forfeits. If m is 
+        still idle, m forfeits all remaining 
+        attacks this round. (Invariant: m must be a basher 
+        who couldn't retaliate.) Return 
+        to the top of R3.
+      (Invariant: Minion m has a victim, and has 1 or more attacks remaining.) 
+        Minion m attacks its victim 
+        once.
+       If m now has 0 attacks remaining, return to the top of R3.
+      Multi are random. For each of minion 
+        m's remaining attacks this round: 
+         m sets its victim to a random enemy 
+          minion (with uniform probability).
+        m attacks that victim once.
+      Return to the top of R3.
+      R4
+      Low- precedence side attacks
+      Same as (R3), but for the group without precedence.
+Pipeline to Choose Victims 
+  Wisely. Minions who choose their combat victims &#147;wisely&#148; 
+  use the following tiebreakers to select a victim.
+      Wise Targeting Tiebreakers
+      1
+      Non-immune
+      Prefer the victim who isn't (quasi-)immune 
+        to your damage type.
+      2
+      Instant kill
+      Prefer a victim whom you estimate you (and your fellow group members) 
+        can kill off in this round. You might be wrong!
+      3
+      Highest armor
+      Prefer the victim with highest maximum 
+        armor (regardless of its current armor).
+      4
+      Lowest HP
+      Prefer the victim with lowest current hit points.
+      5
+      Highest damage
+      Prefer the victim with highest hand 
+        damage or missile damage per 
+        single attack (ignoring any multiple attacks). 
+      6
+      Random
+      Pick randomly.
+  Combat Damage (Quasi-)Immunities. 
+    The following spells give immunity-like effects, so &#147;wise&#148; targeters 
+    will avoid minions who have them (until nobody else is left). Note: These 
+    effects don't really give immunity to damage. But they are used as the first 
+    (highest priority) tiebreaker, so they tend to dominate wise targeting decisions.
+    Against non-magical missile damage: Fae Gift, Karillian Venom 
+      (from Karillian Arrows), Pixie Dust.
+    Against non-magical hand damage: None.
+    Against magical weapon damage: None.
+Pipeline for One Attack. 
+  Each single attack goes through the following steps. Some spells can cause 
+  the attacker to die during this pipeline!
+      #
+      Sub-step
+      Effect
+      A1
+      Check for Hit
+      Attacker decrements its remaining attacks 
+        by 1.
+      Compare the attacker's level 
+        + misses to its victim's level.
+      If the victim's level 
+        is greater, the attack misses.
+        The victim's minion tile 
+          animates ducking.
+        The attacker's misses increases by +1.
+        Halt (return to the Pipeline for One Combat 
+          Round).
+      Otherwise, the attack hits! 
+        The victim's minion tile 
+          animates taking a hit.
+        The attacker resets its misses to 0.
+      A2
+      Calculate Damage
+      Attacker calculates the total damage quantity for its current attack 
+        type, including all nation 
+        abilities, combat round modifiers, and 
+        active spell effects.
+        If the damage quantity is negative, it rounds up to 0.
+        If attacker has any &#147;does not deal&#148;, &#147;nor 
+          deal(s)&#148;, and &#147;no longer deal(s)&#148; effects, 
+          the damage quantity is set to 0.
+        Each attacker's minion 
+          tile accurately (re)displays its &#147;strength&#148; (total damage 
+          dealt) for each attack it makes, including all combat round modifiers!
+      A3
+      Victim Takes Damage
+      Victim takes attacker's damage. Go through the 
+        &#147;Takes Damage&#148; Pipeline, 
+        with the damage type and quantity 
+        from A2 (even if 0), and the attacker. This returns a result of 
+        bounced, damaged, or killed. If this causes either 
+        minion to be buried, skip to A6.
+      A4
+      Attacker &#147;hits&#148;
+      Attacker applies all &#147;when ... hits&#148; 
+        and &#147;hits give&#148; effects. If this causes either minion 
+        to be buried, skip to A6.
+      A5
+      Attacker &#147;damages&#148;
+      If the result of A3 is damaged or killed, 
+        attacker applies all &#147;when ... damages&#148; effects. If 
+        this causes either minion to be buried, 
+        skip to A6.
+      A6
+      Victim &#147;died&#148; early
+      If the victim is already buried (from 
+        a spell effect), halt.
+      A7
+      Apply damage result
+      If the result of A3 is bounced or damaged, halt.
+      (Invariant: The result of A3 must have been killed.) If 
+        the victim is no longer dying (because the 
+        victim already applied a dying-cancel 
+        spell effect), halt.
+      Otherwise, the victim is now killed, 
+        and the attacker is to &#147;blame&#148;. Go through the Minion 
+        Death Pipeline. The victim will either cancel this dying, or be 
+        buried.
+      A8
+      Attacker &#147;kills&#148;
+      If the attacker is itself dead by now, halt.
+      Otherwise, the attacker applies all &#147;kills 
+        an opponent by combat damage&#148; effects.
+      If the attacker is a recruit who does not already 
+        have an experience level, 
+        then it qualifies for one. This will be awarded at the start 
+        of the next turn.
+Questions
+If my group is surrounded, in 
+  what sequence will it fight? The following map shows what the blue 
+  player would see. For the red player, just turn the map upside-down.
+A group at g, with initiative 
+  (regardless of its color!), will fight adjacent hostile 
+  groups in the order shown below.
+  The blue player sees this order 
+    as NE, SW, SE, NW.
+  The red player sees this order as SW, NE, NW, SE.
+      00
+      01
+      02
+      03
+      04
+      05
+      06
+      07
+      08
+      09
+      10
+      11
+      ne
+      0
+      nw
+      *
+      se
+      1
+      sw
+      2
+      3
+      4
+      ne
+      5
+      1
+      6
+      nw
+      4
+      g
+      3
+      se
+      7
+      2
+      8
+      sw
+      9
+      10
+      11
+If group g doesn't have initiative, 
+  then it will not have precedence, and it won't be 
+  picking the combats.
+Suppose g is a blue group, but red has initiative.
+  If groups 1-4 are all red groups, 
+    or all neutral groups, then they 
+    all have precedence over group g. Then group 
+    g's combat sequence is determined entirely by the group 
+    sequence among groups 1-4, regardless of their locations.
+  If groups 1-4 include both red 
+    and neutral groups, then group g's 
+    combat sequence is determined by: 
+      group sequence among 
+        all red groups (since the red 
+        player checks for all combats before 
+        the neutral player does);
+      then group sequence 
+        among all neutral groups.
+If group g and groups 1-4 are all neutral, 
+  then their combat sequence is determined by the neutral 
+  player's group sequence. 
+  In this case, if group g is the oldest neutral 
+  group, then it will have precedence over groups 1-4, 
+  and it will pick the combats in the sequence shown in the diagram.
+Why didn't my attacker apply 
+  her &#147;hits give&#148; effect to her victim? Some defensive spells 
+  or spell combos can cause your attacker 
+  to die (or be killed 
+  by her own victim!) in the middle of her attack, in step 
+  A3, while still inside her victim's &#147;Takes 
+  Damage&#148; Pipeline. In this case, after your attacker returns to step 
+  A3, she skips steps A4 and A5, so she never applies those effects! Then 
+  she checks step A6, might go through step A7, and halts for sure in step A8.
+v2.20.00 Last updated 2009/03/27
+         | Mailing Lists

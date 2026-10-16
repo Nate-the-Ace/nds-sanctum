@@ -1,0 +1,37 @@
+Sanctum | Rules | Setup | Game States
+                      Game States
+  Start of a Game
+  End of a Game
+    Winning the Game
+    Drawing a Game
+Start of a Game. At 
+  the start of the game, each player has the following resources in play.
+  Horde. A group of 2 swordsmen 
+    and 2 archers (in that 
+    order) in your Sanctum.
+  Novices. 6 novices in your 
+    Sanctum.
+  Hand. You draw 5 cards 
+    from the top of your deck.
+  Mana. You have 0 mana.
+  Ownership. You own 0 towns. 
+    There are no colonies on the 
+    board.
+Depending on the realm, there are either 
+  5 neutral towns on the board, or 4-6 
+  neutral towns.
+End of a Game. The game 
+  ends when either player captures 
+  the opposing Sanctum. You do 
+  this by moving a friendly recruit 
+  group into the enemy Sanctum's square. If your group survives or avoids 
+  all combats that turn, then at the start 
+  of the next turn, you capture it!
+  Winning the Game. 
+    If one player captures the other player's Sanctum first, the 
+    capturing player wins the game! Either player may also concede at any time.
+  Drawing a Game. If 
+    both players capture each other’s Sanctum in the same turn, the game 
+    is a draw! The players may also agree to a draw at any time.
+v2.20.00 Last updated 2009/03/22
+         | Mailing Lists

@@ -1,0 +1,86 @@
+Sanctum | Rules | Concepts | Relations
+Relations
+Semantics
+  Relations: Monsters that Hunt One Group
+  Relations Off the Board
+Spells for Relationships
+  What spells create Relation monsters?
+Semantics
+Relations: Monsters that Hunt One Group. 
+  The Sanctum: Oppositions expansion set introduced the game concept of 
+  relations. In general, a relation is a special behavior between two specific 
+  groups, such that they notify each other of significant events. More 
+  specifically, this idea was used to define a hunter relation, where one 
+  group tends to hunt the other group, that is, move toward it by the shortest 
+  path. Oppositions defined 3 new monster types that use different variations 
+  of the hunter relation.
+For now, a relation group is a monster group that hunts (or is hunted), 
+  and a relation spell is the spell that creates such a monster group. 
+  The following rules apply to relations:
+  Host group. Each relation spell is targeted on a recruit group. This 
+    group becomes the host group.
+  Monster group. Each relation spell creates a separate monster group.
+  Hunting behavior. Either the monster group hunts the host group, 
+    or vice versa. The hunting group always takes the shortest possible route 
+    toward the host group.
+  It's still a monster. The monster group will fight any hostile 
+    groups it meets along the way, just like a normal monster does.
+  Bereavement. When the host group dies, or is dispelled, the monster 
+    group performs a bereavement action. Each monster has a different action, 
+    as explained in its text.
+  Only one on a group. Two groups with the same type of relation spell 
+    cannot join each other. However, a group with any relation spell can join 
+    a group that doesn't have it. Relations currently must be 1-to-1. Many-to-1 
+    relations aren't handled yet.
+Relations Off the Board. Relations interact 
+  curiously with boardhops, because the relation concept 
+  of &#147;notify significant other of events&#148; conflicts somewhat with the 
+  boardhop concept of &#147;no events while you're off the board&#148;. The following 
+  additional rules apply.
+  Hunt the departure square. If the hunted group leaves 
+    the board, the hunter group continues to hunt that group's departure square.
+  Bereaved from afar. If the host group gets removed 
+    while off the board, the monster group is bereaved normally.
+  Bereaved while away. If the monster group is bereaved while it 
+    is off the board, it generally applies its normal bereavement action, except 
+    when this would be unsafe.
+Spells for Relationships
+What spells create Relation monsters?
+      Spell
+      Monster Behavior
+      Host Behavior
+      Bereaved
+      Alabaster Guardian
+      player-controlled or seeks host group
+      player-controlled
+      player-controlled
+      Tindelhunden
+      Hunts target group
+      player-controlled
+      Suicides*
+      Questing Beast
+      Avoids combat
+      Hunts Questing Beast
+      Goes free
+  Alabaster Guardian: This monster is friendly to its host group. As 
+    of Sanctum 1.60, Alabaster Guardian is player-controlled as long as it's &#147;close 
+    to&#148; its host group, otherwise it seeks its host group. When bereaved, 
+    it becomes player-controlled.
+  Tindelhunden: This monster group is always hostile to its 
+    host group, and will automatically change sides as necessary to ensure this. 
+    When bereaved, it is removed 
+    from the game. If it kills its host group in combat, it will promptly 
+    remove itself! It is like a one-shot guided missile.
+   Exception: If a Tindelhunden group is bereaved 
+    while off the board, it goes free 
+    instead! This means it simply becomes a normal monster group. Rationale: 
+    A group off the board is &#147;inside&#148; a boardhop container, and there 
+    isn't yet a way to safely remove a group from the game while it's inside a 
+    boardhop.
+  Questing Beast: This monster group turns the usual hunter relation 
+    around: It becomes the quarry, and its host recruit group becomes the hunter! 
+    When bereaved, a Questing Beast goes free, and thereafter it's just like any 
+    other (fairly weak) monster. You can be killed in combat by a free Questing 
+    Beast!
+v2.10.00 Last updated 2005/08/05
+         | Mailing Lists

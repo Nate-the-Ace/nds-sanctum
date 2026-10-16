@@ -1,0 +1,99 @@
+Sanctum | Rules | Concepts | Group and Square Mothers
+Group and Square Mothers
+Semantics
+  Mother Spell: Its Effect Goes With It
+  Square Mothers
+  Group Mothers
+Spells
+  What spells are square mothers?
+  What spells are group mothers?
+Semantics
+Mother Spell: Its Effect Goes With It. Some 
+  spells are cast on one spell target, but give an effect to many other spell 
+  targets &#147;nearby&#148;. These spells are called mother spells. Under 
+  the hood, they work by automatically casting child spells onto the other 
+  targets to carry their effect. (Usually, the child spells are non-visible, so 
+  you can't see them, only their effects.)
+Every mother spell has the semantics: Its effect goes with it. This 
+  means:
+  Shared lifetimes. If the mother spell is dispelled or expires, its 
+    entire effect immediately ceases. (All of its child spells are immediately 
+    dispelled.)
+  Disjoint children. Every mother spell keeps track of its own children 
+    separately. A single spell target can have any number of copies of the same 
+    mother spell, and any number of copies of the same kind of child spell, without 
+    problems.
+Square Mothers. A square mother usually casts 
+  child spells onto the 4 adjacent squares, or onto the 9 squares in a 3x3 diamond.
+  If the child spells are non-visible, then they last as long as the mother 
+    spell does.
+  If the child spells are visible, then they can be dispelled one at a time 
+    by any square-dispel effect.
+  Shared lifetimes, part II. If the child spells are visible, and all 
+    of them are dispelled, then the mother spell immediately dispels itself.
+Group Mothers. A group mother is an individual 
+  spell that gives some bonus effect to all minions in its group (including its 
+  own host).
+  Shared lifetimes, part III. When the host dies, the mother spell's 
+    entire effect ceases (since all individual spells are automatically 
+    dispelled when their host dies).
+  If the host leaves the group, the 
+    mother spell's effect ceases immediately for that group (since its effect 
+    goes with it, and it's no longer in that group).
+  However, the mother spell still continues 
+    to affect its own host (in its host's 
+    new group).
+  When the host joins another group, the mother spell's effect immediately 
+    affects its new group.
+Wherever the host goes, so goes the effect!
+Spells
+What spells are square mothers?
+  Ill Winds: This spell remains visible, and it casts 4 non-visible 
+    child spells.
+  Drought, Justicars' Reserve, Law of the Land, Vale 
+    of Peace: These square mothers are non-visible, and they cast visible 
+    child spells.
+  Mirage: This spell is a mother of 4 non-visible &#147;attracting&#148; 
+    spells, which it casts into the adjacent 4 squares.
+  Siren Song: This spell is a grandmother of 4 non-visible helpers, 
+    each of which is a mother of 4 non-visible &#147;attracting&#148; spells! 
+    It ensures proper &#147;mother&#148; semantics that its effect goes with 
+    it, e.g. when its host leaves the board 
+    or teleports across the board. 
+What spells are group mothers? The first 
+  column lists all spells that are group mothers. You cast these directly. 
+  The second column lists all spells that create recruits who each have 
+  one or more non-visible group mothers.
+      House
+      Is a Group Mother
+      Has a Group Mother
+      Abomination
+      Body
+      Mask of Woad, Shaman's Walk, Visionary
+      Brother Wolf
+      Death
+      Necromancer, Reaper
+      Despair
+      Whipping Boy
+      Hope
+      Empathy, Leadership
+      Zana's Champion
+      Justice
+      Obeisance
+      Jade Gargoyle
+      Life
+      Bard
+      Making
+      Beobogh's Helm, Rangefinder
+      Mind
+      Sar'uli Overseer
+      Nature
+      Bellwether, Pixie Dust
+      Diomesia
+      Unmaking
+      Chaos Fog
+      Hollow Jester
+      War
+      Warlord
+v2.10.00 Last updated 2005/08/05
+         | Mailing Lists

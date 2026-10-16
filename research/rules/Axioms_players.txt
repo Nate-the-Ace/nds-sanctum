@@ -1,0 +1,72 @@
+Sanctum | Rules | Axioms | Players and Colors
+                      Players and Colors
+      Red group and town
+        (Life house)
+      Blue group and town
+        (Death house)
+      Neutral group
+        and unowned town
+  Red and Blue Players
+  Player Colors and Initiative
+  The Neutral (White) Player
+Red and Blue Players. 
+  Sanctum is a 2-player game. Every game pits the red player against the 
+  blue player. Players use these colors for the following: 
+   Group dots. These dots are drawn below every group 
+    sprite. 1 dot is drawn for every minion 
+    in the group.
+  Enchantment dots. These dots are drawn to the left of every enchantment 
+    in the spell list box.
+  Structure graphics. Owned 
+    towns and colonies are drawn 
+    in their owner's color.
+  Chat text. Every line of chat you send to your foe is shown in your 
+    own color on both computers.
+Player Colors and Initiative
+  The red player always begins the game with initiative. This 
+    is similar to other board game rules, e.g. Black always moves first in checkers, 
+    and White always moves first in chess.
+  The red player is determined by a random coin flip at the start of 
+    the game. In the long run, you will be the red player exactly half of the 
+    time, and the blue player exactly half of the time.
+The Neutral (White) Player.  
+  In addition, there is a 3rd neutral player, which is played by the computer 
+  itself.
+  No Sanctum. The neutral player has no Sanctum. 
+    It never wins or loses the game.
+  Neutral structures. The neutral player owns all neutral structures. 
+      No color. Neutral towns and colonies show no color.
+      No production. They never produce mana 
+        or novices.
+  Neutral groups. The neutral player owns all neutral groups. 
+      White dots. Neutral groups use white group dots.
+      Fights all. Neutral groups are hostile to everybody &#150; including 
+        each other!
+      First nation's sprite. A neutral recruit 
+        group always shows the group 
+        sprite for its first recruit's nation.
+  No orders. The neutral player never issues any orders. 
+      It never trains any recruits.
+      It has no deck or hand. It never casts 
+        any spells &#147;from hand&#148;. However, the game engine itself 
+        casts various spells as part of other game and spell effects. Such spells 
+        are treated as neutral spells: 
+          If visible, they 
+            are displayed in the spell 
+            list box with white caster dots.
+          Other spells that react to &#147;non-friendly&#148; spells will 
+            react to neutral spells (unless the game engine deliberately bypasses 
+            them).
+    It never issues any movement orders. 
+        Its computer-controlled 
+          groups always move last.
+      Bot stop. Limitation: 
+        A neutral player-controlled 
+        group never moves (unless forced) as long as it remains neutral, since 
+        it is waiting for its owner to issue its movement orders, and the neutral 
+        player never does.
+  &#147;Half-initiative&#148;. In combat, the neutral player fights 
+    before the non-initiative player 
+    does! 
+v2.20.00 Last updated 2009/03/26
+         | Mailing Lists

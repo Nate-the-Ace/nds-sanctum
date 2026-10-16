@@ -1,0 +1,129 @@
+Sanctum | Rules | Pipelines | Minion Death
+                      The Minion Death Pipeline
+  Death Categories and Keywords
+    Deaths Squander Spells
+  The Minion Death Pipeline
+Death Categories and Keywords. 
+  Sanctum defines four categories of minion and group deaths, with the following 
+  precise meanings.
+      Phrase
+      Definition and Effect
+      Examples
+      &#147;kills&#148;
+      There is an attacker to blame.
+        All &#147;if killed&#148; and &#147;when killed&#148; 
+          effects are applied.
+        All &#147;when dying&#148; effects are applied.
+        Non-magical combat damage.
+        Combat-triggered spell effects.
+        Weapon-related spells that inflict &#147;extra&#148; points of magical 
+          damage during combat.
+        Monsters' special effects.
+      &#147;dies&#148;
+      There is no attacker to blame.
+        All &#147;when dying&#148; effects are applied.
+        Instant-death spells.
+        Damage from spells, spell effects, or terrain.
+        Drowning in water.
+      &#147;removed from the game&#148;
+      No effects are applied.
+        Ascension, Cessao Spiral, Dryad's Favors, Shifting Sands, Void.
+        Jumping Land's mountain 
+          lands on you.
+        Boardhop spell is 
+          dispelled with a group still inside.
+        Moonwalking fails.
+      &#147;replaced by&#148;
+      This is simply an abbreviation for two phrases:
+        The target entity is removed from the game.
+        The replacement entity is created.
+        Recruit group to 
+          monster group: 
+          Lycanthropy.
+        Monster group to 
+          recruit group: Devolution.
+        Monster group to 
+          monster group: Instability, 
+          Volgaris.
+        Monster group to 
+          colony: Civilize, 
+          Settlement.
+        Town or colony 
+          to recruit group: 
+          Zana's Champion.
+      Exception: Spells that replace a recruit 
+        with another recruit do preserve all group 
+        spells (for which the new recruit is a legal target), even 
+        if the old recruit was alone in its group!
+        Jade Gargoyle, Odar.
+  Deaths Squander Spells. 
+    Generally, spells in Sanctum don't work on dead entities. If a spell's target 
+    is already in the graveyard due to an earlier spell effect, the spell squanders 
+    (fails).
+    Death squanders rest. When any minion 
+      or group suffers any category 
+      of death during spell execution, 
+      all subsequent spells that were targeted on that minion or group in the 
+      same turn will squander.
+    Replacement squanders, too! When a minion or group is &#147;replaced 
+      by&#148; a new minion or group, all subsequent spells targeted on the 
+      original minion or group will squander, 
+      even if the spell could legally target the new minion or group. Mnemonic: 
+      Spells don't switch targets in the middle of spell execution. This 
+      applies to the following spells that &#147;replace&#148; their targets. 
+        Spells that replace a minion with another minion: None. 
+          (Jade Gargoyle doesn't count, because it can't be targeted 
+          by individual spells anyways, per its text, so they would squander even 
+          without this rule.)
+        Spells that replace a group with another group:  Lycanthropy, 
+          and dispelling Lycanthropy; Devolution, Instability, Volgaris.
+The Minion Death Pipeline. 
+  This pipeline is applied whenever a minion is about to die. For example, it 
+  is called:
+  Whenever a minion receives an instant-death effect.
+  In the &#147;Apply Damage&#148; Pipeline, 
+    step G3, for a death from spell damage.
+  In the Pipeline for One Attack, step 
+    A7, for a death from combat damage.
+      #
+      Step
+      Explanation
+      E0
+      Dispatching
+        For a &#147;kills&#148; or &#147;dies&#148; 
+          death, start at E1.
+        For a &#147;removed from the game&#148; or 
+           &#147;replaced by&#148; death, start at 
+          E2.
+      E1
+      &#147;Is Dying&#148;
+        The minion is set to &#147;dying&#148; status.
+        All &#147;is dying&#148; effects are 
+          checked.
+        An &#147;is dying&#148; effect that 
+          &#147;returns ... to life&#148; is called a dying-cancel. 
+          It resets the minion to &#147;alive&#148; status (which causes all other 
+          dying-cancels to ignore this death).
+        If the dying was cancelled and the minion now has positive 
+          hit points, halt.
+      E2
+      Death
+        The minion is set to &#147;dead&#148; status.
+        For a &#147;kills&#148; 
+          death, all &#147;when ... is killed&#148; effects happen.
+        For a &#147;kills&#148; 
+          or &#147;dies&#148; death, all &#147;when ... 
+          dies&#148; effects happen.
+      E3
+      Burial
+        All active 
+          individual spells on the 
+          minion are dispelled (even if non-visible).
+        The minion is removed from the group (which causes it to lose all 
+          of its group spells as well).
+        The minion is added to its owner's &#147;graveyard&#148; list. It 
+          remains here until the garbage 
+          collection phase at the end of the current turn, when it is finally 
+          deleted. 
+v2.20.00 Last updated 2009/03/27
+         | Mailing Lists

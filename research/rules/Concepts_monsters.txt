@@ -1,0 +1,66 @@
+Sanctum | Rules | Concepts | Monsters and Behaviors
+Monsters and Behaviors
+Basics
+  The Monster Mana Curve
+  Monster Rules
+Behaviors
+  Territorial, Nomadic, Immobile
+Basics 
+The Monster Mana Curve. Stronger monsters 
+  cost more mana to cast. A medium-cost monster is much stronger than a 
+  recruit in combat. Thus, the primary use of monsters is to kill off your opponent's 
+  weak recruit groups from afar.
+More concretely, we can roughly classify monsters by their cost.
+      Casting Cost
+      Category
+      Examples
+      3 mana
+      Usually kills 1
+      Boggart, Tree Man
+      4-5 mana
+      Usually kills a group of 2
+      Gorgon, Stalking Blyk, Werewolf
+      6-7 mana
+      Usually kills a group of 3
+      Huntsman, Man of Iron
+      7 mana with a drawback
+      Horde-crusher (kills 3.5 out of a Horde 
+        of 4, and survives)
+      Hellion, Minotaur, Obsidian Dragon
+      8-9 mana
+      Horde-crusher with a special ability
+      Brimstone Dragon, Sylph, Yfreet
+Monster Rules
+  Monsters that are targeted on squares obey the same restrictions as all 
+    other square spells.
+  Most monster groups are computer-controlled. Some spells give you player-control 
+    over a monster group.
+  Monster groups never join recruit groups.
+  Monster groups never join each other. Some monsters explicitly state 
+    that they can join with other monster groups of the same type.
+  Monster groups never enter structures.
+  Monster groups never return from off the board into a structure.
+  Monsters do not have any terrainwalk, unless explicitly stated. Monsters 
+    suffer the same terrain effects as recruits.
+Behaviors
+Movement: Territorial, Nomadic, 
+  Immobile. Monsters exhibit the following general movement behaviors.
+      Behavior
+      Effect
+      Nomadic
+      The monster is unrestricted. It can go anywhere on the board.
+      Territorial
+        The monster has a territory of 3 x 3 squares centered on a 
+          home square, which is usually the square where it was summoned.
+        The monster will not move out of this territory.
+         If the monster is forced to move out by a spell or effect, such as 
+          sliding on ice, then the square where it stops becomes its new home 
+          square.
+         Clicking on the monster draws an outline around its territory in 
+          its owner's color.
+      Immobile
+      The monster cannot move at all. It ignores all spells and effects 
+        that normally cause movement.
+Monsters also exhibit many different specialized movement behaviors.
+v2.20.00 Last updated 2009/03/17 
+         | Mailing Lists

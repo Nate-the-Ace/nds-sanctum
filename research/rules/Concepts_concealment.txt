@@ -1,0 +1,53 @@
+Sanctum | Rules | Concepts | Concealment
+Concealment
+Definitions
+  What does &#147;concealed&#148; mean?
+  What does &#147;concealed from both players&#148; 
+    mean?
+  Does forest terrain give &#147;concealment&#148;?
+Spells that Conceal and Reveal
+  What spells give concealment?
+  What spells conceal from both players?
+  What spells pierce concealment?
+Definitions
+What does &#147;concealed&#148; mean? A concealed 
+  minion cannot be targeted by enemy individual spells, that is, by spells whose 
+  caster is hostile to that minion. This means your opponent can't use the 
+  mouse to drop a normal individual spell onto your concealed minion (and 
+  vice versa).
+  If your opponent targets a spell on your minion while your minion is visible, 
+    and then your minion gains a concealment effect before your opponent's 
+    spell executes, then your opponent's spell squanders 
+    (fails)!
+  A concealed minion can still be targeted by friendly individual spells.
+  A concealed minion's group can still be targeted by group spells 
+    (friendly or enemy).
+  The game engine itself can still cast any individual spells on concealed 
+    minions.
+What does &#147;concealed from both players&#148; mean? 
+  A minion that is concealed from both players cannot be targeted by any 
+  individual spells, friendly or enemy. Its group can still be targeted by group 
+  spells, and the game engine can still cast individual spells on it.
+Does forest terrain give &#147;concealment&#148;? 
+  Yes. As of Sanctum 1.60 CCR (Oct 2004), forest terrain now gives exactly the 
+  same kind of concealment as invisibility spells. Hence, non-friendly minions 
+  in forest appear grayed out, exactly as if invisible.
+Spells that Conceal and Reveal
+What spells give concealment?
+  Greymantle (from Clandestine), Ogi's Gauntlet, Xia's 
+    Walk.
+  Chaos Fog, Harmattan, Inscrutability.
+  Blinding Orb.
+What spells conceal from both players?
+  Fog of War, Sandstorm.
+What spells pierce concealment?
+  Biting Wind: This individual spell can target minions even if they 
+    are concealed.
+  Insight: The caster of this spell ignores all concealment, as if 
+    nobody is concealed. This does not dispel any concealment effects, it simply 
+    pierces right through them.
+      Since Insight is a globe spell, it is superceded by any subsequent 
+        globe spells that give concealment, i.e. Blinding Orb or Fog of War.
+  Scrying Pool: This spell gives the ability to ignore all concealment.
+v2.10.00 Last updated 2005/08/05
+         | Mailing Lists

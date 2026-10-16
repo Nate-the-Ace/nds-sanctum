@@ -1,0 +1,103 @@
+Sanctum | Rules | Pipelines | Turn Phases
+                      The Phases of a Game Turn
+Every game turn is divided into a number of distinct phases, which happen 
+  in a strict sequence. The skybar at the top of the game board displays the current 
+  turn phase.
+      Clocks and Turn Count, Skybar, and Globe
+      #
+      Phase
+      Effect
+      1
+        Start of Turn 
+      The start-of-turn phase performs bookkeeping 
+        updates. 
+        Award an experience 
+          level to all recruits who qualified 
+          for one.
+        All &#147;at start of turn&#148; effects.
+        All &#147;after start of turn&#148; 
+          effects.
+        Draw 
+          cards.
+         Capture 
+          structures (except Sancta).
+        Structures that weren't captured in step (e) 
+          produce novices.
+        Calculate structure 
+          deltas and update initiative.
+        Generate 
+          mana.
+        Check for end 
+          of game (captured a Sanctum).
+      Proceed immediately to the next phase.
+      0
+        Checksum
+      The checksum phase detects out-of-sync 
+        (OOS) errors. 
+        Legit. Each client applies various tests to detect memory hacks 
+          and other cheats. If you are flagged for cheating, your game is terminated 
+          immediately, which counts as a loss! So don't do that.
+        Gather. Each client gathers the following checksum data for 
+          every square on the board: 
+            Terrain 
+              type
+            All square spell and 
+              structure spell ids
+            [If a structure 
+              is present]: its owner and type
+            [If a group is present]: 
+              its owner and size, and ...
+            [For every minion 
+              in group]: 
+                minion's current hit points
+                All individual spell 
+                  ids on this minion,
+                  and group spell ids 
+                  on its group
+        Terse. The 2 clients send to each other their terse checksum 
+          strings of 7 sums, one for each of the above categories. If these terse 
+          sums strings are identical, done (proceed to phase 2).
+        Verbose. On any mismatch, the 2 clients enter a verbose dialogue 
+          to pinpoint or localize the error. For each mismatching terse category: 
+            They send to each other their verbose data for that category.
+            They each log both sides' verbose data. This enables 
+              NIOGA to locate an OOS even when we receive only one player's log 
+              file (which is the usual case).
+            They each chat a checksum error message to the local player.
+      Proceed immediately to the next phase.
+      2
+        Player Orders
+      Each player's mouse is enabled. Both players 
+        issue all training, casting, 
+        and movement orders.
+      This phase ends when both players click Confirm Orders.
+      3
+        Spell Execution
+      Spell casting orders are executed in player 
+        initiative sequence (skipping the neutral 
+        player, who never issues any casting orders). 
+        All of the remote player's newly trained recruits are created locally, 
+          and appear on the board.
+        All of the initiative player's spells execute.
+        All of the non-initiative player's spells execute.
+      4
+        Movement
+        All &#147;before movement&#148; effects.
+        All movement orders are executed. See the Movement 
+          Pipeline.
+        All &#147;after movement&#148; effects. 
+          All groups with a &#147;moves 
+          twice&#148; effect move again in this phase, using their existing 
+          movement orders.
+      5
+        Combat
+        All &#147;before combat&#148; effects.
+        All groups fight all combats. See the Combat 
+          Pipeline.
+      6
+        Garbage Collection
+        All &#147;after all combat&#148; 
+          effects.
+        All dead minions and groups and expired spells are deleted.
+v2.20.00 Last updated 2009/03/22
+         | Mailing Lists

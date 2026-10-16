@@ -1,0 +1,65 @@
+Sanctum | Rules | Elements | Deck and Hand
+                      Deck and Hand
+Rules
+  Deck Limits
+    Card version equivalence
+  Hand Limits
+Rules
+Deck Limits
+  Min 30. The minimum deck size is 30 cards.
+  No max. There is no maximum deck size.
+  Dup 4. A deck may have a maximum of 4 cards of each type. 
+    You can’t include 5 or more of the same card type.
+  No decking. There is no penalty for running out of cards. The 
+    game ends only when a Sanctum 
+    is captured. 
+    Card version equivalence. 
+      Some cards have multiple versions. All versions of a card are 
+      considered to be the same card type for this rule. You may have a 
+      total of 4 of all versions of a multiple-version card, in any combination 
+      you like.
+    The following table shows all cards that have equivalent versions.
+      The &#147;Originals&#148;
+      The &#147;Equivalents&#148;
+      Apocalypse
+      Classic
+      OOP
+      Apocalypse II
+      Whispers
+      Whispers
+      Bleak Isle
+      Classic
+      OOP
+      Bleak Isle II
+      Whispers
+      Whispers
+      Sword of Zana
+      Classic
+      OOP
+      Sword of Zana II
+      Whispers
+      Whispers
+      Water Breathing
+      Classic
+      Common
+      Water Walking
+      Classic
+      NIP
+      Mirage
+      Classic
+      Uncommon
+      Neb's Mirage
+      Whispers
+      Uncommon
+Hand Limits
+  Size 5. Your hand size is 5 cards.
+  Cast all. Each turn, you may cast as many cards as you can afford.
+  Discard 1. Each turn, you may optionally discard 1 card. You 
+    cannot discard 2 or more. Some spells prevent you from discarding. Some 
+    spells force you to discard your hand.
+  Draw to fill. At the start 
+    of your turn, you draw as many cards as needed to fill your hand 
+    to 5. For example, if you emptied your hand last turn, you will draw 5 
+    cards. Some spells prevent you from drawing cards.
+v2.20.00 Last updated 2009/03/22
+         | Mailing Lists

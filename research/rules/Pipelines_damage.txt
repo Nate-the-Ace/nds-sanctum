@@ -1,0 +1,351 @@
+Sanctum | Rules | Pipelines | Damage
+                      The Damage Pipeline
+Attacks, Attackers, and Damage
+  Modes of (Physical) Attacks
+    Categories of Attackers
+      Basher
+      Shooter
+      Multi-attacker
+      Non-combatant
+  Types of Damage
+Pipelines
+  The &#147;Apply Damage&#148; Pipeline
+  The &#147;Takes Damage&#148; Pipeline
+Spells that Munge Damage
+  How could my minion get damaged by a &#147;deals 
+    no damage&#148; attacker?
+  Which spells can benefit from dealing a 0-point 
+    hit?
+  What spell combos can really benefit from 
+    dealing a 0-point hit?
+  What spell combos can benefit from taking 
+    damage?
+Attacks, Attackers, and Damage
+Modes of (Physical) Attacks. 
+  There are 2 modes of physical attacks in Sanctum. They determine how quickly 
+  you can (re)engage enemy minions in combat, and whether you can force an enemy 
+  minion to &#147;pair up&#148; with you in a duel. Combat in Sanctum is presumed 
+  to be a strenuous physical activity.
+      Attack Type
+      Combat Rounds
+      Description
+      hand attack
+        rounds 2&#150;10
+      A hand attack is a close-combat attack using any hand-held weapon, 
+        or weapon-like hand.
+        Swordsmen, and 
+          most monsters that use natural bodily weapons, have hand attacks.
+        Hand attacks always deal hand damage.
+      missile attack
+        round 1, at -1 missile 
+          damage
+        rounds 2&#150;10,
+          at full damage
+      A missile attack is a long-range attack using a projectile-launching 
+        weapon, such as a bow.
+        Archers, and some 
+          monsters, have missile attacks.
+        Missile attacks always deal missile damage.
+Categories of Attackers. 
+  Minions in combat are further categorized according to the (number and) types 
+  of attacks they have. Some spells grant extra attacks. Some spells enable 
+  a minion to have both hand and missile attacks.
+   Basher. A 
+    minion with only hand attacks is called 
+    a basher.
+    Bashers don't attack in combat round 
+      1. They are still rushing into battle.
+    Bashers always &#147;pair up&#148; 
+      with enemy bashers in 1-vs-1 duels. Analogy: Gridiron football, offensive 
+      line vs. defensive line.
+    Any unpaired bashers (from the side who has more of them) use wise 
+      targeting. Analogy: Gridiron football, blitzing linebacker vs. quarterback.
+    If a basher is idle (e.g. its victim 
+      already died), it retaliates 
+      if possible, else it forfeits all 
+      of its remaining attacks that round. It must chase down another victim.
+    Bashers usually have higher armor 
+      than non-bashers. They need it!
+  Shooter. A 
+    minion with only missile attacks, or 
+    with both hand and missile attacks, is called a shooter.
+    Shooters get an opening volley (missile attack) in combat 
+      round 1, but with a small damage penalty.
+    Shooters always use wise targeting. 
+      They never &#147;pair up&#148; with anybody. For game balance, we permit 
+      shooters to continue to shoot &#147;wisely&#148; even when many bashers 
+      are bashing on them!
+    If a shooter is idle, it immediately 
+      chooses a new victim. A shooter 
+      never forfeits any attacks!
+  Multi-attacker. 
+    A minion with 2 or more attacks per round (regardless of type) is also called 
+    a multi-attacker.
+    A multi-attacker is a basher if all 
+      of its attacks are hand attacks. Otherwise, it is a shooter 
+      (even if it alternates attack types).
+    A multi-attacker always uses random targeting 
+      for its 2nd and additional attacks in the same round. This is necessary 
+      for game balance.
+  Non-combatant. 
+    A minion with zero attacks per round is a non-combatant.
+    Non-combatants never &#147;pair up&#148; with anybody.
+    Non-combatants are always chosen last by the wise 
+      targeting tiebreakers.
+Types of Damage. 
+  There are 4 types of damage in Sanctum. Some spells give, and some monsters 
+  have, resistances to some damage types.
+      Damage Type
+      Effect
+      Physical damage types
+      hand damage
+      Hand attacks always 
+        deal hand damage.
+      missile damage
+      Missile attacks 
+        always deal missile damage.
+      Damage modifiers
+        These can be combined with a physical damage type.
+      &#147;ignores armor&#148;
+      This damage does not reduce, and is not 
+        reduced by, the opponent's armor.
+      &#147;magical&#148;
+      This damage has the &#147;ignores 
+        armor&#148; effect. Also, it is not blocked by any immunities or spells. 
+        Example: A spell that protects against missile 
+        damage doesn't protect against magical missile damage.
+      Most spell and monster effects deal magical damage.
+Pipelines
+The &#147;Apply Damage&#148; 
+  Pipeline. This pipeline is used for all spell effects that cause 
+  damage, including direct damage and terrain effects outside of combat, and monster 
+  abilities, defensive spells, and weapon-like spells in combat. For damage 
+  caused by a physical attack in combat, see the Pipeline 
+  for One Attack instead.
+The game engine calls this pipeline with these parameters:
+  Quantity. The damage quantity is always non-negative; it may be 0.
+  Type. The damage type is usually &#147;magical&#148;, 
+    with no other modifiers.
+  Spell: The spell that caused the damage.
+  Wielder: If the spell is a defensive or weapon-like individual 
+    spell, then the wielder is the spell's host minion. 
+    Note that the wielder is not passed as the attacker; hence, there is 
+    nobody to &#147;blame&#148; for any damage caused by this pipeline, and any 
+    deaths resulting from it are always &#147;dies&#148; 
+    deaths.
+      #
+      Step
+      Explanation
+      G1
+      Sanity checks
+      If the victim is already dead, 
+        halt.
+      If the victim is off the 
+        board, halt.
+      G2
+      Victim takes damage 
+      The victim goes through the &#147;Takes 
+        Damage&#148; Pipeline with the damage quantity, &#147;magical&#148; 
+        damage type, and no attacker. Since &#147;magical&#148; 
+        damage bypasses most events in step D1 and 
+        step D3, this usually reduces to step 
+        D4 only, and returns either damaged or killed.
+      G3
+      Handle dying
+      If the result of step G2 is killed, the 
+        victim goes through the Minion Death Pipeline. 
+        The victim will either cancel this dying, or be buried.
+The &#147;Takes Damage&#148; 
+  Pipeline. This pipeline is called from two higher pipelines, the 
+  &#147;Apply Damage&#148; Pipeline 
+  and the Pipeline for One Attack. It is 
+  called with these parameters:
+  Quantity. The damage quantity is always non-negative; it may be 0. 
+    A 0-point hit can still be significant by triggering other effects. 
+  Type. All combinations of damage types 
+    are possible.
+  Attacker: The attacker to &#147;blame&#148; for the damage, if any. 
+    If specified, then any death caused by this damage will be a &#147;kills&#148; 
+    death (which triggers all anti-attacker responses); otherwise, it will be 
+    a &#147;dies&#148; death. All attacks in combat 
+    specify the attacker; all spell damage never specifies an attacker.
+      #
+      Step
+      Explanation
+      D1
+      &#147;Before armor&#148;
+      All &#147;before checking armor&#148; 
+        effects happen. The victim is permitted to increase the damage 
+        it receives, even if the attacker has a &#147;deals no damage&#148; effect! 
+        Note: Most spells with this phrase explicitly ignore &#147;magical&#148; 
+        damage.
+      If there is an attacker, all &#147;is hit by&#148; 
+        or &#147;is hit in combat&#148; effects happen.
+      If the damage &#147;ignores armor&#148; 
+        or is &#147;magical&#148;,  skip to D3.
+      D2 
+      Armor soak 
+      The remaining damage and this minion's remaining 
+        current armor reduce each other, 1 point for 1 point, until either 
+        quantity reaches 0. (This is called soaking 
+        off.)
+      If the damage is reduced to 0, halt with result = bounced.
+      Otherwise, this minion's current armor must have been reduced to 0. Proceed 
+        to D3.
+      D3 
+      &#147;After armor&#148; 
+      Remaining damage is capped to this minion's 
+        current hit points. (If the damage was higher, it is lowered to be equal.)
+      All &#147;after checking armor&#148; effects happen. Note: 
+        Most spells with this phrase explicitly ignore &#147;magical&#148; 
+        damage.
+      If this cancels the damage, halt with result = bounced.
+      If this minion died, halt with result = killed.
+      D4 
+      Apply damage 
+      This minion's current hit points are reduced 
+        by the remaining amount of damage.
+      If this minion is still alive and still has positive hit points, 
+        halt with result = damaged.
+      Otherwise, halt with result = killed.
+      Note: The minion is technically &#147;still alive&#148;, even with 
+        zero hit points!
+Spells that Munge Damage
+How could my minion 
+  get damaged by a &#147;deals no damage&#148; attacker? Briefly, the 
+  victim himself can always &#147;volunteer&#148; to receive more damage 
+  than the attacker gave him. That sidesteps the restriction on the attacker. 
+  An alert player will exploit spells that &#147;volunteer&#148; the opponents' 
+  minions in this way!
+Example: Diomesia and two Satyr archers, with Despond 
+  on their group, fight a group of 3 Shadow swordsmen who have initiative. 
+  Diomesia and her comrades still receive 1 damage per Shadow attack (not 2). 
+  Fortunately, with their archer wise targeting, 
+  and Diomesia's level 2, the Satyrs overwhelm the Shadows, and win, taking 4, 
+  0, and 6 damage, respectively. But why did they take damage at all?
+   The Shadow swordsmen &#147;deal no damage&#148;, as stated in Diomesia's 
+    text. Indeed, for this entire combat, the Shadows' minion 
+    tiles do show them at 0 hand damage for every swing!
+  In step A2 of the Pipeline for One Attack, 
+    each Shadow sets its damage quantity to 0.
+  In step A3, we jump into the &#147;Takes Damage&#148; 
+    Pipeline, with damage type = hand and quantity 
+    = 0. 
+      In step D1, all &#147;before checking 
+        armor&#148; effects happen.
+      Despond's text has a match for this phrase! The game engine cheks 
+        that the attacker is a Shadow. It applies the text effect, which increases 
+        the &#147;damage received&#148; quantity by +1. From here on, the damage 
+        quantity = 1!
+      Since neither Diomesia nor her archers have any armor, they eventually 
+        take the 1 damage. You can conclude that they took a total of 10 hits, 
+        which explains their 10 total damage. Diomesia's basher 
+        pair-up behavior and level 
+        ducking was just enough of a distraction for her comrades to win the 
+        fight!
+This example generalizes to any other &#147;deals no damage&#148; effect 
+  vs. any &#147;before checking armor&#148; effect that adjusts the incoming 
+  damage quantity.
+Which spells can benefit 
+  from dealing a 0-point hit? First, let's consider the most common 
+  case. An &#147;unassisted&#148; (non-magical) 0-point hit in combat will simply 
+  bounce off armor in step D2, and return a bounced result to step A3 of 
+  the Pipeline for One Attack (which see). 
+  That will fall through to step A7, which halts. Hence, you could exploit the 
+  effects that are guaranteed to happen before then.
+  Step D1: &#147;before checking armor&#148;. Almost all of these are 
+    defensive spells that help the victim. Two that do help the attacker instead 
+    are Despond and Treacherous Armor.
+  Step D1: &#147;is hit by&#148; / &#147;is hit by&#148;. These also 
+    usually help the victim.
+  Step A4: &#147;when ... hits&#148; 
+    / &#147;hits give&#148;. Here, the attacker has some decent options: Gorgon's 
+    Head (if you can get one), Shattering Blow, Shield of Vela, 
+    Thermites, Arhwazna (from Yeoman) vs. a Keeper.
+What spell combos can 
+  really benefit from dealing a 0-point hit? Study both pipelines 
+  again, and consider a 0-point hit that &#147;ignores armor&#148;. In step D1, 
+  you skip to D3! In step D4, your victim probably shrugs off 0 damage. But D4 
+  shall return a result of damaged &#150; even if the victim is still 
+  at full health! So you also get these effects:
+  Step D3: &#147;after checking armor&#148;. Most spells with this 
+    phrase are defensive, and won't help you. You want to avoid (fighting against 
+    minions who have) the spells that say &#147;receives no damage&#148;, since 
+    these will return a result of bounced from step D3, which spoils your 
+    fun. You really want to avoid your victim's Retribution!
+  Step A5: &#147;when ... damages&#148;. 
+    This effect is the payoff for your deck-building efforts! Dire Portent 
+    vs. an Elf, Dragon Slayer / Eagle Spirit vs. a monster, Flail of 
+    Sa'rul, Iron Shillelagh, Karillian Arrows, Soul Eater, Touch of Death. Of 
+    course, you could also achieve these benefits by actually damaging the victim 
+    for 1 point or more. But as we've seen, sometimes 
+    an attacker doesn't have that luxury.
+  Combine with an &#147;ignores armor&#148; spell: Deva's Quiver, Dwarven 
+    Arrows (from Master Fletcher), Spirit Sword, Thermites 
+    vs. Gargoyles. Or, a &#147;magical damage&#148; spell: Yeoman.
+After getting some healing, Diomesia and 7 Satyr archers return to the wild 
+  woods, where they encounter Khobai + Spirit Sword + Touch of 
+  Death. He has enough hit points stockpiled to survive all their archery. 
+  With each attack, he hits for 0 damage past armor, which triggers his 
+  Touch of Death, and kills one Satyr. He slaughters them all in 8 rounds!
+What spell combos can 
+  benefit from taking damage? Here's a combo of unsurpassed 
+  puissance (and a mana cost to match it). If you can pull this off 
+  in a ranked game, you deserve it! Let's build this combo on a swordsman 
+  named Fred.
+  Ogi's Armor + Treacherous Armor + Deflection (in any sequence) 
+    + Unholy Aura (after Deflection). 
+      Fred gets +3 armor from Ogi's Armor, so he has A:4.
+      Fred fights alone against 8 enemy recruits who have 7 hit points each, 
+        and no enchantments.
+      Abe, a recruit in the enemy group, hits Fred for quantity = 2 damage. 
+        Suppose Fred is already out of armor for this round. 
+      Step D1: Fred's Treacherous Armor responds &#147;before checking 
+        armor&#148;. It finds Fred's max armor of 4, and adds twice that to the 
+        incoming damage, per its text. Now quantity = 2 + (4 &#149; 2) = 10! Normally, 
+        this would be very bad news for Fred ...
+      Step D3: Fred's Deflection responds &#147;after checking armor&#148;. 
+        It sees quantity = 10, and redirects 10 magical damage back to 
+        Abe, per its text. Abe is killed (by Fred)!
+      Step D3: Fred's Unholy Aura responds &#147;after checking armor&#148;. 
+        It sees that Abe is a recruit without enchantments. It applies its &#147;receives 
+        no damage&#148; effect, which cancels the damage!
+(Almost) every enemy recruit blows himself up just by hitting Fred! Fred could 
+  have a &#147;no longer attacks&#148; effect, and he would still win! Fred 
+  himself was always safe, because of his Unholy Aura.
+In general, the first enemy attacker per round would take only 6 rebounding 
+  damage &#150; because in step D2, Fred's armor would soak off half of his own 
+  Treacherous damage, which reduces the damage that Deflection bounces back to 
+  the attacker. How's that for irony &#150; Fred's armor reduced the damage 
+  that the attacker took! After that, Fred would be out of armor 
+  for the rest of the round (and loving it).
+Let's pump Fred's armor a little more, to the point where even the first enemy 
+  attacker dies. We behold an even more astonishing development:
+  Let Fred be (of all things) a Bard, so he starts with A:3. With the 
+    Ogi's Armor, Fred has A:6!
+  The first enemy recruit must have 7 HP or less. The rest of them must have 
+    14 HP or less.
+  The enemy recruits may have any individual and group enchantments! 
+    Fred's combo still works!
+ Now, even if the first enemy recruit's attack is a missile attack in combat 
+  round 1 at -1 damage, it will do 1 damage, and bounce back as 1 + 6 = 7 damage 
+  to that enemy, which exactly kills him. Every remaining recruit will see the 
+  unpenalized and unsoaked damage of 2 + (6 &#149; 2) = 14 damage, which kills 
+  each of them as they attack.
+  In step D3, as Fred's Deflection is in the process of killing off 
+    the attacker ... 
+      In step E3 of the Minion Death pipeline, 
+        as each enemy recruit is buried, it has all individual spells dispelled, 
+        and it leaves the enemy group (which means it loses all of its group spells, 
+        too).
+  In step D3, when Fred's Unholy Aura checks the enemy recruit, it 
+    sees a dead recruit who is already buried in the enemy player's graveyard. 
+    Dead minions have no enchantments! So it cancels the damage  &#150; 
+    even though the enemy recruit was alive and enchanted at the moment 
+    it made its attack! That's the subtle beauty of a pipeline.
+Fred, a Bard with no attacks, could wade through a field of enemy 
+  recruit groups of 8, right up to the enemy Sanctum, and eventually win the 
+  game by himself! Having Fred survive monsters and instant-death spells 
+  is up to you.
+v2.20.00 Last updated 2009/03/27
+         | Mailing Lists

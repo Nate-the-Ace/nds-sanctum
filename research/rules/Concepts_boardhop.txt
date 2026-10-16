@@ -1,0 +1,125 @@
+Sanctum | Rules | Concepts | Off the Board
+Off the Board and Teleportation
+Boardhopping
+  &#147;Disappears&#148; and Boardhopping
+  Leaving the Board
+  Being &#147;off the board&#148;
+  Returning to the Board
+  Combat-hoppers
+Teleportation
+  Teleporting Across the Board
+Spells that Hop
+  What spells take a minion, group, or structure off 
+    the board?
+  What spells create combat-hopper groups?
+  What spells or effects teleport a group?
+  What spells or effects teleport a minion?
+Boardhopping
+&#147;Disappears&#148; and Boardhopping. 
+  Some spells cause a minion, group, or structure to &#147;disappear&#148;. The 
+  object is removed from the board, but it doesn't die, and it remains 
+  in play. At a later time, the object will &#147;reappear&#148; on the board, 
+  with all of its stats and spells intact.
+So where do these objects go while they're not on the board? They go to a nameless, 
+  locationless place that's called simply &#147;off the board&#148;. The act of 
+  leaving the board is called boardhopping, and spells and effects that 
+  do this are called boardhops.
+Here are some rules of thumb to help you think about boardhops.
+  A boardhop is like a container. Every boardhop can contain 1 group 
+    or 1 structure. We say that the group is &#147;inside&#148; the boardhop. 
+    We can also say that the boardhop &#147;contains&#148; the group.
+  Every boardhop is distinct. There can be any number of boardhops 
+    active at the same time. Each one is a completely separate container. Groups 
+    in different boardhops never contact or conflict with each other.
+Leaving the Board. When an object leaves 
+  the board, other game actions targeted on that object may be affected.
+  Squanders subsequent spells. When a minion, group, or structure leaves 
+    the board during the spell execution phase (as the result of a previous spell's 
+    execution), then all subsequent individual, group, or structure spells, respectively, 
+    that were targeted on that minion, group, or structure, but which execute 
+    while the target is off the board, are squandered 
+    (fail).
+Being &#147;off the board&#148;. Groups off 
+  the board obey the following rules.
+  Not &#147;on the board&#148;. A group off the board ignores all spells 
+    that affect &#147;every ... on the board&#148;.
+  No events. A group off the board ignores most game events. Any spells 
+    on the group or its members will temporarily cease their effects while they're 
+    off the board. This means they won't generate mana, alter costs, block spells, 
+    or any other global effect they usually have, until after the group returns.
+  Time stops when you're off the board. In particular, a group off 
+    the board ignores the &#147;at start of turn&#148; event. This means 
+    that conjurations don't decrement their durations while they're off 
+    the board. When the group returns, all conjurations on the group and its members 
+    will still have the same durations they had when it left.
+  Removed if dispelled. If the boardhop spell 
+    is dispelled while a group is inside, that group is removed 
+    from the game.
+Returning to the Board. Most boardhops are 
+  temporary. When they expire, the object returns to the board.
+  Every object off the board has a unique &#147;exit square&#148;, which is 
+    where it will return. Usually, this is the same as its departure square when 
+    it entered the boardhop.
+  The object returns on the first turn when its exit square is unoccupied.
+  Corollary: If you park another group on the landing square, the first 
+    object can't return! It will just wait patiently off the board.
+Returning to the board is not a normal movement. It does not check any 
+  movement 
+  events.
+  A group can return to the board into a terrain or square it can't normally 
+    enter! 
+      Exemplar: You can use Will o' the Wisp + Inundate to drown a group 
+        that can't enter water.
+  A recruit group can return into a structure. If the structure is hostile, 
+    the group can capture it.
+  A monster group will not return into a structure. 
+    It will just wait off the board. 
+Combat-hoppers. Some spells create a group 
+  &#147;off the board&#148;, with the curious property that the group hops onto 
+  the board only to pick a fight, and hops off the board when it's done! These 
+  spells and groups are called combat-hoppers.
+A combat-hopper spell is just like a boardhop, except that it already has a 
+  group inside, namely its own recruit or monster group. Combat-hoppers obey the 
+  following additional rules:
+  When the group dies in combat, the spell is automatically dispelled.
+Teleportation
+Teleporting Across the Board. Some spells 
+  and effects teleport a group to a new square. Teleportation is defined 
+  to consist of:
+  Hopping the group off the board from its current square;
+  Hopping the group onto the board in its new square.
+ You can think of a teleportation as an instantaneous boardhop. Equivalently, 
+  you can think of a boardhop as a slow-motion teleportation!
+  Doesn't squander any spells. A teleportation during spell execution 
+    (e.g. from Bolt of Somersaults or Ch'tai Exchange) does not squander 
+    any subsequent spells. Subsequent spells execute normally on their targeted 
+    group or minion, regardless of their new locations! Mnemonic: Spells 
+    automatically chase their targets across the board.
+Spells that Hop
+What spells take a minion, group, or structure off 
+    the board? 
+  Soul Jar, Vision Quest: These spells make 1 recruit leave 
+    its group, then take that recruit's new group off the board.
+  Encampment, Faerie Circle, Lost Mine, Will o' the 
+    Wisp: These spells take 1 group off the board.
+  Awaiting: As above, but for all monster groups created while 
+    it remains in play.
+  Seelie Court: Takes 1 town off the board.
+What spells create combat-hopper groups?
+  Citizens' Militia: This spell creates a recruit group of 4 Vision 
+    swordsmen, which always appear to defend the structure on which the spell 
+    was targeted.
+  Arboriads, Brown Striders, Firewyrm, Loch Dweller: 
+    These spells each create 1 monster group. They can appear in any eligible 
+    square on the board, as described in their text.
+What spells or effects teleport a group?
+  Bolt of Somersaults: This spell teleports 1 group.
+  Teleportation: This spell teleports 1 or more friendly recruit groups.
+  Gatemouth: This monster teleports all adjacent groups (friendly 
+    or enemy) in the &#147;before combat&#148; phase.
+What spells or effects teleport a minion?
+  Ch'tai Exchange: This spell causes 1 friendly recruit and 1 non-friendly 
+    recruit to switch places. It's implemented as having each recruit leave 
+    its group, and then teleport into the other recruit's group.
+v2.10.01 Last updated 2005/08/15
+         | Mailing Lists

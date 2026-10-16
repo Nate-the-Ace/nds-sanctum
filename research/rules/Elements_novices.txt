@@ -1,0 +1,88 @@
+Sanctum | Rules | Elements | Novices
+                      Novices
+A novice is an untrained person. Each novice can be trained 
+  as a recruit in any structure, or trained 
+  as mana in your Sanctum. This is your primary source of reinforcements during 
+  a game. Some spells also instantly create novices.
+      Novices in a Town or Colony
+        (with Recruit Training Icons)
+      Novices in a Sanctum
+        (with Recruit and Mana Training Icons)
+Novice Rules
+  Properties of Novices
+  Novice Production
+  Novices and Structures
+Spells that Affect Novices
+  Which spells create novices?
+  Which spells eliminate novices?
+  Which spells otherwise affect novices?
+Novice Rules
+Novice Interaction
+  Structure sidebar. First, click on the structure on the board to 
+    open the structure sidebar.
+  Novice button. Each novice is depicted as a button (draggable icon) 
+    at the bottom of the structure sidebar.
+  Training icons. Training icons (non-draggable) are shown in the bottom 
+    border of the structure sidebar.
+  Untargetable. Novice buttons and training 
+    icons are not spell targets. 
+    They cannot be targeted by any spells. Some spells affect novices without 
+    targeting them!
+  Drag-and-drop. You train a novice 
+    by dragging its button and dropping it onto a training icon. The novice is 
+    immediately marked as &#147;committed&#148;, but is not actually trained yet 
+    (until you click Confirm Orders). To untrain the novice, just redrag it.
+Properties of Novices
+  Nation. Each novice has a nation, 
+    but no stats or abilities.
+  No sprite. Novices don’t appear on the board. They are visible as 
+    buttons only when you peek into their structure.
+  No presence. Novices don't move. They don't prevent enemy groups 
+    from entering their structure.
+  No puissance. Novices don't fight. They have no effect in combat.
+Novice Production
+  Frequency. Owned structures 
+    produce new novices at regular intervals.
+  Owner's nation. All novices produced in a structure are of the structure 
+    owner's nation.
+      If you capture a structure from 
+        your opponent, it will produce your novices as long as you own it.
+      Some spells modify the nations of novices produced in structures.
+Novices and Structures
+  Max 8. Each novice-producing structure can hold a maximum of 8 
+    novices. 
+      If a structure is full, it won’t generate any more novices. Corollary: 
+        It will no longer trigger any spells that respond to novice creations!
+  Non-capturable. Whenever a structure is captured, 
+    all novices in the structure are eliminated. Hint: Use them or lose 
+    them!
+Spells that Affect Novices
+Which spells create novices?
+  Allies (2 Elves), Army 
+    of Light (2 Visions), Spawn 
+    of Toganni (2 Gargoyles): 
+    These spells create 2 novices of the specified nation in the target structure 
+    (regardless of the structure owner's house).
+  Fertility: This spells speeds up its target structure's novice 
+    production rate to 1 novice every turn.
+  Chalice of Hope: This spell speeds up all owned structures' 
+    novice production rate to 1 novice 
+    every turn.
+Which spells eliminate novices?
+  Insurrection: Eliminates all novices in its target structure immediately.
+  Census: Eliminates all novices in all structures when it expires.
+  Pestilence: Eliminates all novices in all structures immediately.
+Which spells otherwise affect novices?
+  Djibari's Legacy: This spell causes all subsequently produced 
+    or created novices to be Imps, 
+    instead of their normal nations.
+  Kumatru Academy: This spell causes its structure to start producing 
+    super-archer recruits instead 
+    of novices.
+  Runts: This spell causes its structure to start producing two weak 
+    swordsmen recruits instead 
+    of novices.
+  Usam University: This spell generates 
+    mana for each novice in its structure.
+v2.20.00 Last updated 2009/03/22
+         | Mailing Lists

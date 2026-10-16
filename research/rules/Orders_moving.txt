@@ -1,0 +1,138 @@
+Sanctum | Rules | Orders | Moving
+                      Group Movement Orders
+To (issue an order to) move a friendly 
+  player-controlled group, 
+  drag-and-drop its group sprite 
+  into a valid destination square.
+To cancel a movement order, double-click the group (or drag-and-drop it into 
+  its own square).
+      Looks Legal
+      Not Legal Yet
+      Forbidden (Out of Range)
+        Movement Range Boxes
+          for a &#147;Moves 2&#148; Group
+          (showing a diagonal north
+          movement order)
+Movement Rules
+  Issuing Movement Orders
+  Movement Limits
+Movement Orders Feedback
+  Dynamic Feedback (While You Drag)
+  Persistent Feedback (While You Watch)
+Movement Spell Effects
+  &#147;moves twice&#148;
+  &#147;Moves 2&#148;
+Spells that Move Us
+  Which spells &#147;move twice&#148;?
+  Which spells can move a group diagonally?
+  Which monster types have &#147;Moves 2&#148;?
+Movement Rules
+Issuing Movement Orders
+  Lend me your ears! Only friendly 
+    player-controlled groups 
+    are eligible to receive your movement orders. All other groups simply ignore 
+    you.
+  Drag-and-drop to issue. To change a movement order, just re-drag 
+    the group.
+  Double-click to cancel. You can cancel a movement order at any time 
+    during the player orders 
+    phase, before you click Confirm Orders.
+  Min 0. You may issue 1 movement order each to as few or as many of 
+    your eligible groups as you like.
+  Sequence breaks ties. The sequence 
+    in which you issue your movement orders does matter. It's s used as 
+    the last tiebreaker in the Movement Pipeline's voting 
+    procedure to see which group &#147;wins&#148; a square. This means your 
+    movement orders will be executed in approximately the same sequence 
+    as you issued them (except where overridden by higher tiebreakers). Plan 
+    ahead! 
+Movement Limits. Most 
+  groups move at &#147;speed 1&#148;:
+  1 square per turn.
+  4 orthogonal directions only.
+Movement Orders Feedback
+Dynamic Feedback (While You 
+  Drag). Sanctum provides dynamic feedback for movement validity, using 
+  a swappable drag image.
+  Orange range boxes. When you select a friendly 
+    player-controlled group 
+    (by clicking it), all legal squares within its range of movement are 
+    highlighted in orange.
+  Sprite means maybe. A mouse cursor that looks like your group sprite 
+    means this square is valid. Drop here to issue the movement order. This happens 
+    while you drag within your orange range.
+  Question means maybe not. A red ? 
+    mouse cursor means this square is currently impassable by this group. 
+    Drop here to issue the movement order anyways. You can make the square 
+    passable before the movement 
+    phase, e.g. by casting a spell.
+  Red means no. A red &Oslash; 
+    mouse cursor means you're dragging beyond your group's &#147;speed&#148;, 
+    and the square is invalid. Dropping here simply cancels the drag, without 
+    further effect.
+Persistent Feedback (While 
+  You Watch). All of your current movement orders for this turn are 
+  drawn on the board itself.
+  Yellow means maybe. Ayellow arrow means 
+    the movement order is currently legal.
+  Red means maybe not. A red arrow means 
+    the movement order is not yet legal.
+  Both of these conditions might become false during turn execution, in 
+    which case your movement arrows (if still being displayed) are automatically 
+    redrawn in the appropriate color.
+Movement Spell Effects
+&#147;moves twice&#148;. 
+  Some spells allow a group to &#147;move twice&#148; in 1 turn.
+   Two legs. It is executed as two separate movement sub-phases. The 
+    group does move its full &#147;speed&#148; in each sub-phase.
+  Non-cumulative. &#147;Moves twice&#148; effects do not stack. No 
+    matter how many of them you get in the same turn, you will move only twice 
+    total. (This is because there are only two 
+    movement sub-phases.)
+  Layover. The group must survive all effects of both moves 
+    separately. If the first move causes the group to die, it won't get the second 
+    move.
+&#147;Moves 2&#148;. 
+  Some monsters state &#147;Moves 2&#148; in their card text. This means they 
+  move at &#147;speed 2&#148;, i.e. 2 squares per turn.
+  2 or 1.414. These groups can move 2 squares in a straight line, or 
+    1 square diagonally.
+  Leaps tall buildings. A &#147;speed 2&#148; move ignores the square 
+    in the middle. The group doesn't check any &#147;on 
+    enter&#148; or &#147;on exit&#148; 
+    effects for the square in the middle. The group can slide right through any 
+    intervening terrain, 
+    structure, or group 
+    in the middle square, as if it wasn’t there. However, a &#147;speed 2&#148; 
+    group does trigger all &#147;on 
+    enter&#148; events normally in its destination square, so it is not 
+    a teleportation.
+  Some spells cause a monster 
+    group to become player-controlled. 
+    If you gain control over a &#147;moves 2&#148; monster group, you can give 
+    it 2-square and diagonal movement orders.
+   Some spells allow a recruit group to move diagonally, which counts as 
+    speed 2.
+  When a “moves 2” monster group also gets a “moves twice” effect, it can 
+    move a total of 4 squares in 1 turn!
+Spells that Move Us
+Which spells &#147;move twice&#148;?
+  Amok, Eat and Run, Fleetness, Forced March, Gale Force: These spells 
+    are manifestations, which means 
+    they cannot be dispelled. (Even if you cast Forced March + Cleansing 
+    Light or similar on a group, it will still move twice!)
+  Flying Carpet: This spell is a conjuration, 
+    so it can be dispelled.
+Which spells can move a group 
+  diagonally?
+   Lienna's Steed.
+Which monster types have &#147;Moves 
+  2&#148;?
+  Alabaster Guardian: This monster does not have Flight 
+    or any other terrainwalk. 
+    It can get stuck in swamps, 
+    especially if it moves diagonally into them.
+  Fiend, Pegasus, Tindelhunden: These monsters have Flight 
+    in addition to &#147;Moves 2&#148;.
+v2.20.00 Last updated 2009/03/22
+         | Mailing Lists

@@ -1,0 +1,209 @@
+Sanctum | Rules | Axioms | Houses and Nations
+                      Houses and Nations
+      House
+      Mana Types
+      Nation
+      Nation Ability
+      Primary
+      Secondary
+      plural
+      Combat
+      HP
+      Terrainwalk
+      Abomination
+      Imp
+      +1 hand damage 
+        in round 2
+      Body
+      Cyclops
+        Cyclopes 
+      9 hit points
+      Death
+      Keeper
+      +1 hand damage 
+        in round 2
+      Despair
+      Shadow
+      Mountainwalk
+      Hope
+      Vision
+      Waterwalk
+      Justice
+      Gargoyle
+      9 hit points
+      Life
+      Elf
+        Elves 
+      +1 missile 
+        damage in round 1
+      Making
+      Dwarf
+        Dwarves 
+      Mountainwalk
+      Mind
+      Djinn
+        Djinni 
+      Waterwalk
+      Nature
+      Satyr
+      +1 missile 
+        damage in round 1
+      Unmaking
+      Misfit
+      9 hit points
+      War
+      Human
+      +1 hand damage 
+        in round 2
+  &#147;Cyclops&#148; follows Classical Greek rules for pluralization, e.g. 
+    thesis =&gt; theses, basis =&gt; bases, hence Cyclops =&gt; 
+    Cyclopes.
+Rules
+  Houses and Nations
+  House Mana Types
+  Recruit Baseline Stats
+  Nation Abilities
+Analysis
+  What's the &#147;best&#148; nation ability?
+Trivia
+  In Grehen's lore, which individuals converted to a different 
+    house?
+Rules
+Houses and Nations
+  A house encompasses a philosophy, culture, or way of life. There 
+    are 12 houses in Sanctum.
+  A nation is a race of persons. There are 12 nations in Sanctum. Every 
+    novice and recruit 
+    is a member of a nation.
+  Every nation is affiliated with one house. (The members of this nation serve 
+    a Mage of this house, namely you, the player.)
+   Members of each nation are almost always affiliated with the corresponding 
+    house. However, there are many special cases in Grehen's long history where 
+    some individuals of one nation converted or defected 
+    to a different house.
+Usually, you speak of the nation of an individual or recruit, or group 
+  thereof.
+   For instance, you'd say &#147;a Keeper group&#148;, instead of &#147;a 
+    Death group&#148;.
+  Ngozi would describe herself as a Human, not as a &#147;War gal&#148;.
+However, you speak of the house of a spell, monster, or deck.
+   You'd say &#147;a Despair spell&#148;, not &#147;a Shadow spell&#148;.
+  You'd call a Boggart an &#147;Unmaking monster&#148;, not a &#147;Misfit 
+    monster&#148;.
+  You'd say &#147;My Making deck&#148;, not &#147;My Dwarf deck&#148;.
+House Mana Types
+  Every house has two mana types, which are called 
+    primary and secondary.
+  Almost all of a house's spells have equal or greater primary mana cost than 
+    secondary mana cost. Exception: All of the &#147;5-for-2&#148; structure 
+    mana generators cost 0+5 mana, using only their house's secondary mana.
+Recruit Baseline Stats. 
+  A hypothetical “nationless” recruit has the following baseline (unmodified) 
+  stats: 
+  1 hand or missile attack 
+    for 2 damage.
+  0 armor.
+  7 hit points.
+  1 level.
+  Cannot enter mountain 
+    or volcano terrain. If 
+    on mountain or volcano, they cannot move away.
+  Cannot enter water. If 
+    on water, they drown (die).
+These baseline stats are modified by the recruit's nation 
+  ability and class.
+Nation Abilities. Every 
+  nation has a nation ability. All recruits of this nation automatically 
+  gain the nation ability (no matter what house they're actually associated with). 
+  Some spells can change a recruit's nation, in which case he immediately loses 
+  his old nation ability and gains his new nation's ability. Some spells can cancel 
+  a recruit's nation ability.
+      9 HP nations
+      Recruits of these nations start with 9 maximum and current hit points 
+        (instead of 7).
+      Cyclopes (Body)
+      Gargoyles (Justice)
+      Misfits (Unmaking)
+      Combat nations
+      Recruits of these nations gain a 1-point damage bonus at the start of 
+        every combat.
+      +1 hand damage in combat 
+        round 2.
+      Imps (Abomination)
+       Keepers (Death)
+       Humans (War)
+      +1 missile damage 
+        in combat round 1.
+      Elves (Life)
+      Satyrs (Nature)
+      Terrainwalk nations
+      Recruits of these nations can enter, exit, and stand in the indicated 
+        terrain safely.
+      Mountainwalk. 
+        These nations are not blocked by mountains or volcanos. (They still take 
+        volcano damage.)
+      Dwarves (Making)
+      Shadows (Despair)
+      Waterwalk. These 
+        nations are not blocked by water, and do not drown in water.
+      Djinni (Mind)
+      Visions (Hope)
+Notes:
+  Hit point changes. If a recruit changes from a 7-HP nation to a 9-HP 
+    nation or vice versa, the recruit gains or loses maximum hit points 
+    only. 
+      Hit point cap. However, a minion's current 
+        hit points are always capped to its maximum hit points. If its maximum 
+        hit points are reduced below its current hit points, its current hit points 
+        are also lowered to be equal to its (new) maximum hit points.
+  Multple attacks. If a combat-nation recruit has multiple 
+    attacks of the proper attack 
+    type in the specified round, all of those attacks will get the 
+    damage bonus.
+  Terrain-walk changes. If a recruit with terrainwalk changes to a 
+    nation without terrainwalk while standing in that terrain, he'll suffer the 
+    effects. (The Penumbra spell can drown an entire group of Djinni 
+    or Visions over water by changing them all to Shadows!)
+Analysis
+What's the &#147;best&#148; nation 
+  ability? There are many techniques to estimate this. Here are a few.
+  By &#147;mana value&#148;. Find a spell that's roughly equal to your 
+    nation ability. We have: 
+       Mountain Climb (1 mana), Water Breathing (1 mana). Conclusion: 
+        Terrain walk is &#147;worth&#148; about 1 mana per group.
+      Reaper (1+1 mana), Rangefinder (2+0 mana). Both of these spells have 
+        two parts, (a) +1 damage for their host, and (b) +1 for the entire group, 
+        in round 1 or round 2 only. We want to isolate (b). But we know that (a) 
+        is worth 1 mana, c.f. True Aim, Vicious Strength. So (b) must also be 
+        worth 1 mana. Conclusion: The combat bonus is &#147;worth&#148; 
+        about 1 mana per group.
+      Fortitude (3+0 mana). Conclusion: Having 9 HP is worth about 
+        3 mana per group!
+      So the &#147;mana value&#148; metric suggests that 9 HP is the &#147;best&#148; 
+        nation ability.
+  By head-to-head combat. As you know, in most games, your Horde will 
+    collide with the enemy Horde at center town. Assume that both Hordes are completely 
+    naked (i.e. no spells). Consider who wins. 
+      Any combat nation will defeat any terrainwalk nation, regardless 
+        of initiative.
+      Any 9 HP nation will defeat any combat or terrainwalk nation, regardless 
+        of initiative.
+      Conclusion: By this reasoning, 9 HP is a huge advantage! In general, 
+        your opponent has to outrace you by 1 card in the first 6 turns just to 
+        break even at center town.
+Trivia
+In Grehen's lore, which individuals 
+  converted to a different house? Here's a partial list:
+  The Imp Bloodspike converted from Abomination to Hope, and took the 
+    name Heartsong. (Atonement, Unerring Focus)
+  Ngozi's Human son Ozande converted from War to Justice, and became 
+    a Justicar. (Nemesis)
+  Ovo, Brass of the Sky, is a Vision who turned from Hope to Unmaking. 
+    (Jumping Land)
+  Fingle was a Dwarf who studied Chaos, and was exiled. After being 
+    taken in by Misfits, he converted to Unmaking. (Fingle, Fingle's Folly, 
+    Chaos Fog)
+You can find other incidents by browsing the card flavor texts and the histories 
+  of Grehen.
+v2.20.00 Last updated 2009/03/26
+         | Mailing Lists

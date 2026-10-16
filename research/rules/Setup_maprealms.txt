@@ -1,0 +1,215 @@
+Sanctum | Rules | Setup | Map and Realms
+                      Map and Realms
+Game Options
+  Realms: Terrains for All Occasions
+    Table 1: Average Terrain Counts
+Map Generation
+  Town Placement
+    Table 2: Eligible Random Town Locations
+  Terrain Generation
+Game Options
+Realms: Terrains for All Occasions. 
+  A realm represents a typical environment in the world of Grehen. You choose 
+  it as one of the game challenge options. Different 
+  realms can reward alternative strategies and decks.
+In game terms, a realm comprises the following:
+  Number of towns. Some realms have a random number of towns.
+  Default terrain. The default terrain 
+    is automatically assigned to certain squares to ensure accessibility. It is 
+    always a non-blocking terrain.
+  Terrain distribution. It sets the probabilities for each type of 
+    terrain to appear in each square. 
+    Each square usually &#147;rolls&#148; a random pick from its distribution 
+    only once, at the start of a game. 
+      If the Symmetric game option is enabled, then only half of 
+        all squares pick their terrain randomly using the distribution, and the 
+        other half just copy them (by rotating around the centerpoint), 
+        by definition.
+      Some spells cause some or all squares to re-pick their terrain types 
+        randomly, which re-uses the realm's distribution.
+  Table 1: Average Terrain 
+    Counts. This table shows the average number of each type 
+    of terrain for every realm. (Only 84 of the 94 
+    squares on a game board are considered, since the other 10 squares are 
+    reserved for the 2 players' Sancta 
+    and Sanctum entrances.)
+      Realm
+      Towns
+      Default Terrain
+      Average Terrain Counts
+         (for 84 squares)
+      Veldt
+      5
+      Plains
+      57 Plains, 
+        19.5 Forest, 
+        4 Water,
+        2.5 Mountain, 
+        0.5 Desert, 
+        0.5 Swamp
+      Volgaria
+      5
+      Barren 
+        Land
+      57 Barren Land, 
+        19.5 Forest, 
+        4 Water,
+        2.5 Mountain, 
+        0.5 Desert, 
+        0.5 Swamp
+      Badlands
+      4-6
+      Barren 
+        Land
+      55 Barren Land, 
+        15 Lava, 6 Volcano,
+        4.5 Mountain, 
+        2 Desert, 1.5 
+        Void
+      Great Frost
+      4-6
+      Plains
+      32 Ice, 32 Plains, 
+        15 Forest, 
+        5 Volcano
+      Arboria
+      4-6
+      Plains
+      57 Forest, 
+        22 Plains, 
+        4 Swamp, 1 Water
+      Random
+      4-6
+      Picks one of the five previous maps.
+  The Veldt is the primary realm, with standard terrain and a constant 
+    number of towns.
+   The large quantities of ice in the Great Frost allow rapid movement 
+    and favor quick decks.
+   The harsh terrain of the Badlands favor decks that are prepared 
+    to handle it with movement or terrain control.
+   The forests of Arboria provide cover from individual spells for 
+    both players.
+  Volgaria is a &#147;time-out realm for unruly players&#148;, 
+    Sanctum's equivalent of a penalty box. 
+      Volgaria lobby room. It's available only if both players are 
+        in the Volgaria lobby room, whether due to banishment 
+        or just visiting. And while you're in the Volgaria lobby room, this is 
+        the only map you can choose.
+      Unranked only. &#147;Only unranked games are permitted here.&#148; 
+      Visitors welcome. Non-banished players can freely visit the Volgaria 
+        lobby room, and play on the Volgaria map, if they like.
+Map Generation
+Town Placement. First, 
+  all structures are placed on 
+  a blank board.
+  Sancta. Each player's Sanctum 
+    and Sanctum entrances covers 
+    5 squares.
+  Pick half. Half the towns 
+    (rounding down) are randomly placed on one half of the board.
+  Rotate half. An equal number of towns 
+    are then rotated  onto the other half of the board.
+  Odd town in. If there is an odd town, 
+    it is placed in the center square (Symmetric), or in one of the two center 
+    squares (Classic). 
+    Table 2: Eligible Random 
+      Town Locations. Randomly placed towns are never placed:
+      Orthogonally adjacent to a Sanctum 
+        entrance.
+      Orthogonally adjacent to the centerline  (the line of 
+        squares equidistant between the two Sancta, 
+        which bisects the axis between them).
+      On a centerline square.
+      On a map edge square.
+      Orthogonally adjacent to a town 
+        that has already been placed.
+This leaves 18 possible squares for towns in a Classic layout, or 13 squares 
+  in a Symmetric layout, as shown:
+      Eligible squares:
+      00
+      01
+      02
+      03
+      04
+      05
+      06
+      07
+      08
+      09
+      10
+      11
+      c
+    [C]lassic
+      ne
+      0
+      b
+    [C]lassic &amp; [S]ymmetric
+      nw
+      *
+      se
+      1
+      C
+      sw
+      2
+      Non-eligible squares:
+      S
+      3
+      C
+    Red player's Sanctum 
+      [C]
+      c
+      4
+      S
+    Red player's Sanctum [S]
+      m
+      b
+      c
+      c
+      5
+    Blue player's Sanctum
+      m
+      b
+      b
+      b
+      c
+      6
+    Blue player's entrances
+      b
+      b
+      b
+      c
+      7
+    adjacent to entrance
+      b
+      b
+      8
+    adjacent to centerline
+      b
+      b
+      9
+    centerline
+      b
+      b
+      10
+    map edge
+      11
+Terrain Generation. 
+  Next, terrain is generated. Every square randomly &#147;rolls&#148; its own 
+  terrain, using the realm's terrain distribution. The following rules apply:
+  Plains. Sancta, 
+    Sanctum entrances, and towns 
+    are automatically plains.
+  Default. Squares adjacent to a Sanctum 
+    entrance (i.e. at distance 2 from a Sanctum) are the map realm's default 
+    terrain. (Each Sanctum has 5 such squares nearby.)
+  Max 1. Every town can 
+    be adjacent to at most one blocking terrain (mountain, 
+    volcano, swamp) 
+    or deadly terrain (water 
+    or Void). If a town 
+    is already blocked on any one side, then the other three squares adjacent 
+    to this town are the map realm's 
+    default terrain.
+There is no guarantee that you have a safe path to any town.
+v2.20.00 Last updated 2009/03/24
+         | Mailing Lists

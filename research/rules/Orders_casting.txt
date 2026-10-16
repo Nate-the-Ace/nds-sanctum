@@ -1,0 +1,188 @@
+Sanctum | Rules | Orders | Casting
+                      Spell Casting Orders
+To target a spell in your hand, drag-and-drop it onto a valid spell target 
+  on the board.
+To discard a spell, drag-and-drop it onto the Whirlpool.
+To uncast or undiscard a spell, double-click or redrag it.
+Casting Rules
+  Issuing Casting Orders
+  Paying the Casting Costs
+  More Than One of the Same Spell
+Spell Targeting Interface
+  Dynamic Feedback (While You Drag)
+  Persistent Feedback (If You Peek)
+    Potent(ial) Spell
+  The Choose Minion Dialog
+Issuing Casting Orders
+  Drag-and-drop. To target a spell, drag-and-drop 
+    it from your hand onto a legal spell target.
+  Max 5. You may cast as many spells as you can afford 
+    each turn, up to your full hand 
+    size.
+  Click to cancel. To uncast or undiscard a 
+    spell, just click it, or redrag it.You can uncast or undiscard at any time 
+    during the player orders 
+    phase, before you click Confirm Orders.
+  Sequence is preserved. Your spells will execute in exactly 
+    the same sequence as you issued them.
+  Discard on Whirlpool. To discard a spell, 
+    drag-and-drop it onto the Whirlpool 
+    in the lower right corner of the game board. Discarding gives you 
+    an extra card draw next turn. A standard early-game strategy is to discard 
+    1 spell per turn that you can't afford to cast anyways, to improve your chances 
+    of drawing your low-cost spells soon enough to make a difference for your 
+    first 1-2 towns. This implies that your deck design includes enough low-cost 
+    spells for this strategy to be meaningful, and enough redundancy in your &#147;big&#148; 
+    spells to tolerate discarding a few of them early on.
+  Max 1. You may discard at most 1 spell per turn. Some spells prevent 
+    you from discarding.
+Paying the Casting Costs. You 
+  must pay each spell's casting cost 
+  from your mana pool to target 
+  it for casting. (Discarding is always free.)
+  No(t enough) mana. If you can't afford a spell's casting cost, then 
+    the spell is invalid for casting (but you may still discard it). It 
+    shows a &#147;&Oslash; Mana&#148; cursor throughout the drag, except over 
+    the Whirlpool.
+  Deduct on drop. When you drop a spell onto a legal target (which 
+    targets it for casting), its casting cost is immediately deducted from your 
+    mana pool.
+  Refund on cancel. When you cancel a targeted spell, its casting cost 
+    is immediately refunded to your mana pool.
+  Discarding is free. Discarding a spell doesn't cost any mana. Canceling 
+    a discard doesn't refund any mana.
+More Than One of the Same Spell. 
+  Some special restrictions apply when you attempt to cast 2+ copies of the same 
+  spell onto a single spell target. (For this discussion, same means two 
+  copies of a spell with identical name and id, or two non-identical spells 
+  that are equivalent to each 
+  other. Conversely, different means two spells that have non-identical 
+  names, and aren't equivalent.)
+  Variety is OK. Most spells are gregarious: they co-exist peacefully 
+    with each other (unless they specifically state that they block other spells). 
+      No max for hosting. A given spell target may have any number 
+        of different active spells 
+        (usually 1 of each).
+      No max for targeting. In one turn, you may target any number 
+        of different spells from your hand onto a single spell target (up 
+        to your hand size).
+  &#147;Only 1&#148; (of each). Most spells are 
+    exclusive: they block additional copies of themselves (unless 
+    the spell specifically states otherwise). 
+      Max 1 for hosting. A given spell target may have at most 1 copy 
+        of each enchantment.
+      Max 1 for targeting. In one turn, you may target only 1 copy 
+        of the same spell onto the same spell target. Your 2nd copy 
+        will be illegal on this spell target, since the first targeted copy blocks 
+        it. 
+          1 per turn if instant. Instant 
+            spells leave play right away, so they immediately cease to block themselves. 
+            In subsequent turns, you may target another copy of the same spell 
+            onto that spell target. Over time, you can cast as many copies 
+            of the same spell onto one spell target as you like &#150; just at 
+            the rate of 1 per turn.
+      Execution racing. If both players cast the same spell 
+        onto the same spell target in one turn, the outcome depends on the spell 
+        type. This can reasonably happen for globe spells, or on the center 
+        town, or in same-house &#147;mirror match&#148; duels in monster-heavy 
+        houses, where both players pick the same square. 
+          Instants all succeed. If the same spells are any instant 
+            type, they don't stick around to block each other, so they all succeed, 
+            one after the other. Exception: If an instant spell explicitly 
+            states &#147;Only one&#148; or similar, e.g. all Hero 
+            spells, then see below.
+         Enchantments squander non-init! If the same spells 
+          are an enchantment 
+          (or an instant type that 
+          explicitly states &quot;Only one&#148;),  then the initiative 
+          player's copy will succeed, and the non-initiative player's copy will 
+          squander!
+  &#147;More than once&#148;. Some 
+    spells explicitly state “cumulative” or “may be cast more than once”. These 
+    spells follow the gregarious rules: 
+      No max for targeting. In one turn, you may target any number 
+        of copies of the same cumulative spell onto one spell target.
+      No max for hosting. A given spell target may have any number 
+        of copies of the same cumulative spell, by any combination of players. 
+        Exemplar: Globe &#147;4-for-1&#148; mana generators all specify “May 
+        be cast more than once”.
+      No racing. Both players may do this in the same turn, and all 
+        of their copies will succeed, one after the other.
+Spell Targeting Interface
+Dynamic Feedback (While You 
+  Drag). As you drag a card from your hand, Sanctum provides dynamic 
+  feedback for spell targeting validity, using adaptive mouse cursors and tooltips.
+      Cursor shows target type. The mouse cursor shows and tells you 
+        what target type this spell expects.
+      Solid means valid. Dropping the spell here targets it for casting.
+      Dropping a spell where it isn't legal simply cancels the drag, with no 
+        effect.
+      Hollow means wrong type. The current spell target is the wrong 
+        target type.
+      Solid + &Oslash; means failed.  The current spell target fails 
+        this spell's casting requirements.
+      Blocked by game rule.
+        Mana. You can't afford this spell's 
+          casting cost.
+        Turn Over. You already clicked Confirm Orders, so your player 
+          orders phase is over for this turn.
+        1 only. This spell is exclusive, and the 
+          current spell target already has 1 copy of it.
+      Blocked by concealment. This spell is an individual 
+        spell, and the current spell target is concealed.
+        Tooltip shows blocking spell. Sanctum now displays 
+          a tooltip with the name of the blocking spell, or the first one if multiple 
+          spells are blocking you.
+      Blocked by active spell. An active 
+        spell is (or 2+ are) blocking this spell. The blocking spell(s) could 
+        be on the current spell target itself, or on any later spell target in 
+        the containment 
+        hierarchy.
+Persistent Feedback (If 
+  You Peek). After you successfully drop a spell in hand onto a target, 
+  it becomes a potent(ial) spell.
+  Grayed in hand. The card in your hand is grayed out.
+  Spell targeting marker. A targeting marker is drawn on the minion 
+    tile or square (but not on the globe or whirlpool) for each targeted spell.
+    Potent(ial) spell. A potent spell is 
+      a spell in hand that has been successfully targeted this turn, but has not 
+      yet executed.
+      List box, in parens. A spell target's list 
+        box also shows all potent spells on this spell target, with their 
+        names in parentheses.
+      Potent recheck. If a structure 
+        exists in this spell target's square, 
+        then whenever you train or untrain a recruit 
+        in this structure, the game engine immediately rechecks the casting 
+        requirements of all potent spells (only) on all members of the group 
+        in that structure. Any potent spell that fails a requirement is immediately 
+        uncast, and refunds its mana. For now, this enforces group-size casting 
+        requirements.
+The Choose Minion Dialog. 
+  It is legal to drop an individual spell 
+  onto a group sprite, even if this 
+  is an ambiguous input.
+  Auto-selects if unique. If the drop is unambiguous, i.e. this spell 
+    is legal on exactly one minion in this group, then the spell is automatically 
+    targeted onto that minion, and no further input is needed.
+  Choose if ambiguous. Otherwise, if the dropped spell is legal on 
+    2 or more minions in this group, then Sanctum opens the Choose Minion dialog. 
+    This shows: 
+      New copy of spell.
+      Floating group sidebar. It contains (copies of) all of this group's 
+        minion tiles in a floating 
+        sidebar.
+      Redrag to disambiguate. Re-drag the spell and drop it onto a 
+        legal minion tile to complete the original spell drop.
+  Modal window. The Choose Minion dialog is modal, i.e. it blocks 
+    all other interactions until you close it. 
+      Auto-close: If your turn ends automatically, e.g. by expiration 
+        of a Grace clock, the Choose Minion dialog (and all other modal dialogs) 
+        close themselves automatically.
+  Or, just click the group! To avoid using the Choose Minion dialog 
+    entirely:
+      Click the group to select it (which displays its minion tiles in the 
+        left sidebar).
+      Drag-and-drop from your hand directly onto a minion tile.
+v2.20.00 Last updated 2009/03/26
+         | Mailing Lists

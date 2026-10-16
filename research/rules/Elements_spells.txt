@@ -1,0 +1,454 @@
+Sanctum | Rules | Elements | Spells
+                      Spells
+Sanctum cards are called spells. You cast them onto spell 
+  targets on the game board to support your groups, advance your strategy, 
+  and defeat your enemy.
+Spell Data
+  Spell Properties
+  Spell Types
+  Spell Target Types
+  Spell Casting Requirements
+    Casting-time vs. Persistent Requirements
+Spells in Play
+  Stages of a Spell's Life
+  Squandered Spells
+  Active Spells
+    Active Spell Lists
+    Spell Visibility
+    Real Spells and Helper Spells
+    Spell Requirements Recheck
+Spell Interaction
+  The Spell List Box
+Spell Data
+Spell Properties
+  Every spell belongs to a house, 
+    which determines the 2 mana types in 
+    its casting cost.
+  Every spell has a casting cost, 
+    which uses only its house's 2 mana types.
+  Every spell card shows its house immediately below its name.
+  Each deck can freely mix and match spells from any houses, as long as 
+    you can pay their casting costs.
+Spell Types. Spell 
+  types are distinguished by their duration (how long they last).
+  There are 5 types of spells in Sanctum.
+  Every spell card shows its spell type immediately below its name.
+      Spell Type
+      Duration
+      Explanation
+      alteration
+      persistent
+      An alteration persists as an active spell 
+        for the rest of the game.
+      conjuration
+      temporary
+      A conjuration persists as an active spell. 
+        It expires after a finite duration, or when a certain event happens.
+      manifestation
+      instant
+      A manifestation has instant effect, and then leaves play immediately 
+        (even before the next spell executes). It never becomes active.
+      summoning
+      instant
+      A summoning has instant effect and zero duration, like a manifestation. 
+        It creates a monster group.
+      Hero
+      instant
+      A Hero spell has instant effect and zero duration, like a manifestation. 
+        It creates a Hero recruit.
+  Enchantment. An active 
+    spell (alteration or conjuration) that is also visible 
+    is called an &#147;enchantment&#148; in numerous card texts. Some monsters 
+    and spells gain benefits in combat or effect against minions who have no enchantments.
+  Same lifetimes. Alterations and conjurations automatically leave 
+    play if their &#147;host&#148; spell 
+    target suffers any category 
+    of death, or is destroyed. They can also be explicitly dispelled. Some 
+    active spells can transfer to new hosts.
+Spell Target Types. 
+  Every spell has a target type, which determines which part of the game 
+  board you can cast it on.
+  There are 10 kinds of spell targets 
+    in Sanctum.
+  Every spell card shows its target type immediately below its name.
+      Target Type
+      Explanation
+      recruit
+      These spells are called individual spells. 
+        They must be targeted on a minion of the proper type. You can drop them 
+        onto:
+        A minion tile
+        A group sprite that contains 
+          at least one legal minion
+          (this may open the Choose 
+          Minion dialog)
+      These spells cannot target concealed 
+        minions (unless they explicitly state otherwise).
+      monster
+      minion
+      recruit group
+      These spells are called group spells. They 
+        must be targeted on a group of the proper type. You can drop them onto:
+        A minion tile (it will 
+          automatically target the whole group)
+        A legal group sprite
+      monster group
+      (minion) group
+      square
+      Square spells must be targeted on an empty 
+        (no structure), unoccupied (no group) 
+        square. (They cannot target any square that contains a structure or 
+        a group. If either of these entities appears in the square before the 
+        spell executes, the spell squanders!)
+      structure
+      Structure spells must be targeted on a town 
+        or colony. (They cannot target a Sanctum 
+        or Sanctum entrance.)
+      terrain
+      Terrain spells are always helper 
+        spells. They nominally have the same requirements as square 
+        spells (but since the game engine casts them as helper spells, it 
+        just ignores these requirements).
+      Almost every terrain helper 
+        spell has a corresponding real spell 
+        that creates it. These real spells are always &#147;square 
+        (spell) manifestation&#148;, and their sole effect 
+        is to (cause the game engine to) recast the terrain helper spell, which 
+        is what you see persisting on the board. Most terrains can also be created 
+        by several other real spells. Hence, the real-to-helper relationship for 
+        terrain spells is generally many-to-one.
+      globe
+      Globe spells must be targeted on the globe.
+        (The globe is shown in the upper-right corner of the board.)
+Spell Casting Requirements. 
+  Many spells list various casting requirements in their texts, which begin with 
+  the phrase &#147;Cast on ...&#148;. They are checked at the following times:
+  Check before casting. During the player 
+    orders phase, while you are dragging a spell in 
+    hand to issue casting orders, 
+    the spell checks all of its requirements on the current spell target. If any 
+    requirement fails, the spell isn't valid for casting on that target.
+  Check before executing. During the spell 
+    execution phase, just before each spell is executed, the game engine re-checks 
+    all of that spell's requirements on its specified target. If any requirement 
+    fails now, the spell squanders (fails).
+  Recheck to persist. At any time throughout a turn's execution, a 
+    spell target may receive a spell requirements 
+    recheck. This causes it to recheck all spells in its 
+    own active spell list, for all of those spells' persistent 
+    requirements (only). Any spell that fails a persistent requirement in 
+    any recheck is immediately dispelled.
+Casting-time vs. Persistent 
+  Requirements. Spell casting requirements actually fall into (at 
+  least) two distinct categories, which are checked at different times. 
+  Limitiation: Sanctum card texts have never clearly 
+  distinguished these two cases (and still don't)!
+      Casting-time Requirements
+      Persistent Requirements
+      These are checked only before a spell goes active, 
+        i.e. while issuing casting orders and just before execution.
+      Most of these are checked both before and after a spell goes active. 
+        Some are checked only afterwards! (e.g. spells that change terrain 
+        on execution)
+      Casting-time requirements restrict the initial casting, but permit players 
+        to freely violate these conditions later through in-game actions, without 
+        causing the spell to dispel itself.
+      Persistent requirements must remain true, or the spell will fail 
+        its next recheck, and automatically dispel. Skillful players can exploit 
+        this when they want a spell to dispel itself!
+      These requirements are usually casting-time only. 
+        &#147;... on nation 
+          ...&#148;: The recruit may change nation later.
+          Big Rock.
+        &#147;... of n or less/more&#148;: The group may add or lose 
+          members later. Accursed Minion, Renegades.
+        &#147;... on friendly ...&#148;: The caster may lose ownership later, 
+          by capture, minion exchange, or group stealing.
+          Blindness, Harmattan, Kumatru Academy, Man-Catcher, Visionary.
+        &#147;... not in a structure&#148;: 
+          You may enter structures later: Alabaster Guardian, Sword of Zana 
+          (I and II).
+      These requirements are usually persistent. 
+        &#147;... on terrain type.&#148;
+          Dispels on any terrain-change:
+          Faerie Circle + Oasis.
+        &#147;... on recruit class.&#148;
+          Dispels on any class-change:
+          Cruel Whim.
+        &#147;... on minion with attack 
+          types.&#148;
+          Dispels on any class-change or
+          &#147;no longer attacks&#148; effect:
+          Oblivion, Pacifism, Protective Cover, Vivant.
+        &#147;... on friendly ...&#148;
+          Dispels on change of ownership:
+          Belvario's Horn, Raven Shroud, Scars of Kolekh, Touch of Death.
+        &#147;... on town (not colony).&#148; et al.
+          Dispels on a structure type-change: Auberol's Grace, Ghost Town.
+        &#147;... not in a structure&#148;:
+          These spells remain in play if you somehow occupy a structure without 
+          &#147;entering&#148; it, but they dispel in their next recheck!
+           Belvario's Horn, Possession, Sentinel.
+Spells in Play
+Stages of a Spell's Life. 
+  Each spell goes through the following stages.
+  In deck. A spell in your deck doesn't 
+    do anything until you draw it.
+  In hand. You can target spells in your 
+    hand for casting or discarding. 
+    Some spells change their casting cost at the start of every turn while 
+    in your hand.
+  Targeted. When you issue a valid spell 
+    casting order, your spell becomes targeted. 
+    You can change or cancel your 
+    spell casting orders at any time during the player 
+    orders phase, until you click Confirm Orders.
+  Executing. After both players have 
+    clicked Confirm Orders, the game engine executes all targeted spells in the 
+    spell execution phase. 
+    Each spell execution either succeeds or squanders 
+    (fails).
+  Active. Some types of spells remain in 
+    play after they execute, and continue to affect the game.
+When a spell squanders, expires, is dispelled, or 
+  fails a persistent requirement, it leaves 
+  play. Also, whenever a spell 
+  target leaves play due to death 
+  or destruction, all active spells on that spell target 
+  leave play as well. Some spells explicitly transfer to a new host when their 
+  old host leaves play.
+Squandered Spells. 
+  A spell that fails any requirement during spell 
+  execution is said to squander. It leaves play immediately, without 
+  any effect.
+  Causes of squandering. A squandering must have been caused by something 
+    that occurred between its caster's Confirm Orders, and its own execution: 
+      A recruit training by the 
+        remote player
+      A spell that executed before this spell
+  Typical squanderings. Squandering can happen because your opponent 
+    had initiative, and her spells 
+    negated some of your spell's requirements. A careless player could also 
+    squander his own spells by casting the wrong combination of spells, 
+    or casting them in the wrong sequence! 
+      Death or departure. Individual 
+        spells and group spells squander if their target 
+        has already died, been removed 
+        from the game, been replaced, 
+        or has left the board because 
+        of an earlier spell.
+      Destruction or departure. Structure 
+        spells squander if the structure has been destroyed, 
+        &#147;moved&#148;, or left 
+        the board because of an earlier spell.
+      Intrusion. Square 
+        spells and terrain spells squander if any group 
+        or structure has appeared in their target square.
+      Explicit blocking. Any spell can squander if a previous spell 
+        explicitly blocks it, or if it is exclusive 
+        and its spell target has already received 1 copy of it.
+  Try, try again. A squandered spell does 
+    not count as having ever been cast. Some spells may be cast &#147;only 
+    once per game&#148;. If your first attempt to cast such a spell squanders, 
+    you can try to cast another copy of that spell later. You can repeat this 
+    until you finally succeed in casting the spell once.
+Active Spells. When a non-instant 
+  spell (alteration or conjuration) 
+  executes successfully, it remains in play as an active spell.
+  No max. There can be any number of active spells at the same time. 
+    Some long games can have one hundred or more active spells.
+  Spell target. Every active spell has a spell 
+    target, or &#147;host&#148; entity. This is usually the same minion, group, 
+    structure, square, or globe on which the spell was targeted. Some spells 
+    can transfer to new hosts.
+  Ownership. Every active spell is owned by the player 
+    who cast it. Spells cast by the game engine itself are owned by the neutral 
+    player. Some active spells affect non-friendly players differently 
+    from their owner.
+Active Spell Lists. 
+  All active spells are stored in sequential lists, approximately in casting 
+  order (oldest to youngest). The game engine traverses these lists as needed 
+  to access all active spells. Some spells can transfer to a new host, e.g. 
+  Jinx. Whenever this happens, the spell appends itself to the end 
+  of its new host's active spell list. Over time, this can slightly shuffle the 
+  active spell lists.
+  Player's active spell list. Each 
+    player maintains a comprehensive list of all active spells cast by that player. 
+    The game engine often traverses 
+    these lists in player initiative 
+    sequence.
+	  Spell target's active spell list. 
+    Each spell target 
+    maintains a separate list of all active spells on itself, regardless of the 
+    spells' owners. A given spell target could have spells from all 3 players, 
+    interleaved in strict casting order. 
+      Minion's spell list: Stores all individual spells 
+        on this minion. Anachronism: 
+        Also stores all group spells on this minion's group 
+        for which this minion is a legal target.
+      Square's spell list: Stores all square spells, 
+        and the singleton terrain spell, on this square. 
+        Anachronism: Also stores all structure 
+        spells on this square's structure.
+      Globe's spell list: Stores all globe spells 
+        on the globe.
+Spell Visibility. 
+  Every active spell is either visible or non-visible.
+  Enchantment. A visible active spell is called an enchantment. 
+    Some spells and monsters count the number of enchantments on other spell 
+    targets. 
+      Displayed. Enchantments are displayed in their spell target's 
+        list box. 
+    Dispellable. Enchantments can be dispelled.
+    Exclusive. Enchantments are exclusive 
+      (unless they explicitly state otherwise).
+    Green aura. A minion tile or 
+      square that has one or more enchantments 
+      is drawn with a green aura, as a visual reminder of their 
+      enchanted status. (Group sprites and the 
+      globe don't draw the green 
+      aura.)
+  Non-visible active spells. These spells enable the game engine to 
+    implement various &#147;intrinsic&#148; abilities, such as nation 
+    abilities and monsters' special abilities. 
+       Hidden. Non-visible active spells are not displayed in any 
+        spell list.
+      Non-dispellable. Non-visible active spells cannot be dispelled. 
+        They ignore all dispel-effects. They last as long as their host does, 
+        or until they expire on their own, if applicable. Some spells explicitly 
+        dispel a specific other spell, even if it is non-visible.
+      Cumulative. Non-visible active spells are cumulative 
+        (unless they explicitly state otherwise).
+Real Spells and Helper 
+  Spells. Sanctum's game engine itself casts many internal spells beyond 
+  those that you can purchase 
+  in booster packs. Some of these internal spells are enchantments, 
+  so you can see them once they're in play.
+  Real Spells in your Coll(ection) and Deck. 
+    A real spell is a spell that you, the player, can own 
+    in your collection and include in your 
+    decks. 
+      All rules apply (to you). Real spells go through all 
+        five stages of a spell's life. You must obey all of their casting 
+        requirements to put them into play.
+      In your deck. In the simple case, your deck 
+        consists of exactly the real spells you put there, and no others. In 
+        the general case, some spells insert copies of real spells at the top 
+        of, bottom of, or randomly into, your deck. These could be copies of your 
+        own real spells, or copies of your opponent's real spells (but they will 
+        always be real spells). So it's possible that your &#147;deck during play&#148; 
+        can include spells that you don't own. You don't keep these bonus spells! 
+        They last only until the end of that game, and don't persist as cards 
+        in your collection.
+      In your hand. In the simple case, your hand 
+        always consists of spells from your deck. Some real spells insert copies 
+        of themselves into your hand. The phrase &#147;when cast from a player's 
+        hand&#148; applies equally to any spell in your hand, no matter how it 
+        got there.
+  Helper Spells in Play. A helper spell 
+    is a spell that is internal to Sanctum's game engine. Once in play, helper 
+    spells behave just like real spells. But the game engine has special privileges 
+    in casting them, which bypasses some casting requirements. Helper spells are 
+    used to implement many &#147;intrinsic&#148; abilities, such as terrain 
+    types, monsters' special abilities, 
+    recruits' nation abilities, the 
+    Colony game rule, etc. 
+      Usually non-visible. Just like real spells, helper spells can 
+        be visible or not. Most of them happen to be non-visible 
+        (because you don't need to know about them, and also to make them non-dispellable).
+      Visible means dispellable. Some active 
+        helper spells are deliberately visible. These 
+        can be dispelled like any other visible spells. They also count as 
+        enchantments! Examples include: 
+          Generated items: Dwarven Blade, Djinni Bow, Dwarven Arrows; Changelings, 
+            Farm-boy.
+          Trophy items: Gorgon's Head, Minotaur's Axe, Obsidian Armor, 
+            Wyrmling Hide.
+          Temporary effects: Karillian Venom, Nihil's Curse, Shadow's Chill.
+          Persistent effects: Faerie Blessing, Gorgon's Gaze, Thermite 
+            Damage.
+      No Target Hides from the G(ame) E(ngine). The game engine is 
+        specially empowered to cast its spells. It ignores some casting restrictions: 
+          Ignores concealment. Helper individual spells 
+            ignore concealment. 
+            Think of the game engine as your friend!
+          Ignores occupants. Helper square spells 
+            and terrain spells ignore any groups and structures 
+            in those squares.
+          Ignores blocking. Helper spells ignore any blocking by active 
+            spells (even by other helper spells!). For example, Bedlam 
+            can cast additional Chaos Features onto minions that already 
+            have Wrack, Brimstone Dragon can still 
+            Fireball an enemy group that has Raven Shroud, all monsters' 
+            spell-like abilities ignore Intercession, etc. Mnemonic: Spells 
+             block your mouse. They don't block the game engine!
+          Always cumulative. Helper spells are always cumulative 
+            (unless they explicitly state otherwise, e.g. Minotaur's Axe).
+      Real Spells as Helper Spells. The game engine sometimes casts 
+        real spells &#147;as if&#148; they were helper spells, e.g. Yfreet's 
+        Cleansing Light. Such spells benefit from all of the game engine's 
+        special casting privileges.
+Spell Requirements Recheck. 
+  A spell target must 
+  recheck all persistent requirements (only) 
+  for all of its active spells (real 
+  and helper, whether visible 
+  or not) whenever any of the following things happen. Each spell that fails any 
+  persistent requirement is immediately dispelled.
+  Spell flux. For all spell 
+    targets, whenever any other spell on that target executes successfully, 
+    or leaves play for any reason. Dispelling one spell may cause several 
+    others to immediately fail their recheck!
+  Structure flux. For a square, 
+    whenever it gains or loses a structure, whether by creation, destruction, 
+    boardhopping, or &#147;moving&#148;.
+  Minion exchange.  For a minion, 
+    whenever it exchanges 
+    into a new group.
+Spell Interaction
+Spell list box. The spell list box 
+  is located at the bottom of the game window's left sidebar. It always displays 
+  the current spell target's 
+  active spell list. Click any spell 
+  target to select it (which makes it become the current spell target).
+      Spell list box
+        for an archer's minion 
+          tile,
+          showing 3 recruit group spells
+  Enchantments only. It shows all enchantments 
+    on this spell target, and their owner dot colors. Non-visible active spells 
+    are skipped automatically. (That's what &#147;non-visible&#148; means!)
+  Potents this turn. During the player 
+    orders phase, it also shows all potent 
+    spells you have targeted successfully on this spell target, with their 
+    names in parentheses.
+  Double-click for spell help. Double-click any spell name in the spell 
+    list box to open the spell help modal window, which shows: 
+      Actual house and cost. It shows the spell's house and &#147;base&#148; 
+        casting cost at the time of its casting, including any transmutings 
+        to a different house (which also transmutes the 2 mana types in its casting 
+        cost). Note: Any spell cost penalties (e.g. Dissolution) 
+        or reductions (e.g. Syzygy, or Ogi's Armor when Ogi 
+        is in play) are not included in the &#147;base&#148; cost.
+      Card text with radio buttons. Up to four radio buttons are displayed 
+        on the right edge of the spell help window. Click these to show different 
+        &#147;pages&#148; of the card text. These 4 radio buttons are identical 
+        to the ones in DeckBuilder, which see. 
+          Spell text. Describe's the spell's in-game effect.
+          Flavor text. Shows the card's flavor text, if any.
+          Monster text. [If this spell creates a monster group or 
+            special recruit]: Shows 
+            the in-game text associated with those monsters or recruit. This 
+            is an abbreviated version of the spell text, with all casting requirements 
+            elided (since they are no longer relevant after the group is already 
+            in play).
+          Helper text. [If this spell creates, or is otherwise associated 
+            with, a helper enchantment]: Shows 
+            the name, house, target type, and spell text for that helper enchantment 
+            (which you'd see in a game if you double-click on the helper enchantment 
+            itself). Example: Master Smith's helper text shows the 
+            spell text for Dwarven Blade (even in DeckBuilder!).
+      Duration or tokens (if applicable). Spells with a finite 
+        duration, or tokens, display them at the bottom.
+v2.20.00 Last updated 2009/03/27
+         | Mailing Lists

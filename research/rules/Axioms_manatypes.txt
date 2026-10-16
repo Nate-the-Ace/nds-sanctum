@@ -1,0 +1,118 @@
+Sanctum | Rules | Axioms | Mana Types
+                      Mana Types
+Sanctum is a fantasy-based collectible card game. Its cards are called spells, 
+  and their casting cost is measured in mana.
+  Your current mana production is displayed in the upper left corner of the 
+    game window.
+  Each spell shows its casting cost along the left edge of its card.
+      Mana Bars and Casting Cost
+      Casting Cost and Spell Text
+Definitions
+  Mana Types and Opposing Mana
+  Mana Pairs and Houses
+    Primary and Secondary Mana
+  The Mana Cube
+  Generating Mana
+    Planning your Mana Path
+Definitions
+Mana Types and Opposing Mana. 
+   There are 6 types of mana in Sanctum.
+  These are further divided into 3 pairs of opposing mana types, shown 
+    below. No spell or house in the game uses opposing mana types.
+      Order
+      Strife
+        Clarity
+        Mystery
+        Will
+        World
+Mana Pairs and Houses. 
+  Each house has 2 mana types.
+  Each house can always generate its two mana types.
+  The house's own spells always use these two mana types. Obviously, each 
+    house will be able to cast its own spells.
+  No two houses use the same pair of mana types. 
+    Lemma 1: Every pair of (non-opposing) 
+      mana types is used by a Sanctum house!
+      Proof: We have 6 mana types. There are (6 choose 2) ways to choose 
+        a pair from 6 different items, or 6! / 4! 2! = 6 * 5 / 2 = 15 pairs. But 
+        3 of these pairs are the 3 opposing mana pairs, which are not used by 
+        any house. That leaves 12 non-opposing pairs. And there are 12 
+        houses. Since no two houses use the same pair, every pair is used 
+        exactly once. Since this covers the set of 12 pairs, every pair corresponds 
+        to a house!
+  Primary and Secondary Mana. 
+    A house's two mana types are further distinguished as its primary and 
+    secondary mana types. When we write a casting cost in abbreviated form, 
+    we use the format primary + secondary, e.g. &#147;3+1&#148; means 3 
+    primary and 1 secondary in that spell's house.
+    Primary mana is the major part of most spells' casting cost. 
+        Most of a house's spells have greater primary mana cost than secondary 
+          mana cost. That's why it's called &#147;primary&#148;!
+        Most spells cost 1-8 primary mana. Some spells, cf. Revolvers and 
+          Expansives, can cost more than 8 primary mana some of the time!
+        Some spells cost primary mana only, i.e. they cost 0 secondary 
+          mana. Many low-cost spells are like this.
+    Secondary mana is the minor part of most spells' casting cost. 
+        Some spells have equal primary and secondary mana costs.
+        Most spells cost 0-2 secondary mana. Very powerful spells can cost 
+          6+3 or 5+4 mana, or more!
+        Exception: Some spells, such as the &#147;5-for-2&#148; town mana 
+          generators, cost 0+5 mana, i.e. 0 primary mana and 5 secondary mana 
+          in their own houses. They were deliberately designed to give other houses 
+          access to a third mana type.
+The Mana Cube. Here's 
+  an elegant concept to help you to visualize mana relationships. We call it the 
+  mana cube.
+   Black and White mana cube 
+    (79 KB) (Right-click and &#147;Save As ...&#148;; print, cut, fold, glue)
+  Take any cube. (A 6-sided die is a cube.)
+  Label the faces with the 6 mana types, so that opposing mana types go on 
+    opposite faces.
+Lemma 2: Every edge of the mana cube 
+      is a Sanctum house!
+      Proof sketch: A cube has 12 edges. (Count them!)
+Generating Mana. 
+  Before you can cast spells, you must first generate mana. At the start 
+  of each turn, you receive your full mana production from the following mana 
+  generators. Mana production is non-cumulative: any unused mana each turn 
+  is simply lost. Your current mana pool is displayed in the mana bars in the 
+  upper-left corner of the game window.
+  Sanctum novices. Your Sanctum 
+    generates as much mana as you have trained 
+    in your house's 2 mana types only.
+  Captured structures. Each town 
+    and colony you own 
+    generates 1 point of mana in any of the 6 mana types that you chose 
+    when you captured them. 
+    This is a good way to “splash” 1 point of a 3rd mana type into 
+    your deck, to gain access to a wider range of spells.
+  Spells. Some spells generate more mana after you cast them. Getting 
+    enough mana to cast them in the first place is up to you! 
+       Some manifestations do 
+        this in a one-shot manner, e.g. Bursts generate +2 mana in the &#147;next 
+        turn&#148; only.
+       Some active spells generate 
+        mana &#147;each turn&#148;, for as long as they remain in play.
+  Planning your Mana Path. 
+    You should carefully plan your deck and game-play actions to ensure a good 
+    mana path, so that you can cast a useful stream of spells throughout 
+    the first several game turns.
+    Two-color deck. The default deck strategy is to stick to 
+      your own house's 2 mana types only, and train more primary than secondary 
+      mana. This gives you access to all of your own house's spells, plus low-cost 
+      primary-only spells from the three neighboring houses (Lemma 3: there 
+      are always 3 such houses; proof by inspection) that share one of your 
+      mana types each.
+    Three-color deck. An intermediate strategy is to splash in 1-2 
+      points of a 3rd mana type. Since you cannot train this mana type, you must 
+      generate this mana through structures and/or spells. This gives you access 
+      to moderate-cost spells of up to 2 other houses.
+    Reverse-mana deck. An advanced gambit is to design your deck to 
+      &#147;go reverse&#148; and emphasize its secondary mana in the early 
+      game (hence &#147;gambit&#148;). You could splash in a 3rd mana type, 
+      and essentially play as a different house altogether, for sheer surprise 
+      value. Or, you could plan to cast mid-game &#147;5-for-2&#148; town mana 
+      generators to rebalance your mana production, for a mid-game shift back 
+      toward your house's main strategy.
+v2.20.00 Last updated 2009/03/22
+         | Mailing Lists

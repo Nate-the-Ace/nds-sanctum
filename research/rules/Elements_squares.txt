@@ -1,0 +1,49 @@
+Sanctum | Rules | Elements | Squares
+                      Squares
+The game board is partitioned into squares of equal size. A 
+  square is a valid spell target. 
+  Sanctum's user interface shows a quasi-3D isometric view 
+    of the board. From this perspective, each &#147;square&#148; actually looks 
+    like a slightly flattened diamond. Nonetheless, we call them squares.
+Definitions
+  The Game Board
+  Square Stacking Limits
+Definitions
+The Game Board
+  Square grid. The game board consists of squares.
+  12x12. There are 94 playable squares within a 12 x 12 square grid.
+      The other 50 squares are &#147;off the map&#148; in the 4 corners. 
+        They are ignored for all game purposes.
+  Orthogonal. Every square is orthogonally adjacent to 4 other squares 
+    (along a common edge).
+  Diagonal. Every square is diagonally adjacent to 4 other squares 
+    (at a common corner).
+Square Stacking Limits. 
+  Each square may contain any combination of the following entities.
+  Exactly 
+    1 Terrain. A square always has exactly one terrain type. 
+      A terrain type is a special 
+        kind of square spell. Terrains have various 
+        effects, from beneficial to harmful.
+  0 or 1 Structure. 
+    A structure is a Sanctum, town, or colony. 
+      Empty. A square that has no structure is 
+        said to be empty.
+       A square may have 1 structure. 
+          A square with a structure always has plains 
+            terrain type.
+      A square can't have 2 or more structures.
+  0 or 1 Group. A group is any recruit group or minion 
+    group.
+    Unoccupied. A square that has no group is 
+      said to be unoccupied.
+    A square may have 1 group.
+    A square normally can't have 2 or more groups.
+    Overstack. Exception: A square may 
+      have 2 or more groups temporarily during spell 
+      execution or movement 
+      execution. This is called an overstack. 
+      Overstacks are always resolved automatically as part of the spell 
+      or movement execution.
+v2.20.00 Last updated 2009/03/27
+         | Mailing Lists

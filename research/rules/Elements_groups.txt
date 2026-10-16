@@ -1,0 +1,194 @@
+Sanctum | Rules | Elements | Groups
+                      Groups
+A group is the fundamental game piece. It's the main unit you see on the board. 
+  Most of your game play consists of moving your groups around.
+Groups and Sprites
+      A group on the board always occupies 1 
+        square.
+      A group on the board is drawn as a sprite (draggable image, with 
+        movement and combat animations). 
+          A monster group's sprite shows the type 
+            of the monster.
+          A red or blue recruit 
+            group's sprite always shows its owner's nation 
+            (regardless of the nations of the recruits in the group).
+          A neutral 
+            recruit group's sprite shows the nation 
+            of the first recruit in the group. If the first recruit 
+            changes nation, or another recruit becomes the first recruit, or the 
+            group gains or loses neutrality, it promptly redraws its sprite to 
+            match!
+          A group sprite is a valid spell 
+            target.
+Group Attributes
+  Groups and Sprites
+  Group Types
+  Minions in Groups
+Group Dynamics
+  Ownership (Means They Fight for You)
+    Player's Group Sequence
+  Control (Means They Listen to You)
+    Player-controlled
+    Computer-controlled
+    Ownership Does Not Imply Control
+  Joining Groups
+    (You Can't) Split Groups
+  Occupying Structures
+Group Attributes
+Group Types. A group's 
+  type is determined by the type of the minions it contains.
+  There are 3 types of groups in Sanctum.
+  Recruit group. A group containing only 
+    recruits (archers and/or swordsmen) 
+    is a recruit group.
+  Monster group. A group containing only 
+    monsters is a monster group.
+  Minion group. Any group is a minion group 
+    (or simply &#147;group&#148; for short). Recruit groups and monster groups 
+    are special cases of minion group.
+  A group never contains both recruits and monsters.
+Minions in Groups
+  Max 8. A group can contain a maximum of 8 
+    minions.
+  Min 1. A group must contain at least 1 minion. 
+    When a group becomes empty, it “dies”, and is removed from the game. Some 
+    spells react to this.
+  Containment. Every minion always belongs to a group.
+  Auto-create. Whenever a new minion is created in an unoccupied 
+    square, a new group is automatically created for it.
+Group Dynamics
+Ownership (Means They Fight for You). Every 
+  group on the board is owned by exactly one player 
+  at all times (which could be the neutral 
+  player). Equivalently, we say that the group is on its owner's &#147;side&#148;, 
+  e.g. in the card text phrase &#147;Group joins caster's side.&#148; Some 
+  spells temporarily change ownership of a group.
+  Dot color. A group always shows its owner's group dot color.
+  Friendly.  A group is friendly to all 
+    other groups who have the same owner.
+  Hostile. A group is hostile to all other groups who have a 
+    different owner. 
+      Exception: Neutral 
+        groups are always hostile, even to each other!
+      Some monsters are always hostile to all other groups, even if they 
+        have the same owner.
+  Fights for. A group always fights 
+    for its owner's side, i.e. against all hostile groups.
+  Player's Group Sequence. 
+    Each player maintains a strict sequential 
+    list of all of its owned groups. Many game computations rely on this group 
+    sequence. The group sequence is approximately from oldest to youngest. 
+    However, some game mechanisms and spell effects will move a group to the 
+    end of its player's current sequence. Over time, this will somewhat 
+    shuffle the group sequence.  
+    A group is moved to the end of its owner's group sequence whenever:
+      The group is first created.
+      The group returns from off 
+        the board.
+      The group changes ownership. This 
+        includes changing to a new owner, and also changing back to the original 
+        owner.
+      The group replaces another 
+        group. This includes Lycanthropy's effect, and also when Lycanthropy 
+        is dispelled!
+Control (Means They Listen 
+  to You). Control means the ability to issue movement 
+  orders to a group you own.
+  Player-controlled. A player-controlled 
+    group accepts your movement orders during the player 
+    orders phase, and executes them faithfully during the movement 
+    phase (unless they get overwritten 
+    before then by another game effect). Friendly recruit groups are usually 
+    player-controlled. 
+      Limitation: A neutral 
+        player-controlled group never 
+        moves, since the neutral player never issues movement 
+        orders.
+  Computer-controlled. 
+    A computer-controlled group is an autonomous agent. During the player 
+    orders phase, it ignores you, and you cannot issue any movement orders 
+    to it. During the movement 
+    phase, it calls its own &#147;bot&#148; (AI for 
+    movement) to overwrite its own movement 
+    orders. Monster groups and neutral recruit groups are usually computer-controlled. 
+    A skillful player can anticipate her own computer-controlled groups' behaviors 
+    to indirectly influence their movement through judicious placement and timing. 
+    Ownership Does Not 
+      Imply Control. Ownership (whether they'll fight for you) and 
+      control (whether they'll listen to you) are orthogonal concepts. Gaining 
+      one does not automatically grant the other. In the real world, many cats 
+      and some dogs are owned but not controlled! All card texts of spells 
+      that affect either property always specify exactly what you get. For example:
+      Changes both: &#147;Group joins caster's side, and becomes 
+        player-controlled.&#148; If the group 
+        had a bot, its bot is suspended as long as your 
+        spell takes precedence. When your spell leaves play, the group's previous 
+        bot is restored!
+      Changes ownership only: &#147;Group joins caster's side / 
+        becomes neutral 
+        (but keeps previous control by computer or player).&#148;
+      Changes control only: &#147;Group becomes computer-controlled, 
+        and ...&#148;
+Joining Groups. Recruit 
+  groups can join each other by moving 
+  into the same square. This tends to greatly increase their combat 
+  effectiveness. Large recruit groups become the strongest units in the game, 
+  easily able to kill even the strongest monsters!
+  Joining rules.  Two groups may join with each other if: 
+      They are both recruit groups.
+      They are friendly to each other (both red or 
+        both blue).
+      They are both player-controlled.
+      The sum of their sizes doesn't exceed the maximum 
+        group size.
+  Bots can't join. A computer-controlled 
+    recruit group never joins other groups. Some spells can cause your recruit 
+    groups to become computer-controlled, even though they remain friendly. Some 
+    spells can create neutral recruit 
+    groups that are computer-controlled.
+  Training is joining. When you train 
+    new recruits in a structure that already 
+    has a group, your new recruits automatically join that group. Spells that 
+    prevent groups from joining will also prevent this kind of training.
+  Monsters can't join. Monster groups never 
+    join each other, unless explicitly permitted to do so in the monsters' card 
+    text. Some monsters can join with other monster groups of the same type.
+  Some spells prevent groups from joining. 
+    (You Can't) Split Groups. 
+      There is no way to unjoin a group! Once a group joins, its members must 
+      stay together. Some spells can remove 
+      one minion from a group.
+Occupying Structures
+  Only recruit groups may occupy a structure 
+    (which captures the structure). 
+      Only player-controlled 
+        recruit groups can enter 
+        structures by moving into them. Some spells prevent recruit groups 
+        from entering structures.
+      Computer-controlled 
+         recruit groups never enter 
+        structures. However, they can occupy structures by using other game 
+        mechanisms!
+      Any recruit group, regardless of its ownership 
+        or control, may return from 
+        off the board into a structure (which is not considered to be an &#147;entry&#148;). 
+        This can cause a neutral 
+        group to capture a structure!
+      If a structure &#147;moves&#148; 
+        to a new square by any effect, it is permitted to &#147;move&#148; under 
+        any recruit group in that square, regardless 
+        of that group's ownership or control, unless it specifically forbids this. 
+        This is not considered to be an &#147;entry&#148;. This can cause a 
+        neutral group to capture 
+        a structure!
+  Monster groups never occupy structures. They 
+    can never enter a structure, 
+    nor return from off the board 
+    into a structure. They always forbid structures from &#147;moving&#148; 
+    under them.
+  You win the game by capturing 
+    the enemy Sanctum, which is a structure.
+      Corollary 1: Only a recruit group can win the game.
+      Corollary 2: Monster groups can never win the game by themselves!
+v2.20.00 Last updated 2009/03/23
+         | Mailing Lists

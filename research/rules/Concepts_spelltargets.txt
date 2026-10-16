@@ -1,0 +1,48 @@
+Sanctum | Rules | Concepts | Spell Targets
+                      Spell Targets
+A spell target is any game entity that can be targeted with a spell.
+For active spells, the spell target 
+  also refers to the entity that was targeted, which is now &#147;hosting&#148; 
+  the spell.
+          Minion Tiles
+          (left sidebar)
+        Group Sprites
+          Squares
+          Structures
+          (game board)
+          Globe
+          (upper right corner)
+        Spell list box
+          (bottom of left sidebar)
+        Whirlpool
+          (lower right corner)
+  Spell Targets
+  Not Spell Targets
+Spell Targets. 
+  The following game entities are valid spell targets.
+  Minion. Every minion 
+    tile is a spell target.
+  Group. Every group 
+    sprite is a spell target.
+  Square. Every square 
+    on the game 
+    board is a spell target.
+  Structure. Every town 
+    and colony is a spell target.
+  Globe. The globe icon in the upper-right corner 
+    of the board is a spell target.
+  Whirlpool. The whirlpool icon in the lower-right 
+    corner of the board is a (special kind of) spell target.
+Not spell targets. The following things are 
+  not spell targets:
+  The Sancta 
+    of the red and blue players.
+  The four Sanctum 
+    entrance squares adjacent to each Sanctum.
+  Novice 
+    buttons and training icons in a structure sidebar.
+  Uncast spells in your hand.
+  Other active 
+    spells in play.
+v2.20.00 Last updated 2009/03/22
+         | Mailing Lists

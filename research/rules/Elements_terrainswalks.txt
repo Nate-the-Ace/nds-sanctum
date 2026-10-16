@@ -1,0 +1,280 @@
+Sanctum | Rules | Elements | Terrains and Terrainwalks
+                      Terrain Types and Terrainwalks
+Definitions
+  Terrain Helper Spells
+  Terrain Types and Effects
+  Terrainwalks and Flight
+    Limitations of Flight
+Questions
+  What if only some of a group's members are able 
+    to cross a square's terrain?
+  How can I use my opponent's innate terrainwalk abilities 
+    against him?
+  What happens to a group if, during the spell execution phase, ...
+    ... its square's terrain changes?
+    ... it gains or loses terrainwalk?
+    ... it teleports to a square with a different terrain 
+      type?
+Definitions
+Terrain Helper Spells. 
+  A terrain helper spell is a special kind 
+  of square spell. The following special rules 
+  apply to them.
+  Exactly 1. Every square 
+    always has exactly one terrain helper spell. Equivalently, we say that 
+    a square has exactly one terrain type. 
+      Change replaces. Whenever a square's terrain &#147;becomes&#148; 
+        another terrain type, this means that its old terrain helper spell is 
+        dispelled, and a new terrain helper spell is cast. Hence, terrain helper 
+        spells are neither exclusive nor cumulative.
+  Like other spells. 
+      Visible. They're visible in 
+        a square's spell list box. Double-click 
+        on a terrain helper spell's name in the list box to open its spell 
+        help dialog, which shows its art and text.
+      Sequential. They apply their effects 
+        in the same order as other active spells. 
+        To eliminate legacy race conditions between start-of-turn events, all 
+        non-terrain spells currently use the &#147;at 
+        start of turn&#148; event, and all (and only) damaging/fatal 
+        terrains currently use the &#147;after 
+        start of turn&#148; event.
+  Different from other spells. 
+      Not enchanting. A terrain helper spell does not count 
+        as an enchantment.
+      No aura. A square with only a terrain helper spell (remember, 
+        every square always has one!) does not show the green enchantment 
+        aura. Otherwise, every square on the board would always show it!
+      Non-dispellable. Terrain helper spells cannot be dispelled (even 
+        though they're visible). They ignore all explicit dispel effects. The 
+        only way to &#147;dispel&#148; a terrain is to change it to another terrain.
+Terrain Types and Effects. 
+  There are 11 types of terrain in Sanctum. Each terrain type can be created by 
+  several different real spells.
+      Terrain
+      Effect and Spells
+      Plains
+      No effect.
+        Plains; Abatement, Nullify; Savannah (3x3), Deluge after 
+        it recedes, Jumping Land after it jumps, Justicars group 
+        as it moves.
+      Barren Land
+      No effect.
+        Earthquake, Gogar's Wrath, Husks, Juggernaut, Limbo, Tornado, Uproot; 
+        Scorched Earth (contiguous); Flaming Arrows after combat, Gnome 
+        and Ngozi as they move, Lava Flow after it cools off.
+      Forest
+      Minions in forest are concealed. 
+        (Concealed minions cannot be targeted by enemy individual 
+        spells.)
+        Forestation; Faerie Glade, Haunted Forest, Jungle, Seed 
+        on the Wind (3x3); Golden Grove after it matures, Seedbearers 
+        group as it moves.
+      Ice
+      When group enters ice, group slides 
+        in its direction of travel to the first non-ice square, or the first square 
+        that blocks movement. A sliding group ignores:
+        other groups in all squares except the last square;
+        all spells in squares except the first ice square and the last square.
+      Flight does not prevent sliding.
+        Freeze; Water's Gift; Ice Age, Icecaps when their group 
+        dies.
+      Mountain
+      Mountain blocks movement unless group 
+        has Mountainwalk. Mountain; Natural 
+        Defenses; Gnome under Misfits in combat.
+      Swamp
+      Group in swamp can exit only in the most 
+        recent direction from which any group entered that swamp.
+        Swamp Land; Mudslinging.
+      Desert
+      Desert causes 1 hit point of damage after 
+        start of turn unless group has Desertwalk.
+        Oasis, Wasteland (3x3); Famine at random, Sand 
+        Sphinx as it moves.
+      Lava
+      Lava causes 3 hit points of damage after 
+        start of turn unless group has Firewalk.
+        Salamander; Lode Star, Ring of Fire; Firewyrm whenever it appears, 
+        Lava Flow sporadically.
+      Volcano
+      Volcano causes 5 hit points of damage after 
+        start of turn unless group has Firewalk. Volcano 
+        blocks movement unless group has Mountainwalk.
+        Volcano; Lava Flow.
+      Water
+      Each minion drowns (dies) 
+        in water unless minion has Waterwalk. This is 
+        checked:
+         when water is created
+        when group enters 
+          square
+        after start of turn
+        before movement
+        before combat
+      Water blocks movement unless group has Waterwalk.
+        Inundate; Jade Dragon, Overflow; Bleak Isle, Deluge.
+      Void
+      Void removes 
+        group from the game. This is checked: 
+         when Void is created
+        when group enters 
+          square
+        after start of turn
+        before movement
+        before combat
+      Void does not block movement.
+        Void; Maelstrom when it expires.
+      various
+      Some spells create many different terrain types: Blight, Changing 
+        Lands, Drought, Illender.
+Terrainwalks and Flight. 
+  A terrainwalk is the ability to ignore the harmful effects of certain terrains, 
+  and to cross (enter and exit) certain terrains that normally block movement. 
+  Some spells give terrainwalks. Some monsters, and some nations' recruits, 
+  have intrinsic terrainwalks.
+  There are 6 types of terrainwalks in Sanctum (although Swampwalk currently 
+    isn't used).
+      Terrainwalk
+      Effect
+      Spells and Nations
+      Desertwalk
+      Group takes no damage from desert.
+      Bone Chariot, Caravan.
+      Waterwalk
+      Group may cross water, and does not drown in water.
+      Bleak Isle (II), Nereid's Curse, Water Breathing, Water 
+        Walking.
+      All Djinni 
+        (Mind) and Vision 
+        (Hope) recruits have Waterwalk.
+      Mountainwalk
+      Group may cross mountains and volcanoes. This does not protect group 
+        from volcano damage.
+      Mountain Climb.
+      All Dwarf (Making) 
+        and Shadow (Despair) 
+        recruits have Mountainwalk.
+      Swampwalk
+      Not implemented.
+      Not available.
+      Firewalk
+      Group takes no damage from lava or volcanoes. This does not allow group 
+        to cross volcanoes.
+      Bone Chariot, FireWalking.
+      Flight
+      Group may cross any terrain, and is immune to adverse terrain effects.
+      Dracha's Sphere, Flight, Flying Carpet, Shaman's Walk.
+Limitations of Flight
+  Flight gives immunity to &#147;adverse terrain effects&#148;. These are 
+    only those damaging or fatal effects from terrain 
+    types that occur in the &#147;after 
+    start of turn&#148; phase. Flight does not protect against anything else 
+    (unless explicitly stated).
+  Groups with Flight still slide on ice (because 
+    ice's text explicitly says so).
+  Groups with Flight still suffer all other non-terrain spell effects. 
+    (Examples: Leechwood's dispel, Faerie Circle/Lost Mine's leaving the board, 
+    monster group falling into Cessao Spiral, etc.)
+  Some monsters with Flight take less damage in combat unless its opponents 
+    also have Flight. This usually gives the monster a combat advantage similar 
+    to armor.
+  Volgaris does not have Flight (even though his card art and 
+    group sprite depict him having wings)!
+Questions
+What if only some of a group's 
+  members are able to cross a square's terrain? Then the group cannot 
+  enter (or exit) that square. Movement must be &#147;unanimous&#148;. If any 
+  one minion can't go, then the whole group can't go.
+ Some examples:
+  Group A has 7 Dwarves (who 
+    have Mountainwalk) and 1 Djinn 
+    (who has Waterwalk). 
+      Group A can't enter a square with mountain terrain, because the Djinn 
+        bounces off.
+      If a mountain appears under group A, then group A is stuck there, and 
+        cannot move away, because the Djinn 
+        can't exit the mountain.
+      Group A can't enter water, because the 7 Dwarves 
+        bounce off.
+      If group A is thrown into a water square, the 7 Dwarves 
+        drown (die), and the Djinn 
+        survives.
+  Group B is a Horde of 4 Humans. 
+    One of them gets Forsaken. 
+      Group B cannot enter any structure, 
+        because the one Human with 
+        Forsaken bounces off.
+How can I turn my opponent's 
+  innate terrainwalk abilities against him? 
+  Cast Volcano in the path of a group of Dwarves 
+    or Shadows. Their Mountainwalk 
+    enables them to walk onto the volcano, and then they'll take 5 damage each.
+  Cast Forbidden Ichor on a Dwarf 
+    or Shadow when its group 
+    is on a mountain. There's a 10-in-11 chance that it will change to a non-Mountainwalk 
+    nation. Then the entire group is stuck on the mountain! (The only way this 
+    can fail is if you change a Dwarf into a Shadow, or vice versa.)
+  Cast Forbidden Ichor on a Djinn 
+    or Vision when its group is 
+    on water. There's a 10-in-11 chance that the targeted recruit will drown (die) 
+    in the next &#147;before movement&#148; phase.
+  Cast Penumbra on a group containing Djinni 
+    and/or Visions when its group 
+    is on water. All Djinni and Visions in the group will drown in the next &#147;before 
+    movement&#148; phase. You could wipe out an entire group of 8 this way!
+What happens to a group 
+  if, during the spell execution phase, its square's terrain changes? 
+  It depends on the new terrain type. 
+  Fatal terrains (water, Void) apply their effects immediately, since their 
+    texts say &#147;when ... created&#148;. Hence, any minions that can't swim/fly 
+    will die or be removed 
+    from the game as part of that spell's execution, before the next spell 
+    executes.
+  Damaging terrains (desert, lava, volcano) don't inflict any damage right 
+    away. If the group moves out of the square in the same turn's movement phase, 
+    it escapes without any damage at all. Only if the group stays there until 
+    the next &#147;after start 
+    of turn&#148; phase would it take any damage.
+  Other terrains have no effect during spell execution. (They could block 
+    movement during the movement phase.)
+What happens to a group if, 
+  during the spell execution phase, it gains or loses terrainwalk? 
+  Nothing (yet).
+   Fatal terrains (water, Void) do not say that they check their effects 
+    &#147;after each spell's execution&#148;. The earliest time for water or Void 
+    to recheck a group is in the &#147;before 
+    movement&#148; phase. Hence, groups that lose their terrainwalk during 
+    spell execution while in a water or Void square will survive unhurt 
+    for the rest of the spell execution phase! So they could be saved by a later 
+    spell in the same spell execution phase that gives them a new terrainwalk, 
+    or changes the square's terrain, or teleports them away.
+What happens to a group if, 
+  during the spell execution phase, it teleports 
+  to a square with a different terrain type? Nothing (yet), for the 
+  same reason as losing a terrainwalk. Terrains do 
+  not (re)check their groups after each spell execution. The earliest terrain 
+  recheck is in the &#147;before 
+  movement&#148; phase, for water and Void.
+Case study. Player B has previously cast a Void on the board. 
+  Player A has a recruit group on the board, 
+  without Flight. 
+   Player A targets Plains on the Void square.
+   Player B, with initiative, 
+    targets Bolt of Somersaults on A's group.
+   First, B's Bolt of Somersaults executes. It teleports 
+    A's group onto the Void square!
+  Since Void doesn't check the group yet, the group survives (for now!). 
+    It &#147;hovers&#148; in mid-air over the Void!
+  Next, A's Plains executes. However, the Void square is no 
+    longer unoccupied, because A's group 
+    is &#147;hovering&#148; in it! This violates the game rule that a square 
+    spell must target an unoccupied square. So the Plains squanders!
+  This completes the spell execution phase.
+  In the &#147;before movement&#148; 
+    phase, the Void checks A's group, and removes 
+    it from the game!
+Hapless Player A lost his group and his Plains spell, and didn't 
+  even get rid of the Void!
+v2.20.00 Last updated 2009/03/27
+         | Mailing Lists

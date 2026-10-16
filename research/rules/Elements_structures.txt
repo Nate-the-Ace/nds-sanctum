@@ -1,0 +1,233 @@
+Sanctum | Rules | Elements | Structures
+                      Structures
+A structure represents a city or habitat where people live. In game terms, 
+  a structure has the following properties:
+  Position. A structure occupies 1 square on the board.
+  Ownership. A structure can be captured. Thereafter, it generates 
+    its output for its new owner.
+  Generator. A structure generates mana, novices, and recruits.
+      Town among
+        plains
+      Colony among
+        barren land
+      Sanctum (of Making 
+        house)
+        and 4 Sanctum entrances
+Structures
+  Types of Structures
+    Sanctum
+    Town
+    Colony
+Structure Rules
+  Plains Terrain and Square Dispel
+  Capturing Structures
+  Novice Production
+  Special Rules for Sanctum Entrances
+Spells That Create, Destroy, and Capture Structures
+  Which spells create a colony?
+  What spell combos can create a town?
+  Which spells can destroy colonies?
+  Which spells, or spell combos, can destroy towns?
+  Which spells can capture structures?
+  Which spells cause structures 
+  to &#147;move&#148;?
+Structures
+Types of Structures. There are 
+  3 types of structures in Sanctum.
+      Structure Type
+      Novice Rate
+      Mana
+      Train Recruits
+      Train Mana
+      Sanctum
+      1 per 4 turns
+      * per turn
+      swordsman, archer
+      2 house types
+      Town
+      1 per 2 turns
+      1 per turn
+      swordsman, archer
+      no
+      Colony
+      1 per 2 turns
+      1 per turn
+      swordsman, archer
+      no
+Sanctum. A Sanctum 
+  is a player's &#147;home fortress&#148;. You win 
+  the game by capturing your opponent's Sanctum.
+  The plural of &#147;sanctum&#148; is &#147;sancta&#148;.
+  The red 
+    and blue players begin the game with 1 Sanctum each.
+   Sancta are never unowned. (The only way you can lose your Sanctum is by 
+    having your opponent capture it, which ends the game.)
+  A Sanctum can train its novices as 
+    mana.
+  A Sanctum is not a spell 
+    target. It cannot be targeted by any square spells, structure spells, 
+    or terrain spells.
+Town. A town is a permanent 
+  habitat.
+  Every game begins with 4-6 neutral 
+    towns on the board.
+  A town is a valid spell target 
+    for structure spells.
+  Some spells can destroy friendly towns. No spells create towns directly.
+Colony. A colony is 
+  a &#147;vulnerable&#148; habitat. Every colony always has the following helper 
+  spell:
+  Colony
+    When this spell expires, or is dispelled, the colony is destroyed.
+   A colony is always created from a spell. It may be neutral 
+    or owned, depending on the spell.
+  A colony is a valid spell target 
+    for structure spells.
+  Every game begins with no colonies on the board.
+   Some spells change a colony to a town, or a town to a colony.
+Structure Rules
+Plains Terrain and Square Dispel. 
+  A structure always has plains terrain. 
+  It is immune to all terrain-changes.
+  When a structure is created, it dispels all spells in its square, and changes 
+    its square's terrain to plains.
+Capturing Structures. 
+  At the start of a game, the only structure you own is your Sanctum. If you want 
+  more, you'll have to capture them.
+  Each structure checks for ownership at the start 
+    of each turn.
+  During this check, if a recruit group 
+    hostile to the structure's owner is in the structure's square, then 
+    that group's owner captures the structure.
+  When you capture your opponent's Sanctum, you win 
+    the game!
+  When you capture a town or colony: 
+      Ownership. The structure changes its 
+        ownership to you.
+      Color. The structure is redrawn in your side's color.
+      Eliminate novices. All novices in the structure are eliminated.
+      Reset turn count. The structure's 
+        novice turn count is reset to its novice 
+        rate.
+      Choose mana. You immediately choose 
+        the structure's mana type 
+        for its 1 point of mana per turn. 
+          Any mana type. You may choose any of the 6 mana types. 
+            You aren’t restricted to your house’s 
+            2 mana types. This is the main way to “splash” 1 point of a 
+            3rd mana type into your deck, to gain access to a wider 
+            range of spells.
+          Unchangeable. Once you've chosen a structure's mana type, 
+            you cannot change your choice later. It is fixed for as long as you 
+            own this structure. (Of course, if you lose the structure and then 
+            recapture it, you'll get a new choice then.) Some spells temporarily 
+            change a structure's mana type.
+          Town mana display. Each town or colony displays its current 
+            mana production at the top of the town sidebar. (Click the structure 
+            on the board to open its sidebar.) This includes its own 1 point of 
+            mana, plus all mana produced by all active 
+            spells on this structure (only).
+  Usually, you capture a structure by moving a recruit 
+    group into it. If your group survives all 
+    combats that turn, then it captures the structure at the start 
+    of the next turn.
+   Some spells capture neutral 
+    towns immediately.
+  Some spells cause a recruit group 
+    to leave the board temporarily. 
+    If the recruit group returns 
+    to the board in a hostile structure's square, it captures that structure!
+Novice Production. 
+  Every turn, all owned structures update their novice production. Exception: 
+  Structures that were captured this turn skip this step, since they have already 
+  reset their novice turn counts.
+  Turn count. Each structure shows a novice 
+    turn count, which is the number of turns remaining until this structure 
+    will produce its next novice.
+  Decrement. At the start 
+    of each turn, each structure (that was not captured this turn) decrements 
+    its turn count by 1.
+  Add novice. If this reduces the turn count to 0, and the structure 
+    is not full, then: 
+      1 novice of the structure owner's 
+        nation 
+        is added to that structure;
+      The structure's turn count is reset to its novice 
+        rate.
+Special Rules for Sanctum Entrances. 
+  A Sanctum entrance is one of the 4 squares orthogonally adjacent to each Sanctum. 
+  (You are a powerful Mage, so your Sanctum is a vast, sprawling piece of real 
+  estate.)
+  Not a structure. It doesn't count for any game effect that counts 
+    &#147;structures&#148;.
+  No ownership. It cannot be captured. You just move through it.
+  No production. It doesn't produce any novices or mana. It doesn't 
+    train recruits.
+  Always plains. It always has plains 
+    terrain, and is immune to all terrain-changes.
+  Untargetable. It is not 
+    a spell target. It cannot be targeted by any square 
+    spells, structure spells, or terrain 
+    spells.
+  Uncolonizable. A colony cannot be created on 
+    a Sanctum entrance by any means.
+In some regards, Sanctum entrances are just like normal squares.
+  Monsters and computer-controlled 
+    groups can enter Sanctum entrances. They can return from off 
+    the board into them.
+  Spells that pick &#147;random&#148; squares can pick Sanctum entrances. 
+    Exemplar: Bolt of Somersaults can teleport 
+    a group onto an enemy Sanctum entrance.
+Spells That Create, Destroy, and Capture Structures
+Which spells create a colony?
+  Civilize, Found City: These spells create a neutral colony.
+  Dracha, Encampment, Settlement: These spells create a colony owned 
+    by the recruit group's owner.
+  (Ghost Town:) This spell changes a town to a colony. That's similar 
+    to creating a colony.
+ What spell combos can create 
+  a town? No spells create a town directly. There's only one spell 
+  combo that does it:
+  Colony-creation spell + Auberol's Grace: Auberol's Grace changes 
+    a colony to a town. Creating the colony first is up to you.
+Which spells can destroy colonies? 
+  In general, any spell or effect that dispels all spells on a structure will 
+  automatically destroy a colony (because that's what the Colony helper 
+  spell says will happen).
+  Ancestral Home, Entropia, Gogar's Wrath, Maelstrom: These spells 
+    destroy a targeted colony.
+  Earthquake: This spell destroys all colonies adjacent to its target 
+    square.
+  Justicars: This spell destroys every colony that its recruit group 
+    enters.
+  The Unmagicking: This spell destroys all colonies on the board.
+  (Encampment:) This spell is a conjuration. When it expires, it automatically 
+    destroys its own colony.
+Which spells, or spell combos, 
+  can destroy towns? Towns are much harder to destroy than colonies.
+  Gogar's Wrath, Maelstrom: These spells destroy a friendly 
+    targeted town only. You can't cast them on neutral or enemy towns.
+  Ghost Town + untargeted dispel: This combo first changes 1 or more 
+    enemy towns to colonies, then uses the colony-destroying spells to finish 
+    them off. Since Ghost Town itself prevents you from targeting the colonies 
+    further, you must use an untargeted dispel, which means Earthquake, Justicars, 
+    or The Unmagicking. All of those are very far from Ghost Town's mana path 
+    (and deliberately so).
+  (Seelie Court + The Unmagicking): This combo casts Seelie Courts 
+    on 1 or more enemy towns, waits until they're all off the board, and then 
+    casts Unmagicking to strand them there. This does not actually destroy 
+    the towns. But it does deny their novices to your opponent, which is usually 
+    enough to win.
+Which spells can capture structures?
+  Change of Heart: Instantly captures a neutral 
+    town or colony.
+Which spells cause structures 
+  to &#147;move&#148;? Note: Currently, structures never actually move. 
+  The game engine simulates &#147;structure movement&#148; by destroying the original 
+  one, and creating a new one.
+  Ancestral Home: Whenever the owner trains recruits in this town, 
+    the town &#147;moves&#148;!
+  Defensive Pact: When it executes, a random friendly town 
+    or colony &#147;moves&#148; to the target square! 
+v2.20.00 Last updated 2009/03/27
+         | Mailing Lists

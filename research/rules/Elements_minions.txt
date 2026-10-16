@@ -1,0 +1,192 @@
+Sanctum | Rules | Elements | Minions
+                      Minions
+A minion is one single recruit or monster. A minion is always in 
+  a group. Each minion is drawn as a minion tile in the left and/or 
+  right sidebars, which displays its art and stats. A 
+  minion tile is a valid spell target.
+Minion Tile and Stats. 
+  Each minion tile displays the following stats.
+      good health
+      Weapon art
+      bad health
+      worse health
+      Level 
+        stars
+      Terrainwalk 
+        stripes
+      Hand 
+        or Missile Damage / Max 
+        Armor
+        (if minion has one attack type)
+        Flight
+      Hand 
+        Damage, Missile Damage / Max 
+        Armor
+        (if minion has both attack types)
+      ( Hand or Missile Damage ) / Max 
+        Armor
+        ( Hand Dmg, Missile Dmg ) / Max 
+        Armor
+        (if minion has 0 attacks)
+  Health bar (left edge). Shows the minion's ratio of (current hit 
+    points) to (maximum hit points), with three tiers of color-coding. A full 
+    health bar means 100% hit points (undamaged). 
+      Limitation: This visual representation doesn't 
+        show numeric changes in max hit points. If a minion's max HP changes, 
+        but its HP ratio remains the same, then there is no visible change 
+        in its tile, and you can't tell that anything happened. Example: If the 
+        minion goes from 7/7 HP (100%) to 4/4 HP (still 100%), there is no visible 
+        change.
+  Profile art (center). Shows a side view of the minion's face. This 
+    is determined by the monster type or recruit's nation. 
+    Some special recruits, e.g. Heroes, show their 
+    own profile art instead.
+  Weapon art (right). Shows a sword for a swordsman, 
+    a bow for an archer, and no weapon art for a monster 
+    (even if the monster deals missile damage). Some spells cause a minion 
+    to display special weapon art instead.
+  Level stars (bottom left). Shows 1 star for each level 
+    this minion has.
+  Terrainwalk stripes (bottom center). Shows one stripe for each terrainwalk 
+    this minion has, from any source, including nation 
+    ability, active spells, or non-visible 
+    spell effects. Exception: If this minion has Flight 
+    (which subsumes all other terrainwalks), then it shows the Flight icon instead 
+    of any stripes.
+  Damage(s) / Max Armor (bottom right). 
+      The number(s) before the front slash show the minion's attack strength, 
+        i.e. the amount of damage this minion will deal to its victim for each 
+        hit. 
+          If this minion has only one attack 
+            type (either hand 
+            attacks or missile 
+            attacks), it shows that attack strength only. Limitation: 
+            You must infer its damage type from the recruit's class or monster's 
+            type.
+          If this minion has both hand 
+            attacks and missile 
+            attacks, it shows both attack strengths, in that order, separated 
+            by a comma.
+      The number after the front slash is always the minion's maximum 
+        armor per combat round.
+      Limitation: There isn't any room to 
+        show the minion's number of attacks. Work-around: You can 
+        double-click the minion tile to open the minion help pop-up window, which 
+        does list the number of each attack. Exception: If the minion has 
+        0 attacks due to spell effects, then its attack strengths are listed in 
+        parentheses.
+Minion Data
+  Minion Tile and Stats
+  Minion Types
+  Recruit Classes
+Spells, Recruits, and Profile Art
+  Which spells create recruits?
+  Which spells show special profile 
+    art?
+  Which recruits show special 
+    profile art?
+    When a recruit with special 
+      profile art changes its nation, why doesn't its art change?
+  Which spells change a recruit to a monster, or vice 
+    versa?
+Minion Data
+Minion Types. There are 2 types 
+  of minions in Sanctum.
+  Recruit. A recruit is a minion. 
+       You can train recruits in 
+        your structures. Most recruits are 
+        created this way. Some spells also create recruits instantly.
+      Recruit groups are usually player-controlled 
+        by their owner. That means you issue their movement orders each turn.
+  Monster. A monster is a minion. 
+      Monsters are created only by casting spells, usually by summoning 
+        spells.
+      Monster groups are usually computer-controlled 
+        (even if friendly). That means they 
+        move on their own.
+      Most monsters are stronger in combat than one recruit!
+Recruit Classes. There are 
+  2 classes of recruits in Sanctum.
+      Recruit Class
+      Attack Type
+      Combat Rounds
+      Damage &amp; Type
+      Armor
+      swordsman
+      1 hand attack
+      rounds 2 
+        to 10
+      2 hand damage
+      1
+      archer
+      1 missile 
+        attack
+      rounds 1 
+        to 10
+      2 missile 
+        damage
+      0
+  Some spells can create special recruits who are both swordsman and archer. 
+    Such recruits have both hand and missile attacks.
+Spells, Recruits, and Profile Art
+Which spells create recruits?
+  Dark Minion, Hollow Jester:  These spell create 1 swordsman in a 
+    target group.
+  Dragon's Teeth: This spell creates 2 swordsmen of random nations 
+    in a target structure.
+  Ancient King, Bard, Bellwether, Brother Wolf, Sawbones, Warlord, all 
+    Heroes: These spells create 1 veteran 
+    recruit in the target structure or group.
+  Zana's Champion: This spell destroys a friendly structure and creates 
+    a strong Vision swordsman.
+  Jade Gargoyle: This spell removes a friendly recruit from the game, 
+    and creates a Gargoyle swordsman.
+  Narh'u'ha: This spell creates a unique neutral Djinn archer with 
+    some curious properties.
+  Rakshasa: This spell creates a computer-controlled recruit. It can 
+    be targeted anywhere on the board, like most monsters.
+  Nomadic Tribe, Volunteers, Zana's Blessing: These spells create new 
+    recruits in their group when a specific event happens.
+  Citizens' Militia: This spell creates a combat-hopper 
+    group of 4 Vision swordsmen.
+Which spells show special 
+  profile art? Any recruit with any of these spells will show the spell's 
+  profile art instead of the recruit's default (or special) profile art. If 
+  a recruit has 2+ of these spells, the last-cast spell wins.
+  Visionary: Depicts a blindfolded male Cyclops.
+  Eagle Spirit, Lion Spirit, Werebear, Shapeshifter: These spells all 
+    toggle randomly between wereform and normal form. In normal form, the recruit 
+    uses its default profile art. In wereform only, it shows an eagle head, lion 
+    head, or bear head.
+Which recruits show special 
+  profile art? The following recruits always show their own profile 
+  art, regardless of their current nation. Exception: If any of these recruits 
+  has any of the spells with special profile art, 
+  the spell wins!
+  Al Hakim, Diomesia, Djibari, Dracha, Fingle, Khobai, Lienna, Ngozi, Nihil, 
+    Olotus, Ogi, Zana: 12 original Heroes from Bloodlines.
+  Heartsong, Odar, Oro, Ozande, Theralda Glaivesforge, ThudThud, Vlad Hrothgar: 
+    7 new Heroes from Allies 
+    &amp; Traitors.
+  Bellwether, Brother Wolf, Hollow Jester, Jade Gargoyle, Narh'u'ha, Rakshasa: 
+    These are veteran recruits. 
+    When a recruit with 
+      special profile art changes its nation, why doesn't its art change? 
+      Because we don't have twelve different versions of profile art for each 
+      special recruit! Hence, Ogi will always look like a dwarf, no matter what 
+      nation he currently is (unless he has Visionary, in which case he looks 
+      like a blindfolded Cyclops). Work-around: Double-click his minion 
+      tile to open his minion help popup window, which does list his current nation.
+Which spells change a recruit 
+  to a monster, or vice versa? None! Some spells appear to do this, 
+  but they really do something else, as explained in their card texts.
+  Karkara: Is a boardhop 
+    spell that hops a recruit group off the board, and creates a new monster group.
+  Lycanthropy: Replaces 
+    a recruit group with a monster group of wolves from Wolf Pack. When 
+    Lycanthropy is dispelled by any means, it replaces 
+    the monster group with a new recruit group.
+  Devolution: Replaces 
+    a monster group with a new recruit group of Misfits.
+v2.20.00 Last updated 2009/03/22
+         | Mailing Lists

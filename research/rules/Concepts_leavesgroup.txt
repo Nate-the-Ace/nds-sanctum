@@ -1,0 +1,45 @@
+Sanctum | Rules | Concepts | Leaving a Group
+Leaving a Group
+Rules
+  When a Minion Leaves a Group
+Spells
+  What spells cause a minion to leave its group?
+Rules
+When a Minion Leaves a Group. As you know, 
+  there is no way to unjoin 
+  a group. However, some spells can cause a minion to leave its group, yet remain 
+  in play. The following rules apply:
+  Keep your own spells. The minion's individual spells remain intact 
+    (unless the spell explicitly states that it dispels them).
+  Can't take it with you. When a minion leaves a group, it has all 
+    group spells dispelled, even non-visible ones. This is to prevent 
+    proliferation of group spells. (This is the only situation in the game 
+    where non-visible spells are dispelled.) 
+      If the original group still contains other minions, they keep all of 
+        their group spells intact. Only the leaving minion loses its copies of 
+        the original group's spells.
+      If the minion was the only member of its group, it still loses 
+        all group spells when it leaves! (Then its original group would be 
+        left empty, so any group spells are simply lost.)
+      Exception: If the minion has any group 
+        mother spells, then its own copies of those group mothers' child spells 
+        are not dispelled, even if they are group spells. (The mother 
+        spell rule of &quot;its effect goes with it&#148; supercedes this rule 
+        of &#147;you can't take it with you&#148;.)
+  Overstack. A new empty group is immediately 
+    created, and the minion is added to it. This creates a temporary overstack 
+    in the square, since the square now contains both the original group and the 
+    new group.
+  Unstack. The minion's new group is immediately moved &#147;somewhere 
+    else&#148;, to restore the square 
+    stacking limit.
+Spells
+What spells cause a minion to leave its group?
+  Ch'tai Exchange: This spell causes one recruit from each player to 
+    leave their respective groups, then join the other recruit's group. Note 
+    that it properly preserves both original groups' group spells, even when both 
+    groups are of size 1!
+  Soul Jar, Vision Quest: These spells make 1 recruit leave 
+    its group, then take that recruit's new group off 
+    the board.
+         | Mailing Lists

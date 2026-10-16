@@ -1,0 +1,136 @@
+Sanctum | Rules | Concepts | Game Event Pipeline
+                      Game Event Pipeline
+The game engine checks for spell effects at many specific steps in the game 
+  pipelines. The Game Event Pipeline determines exactly when each 
+  active spell contributes its effect.
+Events and Spell Effects
+  Card Text Phrases
+  A Text Phrase is a Game Event
+  Containment Hierarchy and Event Bubbling
+Event Handling Pipelines
+  Pipeline for an Event on all Players
+  Pipeline for an Event on a Spell Target
+Events and Spell Effects
+Card Text Phrases. 
+  Card texts use the following phrases to specify exactly when an effect 
+  will happen within a game turn. Each phrase corresponds to one step in a game 
+  turn phase or pipeline.
+  [player] &#147;at start of 
+    turn&#148;
+  [player] &#147;after start 
+    of turn&#148;
+  [player] &#147;before movement&#148; 
+      [group] &#147;on exit&#148;
+      [group] &#147;on move&#148;
+      [group] &#147;on enter&#148;
+  [player] &#147;after movement&#148;
+  [player] &#147;before 
+    combat&#148; 
+      [group] &#147;start of 
+        combat&#148; 
+          [group] &#147;start 
+            of each combat round&#148;, &#147;every round&#148; 
+              [minion] &#147;must 
+                attack&#148;
+              [minion] &#147;before 
+                checking armor&#148;
+              [minion] &#147;is 
+                hit by&#148;, &#147;is hit in combat&#148;
+              [minion] &#147;after 
+                checking armor&#148; 
+                  [minion] &#147;is 
+                    dying&#148;
+                  [minion]  
+                    &#147;when ... 
+                    is killed&#148;
+                  [minion] &#147;when 
+                    ... dies&#148;
+          [minion] &#147;when 
+            ... hits&#148;, &#147;hits give&#148;
+          [minion] &#147;when 
+            ... damages&#148;
+          [minion] &#147;kills 
+            an opponent by combat damage&#148;
+      [group] &#147;end of combat&#148;
+      [group] &#147;after combat&#148;
+  [player] &#147;after 
+    all combat&#148;
+A Text Phrase is a Game Event. 
+  Internally, every card text phrase is represented as an event, which 
+  is a message that can be passed around. When the Sanctum game engine reaches 
+  one of the above steps, it broadcasts the event to all active 
+  spells in play. Spells work by responding to the events they're interested 
+  in, as written on their card texts.
+Usually, many different active spells want to respond to the same event. We 
+  need a unique order in which to evaluate all active spells. This is handled 
+  by event bubbling.
+ Containment Hierarchy 
+  and Event Bubbling. Every spell 
+  target defines a &#147;next&#148; spell target for event handling. Whenever 
+  a spell target receives an event, it handles the event, and also forwards that 
+  event to the &#147;next&#148; spell target in line. Because the &#147;next&#148; 
+  targets generally go &#147;upward&#148; toward the globe, this forwarding is 
+  called bubbling. Mnemonic: Think of an event as a bubble in a soda, 
+  which gradually floats upward. This allows the game engine to provide event-handling 
+  inheritance based on dynamic entity containment relationships, which is a useful 
+  and intuitive mechanism.
+      group
+      bubbles to:
+      each minion
+      bubbles to:
+       square
+      bubbles to:
+      globe
+        bubbling halts
+Event Handling Pipelines
+Pipeline for an Event 
+  on all Players. Most events listed in the phases 
+  of a game turn are &#147;untargeted&#148;. They are applied directly to 
+  all players.
+  For each player in the player 
+    initiative sequence
+     (initiative, non-initiative, neutral): 
+      For each spell in this player's 
+        active spell list, from first to last (approximately oldest to 
+        youngest):  
+          This spell handles (or ignores) this event.
+      Events on a player do not bubble.
+Pipeline for an Event 
+  on a Spell Target. Most events that occur within the game pipelines 
+  are &#147;targeted&#148;, i.e. they pertain to a current spell 
+  target.
+  For each spell in this spell 
+    target's active spell list, from first to last (approximately oldest 
+    to youngest):  
+      This spell handles (or ignores) this event. 
+  Bubble this event to the next spell target (and 
+    halt when bubbling halts).
+ We can &#147;unroll&#148; this pipeline to obtain the following more detailed 
+  description.
+      When an event
+        is applied to:
+      It checks all of its
+        active spells:
+      Then bubbles
+        the event:
+      a group
+        none
+      down to each minion
+      a minion
+      individual spells
+        group spells
+      up to minion's square
+      a square
+      square spells
+        structure spells
+        terrain spell 
+      up to the globe
+      the globe
+      globe spells
+      halt
+  Anachronism: Even though a group 
+    is a spell target, and therefore 
+    has its own active spell list, 
+    it does not use it, and never has!
+v2.20.00 Last updated 2009/03/22
+         | Mailing Lists

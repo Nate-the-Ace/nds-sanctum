@@ -1,0 +1,139 @@
+Sanctum | Rules | Axioms | Initiative
+                      Initiative
+Sanctum's game play features simultaneous orders, with sequential evaluation. 
+  Initiative determines which player's orders get executed first.
+      Initiative Display
+        (lower left corner of game board)
+Using Initiative
+  Effects of Initiative
+  Player Initiative Sequence
+Getting Initiative
+  How Initiative Is Determined
+  Examples of Structure Deltas
+  Which spells affect initiative?
+Analysis
+  What are the benefits of having initiative?
+  When is it beneficial to not have initiative?
+Using Initiative
+Effects of Initiative
+  At every instant of a game, either the red 
+    player or the blue player has initiative. 
+    There are no exceptions.
+  The player with initiative acts first in evaluating many game effects.
+    Spells. Its spells execute first in each spell 
+      execution phase.
+    Movement. Its groups move first in each movement 
+      phase.
+    Combat. Its minions strike first in each round 
+      of combat.
+Player Initiative Sequence. 
+  Numerous game mechanisms must iterate over all 3 
+  players, one at a time. The player initiative sequence is the standard 
+  ordering over all players.
+      Used By
+      1st
+      2nd
+      3rd
+      Standard sequence
+      event bubbling
+        spell execution
+        group movement (overstacking)
+        combat (checking for 
+        all) 
+      init
+      non-init
+      neutral
+      Exceptional sequences
+      group movement (voting)
+        combat (precedence between 
+        groups)
+        combat 
+        (minion attacks)
+      init
+      neutral
+      non-init
+Getting Initiative
+How Initiative Is Determined
+  Red begins.  The red 
+    player always begins the game with initiative. The game engine flips 
+    a coin to determine which player will be the red player, so the net effect 
+    is that initiative is random.
+  Structure delta. At the start 
+    of each turn, initiative may change. Both players evaluate their structure 
+    delta, which is the total change in the number of structures 
+    they own since the previous start-of-turn.
+    You get a delta of +1 for each town or colony you captured since the previous 
+      start-of-turn.
+    You get a delta of –1 for each town or colony you lost since the previous 
+      start-of-turn.
+    Some spells can destroy a town or colony. This counts as losing the 
+      town or colony, so the structure’s owner gets a delta of –1 for each.
+  Tie means no change. If the two players tie in structure delta, initiative 
+    remains the same as it was before.
+  Higher delta wins. Otherwise, the player with the higher structure 
+    delta gains initiative.
+  Some spells can change initiative immediately, or prevent it from changing.
+Examples of Structure Deltas. 
+  Here are some typical game situations, and the resulting structure deltas and 
+  initiative changes.
+      Red Player
+      Blue Player
+      Result
+      Captures a neutral town (+1).
+      Nothing (0).
+      Red gains initiative.
+      Captures a neutral town (+1).
+      Captures a neutral town (+1).
+      No change.
+      Captures a Blue town (+1).
+      Loses a town to Red (-1).
+      Red gains initiative.
+      Captures a neutral town (+1), and 
+        loses a town to Blue (-1). Total = 0.
+      Captures a Red town (+1).
+      Blue gains initiative.
+      Destroys a Blue colony (0).
+      Has a colony destroyed (-1).
+      Red gains initiative.
+      Captures a Blue town (+1), and has 
+        a colony destroyed (-1). Total = 0.
+      Loses a town to Red (-1),
+        and destroys a Red colony (0). Total = -1.
+      Red gains initiative.
+Which spells affect initiative?
+  Adriel’s Timepiece. When it executes, it instantly swaps initiative. 
+    It has no further effect.
+  Lienna. When Lienna enters play, her caster gains initiative. While 
+    she is in play, her caster keeps initiative, regardless of all other effects. 
+    Lienna supercedes the normal initiative rules, and Adriel's Timepiece.
+Analysis
+What are 
+  the benefits of having initiative?
+  Squandering spells. You can cast spells that make your opponent's 
+    spells illegal, which makes them squander 
+    (fail).
+  Capturing territory. If you and your opponent both try to move into 
+    the same empty square, you'll succeed and your opponent will bounce.
+  Breaking ties. You win any even combats. You tend to take less damage 
+    in combat.
+When is it beneficial to not 
+  have initiative?
+  Anti-popup. When you're laying siege to 
+    an enemy structure, and you've forced 
+    your opponent into a defensive mode, then you're stronger without initiative, 
+    because your opponent must train 
+    1 recruit every turn and stand 
+    still to block you from moving in. Then you force combat every turn at 
+    favorable odds. Eventually, your opponent will run out of novices, and you'll 
+    capture the structure.
+  Town stealing. Also, in this situation, 
+    you have the threat of casting a spell that forces your opponent to move out 
+    of the structure, e.g. Mirage. Since he moves first, he must leave 
+    the structure empty. Then you stroll in right behind him, and occupy his structure! 
+    Winning the ensuing fight is up to you.
+  First-fight bye. The other player (with initiative) must check 
+    for combats first. If you're both adjacent to a strong neutral 
+    group, the other player must fight it first. Then you can mop up whatever's 
+    left of the winner.
+v2.20.00 Last updated 2009/03/24
+         | Mailing Lists

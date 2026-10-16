@@ -1,0 +1,95 @@
+Sanctum | Rules | Concepts | Armor and Levels
+                      Armor and Levels
+Armor
+  How Armor Affects Combat
+  Gaining Armor During Combat
+Levels
+  Minion Levels
+  Experience Level
+  How Levels Affect Combat
+Armor
+How Armor Affects Combat. 
+  A minion with an armor value of N means the minion ignores the first 
+  N points of damage in each combat round, and is not damaged.
+  Each minion has a maximum armor value and a current armor 
+    value (similar to maximum and current hit points).
+  The armor value displayed in a minion's stats is its maximum armor value.
+   At the start of each combat round, all minions reset their current armor 
+    value to their maximum armor value.
+  During each round, current armor and incoming damage soak off (cancel 
+    each other out, 1 point for 1 point).
+   A minion with N armor will soak off (cancel out) the first N 
+    points of combat damage per round.
+  If the minion takes N or less total damage in one round, the minion 
+    is unharmed. (The armor absorbs all of the damage.)
+  Any additional damage above N in the same round will be subtracted 
+    from the minion's current hit points.
+  Armor is not damaged or reduced by combat. Some spell effects can give 
+    penalties to armor.
+Gaining Armor During Combat. 
+  Some combat-triggered effects can cause a minion to gain armor during 
+  a combat, i.e. in the middle of a combat round. (Example: Gorgon's Gaze or Cockatrice's 
+  Gaze.) Such armor gains are added to the minion's maximum armor value, but are 
+  not added to the minion's current armor value for that combat round. 
+  At the start of the next combat round, the minion's current armor value is reset 
+  to its maximum armor value, and then the minion gets the benefit of the gained 
+  armor ... but first he has to survive until then!
+Levels
+Minion Levels. Levels 
+  reflect a minion's combat skill and experience.
+  The minimum minion level is 0. Any additional level penalties are 
+    ignored.
+  The maximum minion level is 5. Any additional level bonuses are ignored. 
+    Only spells can get you this high.
+  All newly-trained recruits begin at level 1. Some spells create weak 
+    recruits that start at level 0.
+  Most monsters are level 1 or 2.
+Experience Level. 
+  Most recruits can gain one experience level. This reflects a recruit's 
+  intelligence and ability to learn.
+  The first time a recruit kills 
+    a victim by combat damage, it qualifies for an experience level.
+  At the start of 
+    the next turn, the recruit gets +1 level permanently.
+  A recruit can gain only 1 experience level. It may gain additional 
+    levels from other spells.
+  Exception: Some spells create &#147;veteran&#148; 
+    recruits that already have an experience level. These recruits start at level 
+    2, but cannot gain another experience level.
+  Monsters never gain an experience level.
+How Levels Affect Combat. 
+  A minion of higher level takes less damage in combat against minions 
+  of lower level.
+Compare the attacker's level to its victim's level.
+      Attacker's Level Difference
+      Attacks
+      Result
+      Equal to or greater than victim's level
+      Every 1 attack
+      1 hit
+      1 level lower than victim's level
+      Every 2 attacks
+      1 hit, then 1 miss
+      2 levels lower than victim's level
+      Every 3 attacks
+      1 hit, then 2 misses
+      3 levels lower than victim's level
+      Every 4 attacks
+      1 hit, then 3 misses
+      4 levels lower than victim's level
+      Every 5 attacks
+      1 hit, then 4 misses
+      5 levels lower than victim's level
+      Every 6 attacks
+      1 hit, then 5 misses
+  Every minion's first attack in each combat always hits, regardless 
+    of level difference.
+  If the attacker is N levels below its victim's level, the attacker's 
+    next N attacks miss, and its N + 1st attack hits. This cycle 
+    repeats throughout each combat.
+  When the attacker switches to a different victim, any previous misses carry 
+    over to the new victim.
+  If the attacker has multiple attacks per round, it takes fewer rounds to 
+    progress through its cycle of misses.
+v2.20.00 Last updated 2009/03/22
+         | Mailing Lists

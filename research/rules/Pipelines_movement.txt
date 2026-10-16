@@ -1,0 +1,288 @@
+Sanctum | Rules | Pipelines | Movement
+                      The Movement Pipeline
+  The Two-Pass Movement Algorithm
+  The Movement Pipeline
+Questions
+  How do movement-changing spell effects interact with 
+    each other?
+Moonwalks
+  Why is it called a moonwalk?
+  Why do moonwalks happen?
+  Show me an easy diagram of a moonwalk!
+  How can I create a moonwalk in general?
+    The Flying Leap Deck
+The Two-Pass Movement Algorithm. 
+  Sanctum uses a two-pass movement algorithm.
+  Overstacking. In pass I, all groups &#147;move&#148; without regard 
+    to the normal stacking limit of 1 
+    group per square. Each square can have any number of groups, friendly 
+    or enemy. This pass is not animated, so you can't see it.
+  Unstacking (overstack resolution). In pass II, all groups in a square 
+    &#147;vote&#148; for exactly 1 winner. That group &#147;wins&#148; the square. 
+    All other groups join it if they can, or bounce back if they 
+    can't. Each group animates its result. This pass is what you've always 
+    seen. 
+At the end of movement execution, the stacking limit is restored for all squares. 
+The Movement Pipeline. 
+  Pass I is applied to all groups, in player 
+  initiative sequence, as follows:
+  For the initiative player: 
+      All of its player-controlled 
+        groups; then
+      All of its computer-controlled 
+        groups.
+  For the non-initiative player: 
+      All of its player-controlled groups; then
+      All of its computer-controlled groups.
+  For the neutral player: 
+      Bot stop: 
+        All of its player-controlled groups 
+        remain stationary.
+      All of its computer-controlled groups.
+      #
+      Sub-Pass
+      Effect
+      I.a
+      Checking
+      If the group has no movement 
+        order, it stands still.
+       Otherwise, check all of the following.
+        If it can &#147;move&#148;. Some spells prevent moving.
+        If it can &#147;exit&#148; its current square.
+        If it can &#147;enter&#148; its destination square.
+        The destination square must be unoccupied, 
+          or have a friendly group 
+          (of any type). This 
+          does consider overstacks from earlier (1.b)s.
+      If any of these fail, the group bounces (stands still).
+      I.b
+      Overstacking
+      The group &#147;moves&#148; into its destination square, ignoring 
+        the normal stacking 
+        limit. This is not animated.
+Pass II is then checked for all squares on the board.
+      #
+      Sub-Pass
+      Effect
+      II.c
+      Voting
+      If a square has only 1 group, that group trivially &#147;wins&#148; the 
+        square.
+      Otherwise, all groups in the square &#147;vote&#148; for exactly 1 winner. 
+        Ties are broken in the following order:
+        Stationary group. A group that started the turn in this square, 
+          and stood still (didn't move), beats everybody.
+        Initiative. The group belonging to the player with higher 
+          initiative wins. Corollary: If two groups tie here, they must 
+          both be owned by the same player.
+        Larger group. The group with more minions wins.
+        Movement orders sequence. The group that is earlier in its 
+          player's movement orders 
+          sequence wins. For two neutral 
+          groups, the movement orders sequence is identical to the neutral player's 
+          group sequence.
+      II.d
+      Unstacking
+      For every group in a square except the winning group:
+        Hostile. If this group is hostile 
+          to the winning group, it bounces back to its starting square. 
+          This is animated.
+        Can't join. If this group is friendly to the winning group, 
+          but cannot join it, it also bounces back. This is animated.
+      A friendly group that could join the winning group now does the 
+        following. (If the winning group itself wasn't stationary, then it also 
+        does the following.)
+        All &#147;on exit&#148; effects from its 
+          starting square.
+        It animates walking in.
+        All &#147;on move&#148; effects.
+        All &#147;on enter&#148; effects for 
+          this square.
+      If the group survives these effects, it joins 
+        the winning group.
+      II.e
+      Moonwalking
+      It is possible for a group G to (I.b) &#147;move&#148; away during overstacking, 
+        (II.c) lose its starting square to another group H, and then (II.d) 
+        bounce back to its starting square. This is resolved as another overstack 
+        between G and H in G's starting square.
+      If group G cannot join with H, and must &#147;bounce back&#148; again, 
+        then G moonwalks instead. G moves to:
+        an empty, unoccupied 
+          square
+        that is closest (or tied for closest) by straight-line distance
+        that group G can legally &#147;enter&#148;
+      If no such square exists on the board, then group G is removed 
+        from the game!
+      Otherwise, group G moves from its starting square directly to 
+        the moonwalk landing square, ignoring all intervening squares. 
+        G still suffers all  &#147;on exit&#148; effects for its starting 
+        square, &#147;on move&#148; effects, and &#147;on enter&#148; 
+        effects for the moonwalk landing square. Because of this, a moonwalk 
+        is not a teleportation.
+Questions
+How do movement-changing spell 
+  effects interact with each other? The key concept is: Movement 
+  orders can be overwritten, but this happens in a specific sequence. The 
+  last movement order assigned to a group &#147;wins&#148;, and 
+  that's how the group will move.
+      #
+      Phase
+      Effect
+      2
+      Player Orders
+      The player issues a movement order 
+        to a player-controlled 
+        group.
+      3
+      Spell Execution
+      Targeted spells overwrite movement orders immediately.
+        &#147;moves in a random legal direction&#148;: Amok, Disorient.
+        &#147;movement orders are cancelled&#148;: Binding Cube, Complacency, 
+          Fear, Lienna's Steed, Possession, Sandstorm, Sentinel.
+      4
+      Movement
+      Any &#147;before movement&#148; 
+        effects overwrite movement orders now.
+        &#147;attracts&#148;: Mirage, Siren Song.
+         &#147;moves in a random legal direction&#148;: Fingle, Zurzavar.
+      Finally, each computer-controlled 
+        group calls its movement AI, which overwrites its movement order. Corollary: 
+        Computer-controlled groups are effectively immune to all forced-movement 
+        effects, because they always overwrite their own movement order last.
+Moonwalks
+Why is it called a moonwalk? 
+  The group doesn't change its facing prior to moonwalking, so it may appear to 
+  move sideways on the board, or even backward.
+Why do moonwalks happen? 
+  Step (II.c) of the Movement Pipeline is a deliberately simplified explanation. 
+  In reality, the &#147;voting&#148; is done between only two groups at a time. 
+  These votes are interleaved with all the other squares, in parallel. Thus, if 
+  square A has 4 groups and square B has 1 group, then square B will finish its 
+  &#147;voting&#148; before 2 of the groups in square A have even been 
+  considered!
+Show me an easy diagram of 
+  a moonwalk! Here's a simple diagram for one specific moonwalk solution. 
+  Group A will moonwalk.
+      B1
+      2.A4&lt;
+      3.C5^
+      1.D5^
+  D up.  First, order group D with 5 recruits &#147;upward&#148; (into 
+    A's square).
+  A left. Second, order group A with 4 recruits &#147;leftward&#148; 
+    (into B's square).
+  C up. Third, order group C with 5 recruits &#147;upward&#148; (into 
+    B's square).
+  B stand. Have group B, with 1 recruit, stand still.
+How can I create a moonwalk 
+  in general? Here, we give a more verbose description for the general 
+  solution. First, some nomenclature:
+  Upper-case letters A, B, C, D are groups.
+  Lower-case letters a, b, c, d are squares.
+  + denotes two groups joining.
+  &gt; compares two groups' sizes.
+To force group A in square a to moonwalk, do this:
+  Have group B in b next to a.
+  Have group C in c next to b.
+  Have group D in d next to a.
+Requirements:
+  A+B looks like a legal joining, and C+B looks legal. (In the above example, 
+    A+B = 5, and C+B = 6.)
+    This is what allows you to order both A and C to move into b.
+  C is &#147;faster than&#148; A. Simplest method: C &gt; A. (In the above 
+    example, C = 5 and A = 4.)
+    This creates the race condition that puts A into &#147;limbo&#148;, giving 
+    D time to sneak in behind it and steal its square away.
+   A+B+C isn't legal.
+    This is what makes A bounce back. (In the above example, A+B+C = 10, which 
+    violates the maximum 
+    group size.)
+   A+D isn't legal.
+    Simplest method: A+D &gt; 8. Or, Ostracize D. This is what forces A 
+    to moonwalk. (In the above example, A+D = 9.)
+Assign the following movement orders, in exactly this sequence:
+   D to a.
+  A to b.
+  C to b.
+  (Have B stand still in b.)
+Here's how it will execute.
+  (I.b) Overstack. 
+      D can move to a.
+       A can move to b, and A+B looks legal.
+       C can move to b, and C+B looks legal.
+       Now D is alone in a, and A, B, C are overstacked in b.
+  (II.c) Voting. 
+      D is alone in a. D &#147;wins&#148;, and now owns a. (This is why you 
+        issue D's movement order before A's.)
+       3 groups vie for square b. Unstacking processes 2 groups at a time. 
+        (This is why you use 3 groups.)
+       A group that didn't move is automatically fastest. That's B.
+       C is faster than A, by construction in (j). So C is the second-fastest 
+        group. 
+  (II.d) Unstacking. 
+      B and C are chosen, in that order. B+C looks legal, by (i). So they 
+        join.
+       Now BC + A is checked. It is not a legal joining, by (k).
+      A bounces back to a.
+  (II.e) Moonwalking. 
+      D already owns a, from step (iii).
+      D+A is not a legal joining, by (l).
+      A moonwalks.
+The Flying Leap Deck. 
+  This deck demonstrates the spectacular effect of a controlled moonwalk. It 
+  is not recommended that you try this deck in ranked play, due to the sheer difficulty 
+  of its winning combination.
+      00
+      01
+      02
+      03
+      04
+      05
+      06
+      07
+      08
+      09
+      10
+      11
+      ne
+      0
+      nw
+      *
+      se
+      1
+      sw
+      2
+      f
+      3
+      4
+      5
+      6
+      7
+      8
+      B
+    A&lt;
+      9
+    C^
+    D^
+      10
+      11
+  Play in Badlands (so that 
+    there are no forest 
+    squares).
+  Cast a forest at f, diagonally adjacent to enemy Sanctum.
+  Cast two forests at A and B.
+  Terrain-Bind group A (into forest).
+  If your opponent inconveniently creates any other forest squares, you'll 
+    have to change their terrain to something else.
+  Force group A to moonwalk, as described above.
+Group A must moonwalk. Corollary: It must be the case that A can't legally 
+  enter either squares A or B (which is why it's moonwalking). Because of the 
+  Terrain-Bind, the only other square on the board that group A can legally 
+  enter is f. Hence, A leaps directly to f.
+  Somehow ensure that your opponent has no novices left in her 
+    Sanctum.
+   Cast Lienna's Steed for the win. (Or, make group A big enough, 
+    and just fight your way in.)
+v2.20.00 Last updated 2009/03/21
+         | Mailing Lists
